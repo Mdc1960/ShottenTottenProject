@@ -1,0 +1,9 @@
+@startuml
+
+class Player{
+    - name : string
+    - id   : unsigned int
+}
+
+
+@enduml
