@@ -128,10 +128,46 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AIPlayer.cpp" />
+    <ClCompile Include="Bord.cpp" />
+    <ClCompile Include="Border.cpp" />
+    <ClCompile Include="BorderDecorator.cpp" />
+    <ClCompile Include="CardBattle.cpp" />
+    <ClCompile Include="CardClan.cpp" />
+    <ClCompile Include="CardElite.cpp" />
+    <ClCompile Include="CardSet.cpp" />
+    <ClCompile Include="CardTactic.cpp" />
+    <ClCompile Include="Combination.cpp" />
+    <ClCompile Include="Defausse.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="HumanPlayer.cpp" />
+    <ClCompile Include="Rules.cpp" />
+    <ClCompile Include="CardRuse.cpp" />
     <ClCompile Include="ShottenTottenProject.cpp" />
+    <ClCompile Include="Stack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.puml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AIPlayer.h" />
+    <ClInclude Include="Bord.h" />
+    <ClInclude Include="Border.h" />
+    <ClInclude Include="BorderDecorator.h" />
+    <ClInclude Include="CardBattle.h" />
+    <ClInclude Include="CardClan.h" />
+    <ClInclude Include="CardElite.h" />
+    <ClInclude Include="CardInterface.h" />
+    <ClInclude Include="CardSet.h" />
+    <ClInclude Include="CardTactic.h" />
+    <ClInclude Include="Combination.h" />
+    <ClInclude Include="Defausse.h" />
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="HumanPlayer.h" />
+    <ClInclude Include="PlayerInterface.h" />
+    <ClInclude Include="Rules.h" />
+    <ClInclude Include="CardRuse.h" />
+    <ClInclude Include="Stack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
