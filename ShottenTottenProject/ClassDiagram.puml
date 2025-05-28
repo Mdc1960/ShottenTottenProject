@@ -5,5 +5,10 @@ class Player{
     - id   : unsigned int
 }
 
+class AIPlayer{
+}
+
+class HumanPlayer{
+}
 
 @enduml
