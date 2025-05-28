@@ -16,36 +16,57 @@
     <Filter Include="Class Diagram">
       <UniqueIdentifier>{32e6a1db-6e2e-4bfc-9a3a-c9d488e484e4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\CardHeader">
-      <UniqueIdentifier>{054a85dc-49aa-4cfc-bd4d-56b58035211c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\GameHeader">
-      <UniqueIdentifier>{5d248ed8-e4d3-4799-802a-7f8c91eec864}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\PlayerHeader">
-      <UniqueIdentifier>{c707794a-ac09-4c57-a770-dcfeb0907715}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\BordHeader">
-      <UniqueIdentifier>{a96e44f9-43fa-4383-a829-3f1dfd399e96}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\BorderHeader">
-      <UniqueIdentifier>{007276f3-adb2-4810-bad8-086f1f7a4c81}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\DiscardHeader">
-      <UniqueIdentifier>{a1bfa7cc-aac8-482a-9978-a7411d8c6378}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\CardSetHeader">
-      <UniqueIdentifier>{9066edc4-9bea-4891-8662-dd798e210ae1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\CardStackHeader">
-      <UniqueIdentifier>{88a01a2a-d41e-4e53-944c-54e172cffa9c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\GameRulesHeader">
-      <UniqueIdentifier>{fa1a50ca-73d2-4745-a4f9-9ba6a89fac9a}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ShottenTottenProject.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Border.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="BorderDecorator.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Bord.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CardSet.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Defausse.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CardBattle.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CardClan.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CardElite.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CardRuse.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CardTactic.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Combination.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Rules.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="AIPlayer.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="HumanPlayer.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,5 +74,61 @@
     <None Include="ClassDiagram.puml">
       <Filter>Class Diagram</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Border.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="BorderDecorator.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Bord.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CardBattle.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CardClan.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CardElite.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CardInterface.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CardRuse.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CardTactic.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CardSet.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Defausse.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Rules.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Combination.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="AIPlayer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="HumanPlayer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerInterface.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
