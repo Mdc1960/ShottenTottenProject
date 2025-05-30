@@ -2,6 +2,13 @@
 #define CARD_INTERFACE_H
 
 
-class CardInterface{};
+class CardInterface{
+
+public :
+
+	virtual void printCard() = 0;
+	virtual ~CardInterface(){}
+
+};
 #endif
 

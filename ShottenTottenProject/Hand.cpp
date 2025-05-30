@@ -1,7 +1,10 @@
 #include "Hand.h"
+#include "CardClan.h"
 
-Hand::Hand() : indexToPopCard(0), indexToPushCard(0)
+Hand::Hand()
 {
+    indexToPushCard = 0;
+    indexToPopCard = 0;
 }
 
 std::size_t Hand::size()
@@ -20,11 +23,12 @@ void Hand::pop()
 
 void Hand::push(std::unique_ptr<CardInterface> card)
 {
-    if (size() <= MAX_NUMBER_CARD_IN_HAND) {
-        if (indexToPushCard < size()) {
+    if (size() >= 0 && size() < MAX_NUMBER_CARD_IN_HAND) {
+        if (indexToPushCard <= size()) {
             this->cardCollection.insert(this->cardCollection.begin() + indexToPushCard, std::move(card));
         }
     }
+    
 }
 
 void Hand::printCardSet()
@@ -45,12 +49,13 @@ void Hand::fillCardSet()
 {
     for (unsigned int index = 0; index < MAX_NUMBER_CARD_IN_HAND; ++index) {
         setIndexToPushCard(index);
-        std::unique_ptr<CardInterface> u = std::make_unique<CardInterface>();
+        std::unique_ptr<CardInterface> u = std::make_unique<CardClan>();
         push(std::move(u));
+        std::cout << "Index Push : " << indexToPushCard << std::endl;
     }
 }
 
-void Hand::setIndexToPushCard(const unsigned int& indexToPushCard)
+void Hand::setIndexToPushCard(unsigned int indexToPushCard)
 {
     this->indexToPushCard = indexToPushCard;
 }
@@ -58,4 +63,14 @@ void Hand::setIndexToPushCard(const unsigned int& indexToPushCard)
 void Hand::setIndexToPopCard(const unsigned int& indexToPopCard)
 {
     this->indexToPopCard = indexToPopCard;
+}
+
+unsigned int Hand::getPushIndex() const
+{
+    return indexToPushCard;
+}
+
+unsigned int Hand::getPopIndex() const
+{
+    return indexToPopCard;
 }
