@@ -33,6 +33,11 @@ public :
 
 	void pushCardToHandByIndex(unsigned int&& indexToPush, std::unique_ptr<CardInterface>card);
 	void popCardFromHandByIndex(unsigned int&& indexToPop);
+	std::unique_ptr<CardInterface> popAndGetCardByIndex(unsigned int&& index);
+
+
+
+	
 	
 
 };

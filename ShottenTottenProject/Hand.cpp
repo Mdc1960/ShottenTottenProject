@@ -94,3 +94,13 @@ void Hand::popCardFromHandByIndex(unsigned int&& indexToPop)
     setIndexToPopCard(indexToPop);
     pop();
 }
+
+std::unique_ptr<CardInterface> Hand::popAndGetCardByIndex(unsigned int&& index)
+{
+    std::unique_ptr<CardInterface> card = nullptr;
+    if (index < size()) {
+        card = std::move(this->cardCollection[index]);
+        popCardFromHandByIndex(std::move(index));
+    }
+    return card;
+}
