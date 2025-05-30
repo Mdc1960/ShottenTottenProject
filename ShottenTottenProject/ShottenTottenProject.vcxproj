@@ -140,6 +140,7 @@
     <ClCompile Include="Combination.cpp" />
     <ClCompile Include="Defausse.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Hand.cpp" />
     <ClCompile Include="HumanPlayer.cpp" />
     <ClCompile Include="Rules.cpp" />
     <ClCompile Include="CardRuse.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="Combination.h" />
     <ClInclude Include="Defausse.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Hand.h" />
     <ClInclude Include="HumanPlayer.h" />
     <ClInclude Include="PlayerInterface.h" />
     <ClInclude Include="Rules.h" />

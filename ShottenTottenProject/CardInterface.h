@@ -1,1 +1,7 @@
-#pragma once
+#ifndef CARD_INTERFACE_H
+#define CARD_INTERFACE_H
+
+
+class CardInterface{};
+#endif
+
