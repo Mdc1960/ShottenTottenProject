@@ -25,11 +25,14 @@ public :
 	void printCardSet() override;
 	void fillCardSet() override;
 
-	void setIndexToPushCard(unsigned int indexToPushCard);
+	void setIndexToPushCard(unsigned int& indexToPushCard);
 	void setIndexToPopCard(const unsigned int& indexToPopCard);
 
 	unsigned int getPushIndex() const;
 	unsigned int getPopIndex() const;
+
+	void pushCardToHandByIndex(unsigned int&& indexToPush, std::unique_ptr<CardInterface>card);
+	void popCardFromHandByIndex(unsigned int&& indexToPop);
 	
 
 };

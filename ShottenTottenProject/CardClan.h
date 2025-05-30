@@ -2,12 +2,21 @@
 
 #include "CardInterface.h"
 
+
 class CardClan : public CardInterface
 {
 
 public :
 
-	CardClan(){}
+	static unsigned int counter;
+
+public :
+
+	CardClan(){
+		counter++;
+	}
+	
+	
 
 	void printCard() override;
 };
