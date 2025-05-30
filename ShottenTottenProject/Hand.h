@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "CardSet.h"
+#include "GameUtil.h"
 
 static const unsigned int MAX_NUMBER_CARD_IN_HAND = 6;
 
@@ -13,6 +14,7 @@ private :
 
 	unsigned int indexToPushCard;
 	unsigned int indexToPopCard;
+	GameMode gameMode;
 
 public :
 

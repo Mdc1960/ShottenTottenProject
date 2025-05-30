@@ -164,6 +164,7 @@
     <ClInclude Include="Combination.h" />
     <ClInclude Include="Defausse.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameUtil.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="HumanPlayer.h" />
     <ClInclude Include="PlayerInterface.h" />

@@ -6,6 +6,7 @@ Hand::Hand()
 {
     indexToPushCard = 0;
     indexToPopCard = 0;
+    gameMode = GameMode::BASE;
 }
 
 std::size_t Hand::size()
@@ -57,8 +58,8 @@ void Hand::fillCardSet()
 {
     for (unsigned int index = 0; index < MAX_NUMBER_CARD_IN_HAND; ++index) {
         setIndexToPushCard(index);
-        std::unique_ptr<CardInterface> u = std::make_unique<CardClan>();
-        push(std::move(u));
+        std::unique_ptr<CardInterface> currentCard = std::make_unique<CardClan>();
+        push(std::move(currentCard));
         std::cout << "Index Push : " << indexToPushCard << std::endl;
     }
 }

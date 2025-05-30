@@ -18,6 +18,11 @@ public :
 		name = "";
 		counter++;
 	}
+	
+	CardClan(std::string name){
+		this->name = name;
+		counter++;
+	}
 
 	void setName(std::string name) {
 		this->name = name;
