@@ -12,20 +12,21 @@ class Stack : public CardSet
 
 private :
 
-	GameMode gameMode;
+	unsigned int capacity;
 
 	void push(std::unique_ptr<CardInterface> card) override;
 	
 
 public :
 
-	Stack();
+	Stack(unsigned int&& capacity);
 
 	std::size_t size() override;
 	void pop() override;
 	void fillCardSet() override;
 	void printCardSet() override;
 	std::unique_ptr<CardInterface> popAndGetBackCard();
+	void shuffledStack();
 	
 
 };

@@ -5,6 +5,7 @@
 #include "Defausse.h"
 #include "PlayerSide.h"
 #include "Border.h"
+#include "Bord.h"
 
 int main()
 {
@@ -49,7 +50,7 @@ int main()
     std::cout << "Name Pop : " << ((CardClan*)b.get())->getName() << std::endl;
     h.printCardSet();*/
 
-    /*Stack s = Stack();
+    /*Stack s = Stack(56);
     s.fillCardSet();
     s.printCardSet();//Have to be private.
 
@@ -77,10 +78,16 @@ int main()
     p.pop();
     p.printCardSet();*/
 
-    Border bd = Border();
+    /*Border bd = Border();
 
     bd.printFirstPlayerBorderSide();
-    bd.printSecondPlayerBorderSide();
+    bd.printSecondPlayerBorderSide();*/
+
+    Bord& br = Bord::getInstance();
+    br.fillBord(56, 12);
+    br.printFirstPlayerBorderSide();
+    std::cout << "BORD" << std::endl;
+    br.printSecondPlayerBorderSide();
 
 
 
