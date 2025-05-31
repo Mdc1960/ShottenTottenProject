@@ -1,9 +1,29 @@
 #ifndef GAME_SHOTTEN_TOTTEN_H
 #define GAME_SHOTTEN_TOTTEN_H
 
+#include "PlayerInterface.h"
+#include "AIPlayer.h"
+#include "HumanPlayer.h"
+#include "Bord.h"
+#include "Phase.h"
+#include "PlayerPlay.h"
+#include "RevendicateBorder.h"
+
 
 class Game
 {
+
+private :
+
+	Bord& gameBord = Bord::getInstance();
+	std::unique_ptr<PlayerInterface> firstPlayer;
+	std::unique_ptr<PlayerInterface> secondPlayer;
+	std::unique_ptr<Phase> playPhase;
+	std::unique_ptr<Phase> revendicatePhase;
+
+	void shuffledGameClanStack();
+	void shuffledGameTacticStack();
+
 };
 
 #endif
