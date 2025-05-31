@@ -2,6 +2,9 @@
 #include "Hand.h"
 #include "CardClan.h"
 #include "Stack.h"
+#include "Defausse.h"
+#include "PlayerSide.h"
+#include "Border.h"
 
 int main()
 {
@@ -46,9 +49,9 @@ int main()
     std::cout << "Name Pop : " << ((CardClan*)b.get())->getName() << std::endl;
     h.printCardSet();*/
 
-    Stack s = Stack();
+    /*Stack s = Stack();
     s.fillCardSet();
-    s.printCardSet();
+    s.printCardSet();//Have to be private.
 
     std::unique_ptr<CardInterface> cc = std::move(s.popAndGetBackCard());
 
@@ -56,7 +59,29 @@ int main()
 
     s.printCardSet();
 
-    std::cout << "Clan : " << CardClan::counter << std::endl;
+    std::cout << "Clan : " << CardClan::counter << std::endl;*/
+
+    /*Defausse d = Defausse();
+
+    d.fillCardSet();
+
+    d.printCardSet();
+
+    d.pop();
+    d.printCardSet();*/
+
+    /*/PlayerSide p = PlayerSide();
+    p.fillCardSet();
+    p.printCardSet();
+
+    p.pop();
+    p.printCardSet();*/
+
+    Border bd = Border();
+
+    bd.printFirstPlayerBorderSide();
+    bd.printSecondPlayerBorderSide();
+
 
 
     std::cout << "Hello World!!!" << std::endl;

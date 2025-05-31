@@ -7,5 +7,11 @@ enum class GameMode {
 	EXPERT
 };
 
+enum class BorderStatus {
+	FIRST_PLAYER_REVENDICATE,
+	SECOND_PLAYER_REVENDICATE,
+	BORDER_IS_NOT_REVENDICATED
+};
+
 
 #endif

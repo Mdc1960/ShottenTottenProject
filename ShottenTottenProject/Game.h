@@ -1,5 +1,5 @@
-#ifndef GAME_MODE_H
-#define GAME_MODE_H
+#ifndef GAME_SHOTTEN_TOTTEN_H
+#define GAME_SHOTTEN_TOTTEN_H
 
 
 class Game

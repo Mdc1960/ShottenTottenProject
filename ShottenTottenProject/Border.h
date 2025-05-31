@@ -3,36 +3,42 @@
 
 #include <iostream>
 #include <utility>
+#include <vector>
 #include "CardSet.h"
+#include "PlayerSide.h"
+#include "GameUtil.h"
 
 
-enum class BorderStatus{
-	FIRST_PLAYER_REVENDICATE,
-	SECOND_PLAYER_REVENDICATE,
-	BORDER_IS_NOT_REVENDICATED
-};
+
 
 class Border
 {
 
 private :
 
-	std::unique_ptr<CardSet> firstPlayerBorderItem;
-	std::unique_ptr<CardSet> secondPlayerBorderItem;
+	std::vector<std::unique_ptr<PlayerSide>> firstPlayerBorderSide;
+	std::vector<std::unique_ptr<PlayerSide>> secondPlayerBorderSide;
+	std::vector<unsigned int> listIndexBorderClaimed;
 	unsigned int			 capacity;
 	BorderStatus			 status;
 
 
 public :
 
+	Border();
+
 	void claim();
 
-	unsigned int getMaxCapacity() const;
+	unsigned int getMaxCapacityInPlayerSide(unsigned int&& indexPlayerSides) const;
 
-	void increaseBorderCapacity();
+	void increasePlayerSideBorderCapacity(unsigned int&& indexPlayerSides);
 
-	void addCardToFirstPlayerBorderItem(std::unique_ptr<CardInterface> card);
-	void addCardToSecondPlayerBorderItem(std::unique_ptr<CardInterface> card);
+	void printFirstPlayerBorderSide();
+	void printSecondPlayerBorderSide();
+
+private :
+
+	void fillPlayerSides();
 
 };
 
