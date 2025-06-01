@@ -21,8 +21,17 @@ private :
 	std::unique_ptr<Phase> playPhase;
 	std::unique_ptr<Phase> revendicatePhase;
 
+	void buildGameBord(unsigned int&& clanStackSize, unsigned int&& tacticStackSize);
+	void printFirstPlayerBorderSide();
+	void printSecondPlayerBorderSide();
+	void printBorderSeparator();
+
 	void shuffledGameClanStack();
 	void shuffledGameTacticStack();
+
+public :
+
+	Game();
 
 };
 
