@@ -64,6 +64,11 @@ void Hand::fillCardSet()
     }
 }
 
+Iterator* Hand::createIterator()
+{
+    return nullptr;
+}
+
 void Hand::setIndexToPushCard(unsigned int& indexToPushCard)
 {
     this->indexToPushCard = indexToPushCard;

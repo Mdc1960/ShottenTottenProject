@@ -83,12 +83,45 @@ int main()
     bd.printFirstPlayerBorderSide();
     bd.printSecondPlayerBorderSide();*/
 
-    Bord& br = Bord::getInstance();
+    /*Bord& br = Bord::getInstance();
     br.fillBord(56, 12);
     br.printFirstPlayerBorderSide();
     std::cout << "BORD" << std::endl;
-    br.printSecondPlayerBorderSide();
+    br.printSecondPlayerBorderSide();*/
 
+    Stack s = Stack(std::move(11));
+
+    s.fillCardSet();
+
+    std::cout << "Size = " << s.size() << std::endl;
+
+    for (auto it = s.begin(); it != s.end(); it++) {
+        std::cout << "A ::: "; (*it)->printCard();
+    }
+
+    for (auto it = s.end(); it != s.begin(); it--) {
+        std::cout << "D ::: "; (*it)->printCard();
+    }
+
+    Iterator* itr = s.createIterator();
+
+    std::cout << "IsDone = " << itr->isDone() << std::endl;
+    int i = 0;
+    while (itr->hasNext()) {
+        std::cout << "B ::: "; (itr->next())->printCard();
+        /*std::cout << "I = " << i << std::endl;
+        i++;*/
+    }
+
+    std::cout << "IsDone = " << itr->isDone() << std::endl;
+
+    Iterator* lit = s.createIterator((unsigned int)(s.size()));
+
+    if (lit != nullptr) {
+        while (lit->hasLast()) {
+            std::cout << "C ::: "; (lit->last())->printCard();
+        }
+    }
 
 
     std::cout << "Hello World!!!" << std::endl;

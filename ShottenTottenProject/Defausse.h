@@ -23,6 +23,7 @@ public :
 
 	void pop() override;
 	void fillCardSet() override;
+	Iterator* createIterator() override;
 	
 
 };

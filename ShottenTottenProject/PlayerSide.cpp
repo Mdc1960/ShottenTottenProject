@@ -40,6 +40,11 @@ void PlayerSide::fillCardSet()
     }
 }
 
+Iterator* PlayerSide::createIterator()
+{
+    return nullptr;
+}
+
 void PlayerSide::increaseCapacity()
 {
     this->capacity++;

@@ -26,6 +26,7 @@ public :
 	void push(std::unique_ptr<CardInterface> card) override;
 	void printCardSet() override;
 	void fillCardSet() override;
+	Iterator* createIterator() override;
 
 	void setIndexToPushCard(unsigned int& indexToPushCard);
 	void setIndexToPopCard(const unsigned int& indexToPopCard);

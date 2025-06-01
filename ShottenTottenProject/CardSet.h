@@ -7,6 +7,7 @@
 #include <algorithm>
 
 #include "CardInterface.h"
+#include "IteratorInterface.h"
 
 
 class CardSet
@@ -17,6 +18,8 @@ protected :
 	std::vector<std::unique_ptr<CardInterface>> cardCollection;
 
 public :
+
+	virtual Iterator* createIterator() = 0;
 
 	virtual std::size_t size() = 0;
 	virtual void pop() = 0;

@@ -17,6 +17,11 @@ void Defausse::fillCardSet()
 	}
 }
 
+Iterator* Defausse::createIterator()
+{
+	return nullptr;
+}
+
 Defausse::Defausse()
 {
 }

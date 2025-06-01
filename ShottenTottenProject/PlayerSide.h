@@ -20,6 +20,7 @@ public :
 	void push(std::unique_ptr<CardInterface> card) override;
 	void printCardSet() override;
 	void fillCardSet() override;
+	Iterator* createIterator() override;
 	void increaseCapacity();
 	unsigned int getCapacity() const;
 

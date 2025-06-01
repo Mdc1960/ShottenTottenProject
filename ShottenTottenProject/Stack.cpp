@@ -25,7 +25,7 @@ void Stack::pop()
 
 void Stack::push(std::unique_ptr<CardInterface> card)
 {
-    if (size() <= this->capacity) {
+    if (size() < this->capacity) {
         this->cardCollection.emplace_back(std::move(card));
     }
     
@@ -41,6 +41,16 @@ void Stack::printCardSet()
     else {
         std::cout << "Stack is empty" << std::endl;
     }
+}
+
+Iterator* Stack::createIterator()
+{
+    return new StackIterator(this,0);
+}
+
+Iterator* Stack::createIterator(unsigned int&& index)
+{
+    return (index <= size()) ? new StackIterator(this, index) : nullptr;
 }
 
 void Stack::fillCardSet()
@@ -65,4 +75,79 @@ void Stack::shuffledStack()
     std::random_device randomDivice;
     std::mt19937       generator(randomDivice());
     std::shuffle(cardCollection.begin(), cardCollection.end(), generator);
+}
+
+Stack::StackIterator Stack::begin()
+{
+    return StackIterator(this,0);
+}
+
+Stack::StackIterator Stack::end()
+{
+    
+    return StackIterator(this, (unsigned int)(size() - 1));
+}
+
+Stack::StackIterator::StackIterator(Stack* stack, unsigned int index) :
+    stack(stack),index(index)
+{
+}
+
+
+bool Stack::StackIterator::hasNext()
+{
+    return this->index < this->stack->size();
+}
+
+bool Stack::StackIterator::hasLast()
+{
+    
+    return index > 0;
+}
+
+bool Stack::StackIterator::isDone()
+{
+    return index == stack->size();
+}
+
+CardInterface* Stack::StackIterator::currentItem()
+{
+    return this->stack->cardCollection[index].get();
+}
+
+CardInterface* Stack::StackIterator::next()
+{
+    return this->stack->cardCollection[index++].get();
+}
+
+CardInterface* Stack::StackIterator::last()
+{
+    return this->stack->cardCollection[--index].get();
+}
+
+
+
+void Stack::StackIterator::operator--(int)
+{
+    if (index > 0) this->index--;
+}
+
+void Stack::StackIterator::operator++(int)
+{
+    this->index++;
+}
+
+bool Stack::StackIterator::operator==(const StackIterator& it)
+{
+    return (this->stack == it.stack) && (this->index == it.index);
+}
+
+CardInterface* Stack::StackIterator::operator*()
+{
+    return this->stack->cardCollection[index].get();
+}
+
+bool Stack::StackIterator::operator!=(const StackIterator& it)
+{
+    return !((this->stack == it.stack) && (this->index == it.index));
 }
