@@ -95,11 +95,13 @@ int main()
 
     std::cout << "Size = " << s.size() << std::endl;
 
-    for (auto it = s.begin(); it != s.end(); it++) {
+    for (auto it = s.begin(); it != s.end()++; ++it) {
         std::cout << "A ::: "; (*it)->printCard();
     }
 
-    for (auto it = s.end(); it != s.begin(); it--) {
+    std::cout << "\n";
+
+    for (auto it = s.end(); it != s.begin()--; it--) {
         std::cout << "D ::: "; (*it)->printCard();
     }
 

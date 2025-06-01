@@ -37,7 +37,7 @@ public :
 	private :
 
 		Stack* stack;
-		unsigned int index;
+		int index;
 
 		CardInterface* currentItem() override;
 		
@@ -56,9 +56,10 @@ public :
 		CardInterface* last() override;
 		
 
-		
-		void operator--(int);
-		void operator++(int);
+		StackIterator operator++();
+		StackIterator operator--();
+		StackIterator operator--(int);
+		StackIterator operator++(int);
 		bool operator==(const StackIterator& it);
 		CardInterface* operator*();
 		bool operator!=(const StackIterator& it);

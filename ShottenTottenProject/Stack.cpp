@@ -84,8 +84,7 @@ Stack::StackIterator Stack::begin()
 
 Stack::StackIterator Stack::end()
 {
-    
-    return StackIterator(this, (unsigned int)(size() - 1));
+    return StackIterator(this, (int)(size() - 1));
 }
 
 Stack::StackIterator::StackIterator(Stack* stack, unsigned int index) :
@@ -127,14 +126,28 @@ CardInterface* Stack::StackIterator::last()
 
 
 
-void Stack::StackIterator::operator--(int)
-{
-    if (index > 0) this->index--;
-}
-
-void Stack::StackIterator::operator++(int)
+Stack::StackIterator Stack::StackIterator::operator++()
 {
     this->index++;
+    return *this;
+}
+
+Stack::StackIterator Stack::StackIterator::operator--()
+{
+    this->index--;
+    return *this;
+}
+
+Stack::StackIterator Stack::StackIterator::operator--(int)
+{
+    --this->index;
+    return *this;
+}
+
+Stack::StackIterator Stack::StackIterator::operator++(int)
+{
+    ++this->index;
+    return *this;
 }
 
 bool Stack::StackIterator::operator==(const StackIterator& it)
