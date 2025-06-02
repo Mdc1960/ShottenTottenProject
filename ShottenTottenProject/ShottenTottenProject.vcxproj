@@ -129,18 +129,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AIPlayer.cpp" />
+    <ClCompile Include="BaseBattle.cpp" />
     <ClCompile Include="Bord.cpp" />
     <ClCompile Include="Border.cpp" />
     <ClCompile Include="BorderDecorator.cpp" />
     <ClCompile Include="CardBattle.cpp" />
     <ClCompile Include="CardClan.cpp" />
     <ClCompile Include="CardElite.cpp" />
-    <ClCompile Include="CardSet.cpp" />
     <ClCompile Include="CardTactic.cpp" />
+    <ClCompile Include="CollinMaillard.cpp" />
     <ClCompile Include="Combination.cpp" />
     <ClCompile Include="Defausse.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Hand.cpp" />
     <ClCompile Include="HumanPlayer.cpp" />
+    <ClCompile Include="Phase.cpp" />
+    <ClCompile Include="PlayerPlay.cpp" />
+    <ClCompile Include="PlayerSide.cpp" />
+    <ClCompile Include="RevendicateBorder.cpp" />
     <ClCompile Include="Rules.cpp" />
     <ClCompile Include="CardRuse.cpp" />
     <ClCompile Include="ShottenTottenProject.cpp" />
@@ -151,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AIPlayer.h" />
+    <ClInclude Include="BaseBattle.h" />
     <ClInclude Include="Bord.h" />
     <ClInclude Include="Border.h" />
     <ClInclude Include="BorderDecorator.h" />
@@ -160,11 +167,19 @@
     <ClInclude Include="CardInterface.h" />
     <ClInclude Include="CardSet.h" />
     <ClInclude Include="CardTactic.h" />
+    <ClInclude Include="CollinMaillard.h" />
     <ClInclude Include="Combination.h" />
     <ClInclude Include="Defausse.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameUtil.h" />
+    <ClInclude Include="Hand.h" />
     <ClInclude Include="HumanPlayer.h" />
+    <ClInclude Include="IteratorInterface.h" />
+    <ClInclude Include="Phase.h" />
     <ClInclude Include="PlayerInterface.h" />
+    <ClInclude Include="PlayerPlay.h" />
+    <ClInclude Include="PlayerSide.h" />
+    <ClInclude Include="RevendicateBorder.h" />
     <ClInclude Include="Rules.h" />
     <ClInclude Include="CardRuse.h" />
     <ClInclude Include="Stack.h" />
