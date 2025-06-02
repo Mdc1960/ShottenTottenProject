@@ -3,7 +3,8 @@
 
 class Ruse : public CardTactic
 {
-	virtual void applyEffet() = 0;
-	virtual string getNamecard() = 0;
+public :
+	void applyEffet() override;
+	string getNamecard() override;
 };
 
