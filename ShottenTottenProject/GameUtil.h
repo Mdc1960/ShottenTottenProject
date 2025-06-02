@@ -1,0 +1,17 @@
+#ifndef GAME_UTIL_H
+#define GAME_UTIL_H
+
+enum class GameMode {
+	BASE,
+	TACTIC,
+	EXPERT
+};
+
+enum class BorderStatus {
+	FIRST_PLAYER_REVENDICATE,
+	SECOND_PLAYER_REVENDICATE,
+	BORDER_IS_NOT_REVENDICATED
+};
+
+
+#endif
