@@ -13,6 +13,3 @@ void CardClan::printCard()
 	std::cout << "$ Name : " << name << std::endl;
 }
 
-void CardClan::printCard()
-{
-}
