@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #ifndef CARD_INTERFACE_H
 #define CARD_INTERFACE_H
 
@@ -14,6 +15,8 @@ public :
 #endif
 
 =======
+=======
+>>>>>>> f41ce8a236fb91c314268b2cc2395a10a3242fe8
 #include <string>
 #include"iostream"
 using namespace std;
