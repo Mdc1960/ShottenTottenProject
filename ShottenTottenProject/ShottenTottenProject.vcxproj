@@ -140,13 +140,19 @@
     <ClCompile Include="CollinMaillard.cpp" />
     <ClCompile Include="Combination.cpp" />
     <ClCompile Include="Defausse.cpp" />
+    <ClCompile Include="Espion.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="HumanPlayer.cpp" />
+<<<<<<< HEAD
+    <ClCompile Include="Joker.cpp" />
+    <ClCompile Include="PorteBouclier.cpp" />
+=======
     <ClCompile Include="Phase.cpp" />
     <ClCompile Include="PlayerPlay.cpp" />
     <ClCompile Include="PlayerSide.cpp" />
     <ClCompile Include="RevendicateBorder.cpp" />
+>>>>>>> e75480d7525befcbedb0c31a2729c584850b70d7
     <ClCompile Include="Rules.cpp" />
     <ClCompile Include="CardRuse.cpp" />
     <ClCompile Include="ShottenTottenProject.cpp" />
@@ -167,19 +173,30 @@
     <ClInclude Include="CardInterface.h" />
     <ClInclude Include="CardSet.h" />
     <ClInclude Include="CardTactic.h" />
+<<<<<<< HEAD
+    <ClInclude Include="Color.h" />
+=======
     <ClInclude Include="CollinMaillard.h" />
+>>>>>>> e75480d7525befcbedb0c31a2729c584850b70d7
     <ClInclude Include="Combination.h" />
     <ClInclude Include="Defausse.h" />
+    <ClInclude Include="Espion.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameUtil.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="HumanPlayer.h" />
+<<<<<<< HEAD
+    <ClInclude Include="Joker.h" />
+    <ClInclude Include="PlayerInterface.h" />
+    <ClInclude Include="PorteBouclier.h" />
+=======
     <ClInclude Include="IteratorInterface.h" />
     <ClInclude Include="Phase.h" />
     <ClInclude Include="PlayerInterface.h" />
     <ClInclude Include="PlayerPlay.h" />
     <ClInclude Include="PlayerSide.h" />
     <ClInclude Include="RevendicateBorder.h" />
+>>>>>>> e75480d7525befcbedb0c31a2729c584850b70d7
     <ClInclude Include="Rules.h" />
     <ClInclude Include="CardRuse.h" />
     <ClInclude Include="Stack.h" />
