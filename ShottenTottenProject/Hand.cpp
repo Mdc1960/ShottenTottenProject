@@ -1,12 +1,12 @@
 #include "Hand.h"
 #include "CardClan.h"
-#include <string>
 
 
 Hand::Hand()
 {
     indexToPushCard = 0;
     indexToPopCard = 0;
+    gameMode = GameMode::BASE;
 }
 
 std::size_t Hand::size()
@@ -28,9 +28,13 @@ void Hand::pop()
 
 void Hand::push(std::unique_ptr<CardInterface> card)
 {
-    if (indexToPushCard < MAX_NUMBER_CARD_IN_HAND) {
-        this->cardCollection.insert(this->cardCollection.begin() + indexToPushCard, std::move(card));
+    if (size() >= 0 && size() < MAX_NUMBER_CARD_IN_HAND) {
+        if (indexToPushCard <= size()) {
+            this->cardCollection.insert(this->cardCollection.begin() + indexToPushCard, std::move(card));
+        }
     }
+    
+    
 }
 
 void Hand::printCardSet()
@@ -52,20 +56,17 @@ void Hand::printCardSet()
 
 void Hand::fillCardSet()
 {
-    for (unsigned int index = 0; index < MAX_NUMBER_CARD_IN_HAND; index++) {
+    for (unsigned int index = 0; index < MAX_NUMBER_CARD_IN_HAND; ++index) {
         setIndexToPushCard(index);
-        push(std::move(std::make_unique<CardClan>(std::to_string(index))));
+        std::unique_ptr<CardInterface> currentCard = std::make_unique<CardClan>();
+        push(std::move(currentCard));
+        std::cout << "Index Push : " << indexToPushCard << std::endl;
     }
 }
 
 Iterator* Hand::createIterator()
 {
-    return new HandIterator(this,0);
-}
-
-Iterator* Hand::createIterator(unsigned int&& pos)
-{
-    return (pos <= size()) ? new HandIterator(this, pos) : nullptr;
+    return nullptr;
 }
 
 void Hand::setIndexToPushCard(unsigned int& indexToPushCard)
@@ -108,88 +109,4 @@ std::unique_ptr<CardInterface> Hand::popAndGetCardByIndex(unsigned int&& index)
         popCardFromHandByIndex(std::move(index));
     }
     return card;
-}
-
-Hand::HandIterator Hand::begin()
-{
-    return HandIterator(this,0);
-}
-
-Hand::HandIterator Hand::end()
-{
-    return HandIterator(this,(int)(size() - 1));
-}
-
-CardInterface* Hand::HandIterator::currentItem()
-{
-    return this->hand->cardCollection[index].get();
-}
-
-bool Hand::HandIterator::isDone()
-{
-    return this->index == this->hand->size();
-}
-
-Hand::HandIterator::HandIterator(Hand* hand, unsigned int index) :
-    hand(hand), index(index)
-{
-}
-
-bool Hand::HandIterator::hasNext()
-{
-    return index < this->hand->size();
-}
-
-bool Hand::HandIterator::hasLast()
-{
-    return index > 0;
-}
-
-CardInterface* Hand::HandIterator::next()
-{
-    return this->hand->cardCollection[index++].get();
-}
-
-CardInterface* Hand::HandIterator::last()
-{
-    return this->hand->cardCollection[--index].get();
-}
-
-Hand::HandIterator Hand::HandIterator::operator++()
-{
-    this->index++;
-    return *this;
-}
-
-Hand::HandIterator Hand::HandIterator::operator--()
-{
-    this->index--;
-    return *this;
-}
-
-Hand::HandIterator Hand::HandIterator::operator--(int)
-{
-    --this->index;
-    return *this;
-}
-
-Hand::HandIterator Hand::HandIterator::operator++(int)
-{
-    ++this->index;
-    return *this;
-}
-
-bool Hand::HandIterator::operator==(const HandIterator& it)
-{
-    return (this->hand == it.hand) && (this->index == it.index);
-}
-
-CardInterface* Hand::HandIterator::operator*()
-{
-    return this->hand->cardCollection[index].get();
-}
-
-bool Hand::HandIterator::operator!=(const HandIterator& it)
-{
-    return !((this->hand == it.hand) && (this->index == it.index));
 }

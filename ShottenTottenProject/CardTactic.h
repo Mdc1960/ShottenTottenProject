@@ -1,8 +1,5 @@
 #pragma once
-#include "CardInterface.h"
-
-class CardTactic : public CardInterface
+class CardTactic
 {
-	virtual void applyEffet() = 0;
 };
 

@@ -42,12 +42,7 @@ void PlayerSide::fillCardSet()
 
 Iterator* PlayerSide::createIterator()
 {
-    return new PlayerSideIterator(this, 0);
-}
-
-Iterator* PlayerSide::createIterator(unsigned int&& pos)
-{
-    return new PlayerSideIterator(this, pos);
+    return nullptr;
 }
 
 void PlayerSide::increaseCapacity()
@@ -58,88 +53,4 @@ void PlayerSide::increaseCapacity()
 unsigned int PlayerSide::getCapacity() const
 {
     return capacity;
-}
-
-PlayerSide::PlayerSideIterator PlayerSide::begin()
-{
-    return PlayerSideIterator(this,0);
-}
-
-PlayerSide::PlayerSideIterator PlayerSide::end()
-{
-    return PlayerSideIterator(this,((int)(size() - 1)));
-}
-
-CardInterface* PlayerSide::PlayerSideIterator::currentItem()
-{
-    return this->playerSide->cardCollection[index].get();
-}
-
-bool PlayerSide::PlayerSideIterator::isDone()
-{
-    return index == this->playerSide->size();
-}
-
-PlayerSide::PlayerSideIterator::PlayerSideIterator(PlayerSide* playerSide, unsigned int index) :
-    playerSide(playerSide), index(index)
-{
-}
-
-bool PlayerSide::PlayerSideIterator::hasNext()
-{
-    return index < this->playerSide->size();
-}
-
-bool PlayerSide::PlayerSideIterator::hasLast()
-{
-    return index > 0;
-}
-
-CardInterface* PlayerSide::PlayerSideIterator::next()
-{
-    return this->playerSide->cardCollection[index++].get();
-}
-
-CardInterface* PlayerSide::PlayerSideIterator::last()
-{
-    return this->playerSide->cardCollection[--index].get();
-}
-
-PlayerSide::PlayerSideIterator PlayerSide::PlayerSideIterator::operator++()
-{
-    this->index++;
-    return *this;
-}
-
-PlayerSide::PlayerSideIterator PlayerSide::PlayerSideIterator::operator--()
-{
-    this->index--;
-    return *this;
-}
-
-PlayerSide::PlayerSideIterator PlayerSide::PlayerSideIterator::operator--(int)
-{
-    --this->index;
-    return *this;
-}
-
-PlayerSide::PlayerSideIterator PlayerSide::PlayerSideIterator::operator++(int)
-{
-    ++this->index;
-    return *this;
-}
-
-bool PlayerSide::PlayerSideIterator::operator==(const PlayerSideIterator& it)
-{
-    return (this->playerSide == it.playerSide) && (this->index == it.index);
-}
-
-CardInterface* PlayerSide::PlayerSideIterator::operator*()
-{
-    return this->playerSide->cardCollection[index].get();
-}
-
-bool PlayerSide::PlayerSideIterator::operator!=(const PlayerSideIterator& it)
-{
-    return !((this->playerSide == it.playerSide) && (this->index == it.index));
 }

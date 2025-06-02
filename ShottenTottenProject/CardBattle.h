@@ -1,7 +1,5 @@
 #pragma once
-#include "CardTactic.h"
-class CardBattle : public CardTactic
+class CardBattle
 {
-	virtual void applyEffet() = 0;
-	virtual string getNamecard() = 0;
 };
+
