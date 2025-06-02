@@ -1,4 +1,11 @@
 #pragma once
-class CardClan
+
+#include "CardInterface.h"
+#include <iostream>
+
+/*!
+* CardClan
+*/
+class CardClan : public CardInterface
 {
 };
