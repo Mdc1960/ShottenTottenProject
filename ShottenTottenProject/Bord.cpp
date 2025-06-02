@@ -1,5 +1,9 @@
 #include "Bord.h"
 
+
+/*!
+* Bord
+*/
 Bord* Bord::instance = nullptr;
 
 Bord::Bord()

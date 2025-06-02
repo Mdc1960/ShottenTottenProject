@@ -3,7 +3,9 @@
 #include "CardInterface.h"
 #include <iostream>
 
-
+/*!
+* CardClan
+*/
 class CardClan : public CardInterface
 {
 
@@ -32,7 +34,7 @@ public :
 		return name;
 	}
 	
-	
+	void show();
 
 	void printCard() override;
 };
