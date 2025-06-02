@@ -4,6 +4,7 @@
 #include <iostream>
 #include "CardSet.h"
 #include "GameUtil.h"
+#include "Color.h"
 
 static const unsigned int MAX_NUMBER_CARD_IN_STACK = 56;
 

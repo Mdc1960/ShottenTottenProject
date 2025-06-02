@@ -1,13 +1,7 @@
 #include "CardClan.h"
-<<<<<<< HEAD
 #include <iostream>
+#include <string>
 
-unsigned int CardClan::counter = 0;
-
-void CardClan::printCard()
-{
-	std::cout << "$ Name : " << name << std::endl;
-=======
 
 CardClan::CardClan(unsigned int num, Color col)
 {
@@ -31,5 +25,10 @@ string CardClan::getColorString() const
 string CardClan::getNamecard()
 {
     return "Cardclan " + getColorString() + " " + to_string(numero);
->>>>>>> f41ce8a236fb91c314268b2cc2395a10a3242fe8
+
+}
+
+void CardClan::printCard()
+{
+    std::cout << numero << "_" << getColorString() << std::endl;
 }

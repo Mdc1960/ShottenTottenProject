@@ -1,5 +1,6 @@
 #include "PlayerSide.h"
 #include "CardClan.h"
+#include "Color.h"
 #include <iostream>
 #include <string>
 
@@ -36,7 +37,7 @@ void PlayerSide::printCardSet()
 void PlayerSide::fillCardSet()
 {
     for (unsigned int index = 0; index < capacity; index++) {
-        push(std::move(std::make_unique<CardClan>(std::to_string(index))));
+        push(std::move(std::make_unique<CardClan>(index, Color::BLEU)));
     }
 }
 

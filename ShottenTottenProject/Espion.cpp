@@ -1,5 +1,6 @@
 #include "Espion.h"
 
+
 void Espion::applyEffet()
 {
 	setNumero((unsigned int) 7);
