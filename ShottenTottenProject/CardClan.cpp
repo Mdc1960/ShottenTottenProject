@@ -28,9 +28,7 @@ string CardClan::getNamecard()
 
 }
 
-void CardClan::show()
-{
-}
+
 
 void CardClan::printCard()
 {

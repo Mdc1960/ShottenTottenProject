@@ -170,7 +170,6 @@
     <ClInclude Include="CardInterface.h" />
     <ClInclude Include="CardSet.h" />
     <ClInclude Include="CardTactic.h" />
-    <ClInclude Include="Color.h" />
     <ClInclude Include="CollinMaillard.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Combination.h" />
@@ -180,9 +179,6 @@
     <ClInclude Include="GameUtil.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="HumanPlayer.h" />
-    <ClInclude Include="Joker.h" />
-    <ClInclude Include="PlayerInterface.h" />
-    <ClInclude Include="PorteBouclier.h" />
     <ClInclude Include="IteratorInterface.h" />
     <ClInclude Include="Joker.h" />
     <ClInclude Include="Phase.h" />
