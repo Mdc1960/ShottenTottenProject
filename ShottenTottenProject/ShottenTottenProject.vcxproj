@@ -139,8 +139,11 @@
     <ClCompile Include="CardTactic.cpp" />
     <ClCompile Include="Combination.cpp" />
     <ClCompile Include="Defausse.cpp" />
+    <ClCompile Include="Espion.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HumanPlayer.cpp" />
+    <ClCompile Include="Joker.cpp" />
+    <ClCompile Include="PorteBouclier.cpp" />
     <ClCompile Include="Rules.cpp" />
     <ClCompile Include="CardRuse.cpp" />
     <ClCompile Include="ShottenTottenProject.cpp" />
@@ -160,11 +163,15 @@
     <ClInclude Include="CardInterface.h" />
     <ClInclude Include="CardSet.h" />
     <ClInclude Include="CardTactic.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="Combination.h" />
     <ClInclude Include="Defausse.h" />
+    <ClInclude Include="Espion.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="HumanPlayer.h" />
+    <ClInclude Include="Joker.h" />
     <ClInclude Include="PlayerInterface.h" />
+    <ClInclude Include="PorteBouclier.h" />
     <ClInclude Include="Rules.h" />
     <ClInclude Include="CardRuse.h" />
     <ClInclude Include="Stack.h" />
