@@ -9,7 +9,6 @@
 #include "CardInterface.h"
 #include "IteratorInterface.h"
 
-class Iterator;
 
 class CardSet
 {

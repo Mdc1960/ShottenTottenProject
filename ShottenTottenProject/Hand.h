@@ -7,9 +7,6 @@
 
 static const unsigned int MAX_NUMBER_CARD_IN_HAND = 6;
 
-/*!
-* Hand class.
-*/
 class Hand : public CardSet
 {
 
@@ -17,7 +14,6 @@ private :
 
 	unsigned int indexToPushCard;
 	unsigned int indexToPopCard;
-	GameMode gameMode;
 
 public :
 
@@ -30,6 +26,7 @@ public :
 	void printCardSet() override;
 	void fillCardSet() override;
 	Iterator* createIterator() override;
+	Iterator* createIterator(unsigned int&& pos);
 
 	void setIndexToPushCard(unsigned int& indexToPushCard);
 	void setIndexToPopCard(const unsigned int& indexToPopCard);
@@ -42,6 +39,42 @@ public :
 	std::unique_ptr<CardInterface> popAndGetCardByIndex(unsigned int&& index);
 
 
+	class HandIterator : public Iterator {
+
+	private:
+
+		Hand* hand;
+		int index;
+
+		CardInterface* currentItem() override;
+
+		bool isDone() override;
+
+
+	public:
+
+		HandIterator(Hand* hand, unsigned int index);
+
+
+		bool hasNext() override;
+		bool hasLast() override;
+
+		CardInterface* next() override;
+		CardInterface* last() override;
+
+
+		HandIterator operator++();
+		HandIterator operator--();
+		HandIterator operator--(int);
+		HandIterator operator++(int);
+		bool operator==(const HandIterator& it);
+		CardInterface* operator*();
+		bool operator!=(const HandIterator& it);
+
+	};
+
+	HandIterator begin();
+	HandIterator end();
 
 	
 	
