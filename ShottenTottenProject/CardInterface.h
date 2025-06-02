@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #ifndef CARD_INTERFACE_H
 #define CARD_INTERFACE_H
 
@@ -12,3 +13,13 @@ public :
 };
 #endif
 
+=======
+#include <string>
+#include"iostream"
+using namespace std;
+class CardInterface {
+public:
+	virtual string getNamecard() = 0;
+}; 
+#pragma once
+>>>>>>> f41ce8a236fb91c314268b2cc2395a10a3242fe8

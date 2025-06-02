@@ -125,7 +125,77 @@ int main()
     }*/
 
 
-Hand h = Hand();
+/*Hand h = Hand();
+
+h.fillCardSet();
+
+std::cout << "Size = " << h.size() << std::endl;
+
+for (auto it = h.begin(); it != h.end()++; ++it) {
+    std::cout << "A ::: "; (*it)->printCard();
+}
+
+std::cout << "\n";
+
+for (auto it = h.end(); it != h.begin()--; it--) {
+    std::cout << "D ::: "; (*it)->printCard();
+}
+
+Iterator* itr = h.createIterator();
+
+std::cout << "IsDone = " << itr->isDone() << std::endl;
+int i = 0;
+while (itr->hasNext()) {
+    std::cout << "B ::: "; (itr->next())->printCard();
+}
+
+std::cout << "IsDone = " << itr->isDone() << std::endl;
+
+Iterator* lit = h.createIterator((unsigned int)(h.size()));
+
+if (lit != nullptr) {
+    while (lit->hasLast()) {
+        std::cout << "C ::: "; (lit->last())->printCard();
+    }
+}*/
+
+
+/*Defausse h = Defausse();
+
+h.fillCardSet();
+
+std::cout << "Size = " << h.size() << std::endl;
+
+for (auto it = h.begin(); it != h.end()++; ++it) {
+    std::cout << "A ::: "; (*it)->printCard();
+}
+
+std::cout << "\n";
+
+for (auto it = h.end(); it != h.begin()--; it--) {
+    std::cout << "D ::: "; (*it)->printCard();
+}
+
+Iterator* itr = h.createIterator();
+
+std::cout << "IsDone = " << itr->isDone() << std::endl;
+int i = 0;
+while (itr->hasNext()) {
+    std::cout << "B ::: "; (itr->next())->printCard();
+}
+
+std::cout << "IsDone = " << itr->isDone() << std::endl;
+
+Iterator* lit = h.createIterator((unsigned int)(h.size()));
+
+if (lit != nullptr) {
+    while (lit->hasLast()) {
+        std::cout << "C ::: "; (lit->last())->printCard();
+    }
+}*/
+
+
+PlayerSide h = PlayerSide();
 
 h.fillCardSet();
 
@@ -158,6 +228,7 @@ if (lit != nullptr) {
         std::cout << "C ::: "; (lit->last())->printCard();
     }
 }
+
 
 
     std::cout << "Hello World!!!" << std::endl;
