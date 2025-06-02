@@ -4,6 +4,9 @@
 
 class CardElite : public CardClan, public CardTactic
 {
-	virtual void applyEffet() = 0;
+public :
+	virtual void printCard() override;
+	virtual string getNamecard() override;
+	virtual void applyEffet() override;
 };
 

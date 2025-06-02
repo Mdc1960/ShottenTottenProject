@@ -66,15 +66,6 @@
     <ClCompile Include="HumanPlayer.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="Joker.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Espion.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="PorteBouclier.cpp">
-=======
     <ClCompile Include="Hand.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -94,7 +85,15 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="RevendicateBorder.cpp">
->>>>>>> e75480d7525befcbedb0c31a2729c584850b70d7
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Joker.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="PorteBouclier.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Espion.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -158,18 +157,6 @@
     <ClInclude Include="PlayerInterface.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="Color.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Joker.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Espion.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="PorteBouclier.h">
-=======
     <ClInclude Include="Hand.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
@@ -195,7 +182,18 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="IteratorInterface.h">
->>>>>>> e75480d7525befcbedb0c31a2729c584850b70d7
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="PorteBouclier.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Joker.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Espion.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
