@@ -14,12 +14,11 @@
 class Border
 {
 
-private :
+protected :
 
-	std::vector<std::unique_ptr<PlayerSide>> firstPlayerBorderSide;
-	std::vector<std::unique_ptr<PlayerSide>> secondPlayerBorderSide;
+	PlayerSide firstPlayerBorderSide;
+	PlayerSide secondPlayerBorderSide;
 	std::vector<unsigned int> listIndexBorderClaimed;
-	unsigned int			 capacity;
 	BorderStatus			 status;
 
 
@@ -27,11 +26,14 @@ public :
 
 	Border();
 
-	void claim();
+	virtual void claim() = 0;
+
+	void pushCardInBorder(std::unique_ptr<CardInterface> card);
+	void popCardInBorder(std::unique_ptr<CardInterface> card);
 
 	unsigned int getMaxCapacityInPlayerSide(unsigned int&& indexPlayerSides) const;
 
-	void increasePlayerSideBorderCapacity(unsigned int&& indexPlayerSides);
+	
 
 	void printFirstPlayerBorderSide();
 	void printSecondPlayerBorderSide();
