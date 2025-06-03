@@ -31,7 +31,7 @@ public :
 	void pushCardInBorder(std::unique_ptr<CardInterface> card);
 	void popCardInBorder(std::unique_ptr<CardInterface> card);
 
-	unsigned int getMaxCapacityInPlayerSide(unsigned int&& indexPlayerSides) const;
+	unsigned int getMaxCapacityInPlayerSide() const;
 
 	
 

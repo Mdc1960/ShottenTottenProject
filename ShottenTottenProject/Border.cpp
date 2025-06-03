@@ -15,7 +15,7 @@ void Border::popCardInBorder(std::unique_ptr<CardInterface> card)
 {
 }
 
-unsigned int Border::getMaxCapacityInPlayerSide(unsigned int&& indexPlayerSides) const
+unsigned int Border::getMaxCapacityInPlayerSide() const
 {
 	unsigned int cap = 3;
 

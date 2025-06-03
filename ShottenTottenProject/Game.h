@@ -8,6 +8,8 @@
 #include "Phase.h"
 #include "PlayerPlay.h"
 #include "RevendicateBorder.h"
+#include "GameUtil.h"
+#include "Exception.h"
 
 
 class Game
@@ -23,6 +25,7 @@ private :
 	std::unique_ptr<PlayerInterface> secondPlayer;
 	std::unique_ptr<Phase> playPhase;
 	std::unique_ptr<Phase> revendicatePhase;
+	GameMode gameMode;
 
 	void buildGameBord(unsigned int&& clanStackSize, unsigned int&& tacticStackSize);
 	void printFirstPlayerBorderSide();
@@ -34,6 +37,8 @@ private :
 
 	void shuffledGameClanStack();
 	void shuffledGameTacticStack();
+
+	void printMode();
 
 public :
 
