@@ -15,6 +15,9 @@ class Game
 
 private :
 
+	bool isGameOver = false;
+	bool isConfiguring = false;
+
 	Bord& gameBord = Bord::getInstance();
 	std::unique_ptr<PlayerInterface> firstPlayer;
 	std::unique_ptr<PlayerInterface> secondPlayer;
@@ -25,6 +28,9 @@ private :
 	void printFirstPlayerBorderSide();
 	void printSecondPlayerBorderSide();
 	void printBorderSeparator();
+
+	void startConfiguration();
+
 
 	void shuffledGameClanStack();
 	void shuffledGameTacticStack();
