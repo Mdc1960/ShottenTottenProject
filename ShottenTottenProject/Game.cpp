@@ -1,5 +1,10 @@
 #include "Game.h"
 
+Game::Game() : gameMode(GameMode::BASE)
+{
+}
+
+
 void Game::buildGameBord(unsigned int&& clanStackSize, unsigned int&& tacticStackSize)
 {
 	gameBord.fillBord(std::move(clanStackSize), std::move(tacticStackSize));
@@ -171,6 +176,24 @@ void Game::shuffledGameTacticStack()
 	gameBord.shuffledTacticStack();
 }
 
+CardInterface* Game::getCardFromCardClanStack()
+{
+	return nullptr;
+}
+
+CardInterface* Game::getCardFromCardTackticStack()
+{
+	return nullptr;
+}
+
+void Game::popCardFromClanStack()
+{
+}
+
+void Game::popCardFromTacticStack()
+{
+}
+
 void Game::printMode()
 {
 	std::string mode = "";
@@ -190,6 +213,36 @@ void Game::printMode()
 	std::cout << "You will play SHOTTEN TOTTEN in mode : " << mode << std::endl;
 }
 
-Game::Game() : gameMode(GameMode::BASE)
+void Game::startGame()
 {
 }
+
+void Game::showHumanPlayerHand(unsigned int&& id)
+{
+	switch (id) {
+	case 1:
+		//First Player Hand
+		break;
+	case 2:
+		//Opponent Hand if player vs player
+		break;
+	default:
+		break;
+	}
+}
+
+void Game::setPlayerCombination(unsigned int&& combination)
+{
+	this->playerCombination = combination;
+}
+
+void Game::setOpponentCombination(unsigned int&& combination)
+{
+	this->opponentCombination = combination;
+}
+
+void Game::setAICombination(unsigned int&& combination)
+{
+	this->playerCombination = combination;
+}
+

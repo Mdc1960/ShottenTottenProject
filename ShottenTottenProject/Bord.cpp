@@ -57,7 +57,7 @@ void Bord::printSecondPlayerBorderSide()
 
 void Bord::fillBord(unsigned int&& clanCapacity, unsigned int&& tacticCapacity)
 {
-	borders = std::make_unique<Border>();
+	borders = std::make_unique<BorderBase>();
 	defausse = std::make_unique<Defausse>();
 	createClanStack(std::move(clanCapacity));
 	createTacticStack(std::move(tacticCapacity));

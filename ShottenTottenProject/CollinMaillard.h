@@ -6,6 +6,10 @@
 
 class CollinMaillard : public BorderDecorator
 {
+
+public :
+
+	void claim() override;
 };
 
 #endif

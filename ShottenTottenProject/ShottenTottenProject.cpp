@@ -6,6 +6,10 @@
 #include "PlayerSide.h"
 #include "Border.h"
 #include "Bord.h"
+#include "ColorCombination.h"
+#include "ColorSequenceCombination.h"
+#include "SetCombination.h"
+
 
 int main()
 {
@@ -195,7 +199,7 @@ if (lit != nullptr) {
 }*/
 
 
-PlayerSide h = PlayerSide();
+/*PlayerSide h = PlayerSide();
 
 h.fillCardSet();
 
@@ -227,8 +231,30 @@ if (lit != nullptr) {
     while (lit->hasLast()) {
         std::cout << "C ::: "; (lit->last())->printCard();
     }
-}
+}*/
 
+
+/*ColorCombination cc = ColorCombination();
+
+std::cout << "Are Same ?=? " << cc.cardAreSameColor<std::string>({"A","A","A","A"}) << std::endl;*/
+
+ColorSequenceCombination cs = ColorSequenceCombination();
+
+std::cout << "Are Same ?=? " << cs.cardAreSameColor<std::string>({ "A","A","A","A" }) << std::endl;
+std::cout << "Are Sequence ?=? " << cs.cardAreSequence({ 25,1,2,3,4,5,7}) << std::endl;
+
+SequenceCombination sc = SequenceCombination();
+
+std::cout << "Sequenced : " << sc.cardAreSequence({ 8,2,5 }) << std::endl;
+std::cout << "Sequenced bis : " << sc.cardAreSequence({ 8,6,7 }) << std::endl;
+
+SetCombination st = SetCombination();
+
+std::cout << "Set : " << st.cardAreSameColor({ 8,2,5 }) << std::endl;
+std::cout << "Set bis : " << st.cardAreSameValue({ 8,6,7 }) << std::endl;
+
+std::cout << "Set : " << st.cardAreSameColor({ 8,8,8 }) << std::endl;
+std::cout << "Set bis : " << st.cardAreSameValue({ 1,1,1 }) << std::endl;
 
 
     std::cout << "Hello World!!!" << std::endl;

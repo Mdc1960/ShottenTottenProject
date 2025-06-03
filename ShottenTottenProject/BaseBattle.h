@@ -6,6 +6,10 @@
 
 class BaseBattle : public BorderDecorator
 {
+public :
+
+	void claim() override;
+
 };
 
 #endif

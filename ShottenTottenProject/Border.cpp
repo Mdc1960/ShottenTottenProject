@@ -1,7 +1,8 @@
 #include "Border.h"
 
 Border::Border() :
-	status(BorderStatus::BORDER_IS_NOT_REVENDICATED)
+	status(BorderStatus::BORDER_IS_NOT_REVENDICATED), listIndexBorderClaimed(),
+	firstPlayerBorderSide(), secondPlayerBorderSide()
 {
 	fillPlayerSides();
 }
@@ -19,8 +20,8 @@ unsigned int Border::getMaxCapacityInPlayerSide() const
 {
 	unsigned int cap = 3;
 
-	if (this->firstPlayerBorderSide.getCapacity() == this->secondPlayerBorderSide.getCapacity()) {
-		cap = this->firstPlayerBorderSide.getCapacity();
+	if (this->firstPlayerBorderSide->getCapacity() == this->secondPlayerBorderSide->getCapacity()) {
+		cap = this->firstPlayerBorderSide->getCapacity();
 	}
 
 	return cap;
@@ -33,23 +34,21 @@ unsigned int Border::getMaxCapacityInPlayerSide() const
 
 void Border::printFirstPlayerBorderSide()
 {
-	std::cout << "Border First Side : \n";  firstPlayerBorderSide.printCardSet();
+	std::cout << "Border First Side : \n";  firstPlayerBorderSide->printCardSet();
 }
 
 void Border::printSecondPlayerBorderSide()
 {
-	std::cout << "Border Second Side : \n";  secondPlayerBorderSide.printCardSet();
+	std::cout << "Border Second Side : \n";  secondPlayerBorderSide->printCardSet();
 }
 
 
 void Border::fillPlayerSides()
 {
-	PlayerSide* firstSide = new PlayerSide();
-	PlayerSide* secondSide = new PlayerSide();
+	firstPlayerBorderSide = std::make_unique<PlayerSide>();
+	secondPlayerBorderSide = std::make_unique<PlayerSide>();
 
-	firstSide->fillCardSet();
-	secondSide->fillCardSet();
+	firstPlayerBorderSide->fillCardSet();
+	secondPlayerBorderSide->fillCardSet();
 
-	firstPlayerBorderSide = *firstSide;
-	secondPlayerBorderSide = *secondSide;
 }

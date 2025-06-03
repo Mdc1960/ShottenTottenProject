@@ -10,6 +10,10 @@ private :
 
 	std::unique_ptr<Border> innerBorder;
 
+public :
+
+	virtual void claim() = 0;
+
 };
 
 #endif

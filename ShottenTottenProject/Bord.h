@@ -4,6 +4,7 @@
 #include "Border.h"
 #include "Stack.h"
 #include "Defausse.h"
+#include "BorderBase.h"
 
 
 class Bord

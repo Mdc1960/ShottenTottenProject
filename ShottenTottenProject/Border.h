@@ -16,8 +16,8 @@ class Border
 
 protected :
 
-	PlayerSide firstPlayerBorderSide;
-	PlayerSide secondPlayerBorderSide;
+	std::unique_ptr<PlayerSide> firstPlayerBorderSide;
+	std::unique_ptr<PlayerSide> secondPlayerBorderSide;
 	std::vector<unsigned int> listIndexBorderClaimed;
 	BorderStatus			 status;
 
