@@ -37,7 +37,7 @@ void PlayerSide::printCardSet()
 void PlayerSide::fillCardSet()
 {
     for (unsigned int index = 0; index < capacity; index++) {
-        push(std::move(std::make_unique<CardClan>(index, Color::BLEU)));
+        push(std::move(std::make_unique<CardClan>(0, Color::BLEU)));
     }
 }
 
@@ -59,6 +59,25 @@ void PlayerSide::increaseCapacity()
 unsigned int PlayerSide::getCapacity() const
 {
     return capacity;
+}
+
+CardInterface* PlayerSide::getCardByIndex(unsigned int&& indexCard)
+{
+    if (indexCard < size()) {
+        return this->cardCollection[indexCard].get();
+    }
+    return nullptr;
+}
+
+std::vector<std::string> PlayerSide::getAllCardColor()
+{
+    std::vector<std::string> vect = std::vector<std::string>();
+
+    for (const auto& card : cardCollection) {
+        vect.push_back(card->getNamecard());
+    }
+
+    return vect;
 }
 
 PlayerSide::PlayerSideIterator PlayerSide::begin()

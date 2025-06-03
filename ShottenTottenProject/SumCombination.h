@@ -9,7 +9,7 @@ class SumCombination : public Combination
 
 public:
 
-	unsigned int playerCombination(Border* border, unsigned int&& id) override;
+	unsigned int playerCombination(std::initializer_list<std::string> list) override;
 };
 
 #endif

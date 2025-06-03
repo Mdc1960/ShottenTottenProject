@@ -1,6 +1,6 @@
 #include "SequenceCombination.h"
 
-unsigned int SequenceCombination::playerCombination(Border* border, unsigned int&& id)
+unsigned int SequenceCombination::playerCombination(std::initializer_list<std::string> list)
 {
     return 0;
 }

@@ -141,7 +141,6 @@
     <ClCompile Include="CollinMaillard.cpp" />
     <ClCompile Include="ColorCombination.cpp" />
     <ClCompile Include="ColorSequenceCombination.cpp" />
-    <ClCompile Include="Combination.cpp" />
     <ClCompile Include="Defausse.cpp" />
     <ClCompile Include="Espion.cpp" />
     <ClCompile Include="Exception.cpp" />

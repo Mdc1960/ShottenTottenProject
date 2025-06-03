@@ -3,18 +3,21 @@
 
 #include <iostream>
 #include <initializer_list>
+#include <vector>
+#include <string>
 #include "Combination.h"
+
 
 class ColorCombination : public Combination
 {
 
 private :
 
-	unsigned int capacity = 0;
+	//unsigned int capacity = 0;
 
 public :
 
-	virtual unsigned int playerCombination(Border* border, unsigned int&& id) override;
+	virtual unsigned int playerCombination(std::initializer_list<std::string> list) override;
 
 	template<class T>
 	bool cardAreSameColor(std::initializer_list<T> list);

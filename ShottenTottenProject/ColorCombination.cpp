@@ -1,7 +1,20 @@
 #include "ColorCombination.h"
 
-unsigned int ColorCombination::playerCombination(Border* border, unsigned int&& id)
+unsigned int ColorCombination::playerCombination(std::initializer_list<std::string> list)
 {
-    //this->capacity = border->getMaxCapacityInPlayerSide();
-    return 0;
+    unsigned int colorValue = 0;
+    bool areSameColor = false;
+    
+
+    areSameColor = cardAreSameColor<std::string>(list);
+
+    if (areSameColor) {
+        colorValue = (unsigned int)Combine::COLOR_;
+        return colorValue;
+    }
+    else {
+        return colorValue;
+    }
+
+    
 }

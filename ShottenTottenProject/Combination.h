@@ -9,7 +9,7 @@ class Combination
 
 public:
 
-	virtual unsigned int playerCombination(Border* border,unsigned int&& id) = 0;
+	virtual unsigned int playerCombination(std::initializer_list<std::string> list) = 0;
 	virtual ~Combination() {}
 
 };

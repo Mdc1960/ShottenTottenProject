@@ -1,6 +1,6 @@
 #include "SumCombination.h"
 
-unsigned int SumCombination::playerCombination(Border* border, unsigned int&& id)
+unsigned int SumCombination::playerCombination(std::initializer_list<std::string> list)
 {
     return 0;
 }

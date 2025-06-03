@@ -11,7 +11,7 @@ class SetCombination : public ColorCombination
 
 public:
 
-	unsigned int playerCombination(Border* border, unsigned int&& id) override;
+	unsigned int playerCombination(std::initializer_list<std::string> list) override;
 	bool cardAreSameValue(std::initializer_list<unsigned int> list);
 };
 

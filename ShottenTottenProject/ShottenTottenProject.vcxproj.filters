@@ -51,9 +51,6 @@
     <ClCompile Include="CardTactic.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Combination.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Rules.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>

@@ -11,7 +11,7 @@ class SequenceCombination : public Combination
 
 public:
 
-	unsigned int playerCombination(Border* border, unsigned int&& id) override;
+	unsigned int playerCombination(std::initializer_list<std::string> list) override;
 	bool cardAreSequence(std::initializer_list<unsigned int> list);
 
 };

@@ -28,15 +28,22 @@ public :
 
 	virtual void claim() = 0;
 
+	std::vector<std::string> getAllCardColorInPlayerSide(unsigned int&& playerSideId);
+
 	void pushCardInBorder(std::unique_ptr<CardInterface> card);
 	void popCardInBorder(std::unique_ptr<CardInterface> card);
 
 	unsigned int getMaxCapacityInPlayerSide() const;
 
+	void setFirstPlayerSide(std::unique_ptr<PlayerSide> playerSide);
+	void setSecondPlayerSide(std::unique_ptr<PlayerSide> playerSide);
+
 	
 
 	void printFirstPlayerBorderSide();
 	void printSecondPlayerBorderSide();
+
+	CardInterface* getCardInPlayerSide(unsigned int&& playerSideId, unsigned int&& indexCard);
 
 private :
 

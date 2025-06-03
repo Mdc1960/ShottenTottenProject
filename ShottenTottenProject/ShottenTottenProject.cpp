@@ -238,7 +238,7 @@ if (lit != nullptr) {
 
 std::cout << "Are Same ?=? " << cc.cardAreSameColor<std::string>({"A","A","A","A"}) << std::endl;*/
 
-ColorSequenceCombination cs = ColorSequenceCombination();
+/*ColorSequenceCombination cs = ColorSequenceCombination();
 
 std::cout << "Are Same ?=? " << cs.cardAreSameColor<std::string>({ "A","A","A","A" }) << std::endl;
 std::cout << "Are Sequence ?=? " << cs.cardAreSequence({ 25,1,2,3,4,5,7}) << std::endl;
@@ -254,8 +254,31 @@ std::cout << "Set : " << st.cardAreSameColor({ 8,2,5 }) << std::endl;
 std::cout << "Set bis : " << st.cardAreSameValue({ 8,6,7 }) << std::endl;
 
 std::cout << "Set : " << st.cardAreSameColor({ 8,8,8 }) << std::endl;
-std::cout << "Set bis : " << st.cardAreSameValue({ 1,1,1 }) << std::endl;
+std::cout << "Set bis : " << st.cardAreSameValue({ 1,1,1 }) << std::endl;*/
 
+std::unique_ptr<PlayerSide> p1 = std::make_unique<PlayerSide>();
+std::unique_ptr<PlayerSide> p2 = std::make_unique<PlayerSide>();
+p1->fillCardSet();
+p2->fillCardSet();
+
+std::unique_ptr<BorderBase> b = std::make_unique<BorderBase>();
+
+std::vector<std::string> firstVect = b->getAllCardColorInPlayerSide(std::move(1));
+std::vector<std::string> secondVect = b->getAllCardColorInPlayerSide(std::move(2));
+
+std::cout << "HGSDHJ : " << firstVect[0] << std::endl;
+
+std::initializer_list<std::string> list = { firstVect[0],firstVect[1],firstVect[2] };
+std::initializer_list<std::string> list1 = { secondVect[0],secondVect[1],secondVect[2] };
+
+for (std::string s : list) {
+    std::cout << "P : " << s << std::endl;
+}
+
+ColorCombination cb = ColorCombination();
+
+std::cout << "Player1 Combination : " << cb.playerCombination(list) << std::endl;
+std::cout << "Player2 Combination : " << cb.playerCombination(list1) << std::endl;
 
     std::cout << "Hello World!!!" << std::endl;
 

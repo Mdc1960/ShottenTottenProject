@@ -1,6 +1,6 @@
 #include "SetCombination.h"
 
-unsigned int SetCombination::playerCombination(Border* border, unsigned int&& id)
+unsigned int SetCombination::playerCombination(std::initializer_list<std::string> list)
 {
     return 0;
 }
