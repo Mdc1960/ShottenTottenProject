@@ -10,6 +10,7 @@
 #include "ColorSequenceCombination.h"
 #include "SetCombination.h"
 #include "SequenceCombination.h"
+#include "SumCombination.h"
 
 
 int main()
@@ -278,8 +279,8 @@ for (std::string s : list) {
 
 ColorCombination<std::string> cb = ColorCombination<std::string>();
 
-std::cout << "Player1 Combination : " << cb.playerCombination(list) << std::endl;
-std::cout << "Player2 Combination : " << cb.playerCombination(list1) << std::endl;
+std::cout << "Player1 ColorCombination : " << cb.playerCombination(list) << std::endl;
+std::cout << "Player2 ColorCombination : " << cb.playerCombination(list1) << std::endl;
 
 SequenceCombination<unsigned int> sc = SequenceCombination<unsigned int>();
 
@@ -287,8 +288,20 @@ std::cout << "P1 sequence : " << sc.playerCombination({ 1,2,3 }) << std::endl;
 std::cout << "P2 sequence : " << sc.playerCombination({ 5,2,3 }) << std::endl;
 
 ColorSequenceCombination<std::string, unsigned int> cs = ColorSequenceCombination<std::string, unsigned int>();
-std::cout << "P1 cs : " << cs.cardAreSameColor<std::string>({ "B","A","A" }) << std::endl;
-std::cout << "P2 cs : " << cs.cardAreSequence<unsigned int>({ 1,2,1 }) << std::endl;
+std::cout << "P1 cs : " << cs.cardAreSameColor<std::string>({ "A","A","A" }) << std::endl;
+std::cout << "P2 cs : " << cs.cardAreSequence<unsigned int>({ 1,2,3 }) << std::endl;
+
+std::cout << "PP3 cs : " << cs.playerCombinationBis({ "A","A","A" }, { 1,2,3 }) << std::endl;
+
+SetCombination<std::string> stc = SetCombination<std::string>();
+
+std::cout << "P1 SET : " << stc.cardAreSameColor({ "A","A","A" }) << std::endl;
+std::cout << "P2 SET : " << stc.cardAreSameValue({ 1,1,1 }) << std::endl;
+std::cout << "PP3 SET : " << stc.playerCobinationBis({ "A","A","A" } ,{ 1,1,1 }) << std::endl;
+
+SumCombination<unsigned int> sm = SumCombination<unsigned int>();
+
+std::cout << "P1 Sum : " << sm.playerCombination({ 1,8,3 }) << std::endl;
 
     std::cout << "Hello World!!!" << std::endl;
 

@@ -48,11 +48,9 @@ inline unsigned int SequenceCombination<T>::playerCombination(std::initializer_l
 
 	if (areSameColor) {
 		colorValue = (unsigned int)Combine::SEQUENCE_;
-		return colorValue;
+		
 	}
-	else {
-		return colorValue;
-	}
+	return colorValue;
 }
 
 

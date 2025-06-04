@@ -139,8 +139,6 @@
     <ClCompile Include="CardElite.cpp" />
     <ClCompile Include="CardTactic.cpp" />
     <ClCompile Include="CollinMaillard.cpp" />
-    <ClCompile Include="ColorCombination.cpp" />
-    <ClCompile Include="ColorSequenceCombination.cpp" />
     <ClCompile Include="Defausse.cpp" />
     <ClCompile Include="Espion.cpp" />
     <ClCompile Include="Exception.cpp" />
@@ -155,11 +153,8 @@
     <ClCompile Include="RevendicateBorder.cpp" />
     <ClCompile Include="Rules.cpp" />
     <ClCompile Include="CardRuse.cpp" />
-    <ClCompile Include="SequenceCombination.cpp" />
-    <ClCompile Include="SetCombination.cpp" />
     <ClCompile Include="ShottenTottenProject.cpp" />
     <ClCompile Include="Stack.cpp" />
-    <ClCompile Include="SumCombination.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.puml" />

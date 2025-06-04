@@ -48,11 +48,9 @@ unsigned int ColorCombination<T>::playerCombination(std::initializer_list<T> lis
 
 	if (areSameColor) {
 		colorValue = (unsigned int)Combine::COLOR_;
-		return colorValue;
+		
 	}
-	else {
-		return colorValue;
-	}
+	return colorValue;
 }
 
 

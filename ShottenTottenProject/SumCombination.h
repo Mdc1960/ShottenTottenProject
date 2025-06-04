@@ -9,13 +9,23 @@ class SumCombination : public Combination<T>
 
 public:
 
-	unsigned int playerCombination(std::initializer_list<std::string> list) override;
+	unsigned int playerCombination(std::initializer_list<T> list) override;
 };
 
 template<class T>
-inline unsigned int SumCombination<T>::playerCombination(std::initializer_list<std::string> list)
+inline unsigned int SumCombination<T>::playerCombination(std::initializer_list<T> list)
 {
-	return 0;
+	unsigned int sumValue = 0;
+	unsigned int sumCounter = 0;
+	for (auto it : list) {
+		if (it != NULL) {
+			sumCounter++;
+		}
+	}
+	if (sumCounter == list.size()) {
+		sumValue = (unsigned int)Combine::SUM_;
+	}
+	return sumValue;
 }
 
 #endif

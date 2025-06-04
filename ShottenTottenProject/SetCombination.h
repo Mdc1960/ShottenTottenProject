@@ -9,16 +9,19 @@ template <class T>
 class SetCombination : public ColorCombination<T>
 {
 
-public:
+protected:
+    unsigned int playerCombination(std::initializer_list<T> list) override;
 
-	unsigned int playerCombination(std::initializer_list<T> list) override;
+public:
 	bool cardAreSameValue(std::initializer_list<unsigned int> list);
+    unsigned int playerCobinationBis(std::initializer_list<T> firstList, std::initializer_list<unsigned int> secondList);
 };
 
 template<class T>
 unsigned int SetCombination<T>::playerCombination(std::initializer_list<T> list)
 {
-    return 0;
+    bool sameColor = this->cardAreSameColor(list);
+    return (unsigned int)sameColor;
 }
 
 template<class T>
@@ -36,6 +39,18 @@ bool SetCombination<T>::cardAreSameValue(std::initializer_list<unsigned int> lis
     }
 
     return areSameValue;
+}
+
+template<class T>
+inline unsigned int SetCombination<T>::playerCobinationBis(std::initializer_list<T> firstList, std::initializer_list<unsigned int> secondList)
+{
+    unsigned int setValue = 0;
+    bool areSameValue = cardAreSameValue(secondList);
+    bool areSameColor = this->playerCombination(firstList);
+    if (areSameValue && areSameColor) {
+        setValue = (unsigned int)Combine::SET_;
+    }
+    return setValue;
 }
 
 #endif
