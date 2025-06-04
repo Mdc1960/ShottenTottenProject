@@ -9,6 +9,7 @@
 #include "ColorCombination.h"
 #include "ColorSequenceCombination.h"
 #include "SetCombination.h"
+#include "SequenceCombination.h"
 
 
 int main()
@@ -275,10 +276,19 @@ for (std::string s : list) {
     std::cout << "P : " << s << std::endl;
 }
 
-ColorCombination cb = ColorCombination();
+ColorCombination<std::string> cb = ColorCombination<std::string>();
 
 std::cout << "Player1 Combination : " << cb.playerCombination(list) << std::endl;
 std::cout << "Player2 Combination : " << cb.playerCombination(list1) << std::endl;
+
+SequenceCombination<unsigned int> sc = SequenceCombination<unsigned int>();
+
+std::cout << "P1 sequence : " << sc.playerCombination({ 1,2,3 }) << std::endl;
+std::cout << "P2 sequence : " << sc.playerCombination({ 5,2,3 }) << std::endl;
+
+ColorSequenceCombination<std::string, unsigned int> cs = ColorSequenceCombination<std::string, unsigned int>();
+std::cout << "P1 cs : " << cs.cardAreSameColor<std::string>({ "B","A","A" }) << std::endl;
+std::cout << "P2 cs : " << cs.cardAreSequence<unsigned int>({ 1,2,1 }) << std::endl;
 
     std::cout << "Hello World!!!" << std::endl;
 

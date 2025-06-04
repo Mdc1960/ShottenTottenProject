@@ -3,13 +3,14 @@
 
 #include "Border.h"
 
-
+template <class T>
 class Combination
 {
 
 public:
 
-	virtual unsigned int playerCombination(std::initializer_list<std::string> list) = 0;
+	
+	virtual unsigned int playerCombination(std::initializer_list<T> list) = 0;
 	virtual ~Combination() {}
 
 };

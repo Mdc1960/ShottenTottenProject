@@ -1,11 +1,13 @@
 #include "SetCombination.h"
 
-unsigned int SetCombination::playerCombination(std::initializer_list<std::string> list)
+/*unsigned int SetCombination::playerCombination(std::initializer_list<std::string> list)
 {
     return 0;
-}
+}*/
 
-bool SetCombination::cardAreSameValue(std::initializer_list<unsigned int> list)
+
+
+/*bool SetCombination::cardAreSameValue(std::initializer_list<unsigned int> list)
 {
     std::vector<unsigned int> vect = list;
     unsigned int areSameValue = 0;
@@ -19,4 +21,4 @@ bool SetCombination::cardAreSameValue(std::initializer_list<unsigned int> list)
     }
 
     return areSameValue;
-}
+}*/

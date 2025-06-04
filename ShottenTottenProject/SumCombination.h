@@ -3,8 +3,8 @@
 
 #include "Combination.h"
 
-
-class SumCombination : public Combination
+template <class T>
+class SumCombination : public Combination<T>
 {
 
 public:
@@ -12,4 +12,12 @@ public:
 	unsigned int playerCombination(std::initializer_list<std::string> list) override;
 };
 
+template<class T>
+inline unsigned int SumCombination<T>::playerCombination(std::initializer_list<std::string> list)
+{
+	return 0;
+}
+
 #endif
+
+

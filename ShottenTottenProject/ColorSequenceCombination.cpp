@@ -1,9 +1,9 @@
 #include "ColorSequenceCombination.h"
 
-unsigned int ColorSequenceCombination::playerCombination(std::initializer_list<std::string> list)
+/*unsigned int ColorSequenceCombination::playerCombination(std::initializer_list<std::string> list)
 {
     return 0;
-}
+}*/
 
 /*bool ColorSequenceCombination::cardAreSequence(std::initializer_list<unsigned int> list)
 {

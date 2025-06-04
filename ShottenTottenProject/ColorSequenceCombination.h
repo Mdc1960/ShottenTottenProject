@@ -4,12 +4,14 @@
 #include "ColorCombination.h"
 #include "SequenceCombination.h"
 
-class ColorSequenceCombination : public ColorCombination, public SequenceCombination
+template <class T, class U>
+class ColorSequenceCombination : public ColorCombination<T>, public SequenceCombination<U>
 {
 
 public :
 
-	virtual unsigned int playerCombination(std::initializer_list<std::string> list) override;
+	virtual unsigned int playerCombination(std::initializer_list<T> list) override;
+
 
 	
 	//bool cardAreSequence(std::initializer_list<unsigned int> list);
@@ -17,4 +19,14 @@ public :
 
 };
 
+
+template<class T, class U>
+inline unsigned int ColorSequenceCombination<T, U>::playerCombination(std::initializer_list<T> list)
+{
+	return 0;
+}
+
+
 #endif
+
+

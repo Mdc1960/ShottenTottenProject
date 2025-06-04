@@ -7,38 +7,57 @@
 #include <string>
 #include "Combination.h"
 
-
-class ColorCombination : public Combination
+template <class T>
+class ColorCombination : public Combination<T>
 {
-
-private :
-
-	//unsigned int capacity = 0;
 
 public :
 
-	virtual unsigned int playerCombination(std::initializer_list<std::string> list) override;
+	virtual unsigned int playerCombination(std::initializer_list<T> list) override;
 
-	template<class T>
-	bool cardAreSameColor(std::initializer_list<T> list);
+	template<class U>
+	bool cardAreSameColor(std::initializer_list<U> list);
 
 };
 
-
-
 template<class T>
-inline bool ColorCombination::cardAreSameColor(std::initializer_list<T> list)
+template<class U>
+inline bool ColorCombination<T>::cardAreSameColor(std::initializer_list<U> list)
 {
 	size_t areSameColor = 0;
 
-	for (auto it = list.begin(); it != list.end()-1; it++) {
+	for (auto it = list.begin(); it != list.end() - 1; it++) {
 		if (*it == *(it + 1)) {
 			areSameColor++;
 		}
-		
+
 	}
 
 	return areSameColor == list.size() - 1;
 }
 
+
+template<class T>
+unsigned int ColorCombination<T>::playerCombination(std::initializer_list<T> list)
+{
+	unsigned int colorValue = 0;
+	bool areSameColor = false;
+
+
+	areSameColor = cardAreSameColor<std::string>(list);
+
+	if (areSameColor) {
+		colorValue = (unsigned int)Combine::COLOR_;
+		return colorValue;
+	}
+	else {
+		return colorValue;
+	}
+}
+
+
+
+
+
 #endif
+
