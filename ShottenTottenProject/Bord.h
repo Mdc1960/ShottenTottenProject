@@ -5,6 +5,7 @@
 #include "Stack.h"
 #include "Defausse.h"
 #include "BorderBase.h"
+#include <vector>
 
 
 class Bord
@@ -14,7 +15,7 @@ private :
 
 	std::unique_ptr<Stack> clanStack;
 	std::unique_ptr<Stack> tacticStack;
-	std::unique_ptr<Border> borders;
+	std::vector<std::unique_ptr<Border>> borders;
 	std::unique_ptr<Defausse> defausse;
 
 	static Bord* instance;
@@ -27,6 +28,7 @@ private :
 
 	void createClanStack(unsigned int&& capacity);
 	void createTacticStack(unsigned int&& capacity);
+	void fillBorders();
 
 
 public :
@@ -36,6 +38,10 @@ public :
 
 	void shuffledClanStack();
 	void shuffledTacticStack();
+
+	void printBorders();
+
+	size_t getBorderSize() const;
 
 	void printFirstPlayerBorderSide();
 	void printSecondPlayerBorderSide();

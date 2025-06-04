@@ -29,8 +29,9 @@ void PlayerSide::push(std::unique_ptr<CardInterface> card)
 
 void PlayerSide::printCardSet()
 {
+    unsigned int counter = 0;
     for (auto& card : this->cardCollection) {
-        std::cout << "Player Side : "; card->printCard();
+        std::cout << "Player Side : "; card->printCard(); std::cout << "\n";
     }
 }
 
@@ -49,6 +50,18 @@ Iterator* PlayerSide::createIterator()
 Iterator* PlayerSide::createIterator(unsigned int&& pos)
 {
     return new PlayerSideIterator(this, pos);
+}
+
+void PlayerSide::printCardSetInReverse()
+{
+    for (auto it = end(); it != begin()--; it--) {
+        std::cout << "Player Side : "; (*it)->printCard(); std::cout << "\n";
+    }
+}
+
+void PlayerSide::printCardByIndex(unsigned int&& index)
+{
+    this->cardCollection[index]->printCard();
 }
 
 void PlayerSide::increaseCapacity()

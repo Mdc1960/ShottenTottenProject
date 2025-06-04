@@ -9,19 +9,7 @@ void Game::buildGameBord(unsigned int&& clanStackSize, unsigned int&& tacticStac
 {
 	gameBord.fillBord(std::move(clanStackSize), std::move(tacticStackSize));
 
-	printFirstPlayerBorderSide();
-	printBorderSeparator();
-	printSecondPlayerBorderSide();
-}
-
-void Game::printFirstPlayerBorderSide()
-{
-	gameBord.printFirstPlayerBorderSide();
-}
-
-void Game::printSecondPlayerBorderSide()
-{
-	gameBord.printSecondPlayerBorderSide();
+	
 }
 
 void Game::printBorderSeparator()

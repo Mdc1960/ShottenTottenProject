@@ -38,6 +38,10 @@ public :
 	void setFirstPlayerSide(std::unique_ptr<PlayerSide> playerSide);
 	void setSecondPlayerSide(std::unique_ptr<PlayerSide> playerSide);
 
+	void printBorder();
+
+	void printFirtPlayerSideCardByIndex(unsigned int&& index);
+	void printSecondPlayerSideCardByIndex(unsigned int&& index);
 	
 
 	void printFirstPlayerBorderSide();

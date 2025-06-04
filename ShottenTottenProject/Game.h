@@ -34,8 +34,7 @@ private :
 	bool isConfiguring = false;
 
 	void buildGameBord(unsigned int&& clanStackSize, unsigned int&& tacticStackSize);
-	void printFirstPlayerBorderSide();
-	void printSecondPlayerBorderSide();
+	
 	void printBorderSeparator();
 
 	void startConfiguration();

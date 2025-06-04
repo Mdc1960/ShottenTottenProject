@@ -32,6 +32,6 @@ string CardClan::getNamecard()
 
 void CardClan::printCard()
 {
-    std::cout << numero << "_" << getColorString() << std::endl;
+    std::cout << "   " << numero << "_" << getColorString() << "   ";
 }
 

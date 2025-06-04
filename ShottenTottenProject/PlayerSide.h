@@ -23,6 +23,9 @@ public :
 	Iterator* createIterator() override;
 	Iterator* createIterator(unsigned int&& pos);
 
+	void printCardSetInReverse();
+	void printCardByIndex(unsigned int&& index);
+
 	void increaseCapacity();
 	unsigned int getCapacity() const;
 

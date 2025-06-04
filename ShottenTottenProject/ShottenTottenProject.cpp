@@ -303,6 +303,16 @@ SumCombination<unsigned int> sm = SumCombination<unsigned int>();
 
 std::cout << "P1 Sum : " << sm.playerCombination({ 1,8,3 }) << std::endl;
 
+
+BorderBase bbs = BorderBase();
+
+
+Bord& brd = Bord::getInstance();
+
+brd.printBorders();
+
+std::cout << "Size : " << brd.getBorderSize() << std::endl;
+
     std::cout << "Hello World!!!" << std::endl;
 
     return 0;
