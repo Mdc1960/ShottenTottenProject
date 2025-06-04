@@ -2,9 +2,19 @@
 #define GAME_EXCEPTION_H
 
 #include <exception>
+#include <iostream>
+#include <string>
 
-class Exception : public std::exception
+class GameException : public std::exception
 {
+private :
+	std::string exceptionMessage;
+
+public :
+
+	GameException(std::string&& message);
+	const char* what() const noexcept override;
+
 };
 
 #endif

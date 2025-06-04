@@ -132,15 +132,16 @@
     <ClCompile Include="BaseBattle.cpp" />
     <ClCompile Include="Bord.cpp" />
     <ClCompile Include="Border.cpp" />
+    <ClCompile Include="BorderBase.cpp" />
     <ClCompile Include="BorderDecorator.cpp" />
     <ClCompile Include="CardBattle.cpp" />
     <ClCompile Include="CardClan.cpp" />
     <ClCompile Include="CardElite.cpp" />
     <ClCompile Include="CardTactic.cpp" />
     <ClCompile Include="CollinMaillard.cpp" />
-    <ClCompile Include="Combination.cpp" />
     <ClCompile Include="Defausse.cpp" />
     <ClCompile Include="Espion.cpp" />
+    <ClCompile Include="Exception.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="HumanPlayer.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="BaseBattle.h" />
     <ClInclude Include="Bord.h" />
     <ClInclude Include="Border.h" />
+    <ClInclude Include="BorderBase.h" />
     <ClInclude Include="BorderDecorator.h" />
     <ClInclude Include="CardBattle.h" />
     <ClInclude Include="CardClan.h" />
@@ -173,9 +175,12 @@
     <ClInclude Include="CardTactic.h" />
     <ClInclude Include="CollinMaillard.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="ColorCombination.h" />
+    <ClInclude Include="ColorSequenceCombination.h" />
     <ClInclude Include="Combination.h" />
     <ClInclude Include="Defausse.h" />
     <ClInclude Include="Espion.h" />
+    <ClInclude Include="Exception.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameUtil.h" />
     <ClInclude Include="Hand.h" />
@@ -190,7 +195,10 @@
     <ClInclude Include="RevendicateBorder.h" />
     <ClInclude Include="Rules.h" />
     <ClInclude Include="CardRuse.h" />
+    <ClInclude Include="SequenceCombination.h" />
+    <ClInclude Include="SetCombination.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="SumCombination.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

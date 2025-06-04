@@ -6,7 +6,9 @@
 class BorderBase : public Border
 {
 
-public : 
+public :
+
+	BorderBase();
 
 	virtual void claim() override;
 

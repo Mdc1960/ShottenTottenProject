@@ -56,10 +56,7 @@ Iterator* Stack::createIterator(unsigned int&& index)
 void Stack::fillCardSet()
 {
     for (unsigned int index = 0; index < this->capacity; index++) {
-
-        std::unique_ptr<CardInterface> currentCard = std::make_unique<CardClan>(index,Color::BLEU);
-        push(std::move(currentCard));
-        
+        push(std::move(std::make_unique<CardClan>(index, Color::BLEU)));
     }
 }
 

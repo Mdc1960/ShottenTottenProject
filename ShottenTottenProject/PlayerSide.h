@@ -26,6 +26,10 @@ public :
 	void increaseCapacity();
 	unsigned int getCapacity() const;
 
+	CardInterface* getCardByIndex(unsigned int&& indexCard);
+
+	std::vector<std::string> getAllCardColor();
+
 
 	class PlayerSideIterator : public Iterator {
 

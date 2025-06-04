@@ -13,5 +13,12 @@ enum class BorderStatus {
 	BORDER_IS_NOT_REVENDICATED
 };
 
+enum class Combine {
+	COLOR_SEQUENCE_ = 5,
+	SET_ = 4,
+	COLOR_ = 3,
+	SEQUENCE_ = 2,
+	SUM_ = 1
+};
 
 #endif
