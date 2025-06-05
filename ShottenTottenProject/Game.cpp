@@ -2,19 +2,21 @@
 
 Game::Game() : gameMode(GameMode::BASE)
 {
+	buildGameBord(std::move(56), std::move(12));
+}
+
+void Game::putCardInBordersColumnUsingPlayerId(std::unique_ptr<CardInterface> card, unsigned int&& playerId, unsigned int&& columnIndex)
+{
+	gameBord.putCardInBorderByPlayerIdAndColumnIndex(std::move(card), std::move(playerId), std::move(columnIndex));
 }
 
 
 void Game::buildGameBord(unsigned int&& clanStackSize, unsigned int&& tacticStackSize)
 {
-	gameBord.createBordStacks(std::move(clanStackSize), std::move(tacticStackSize));
-
-	
+	gameBord.createBordStacks(std::move(clanStackSize), std::move(tacticStackSize));//Create Stacts Cards.
+	gameBord.printBorders();
 }
 
-void Game::printBorderSeparator()
-{
-}
 
 void Game::startConfiguration()
 {
@@ -167,12 +169,12 @@ void Game::shuffledGameTacticStack()
 	gameBord.shuffledTacticStack();
 }
 
-CardInterface* Game::getCardFromCardClanStack()
+std::unique_ptr<CardInterface> Game::getCardFromCardClanStack()
 {
 	return nullptr;
 }
 
-CardInterface* Game::getCardFromCardTackticStack()
+std::unique_ptr<CardInterface> Game::getCardFromCardTackticStack()
 {
 	return nullptr;
 }

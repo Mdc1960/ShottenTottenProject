@@ -12,6 +12,7 @@
 #include "SequenceCombination.h"
 #include "SumCombination.h"
 #include "Exception.h"
+#include "Game.h"
 
 
 int main()
@@ -338,6 +339,14 @@ catch (GameException& exp) {
 }
 
 brd.printBorders();
+
+std::cout << "-------------------------GAME PART-----------------------------" << std::endl;
+
+Game g = Game();
+g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(3, Color::RED)), std::move(2), std::move(0));
+g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(5, Color::YELLOW)), std::move(1), std::move(1));
+brd.printBorders();
+
 
     std::cout << "Hello World!!!" << std::endl;
 

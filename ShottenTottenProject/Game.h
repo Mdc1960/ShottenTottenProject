@@ -34,8 +34,6 @@ private :
 	bool isConfiguring = false;
 
 	void buildGameBord(unsigned int&& clanStackSize, unsigned int&& tacticStackSize);
-	
-	void printBorderSeparator();
 
 	void startConfiguration();
 
@@ -43,8 +41,8 @@ private :
 	void shuffledGameClanStack();
 	void shuffledGameTacticStack();
 
-	CardInterface* getCardFromCardClanStack();
-	CardInterface* getCardFromCardTackticStack();
+	std::unique_ptr<CardInterface> getCardFromCardClanStack();
+	std::unique_ptr<CardInterface> getCardFromCardTackticStack();
 	void popCardFromClanStack();
 	void popCardFromTacticStack();
 
@@ -59,6 +57,7 @@ private :
 public :
 
 	Game();
+	void putCardInBordersColumnUsingPlayerId(std::unique_ptr<CardInterface> card, unsigned int&& playerId, unsigned int&& columnIndex);
 
 };
 
