@@ -28,11 +28,13 @@ Bord& Bord::getInstance()
 void Bord::createClanStack(unsigned int&& capacity)
 {
 	clanStack = std::make_unique<Stack>(std::move(capacity));
+	clanStack->fillClanStack();
 }
 
 void Bord::createTacticStack(unsigned int&& capacity)
 {
 	tacticStack = std::make_unique<Stack>(std::move(capacity));
+	tacticStack->fillTacticStack();
 }
 
 void Bord::fillBorders()
@@ -94,7 +96,6 @@ void Bord::printSecondPlayerBorderSide()
 
 void Bord::createBordStacks(unsigned int&& clanCapacity, unsigned int&& tacticCapacity)
 {
-	//defausse = std::make_unique<Defausse>();
 	createClanStack(std::move(clanCapacity));
 	createTacticStack(std::move(tacticCapacity));
 }
@@ -113,4 +114,14 @@ void Bord::putCardInBorderByPlayerIdAndColumnIndex(std::unique_ptr<CardInterface
 			break;
 		}
 	}
+}
+
+void Bord::showClanStack()
+{
+	clanStack->printCardSet();
+}
+
+void Bord::showTacticStack()
+{
+	tacticStack->printCardSet();
 }

@@ -308,6 +308,7 @@ std::cout << "P1 Sum : " << sm.playerCombination({ 1,8,3 }) << std::endl;
 std::cout << "\n------------------------------STACK---------------------------------" << std::endl;
 
 Stack stack = Stack(54);
+stack.fillClanStack();
 std::cout << "\nBEFORE SHUFFLE\n";
 stack.printCardSet();
 std::cout << "\n";
@@ -361,6 +362,11 @@ brd.printBorders();
 std::cout << "Display GameBord" << std::endl;
 g.displayGameBord();
 
+std::cout << "\n\nGAME CLAN STACK\n";
+
+g.showClanStack();
+
+std::cout << "\n";
 
 
 

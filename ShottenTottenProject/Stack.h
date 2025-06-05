@@ -17,6 +17,8 @@ private :
 	unsigned int capacity;
 
 	void push(std::unique_ptr<CardInterface> card) override;
+
+	void fillCardSet() override;
 	
 
 public :
@@ -25,10 +27,13 @@ public :
 
 	std::size_t size() override;
 	void pop() override;
-	void fillCardSet() override;
+	
 	void printCardSet() override;
 	Iterator* createIterator() override;
 	Iterator* createIterator(unsigned int&& index);
+
+	void fillClanStack();
+	void fillTacticStack();
 
 	std::unique_ptr<CardInterface> popAndGetBackCard();
 	void shuffledStack();

@@ -54,6 +54,8 @@ public :
 
 	void putCardInBorderByPlayerIdAndColumnIndex(std::unique_ptr<CardInterface> card,unsigned int&& playerId, unsigned int&& columnIndex);
 
+	void showClanStack();
+	void showTacticStack();
 
 };
 

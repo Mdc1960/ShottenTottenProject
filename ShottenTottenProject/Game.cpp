@@ -20,7 +20,9 @@ void Game::putCardInBordersColumnUsingPlayerId(std::unique_ptr<CardInterface> ca
 void Game::buildGameBord(unsigned int&& clanStackSize, unsigned int&& tacticStackSize)
 {
 	gameBord.createBordStacks(std::move(clanStackSize), std::move(tacticStackSize));//Create Stacts Cards.
-	gameBord.printBorders();
+	shuffledGameClanStack();
+	shuffledGameTacticStack();
+	displayGameBord();
 }
 
 
@@ -168,6 +170,16 @@ void Game::startConfiguration()
 void Game::displayGameBord()
 {
 	gameBord.printBorders();
+}
+
+void Game::showClanStack()
+{
+	gameBord.showClanStack();
+}
+
+void Game::showTacticStack()
+{
+	gameBord.showTacticStack();
 }
 
 void Game::shuffledGameClanStack()

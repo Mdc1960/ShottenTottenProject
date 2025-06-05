@@ -8,7 +8,7 @@
 Stack::Stack(unsigned int&& capacity)
 {
     this->capacity = capacity;
-    fillCardSet();
+    //fillCardSet();
 }
 
 std::size_t Stack::size()
@@ -51,6 +51,15 @@ Iterator* Stack::createIterator()
 Iterator* Stack::createIterator(unsigned int&& index)
 {
     return (index <= size()) ? new StackIterator(this, index) : nullptr;
+}
+
+void Stack::fillClanStack()
+{
+    fillCardSet();
+}
+
+void Stack::fillTacticStack()
+{
 }
 
 void Stack::fillCardSet()

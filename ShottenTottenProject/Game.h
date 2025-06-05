@@ -59,6 +59,8 @@ public :
 	Game();
 	void putCardInBordersColumnUsingPlayerId(std::unique_ptr<CardInterface> card, unsigned int&& playerId, unsigned int&& columnIndex);
 	void displayGameBord();
+	void showClanStack();
+	void showTacticStack();
 
 };
 
