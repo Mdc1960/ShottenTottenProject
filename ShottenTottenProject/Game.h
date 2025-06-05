@@ -36,7 +36,7 @@ private :
 	void buildGameBord(unsigned int&& clanStackSize, unsigned int&& tacticStackSize);
 
 	void startConfiguration();
-
+	
 
 	void shuffledGameClanStack();
 	void shuffledGameTacticStack();
@@ -58,6 +58,7 @@ public :
 
 	Game();
 	void putCardInBordersColumnUsingPlayerId(std::unique_ptr<CardInterface> card, unsigned int&& playerId, unsigned int&& columnIndex);
+	void displayGameBord();
 
 };
 

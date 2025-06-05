@@ -1,6 +1,10 @@
 #ifndef GAME_UTIL_H
 #define GAME_UTIL_H
 
+static const unsigned int ZERO = 0;
+static const unsigned int ONE = 1;
+static const unsigned int TWO = 2;
+
 enum class GameMode {
 	BASE,
 	TACTIC,

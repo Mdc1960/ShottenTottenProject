@@ -347,6 +347,9 @@ g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(3, Co
 g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(5, Color::YELLOW)), std::move(1), std::move(1));
 brd.printBorders();
 
+std::cout << "Display GameBord" << std::endl;
+g.displayGameBord();
+
 
     std::cout << "Hello World!!!" << std::endl;
 

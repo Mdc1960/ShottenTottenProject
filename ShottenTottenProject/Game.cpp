@@ -159,6 +159,11 @@ void Game::startConfiguration()
 	}
 }
 
+void Game::displayGameBord()
+{
+	gameBord.printBorders();
+}
+
 void Game::shuffledGameClanStack()
 {
 	gameBord.shuffledClanStack();
