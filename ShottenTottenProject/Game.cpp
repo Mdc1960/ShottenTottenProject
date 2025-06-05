@@ -42,54 +42,57 @@ void Game::startConfiguration()
 				<< std::endl;
 
 			std::cin >> stringMode;
-		}
-		try {
 
-			integerMode = std::stoi(stringMode);
+			try {
 
-			std::cout << "Mode : " << std::stoi(stringMode) << std::endl;
+				integerMode = std::stoi(stringMode);
 
-			if (integerMode <= 0 || integerMode > 3) {
-				throw new GameException("The value you set is out of range.");
+				std::cout << "Mode : " << std::stoi(stringMode) << std::endl;
+
+				if (integerMode <= 0 || integerMode > 3) {
+					throw new GameException("The value you set is out of range.");
+				}
+
+				switch (integerMode) {
+				case 1:
+					gameMode = GameMode::BASE;
+					break;
+				case 2:
+					gameMode = GameMode::TACTIC;
+					break;
+				case 3:
+					gameMode = GameMode::EXPERT;
+					break;
+				default:
+					break;
+
+				}
+
+				if (gameMode == GameMode::BASE || gameMode == GameMode::TACTIC || gameMode == GameMode::EXPERT) {
+					printMode();
+					isModeResponseCorrect = true;
+				}
+				else {
+					std::cout << "\a" << std::endl;
+					std::cerr << "The integer isn't between 1 and 3 ! try again" << std::endl;
+				}
+
 			}
-
-			switch (integerMode) {
-			case 1:
-				gameMode = GameMode::BASE;
-				break;
-			case 2:
-				gameMode = GameMode::TACTIC;
-				break;
-			case 3:
-				gameMode = GameMode::EXPERT;
-				break;
-			default:
-				break;
-
-			}
-
-			if (gameMode == GameMode::BASE || gameMode == GameMode::TACTIC || gameMode == GameMode::EXPERT) {
-				printMode();
-				isModeResponseCorrect = true;
-			}
-			else {
+			catch (const std::invalid_argument& arg) {
 				std::cout << "\a" << std::endl;
-				std::cerr << "The integer isn't between 1 and 3 ! try again" << std::endl;
+				std::cout << "Invalide choice try again !! : " << arg.what() << std::endl;
+			}
+			catch (const std::out_of_range& out) {
+				std::cout << "\a" << std::endl;
+				std::cout << "Invalide interger too higher try again !! : " << out.what() << std::endl;
+			}
+			catch (GameException& exp) {
+				std::cout << "\a" << std::endl;
+				std::cout << "Invalide integer : " << exp.what() << std::endl;
 			}
 
 		}
-		catch (const std::invalid_argument& arg) {
-			std::cout << "\a" << std::endl;
-			std::cout << "Invalide choice try again !! : " << arg.what() << std::endl;
-		}
-		catch (const std::out_of_range& out) {
-			std::cout << "\a" << std::endl;
-			std::cout << "Invalide interger too higher try again !! : " << out.what() << std::endl;
-		}
-		catch (GameException& exp) {
-			std::cout << "\a" << std::endl;
-			std::cout << "Invalide integer : " << exp.what() << std::endl;
-		}
+		
 
 		while (!isPlayerChoiceCorrect) {
 			std::cout << "\nNow you will set your information.\n" << std::endl;

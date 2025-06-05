@@ -337,6 +337,8 @@ catch (GameException& exp) {
     std::cout << "\aError while puting card : " << exp.what() << std::endl;
 }
 
+brd.printBorders();
+
     std::cout << "Hello World!!!" << std::endl;
 
     return 0;
