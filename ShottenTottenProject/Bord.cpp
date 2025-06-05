@@ -101,22 +101,16 @@ void Bord::createBordStacks(unsigned int&& clanCapacity, unsigned int&& tacticCa
 
 void Bord::putCardInBorderByPlayerIdAndColumnIndex(std::unique_ptr<CardInterface> card, unsigned int&& playerId, unsigned int&& columnIndex)
 {
-	try {
-		if (columnIndex < 9) {
-			switch (playerId) {
-			case 1:
-				borders[columnIndex]->putCardInFirstPlayerSide(std::move(card));
-				break;
-			case 2:
-				borders[columnIndex]->putCardInSecondPlayerSide(std::move(card));
-				break;
-			default:
-				break;
-			}
+	if (columnIndex < 9) {
+		switch (playerId) {
+		case 1:
+			borders[columnIndex]->putCardInFirstPlayerSide(std::move(card));
+			break;
+		case 2:
+			borders[columnIndex]->putCardInSecondPlayerSide(std::move(card));
+			break;
+		default:
+			break;
 		}
 	}
-	catch (GameException& exp) {
-		throw;
-	}
-	
 }

@@ -7,7 +7,13 @@ Game::Game() : gameMode(GameMode::BASE)
 
 void Game::putCardInBordersColumnUsingPlayerId(std::unique_ptr<CardInterface> card, unsigned int&& playerId, unsigned int&& columnIndex)
 {
-	gameBord.putCardInBorderByPlayerIdAndColumnIndex(std::move(card), std::move(playerId), std::move(columnIndex));
+	try {
+		gameBord.putCardInBorderByPlayerIdAndColumnIndex(std::move(card), std::move(playerId), std::move(columnIndex));
+	}
+	catch (GameException& exp) {
+		std::cout << "\aError while puting card : " << exp.what() << std::endl;
+	}
+	
 }
 
 
