@@ -109,14 +109,14 @@ void Border::printSecondPlayerBorderSide()
 CardInterface* Border::getCardInPlayerSide(unsigned int&& playerSideId, unsigned int&& indexCard)
 {
 	
-	switch (playerSideId) {
+	switch (std::move(playerSideId)) {
 	case 1:
-		if (indexCard < firstPlayerBorderSide->size()) {
+		if (std::move(indexCard) < firstPlayerBorderSide->size()) {
 			return firstPlayerBorderSide->getCardByIndex(std::move(indexCard));
 		}
 		break;
 	case 2:
-		if (indexCard < secondPlayerBorderSide->size()) {
+		if (std::move(indexCard) < secondPlayerBorderSide->size()) {
 			return secondPlayerBorderSide->getCardByIndex(std::move(indexCard));
 		}
 		break;
