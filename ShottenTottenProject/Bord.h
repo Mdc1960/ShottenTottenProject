@@ -6,9 +6,12 @@
 #include "Defausse.h"
 #include "BorderBase.h"
 #include <vector>
+#include "Observer.h"
+
+class Game;
 
 
-class Bord
+class Bord : public Observer
 {
 
 private :
@@ -37,6 +40,8 @@ private :
 public :
 
 	static Bord& getInstance();
+
+	void update(Observable* observable) override;
 	
 
 	void shuffledClanStack();

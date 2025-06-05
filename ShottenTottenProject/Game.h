@@ -10,10 +10,21 @@
 #include "RevendicateBorder.h"
 #include "GameUtil.h"
 #include "Exception.h"
+#include "Observable.h"
+#include "Observer.h"
+#include <algorithm>
+
+class Bord;
 
 
-class Game
+class Game : public Observable
 {
+
+protected:
+
+	void add(Observer* observer) override;
+	void remove(Observer* observer) override;
+	void notify() override;
 
 private :
 
@@ -25,6 +36,7 @@ private :
 	std::unique_ptr<Phase> playPhase;
 	std::unique_ptr<Phase> revendicatePhase;
 	GameMode gameMode;
+	std::vector<Observer*> listObserver;
 
 	unsigned int playerCombination = 0;
 	unsigned int opponentCombination = 0;

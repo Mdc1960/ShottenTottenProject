@@ -357,14 +357,16 @@ std::cout << "-------------------------GAME PART-----------------------------" <
 Game g = Game();
 g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(3, Color::RED)), std::move(2), std::move(0));
 g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(5, Color::MALLOW)), std::move(1), std::move(1));
-brd.printBorders();
+g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(5, Color::BLACK)), std::move(1), std::move(5));
+g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(8, Color::RED)), std::move(2), std::move(6));
+/*brd.printBorders();
 
 std::cout << "Display GameBord" << std::endl;
 g.displayGameBord();
 
 std::cout << "\n\nGAME CLAN STACK\n";
 
-g.showClanStack();
+g.showClanStack();*/
 
 std::cout << "\n";
 

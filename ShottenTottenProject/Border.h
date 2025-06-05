@@ -4,6 +4,8 @@
 #include <iostream>
 #include <utility>
 #include <vector>
+#include <iostream>
+#include <typeinfo>
 #include "CardSet.h"
 #include "PlayerSide.h"
 #include "GameUtil.h"

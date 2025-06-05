@@ -187,6 +187,8 @@
     <ClInclude Include="HumanPlayer.h" />
     <ClInclude Include="IteratorInterface.h" />
     <ClInclude Include="Joker.h" />
+    <ClInclude Include="Observable.h" />
+    <ClInclude Include="Observer.h" />
     <ClInclude Include="Phase.h" />
     <ClInclude Include="PlayerInterface.h" />
     <ClInclude Include="PlayerPlay.h" />

@@ -3,12 +3,14 @@
 Game::Game() : gameMode(GameMode::BASE)
 {
 	buildGameBord(std::move(54), std::move(12));
+	add(&gameBord);
 }
 
 void Game::putCardInBordersColumnUsingPlayerId(std::unique_ptr<CardInterface> card, unsigned int&& playerId, unsigned int&& columnIndex)
 {
 	try {
 		gameBord.putCardInBorderByPlayerIdAndColumnIndex(std::move(card), std::move(playerId), std::move(columnIndex));
+		notify();
 	}
 	catch (GameException& exp) {
 		std::cout << "\aError while puting card : " << exp.what() << std::endl;
@@ -16,6 +18,23 @@ void Game::putCardInBordersColumnUsingPlayerId(std::unique_ptr<CardInterface> ca
 	
 }
 
+
+void Game::add(Observer* observer)
+{
+	listObserver.push_back(observer);
+}
+
+void Game::remove(Observer* observer)
+{
+	std::remove(listObserver.begin(), listObserver.end(), observer);
+}
+
+void Game::notify()
+{
+	for (auto& observer : listObserver) {
+		observer->update(this);
+	}
+}
 
 void Game::buildGameBord(unsigned int&& clanStackSize, unsigned int&& tacticStackSize)
 {

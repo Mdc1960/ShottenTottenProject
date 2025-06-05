@@ -1,5 +1,5 @@
 #include "Bord.h"
-
+#include "Game.h"
 
 /*!
 * Bord
@@ -23,6 +23,13 @@ Bord& Bord::getInstance()
 		instance = new Bord();
 	}
 	return *instance;
+}
+
+void Bord::update(Observable* observable)
+{
+	if (dynamic_cast<Game*>(observable)) {
+		((Game*)observable)->displayGameBord();
+	}
 }
 
 void Bord::createClanStack(unsigned int&& capacity)
