@@ -12,12 +12,12 @@ CardClan::CardClan(unsigned int num, Color col)
 string CardClan::getColorString() const
 {
     switch (color) {
-        case Color::RED: return "Red";
-        case Color::BLEU: return "Bleu";
-        case Color::GREEN: return "Green";
-        case Color::YELLOW: return "Yellow";
-        case Color::PURPLE: return "Purple";
-        case Color::ORANGE: return "Orange";
+        case Color::RED: return "RD";
+        case Color::BLUE: return "BE";
+        case Color::GREEN: return "GN";
+        case Color::BLACK: return "BK";
+        case Color::PURPLE: return "PE";
+        case Color::MALLOW: return "MW";
         default: return "Inconnu";
     }
 }
@@ -32,6 +32,12 @@ string CardClan::getNamecard()
 
 void CardClan::printCard()
 {
-    std::cout << "   " << numero << "_" << getColorString() << "   ";
+    if (numero > 0) {
+        std::cout << "  CL:" << numero << "_" << " " << getColorString() << "  ";
+    }
+    else {
+        std::cout << "  " << "X" << "_" << "nocard" << "  ";
+    }
+    
 }
 

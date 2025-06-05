@@ -2,7 +2,7 @@
 
 Game::Game() : gameMode(GameMode::BASE)
 {
-	buildGameBord(std::move(56), std::move(12));
+	buildGameBord(std::move(54), std::move(12));
 }
 
 void Game::putCardInBordersColumnUsingPlayerId(std::unique_ptr<CardInterface> card, unsigned int&& playerId, unsigned int&& columnIndex)

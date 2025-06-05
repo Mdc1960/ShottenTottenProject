@@ -55,8 +55,13 @@ Iterator* Stack::createIterator(unsigned int&& index)
 
 void Stack::fillCardSet()
 {
-    for (unsigned int index = 0; index < this->capacity; index++) {
-        push(std::move(std::make_unique<CardClan>(index, Color::BLEU)));
+    for (unsigned int index = 0; index < (this->capacity)/6; index++) {
+        push(std::move(creatSingleCard(index + 1,Color::BLACK)));
+        push(std::move(creatSingleCard(index + 1,Color::BLUE)));
+        push(std::move(creatSingleCard(index + 1,Color::GREEN)));
+        push(std::move(creatSingleCard(index + 1,Color::MALLOW)));
+        push(std::move(creatSingleCard(index + 1,Color::PURPLE)));
+        push(std::move(creatSingleCard(index + 1,Color::RED)));
     }
 }
 
@@ -72,6 +77,11 @@ void Stack::shuffledStack()
     std::random_device randomDivice;
     std::mt19937       generator(randomDivice());
     std::shuffle(cardCollection.begin(), cardCollection.end(), generator);
+}
+
+std::unique_ptr<CardClan> Stack::creatSingleCard(unsigned int&& power, Color&& color)
+{
+    return std::move(std::make_unique<CardClan>(std::move(power), std::move(color)));
 }
 
 Stack::StackIterator Stack::begin()

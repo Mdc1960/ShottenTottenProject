@@ -5,6 +5,7 @@
 #include "CardSet.h"
 #include "GameUtil.h"
 #include "Color.h"
+#include "CardClan.h"
 
 static const unsigned int MAX_NUMBER_CARD_IN_STACK = 56;
 
@@ -31,6 +32,8 @@ public :
 
 	std::unique_ptr<CardInterface> popAndGetBackCard();
 	void shuffledStack();
+
+	std::unique_ptr<CardClan> creatSingleCard(unsigned int&& power, Color&& color);
 
 	class StackIterator : public Iterator
 	{

@@ -55,7 +55,7 @@ void Hand::fillCardSet()
 {
     for (unsigned int index = 0; index < MAX_NUMBER_CARD_IN_HAND; index++) {
         setIndexToPushCard(index);
-        push(std::move(std::make_unique<CardClan>(index, Color::BLEU)));
+        push(std::move(std::make_unique<CardClan>(index, Color::BLUE)));
     }
 }
 

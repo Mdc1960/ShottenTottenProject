@@ -38,7 +38,7 @@ void PlayerSide::printCardSet()
 void PlayerSide::fillCardSet()
 {
     for (unsigned int index = 0; index < capacity; index++) {
-        push(std::move(std::make_unique<CardClan>(0, Color::BLEU)));
+        push(std::move(std::make_unique<CardClan>(0, Color::BLUE)));
     }
 }
 

@@ -305,6 +305,17 @@ SumCombination<unsigned int> sm = SumCombination<unsigned int>();
 
 std::cout << "P1 Sum : " << sm.playerCombination({ 1,8,3 }) << std::endl;
 
+std::cout << "\n------------------------------STACK---------------------------------" << std::endl;
+
+Stack stack = Stack(54);
+std::cout << "\nBEFORE SHUFFLE\n";
+stack.printCardSet();
+std::cout << "\n";
+stack.shuffledStack();
+std::cout << "\AFTER SHUFFLE\n";
+stack.printCardSet();
+std::cout << "\n------------------------------STACK---------------------------------" << std::endl;
+
 
 BorderBase bbs = BorderBase();
 
@@ -317,7 +328,7 @@ std::cout << "Size : " << brd.getBorderSize() << std::endl;
 
 try {
     brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(1, Color::GREEN)),std::move(1),std::move(0));
-    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(2, Color::ORANGE)),std::move(1),std::move(0));
+    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(2, Color::BLACK)),std::move(1),std::move(0));
     brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(4, Color::PURPLE)),std::move(1),std::move(0));
     brd.printBorders();
     brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(3, Color::RED)),std::move(1),std::move(0));
@@ -328,7 +339,7 @@ catch (GameException& exp) {
 }
 try {
     brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(1, Color::GREEN)),std::move(2),std::move(1));
-    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(2, Color::ORANGE)),std::move(2),std::move(1));
+    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(2, Color::BLACK)),std::move(2),std::move(1));
     brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(4, Color::PURPLE)),std::move(2),std::move(1));
     brd.printBorders();
     brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(3, Color::RED)),std::move(2),std::move(1));
@@ -344,11 +355,13 @@ std::cout << "-------------------------GAME PART-----------------------------" <
 
 Game g = Game();
 g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(3, Color::RED)), std::move(2), std::move(0));
-g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(5, Color::YELLOW)), std::move(1), std::move(1));
+g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(5, Color::MALLOW)), std::move(1), std::move(1));
 brd.printBorders();
 
 std::cout << "Display GameBord" << std::endl;
 g.displayGameBord();
+
+
 
 
     std::cout << "Hello World!!!" << std::endl;
