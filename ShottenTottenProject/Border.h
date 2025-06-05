@@ -43,6 +43,8 @@ public :
 	void printFirtPlayerSideCardByIndex(unsigned int&& index);
 	void printSecondPlayerSideCardByIndex(unsigned int&& index);
 	
+	void putCardInFirstPlayerSide(std::unique_ptr<CardInterface> card);
+	void putCardInSecondPlayerSide(std::unique_ptr<CardInterface> card);
 
 	void printFirstPlayerBorderSide();
 	void printSecondPlayerBorderSide();

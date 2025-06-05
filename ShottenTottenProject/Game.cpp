@@ -7,7 +7,7 @@ Game::Game() : gameMode(GameMode::BASE)
 
 void Game::buildGameBord(unsigned int&& clanStackSize, unsigned int&& tacticStackSize)
 {
-	gameBord.fillBord(std::move(clanStackSize), std::move(tacticStackSize));
+	gameBord.createBordStacks(std::move(clanStackSize), std::move(tacticStackSize));
 
 	
 }

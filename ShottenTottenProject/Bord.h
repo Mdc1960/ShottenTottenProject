@@ -18,6 +18,9 @@ private :
 	std::vector<std::unique_ptr<Border>> borders;
 	std::unique_ptr<Defausse> defausse;
 
+	unsigned int clanStackCapacity;
+	unsigned int tacticStackCapacity;
+
 	static Bord* instance;
 
 	Bord();
@@ -39,13 +42,17 @@ public :
 	void shuffledClanStack();
 	void shuffledTacticStack();
 
+	
+
 	void printBorders();
 
 	size_t getBorderSize() const;
 
 	void printFirstPlayerBorderSide();
 	void printSecondPlayerBorderSide();
-	void fillBord(unsigned int&& clanCapacity, unsigned int&& tacticCapacity);
+	void createBordStacks(unsigned int&& clanCapacity, unsigned int&& tacticCapacity);
+
+	void putCardInBorderByPlayerIdAndColumnIndex(std::unique_ptr<CardInterface> card,unsigned int&& playerId, unsigned int&& columnIndex);
 
 
 };

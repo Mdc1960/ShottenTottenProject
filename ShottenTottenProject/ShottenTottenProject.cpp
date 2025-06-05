@@ -11,6 +11,7 @@
 #include "SetCombination.h"
 #include "SequenceCombination.h"
 #include "SumCombination.h"
+#include "Exception.h"
 
 
 int main()
@@ -312,6 +313,29 @@ Bord& brd = Bord::getInstance();
 brd.printBorders();
 
 std::cout << "Size : " << brd.getBorderSize() << std::endl;
+
+try {
+    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(1, Color::GREEN)),std::move(1),std::move(0));
+    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(2, Color::ORANGE)),std::move(1),std::move(0));
+    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(4, Color::PURPLE)),std::move(1),std::move(0));
+    brd.printBorders();
+    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(3, Color::RED)),std::move(1),std::move(0));
+    brd.printBorders();
+}
+catch (GameException& exp) {
+    std::cout << "\aError while puting card : " << exp.what() << std::endl;
+}
+try {
+    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(1, Color::GREEN)),std::move(2),std::move(1));
+    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(2, Color::ORANGE)),std::move(2),std::move(1));
+    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(4, Color::PURPLE)),std::move(2),std::move(1));
+    brd.printBorders();
+    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(3, Color::RED)),std::move(2),std::move(1));
+    brd.printBorders();
+}
+catch (GameException& exp) {
+    std::cout << "\aError while puting card : " << exp.what() << std::endl;
+}
 
     std::cout << "Hello World!!!" << std::endl;
 

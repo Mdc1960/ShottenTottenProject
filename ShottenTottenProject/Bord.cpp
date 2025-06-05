@@ -8,7 +8,8 @@ Bord* Bord::instance = nullptr;
 
 Bord::Bord()
 {
-	fillBord(std::move(56),std::move(12));
+	//fillBord(std::move(56),std::move(12));
+	defausse = std::make_unique<Defausse>();
 	borders = std::vector<std::unique_ptr<Border>>();
 	fillBorders();
 }
@@ -51,6 +52,8 @@ void Bord::shuffledTacticStack()
 	tacticStack->shuffledStack();
 }
 
+
+
 void Bord::printBorders()
 {
 	std::cout << std::endl;
@@ -89,9 +92,31 @@ void Bord::printSecondPlayerBorderSide()
 	
 }
 
-void Bord::fillBord(unsigned int&& clanCapacity, unsigned int&& tacticCapacity)
+void Bord::createBordStacks(unsigned int&& clanCapacity, unsigned int&& tacticCapacity)
 {
-	defausse = std::make_unique<Defausse>();
+	//defausse = std::make_unique<Defausse>();
 	createClanStack(std::move(clanCapacity));
 	createTacticStack(std::move(tacticCapacity));
+}
+
+void Bord::putCardInBorderByPlayerIdAndColumnIndex(std::unique_ptr<CardInterface> card, unsigned int&& playerId, unsigned int&& columnIndex)
+{
+	try {
+		if (columnIndex < 9) {
+			switch (playerId) {
+			case 1:
+				borders[columnIndex]->putCardInFirstPlayerSide(std::move(card));
+				break;
+			case 2:
+				borders[columnIndex]->putCardInSecondPlayerSide(std::move(card));
+				break;
+			default:
+				break;
+			}
+		}
+	}
+	catch (GameException& exp) {
+		throw;
+	}
+	
 }

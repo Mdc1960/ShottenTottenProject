@@ -93,6 +93,17 @@ std::vector<std::string> PlayerSide::getAllCardColor()
     return vect;
 }
 
+void PlayerSide::putCardInCardSet(std::unique_ptr<CardInterface> card)
+{
+    if (putCardIndex < 3) {
+        this->cardCollection[putCardIndex] = std::move(card);
+        putCardIndex++;
+    }
+    else {
+        throw GameException("This player side is full. You cannot put a card in this border.");
+    }
+}
+
 PlayerSide::PlayerSideIterator PlayerSide::begin()
 {
     return PlayerSideIterator(this,0);

@@ -61,12 +61,34 @@ void Border::printBorder()
 
 void Border::printFirtPlayerSideCardByIndex(unsigned int&& index)
 {
-	/*std::cout << "Border First Side : ";*/  firstPlayerBorderSide->printCardByIndex(std::move(index));
+	firstPlayerBorderSide->printCardByIndex(std::move(index));
 }
 
 void Border::printSecondPlayerSideCardByIndex(unsigned int&& index)
 {
-	/*std::cout << "Border Second Side : ";*/  secondPlayerBorderSide->printCardByIndex(std::move(index));
+	secondPlayerBorderSide->printCardByIndex(std::move(index));
+}
+
+void Border::putCardInFirstPlayerSide(std::unique_ptr<CardInterface> card)
+{
+	try {
+		firstPlayerBorderSide->putCardInCardSet(std::move(card));
+	}
+	catch (GameException exp) {
+		throw;
+	}
+	
+}
+
+void Border::putCardInSecondPlayerSide(std::unique_ptr<CardInterface> card)
+{
+	try {
+		secondPlayerBorderSide->putCardInCardSet(std::move(card));
+	}
+	catch (GameException exp) {
+		throw;
+	}
+	
 }
 
 
