@@ -28,7 +28,20 @@ void PlayerInterface::setIdPlayer(unsigned int id) {
     idPlayer = id;
 }
 
-void PlayerInterface::ShowHand() {
+void PlayerInterface::pickCardFromBordStacks(Bord& bord)
+{
+    hand.pushBackCard(std::move(bord.popAndGetCardFromClanStack()));
+}
+
+void PlayerInterface::showHand() {
     std::cout << "Hand of player " << playerName << ":" << std::endl;
     hand.printCardSet();
+}
+
+void PlayerInterface::play(Bord& bord)
+{
+    chooseCard();
+    chooseBorne();
+    putCardInGameBordBorder(bord, popCardFromPlayerHandByIndex(chooseCardIndex),chooseBorderIndex);
+    pickCardFromBordStacks(bord);
 }

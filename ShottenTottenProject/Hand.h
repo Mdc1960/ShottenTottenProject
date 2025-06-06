@@ -41,6 +41,8 @@ public :
 	void popCardFromHandByIndex(unsigned int&& indexToPop);
 	std::unique_ptr<CardInterface> popAndGetCardByIndex(unsigned int&& index);
 
+	void pushBackCard(std::unique_ptr<CardInterface> card);
+
 
 	class HandIterator : public Iterator {
 

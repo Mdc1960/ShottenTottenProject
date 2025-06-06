@@ -111,6 +111,16 @@ std::unique_ptr<CardInterface> Hand::popAndGetCardByIndex(unsigned int&& index)
     return card;
 }
 
+void Hand::pushBackCard(std::unique_ptr<CardInterface> card)
+{
+    if (size() < MAX_NUMBER_CARD_IN_HAND) {
+        cardCollection.push_back(std::move(card));
+    }
+    else {
+        std::cout << "Your hand is full." << std::endl;
+    }
+}
+
 Hand::HandIterator Hand::begin()
 {
     return HandIterator(this,0);
