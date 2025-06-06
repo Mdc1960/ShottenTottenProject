@@ -8,7 +8,6 @@
 Stack::Stack(unsigned int&& capacity)
 {
     this->capacity = capacity;
-    //fillCardSet();
 }
 
 std::size_t Stack::size()

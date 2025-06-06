@@ -26,7 +26,8 @@ void Game::add(Observer* observer)
 
 void Game::remove(Observer* observer)
 {
-	std::remove(listObserver.begin(), listObserver.end(), observer);
+
+	listObserver.erase(std::remove(listObserver.begin(),listObserver.end(),observer), listObserver.end());
 }
 
 void Game::notify()
@@ -213,21 +214,22 @@ void Game::shuffledGameTacticStack()
 
 std::unique_ptr<CardInterface> Game::getCardFromCardClanStack()
 {
-	return nullptr;
+	return gameBord.popAndGetCardFromClanStack();
 }
 
 std::unique_ptr<CardInterface> Game::getCardFromCardTackticStack()
 {
-	return nullptr;
+	return gameBord.popAndGetCardFromTacticStack();
 }
 
-void Game::popCardFromClanStack()
+/*void Game::popCardFromClanStack()
 {
+
 }
 
 void Game::popCardFromTacticStack()
 {
-}
+}*/
 
 void Game::printMode()
 {

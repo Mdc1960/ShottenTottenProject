@@ -368,6 +368,14 @@ std::cout << "\n\nGAME CLAN STACK\n";
 
 g.showClanStack();*/
 
+g.showClanStack();
+
+std::cout << "\nPOP AND GET CARD : "; g.getCardFromCardClanStack()->printCard(); std::cout << std::endl;
+std::cout << "\nPOP AND GET CARD : "; g.getCardFromCardClanStack()->printCard(); std::cout << std::endl;
+
+g.showClanStack();
+
+
 std::cout << "\n";
 
 

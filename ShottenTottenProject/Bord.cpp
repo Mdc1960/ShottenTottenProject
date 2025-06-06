@@ -132,3 +132,13 @@ void Bord::showTacticStack()
 {
 	tacticStack->printCardSet();
 }
+
+std::unique_ptr<CardInterface> Bord::popAndGetCardFromClanStack()
+{
+	return clanStack->popAndGetBackCard();
+}
+
+std::unique_ptr<CardInterface> Bord::popAndGetCardFromTacticStack()
+{
+	return tacticStack->popAndGetBackCard();
+}

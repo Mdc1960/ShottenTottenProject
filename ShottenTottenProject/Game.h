@@ -53,10 +53,10 @@ private :
 	void shuffledGameClanStack();
 	void shuffledGameTacticStack();
 
-	std::unique_ptr<CardInterface> getCardFromCardClanStack();
+	
 	std::unique_ptr<CardInterface> getCardFromCardTackticStack();
-	void popCardFromClanStack();
-	void popCardFromTacticStack();
+	/*void popCardFromClanStack();
+	void popCardFromTacticStack();*/
 
 	void printMode();
 	void startGame();
@@ -73,6 +73,7 @@ public :
 	void displayGameBord();
 	void showClanStack();
 	void showTacticStack();
+	std::unique_ptr<CardInterface> getCardFromCardClanStack();
 
 };
 

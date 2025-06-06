@@ -62,6 +62,9 @@ public :
 	void showClanStack();
 	void showTacticStack();
 
+	std::unique_ptr<CardInterface> popAndGetCardFromClanStack();
+	std::unique_ptr<CardInterface> popAndGetCardFromTacticStack();
+
 };
 
 #endif
