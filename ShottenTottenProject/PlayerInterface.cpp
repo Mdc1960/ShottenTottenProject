@@ -2,6 +2,11 @@
 #include <iostream>
 
 
+void PlayerInterface::pushCardInPlayerHand(std::unique_ptr<CardInterface> card)
+{
+    hand.pushBackCard(std::move(card));
+}
+
 PlayerInterface::PlayerInterface() : playerName(""), idPlayer(0) {}
 
 PlayerInterface::PlayerInterface(const std::string& name, unsigned int id)
@@ -28,9 +33,14 @@ void PlayerInterface::setIdPlayer(unsigned int id) {
     idPlayer = id;
 }
 
-void PlayerInterface::pickCardFromBordStacks(Bord& bord)
+void PlayerInterface::printPlayer()
 {
-    hand.pushBackCard(std::move(bord.popAndGetCardFromClanStack()));
+    std::cout << "#" << idPlayer << " " << playerName << std::endl;
+}
+
+void PlayerInterface::pickCardFromBordStacksAndAddInPlayerHand(Bord& bord)
+{
+    pushCardInPlayerHand(std::move(bord.popAndGetCardFromClanStack()));
 }
 
 void PlayerInterface::showHand() {
@@ -38,10 +48,23 @@ void PlayerInterface::showHand() {
     hand.printCardSet();
 }
 
+void PlayerInterface::fillPlayerHandWithClanCardFronBordClanStack(Bord& bord)
+{
+    for (unsigned int index = 0; index < MAX_CARD_NUMBER_IN_PLAYER_HAND; ++index) {
+        pickCardFromBordStacksAndAddInPlayerHand(bord);
+    }
+}
+
+std::unique_ptr<CardInterface> PlayerInterface::popCardFromPlayerHandByIndex(unsigned int& index)
+{
+    unsigned int indexPos = index;
+    return hand.popAndGetCardByIndex(std::move(indexPos));
+}
+
 void PlayerInterface::play(Bord& bord)
 {
     chooseCard();
     chooseBorne();
     putCardInGameBordBorder(bord, popCardFromPlayerHandByIndex(chooseCardIndex),chooseBorderIndex);
-    pickCardFromBordStacks(bord);
+    pickCardFromBordStacksAndAddInPlayerHand(bord);
 }

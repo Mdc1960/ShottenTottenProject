@@ -376,6 +376,8 @@ std::cout << "\nPOP AND GET CARD : "; g.getCardFromCardClanStack()->printCard();
 g.showClanStack();
 
 
+
+
 std::cout << "\n";
 
 

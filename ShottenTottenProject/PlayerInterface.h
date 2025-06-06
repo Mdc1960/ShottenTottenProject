@@ -5,8 +5,10 @@
 #include <string>
 #include "Hand.h"
 #include "Bord.h"
-#include "RevendicateBorder.h"
-#include "PlayerPlay.h"
+
+
+static const unsigned int MAX_CARD_NUMBER_IN_PLAYER_HAND = 6;
+
 
 class PlayerInterface {
 protected:
@@ -14,10 +16,10 @@ protected:
     Hand hand;
     unsigned int idPlayer;
 
-    unsigned int chooseBorderIndex;
-    unsigned int chooseCardIndex;
+    unsigned int chooseBorderIndex = 0;
+    unsigned int chooseCardIndex = 0;
 
-    virtual void pushCardInPlayerHand(std::unique_ptr<CardInterface> card) = 0;
+    void pushCardInPlayerHand(std::unique_ptr<CardInterface> card);
 
 public:
     PlayerInterface();
@@ -32,15 +34,16 @@ public:
     // Setters
     void setPlayerName(const std::string& name);
     void setIdPlayer(unsigned int id);
+    void printPlayer();
 
     // Virtual methods
-    void pickCardFromBordStacks(Bord& bord);
+    void pickCardFromBordStacksAndAddInPlayerHand(Bord& bord);
     virtual void chooseBorne() = 0;
     virtual void claim(Bord& bord) = 0;
     virtual void showHand();
     virtual void chooseCard() = 0;
-    virtual void fillPlayerHandWithClanCardFronBordClanStack(Bord& bord) = 0;
-    virtual std::unique_ptr<CardInterface> popCardFromPlayerHandByIndex(unsigned int& index) = 0;
+    void fillPlayerHandWithClanCardFronBordClanStack(Bord& bord);
+    std::unique_ptr<CardInterface> popCardFromPlayerHandByIndex(unsigned int& index);
     virtual void putCardInGameBordBorder(Bord& bord, std::unique_ptr<CardInterface> card, const unsigned int& chooseBorderIndex) = 0;
     void play(Bord& bord);
 };

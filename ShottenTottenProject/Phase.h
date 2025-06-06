@@ -3,6 +3,8 @@
 
 #include "PlayerInterface.h"
 
+class PlayerInterface;
+
 class Phase
 {
 

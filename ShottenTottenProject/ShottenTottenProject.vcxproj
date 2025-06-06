@@ -142,6 +142,8 @@
     <ClCompile Include="Defausse.cpp" />
     <ClCompile Include="Espion.cpp" />
     <ClCompile Include="Exception.cpp" />
+    <ClCompile Include="FactoryAIPlayer.cpp" />
+    <ClCompile Include="FactoryHumanPlayer.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="HumanPlayer.cpp" />
@@ -181,6 +183,9 @@
     <ClInclude Include="Defausse.h" />
     <ClInclude Include="Espion.h" />
     <ClInclude Include="Exception.h" />
+    <ClInclude Include="FactoryAIPlayer.h" />
+    <ClInclude Include="FactoryHumanPlayer.h" />
+    <ClInclude Include="FactoryPlayer.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameUtil.h" />
     <ClInclude Include="Hand.h" />

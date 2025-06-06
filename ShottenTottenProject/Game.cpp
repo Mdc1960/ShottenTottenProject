@@ -2,8 +2,10 @@
 
 Game::Game() : gameMode(GameMode::BASE)
 {
+	startConfiguration();
 	buildGameBord(std::move(54), std::move(12));
 	add(&gameBord);
+	startGame();
 }
 
 void Game::putCardInBordersColumnUsingPlayerId(std::unique_ptr<CardInterface> card, unsigned int&& playerId, unsigned int&& columnIndex)
@@ -26,7 +28,6 @@ void Game::add(Observer* observer)
 
 void Game::remove(Observer* observer)
 {
-
 	listObserver.erase(std::remove(listObserver.begin(),listObserver.end(),observer), listObserver.end());
 }
 
@@ -50,7 +51,7 @@ void Game::startConfiguration()
 {
 	std::string stringMode = "";
 	std::string stringFirstPlayerName = "";
-	std::string stringSecondPlayerName = "";
+	std::string stringSecondPlayerChoice = "";
 	std::string stringOpponentName = "";
 
 	unsigned int integerMode = 0;
@@ -80,7 +81,7 @@ void Game::startConfiguration()
 				std::cout << "Mode : " << std::stoi(stringMode) << std::endl;
 
 				if (integerMode <= 0 || integerMode > 3) {
-					throw new GameException("The value you set is out of range.");
+					throw GameException("The value you set is out of range.");
 				}
 
 				switch (integerMode) {
@@ -125,7 +126,7 @@ void Game::startConfiguration()
 		
 
 		while (!isPlayerChoiceCorrect) {
-			std::cout << "\nNow you will set your information.\n" << std::endl;
+			std::cout << "\nNow you will set your information. Your are the first who travel recently around ECOSS!!!\n" << std::endl;
 			std::cout << "Please enter your name : ";
 			std::cin >> stringFirstPlayerName;
 
@@ -133,24 +134,29 @@ void Game::startConfiguration()
 				<< " 1 - AI \n"
 				<< " 2 - HUMAN PLAYER \n"
 				<< std::endl;
-			std::cin >> stringSecondPlayerName;
+			std::cin >> stringSecondPlayerChoice;
 
 			try {
-				integerPlayer = std::stoi(stringSecondPlayerName);
+				integerPlayer = std::stoi(stringSecondPlayerChoice);
 
 				if (integerPlayer < 1 || integerPlayer >= 3) {
-					throw new GameException("Number should be 1 or 2.");
+					throw GameException("Number should be 1 or 2.");
 				}
 				else {
 
 					std::cout << "Your choice is " << integerPlayer << std::endl;
+					setOpponentChoiseMade(integerPlayer);
 					//TODO : CREATE PLAYER AND IS OPPONENT
 
 					// Create FirstPlayer.
+					firstPlayer = FactoryHumanPlayer().createPlayer(stringFirstPlayerName,1);
+					firstPlayer->printPlayer();
 
 					switch (integerPlayer) {
 					case 1:
 						//Create AI
+						secondPlayer = FactoryAIPlayer().createPlayer("AI",2);
+						secondPlayer->printPlayer();
 						break;
 
 					case 2:
@@ -158,6 +164,8 @@ void Game::startConfiguration()
 						std::cout << "Please enter your opponet name : ";
 						std::cin >> stringOpponentName;
 						//Create Opponent
+						secondPlayer = FactoryHumanPlayer().createPlayer(stringOpponentName, 2);
+						secondPlayer->printPlayer();
 						break;
 
 					default:
@@ -250,8 +258,46 @@ void Game::printMode()
 	std::cout << "You will play SHOTTEN TOTTEN in mode : " << mode << std::endl;
 }
 
+/*!
+* Method used to start the SHOTTEN TOTTEN game.
+*/
 void Game::startGame()
 {
+
+	fillPlayerHandWithInitialCardsUsingId(std::move(1));
+	fillPlayerHandWithInitialCardsUsingId(std::move(2));
+
+	while (!isGameOver) {
+
+		switch (turn) {
+
+		case 0:
+			//FIRST PLAYER PLAY.
+			playPhase = std::make_shared<PlayerPlay>();
+			playPhase->acceptPlayer(firstPlayer.get());
+			break;
+		case 1:
+			//OPPONENT PLAYER PLAY (AI/HUMAN PLAYER).
+			switch (opponentChoiseMade) {
+
+			case 1:
+				//AI
+				break;
+			case 2:
+				//Human
+				break;
+			default:
+				break;
+
+			}
+			
+			break;
+		default:
+			break;
+		}
+
+	}
+
 }
 
 void Game::showHumanPlayerHand(unsigned int&& id)
@@ -281,5 +327,35 @@ void Game::setOpponentCombination(unsigned int&& combination)
 void Game::setAICombination(unsigned int&& combination)
 {
 	this->playerCombination = combination;
+}
+
+void Game::fillPlayerHandWithInitialCardsUsingId(unsigned int&& id)
+{
+	switch (std::move(id)) {
+	case 1:
+		firstPlayer->fillPlayerHandWithClanCardFronBordClanStack(gameBord);
+		break;
+	case 2:
+		secondPlayer->fillPlayerHandWithClanCardFronBordClanStack(gameBord);
+		break;
+	default:
+		break;
+
+	}
+}
+
+void Game::setPlayPhase(std::shared_ptr<Phase> playPhase)
+{
+	this->playPhase = std::move(playPhase);
+}
+
+void Game::setRevendicatePhase(std::shared_ptr<Phase> revendicatePhase)
+{
+	this->revendicatePhase = std::move(revendicatePhase);
+}
+
+void Game::setOpponentChoiseMade(const unsigned int& opponentChoiseMade)
+{
+	this->opponentChoiseMade = opponentChoiseMade;
 }
 

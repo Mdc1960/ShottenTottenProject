@@ -12,6 +12,9 @@
 #include "Exception.h"
 #include "Observable.h"
 #include "Observer.h"
+#include "FactoryAIPlayer.h"
+#include "FactoryHumanPlayer.h"
+#include "PlayerPlay.h"
 #include <algorithm>
 
 class Bord;
@@ -33,14 +36,17 @@ private :
 	Bord& gameBord = Bord::getInstance();
 	std::unique_ptr<PlayerInterface> firstPlayer;
 	std::unique_ptr<PlayerInterface> secondPlayer;
-	std::unique_ptr<Phase> playPhase;
-	std::unique_ptr<Phase> revendicatePhase;
+	std::shared_ptr<Phase> playPhase;
+	std::shared_ptr<Phase> revendicatePhase;
 	GameMode gameMode;
 	std::vector<Observer*> listObserver;
 
 	unsigned int playerCombination = 0;
 	unsigned int opponentCombination = 0;
 	unsigned int aiCombination = 0;
+	unsigned int turn = 0;
+
+	unsigned int opponentChoiseMade = 0;
 
 	bool isGameOver = false;
 	bool isConfiguring = false;
@@ -65,6 +71,12 @@ private :
 	void setPlayerCombination(unsigned int&& combination);
 	void setOpponentCombination(unsigned int&& combination);
 	void setAICombination(unsigned int&& combination);
+
+	void fillPlayerHandWithInitialCardsUsingId(unsigned int&& id);
+
+	void setPlayPhase(std::shared_ptr<Phase> playPhase);
+	void setRevendicatePhase(std::shared_ptr<Phase> revendicatePhase);
+	void setOpponentChoiseMade(const unsigned int& opponentChoiseMade);
 
 public :
 
