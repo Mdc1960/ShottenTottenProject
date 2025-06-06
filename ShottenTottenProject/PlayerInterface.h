@@ -4,12 +4,15 @@
 
 #include <string>
 #include "Hand.h"
+#include "Bord.h"
 
 class PlayerInterface {
 protected:
     std::string playerName;
     Hand hand;
     unsigned int idPlayer;
+
+    virtual void pushCardInPlayerHand(std::unique_ptr<CardInterface> card) = 0;
 
 public:
     PlayerInterface();
@@ -26,11 +29,13 @@ public:
     void setIdPlayer(unsigned int id);
 
     // Virtual methods
-    virtual void Pick() = 0;
+    virtual void pickCardFromBordStacks(Bord& bord) = 0;
     virtual void ChooseBorne() = 0;
     virtual void Claim() = 0;
     virtual void ShowHand();
     virtual void ChooseCard() = 0;
+    virtual void fillPlayerHandWithClanCardFronBordClanStack(Bord& bord) = 0;
+    virtual std::unique_ptr<CardInterface> popCardFromPlayerHandByIndex(unsigned int&& index) = 0;
 };
 
 #endif // PLAYERINTERFACE_H
