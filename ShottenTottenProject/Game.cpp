@@ -291,6 +291,8 @@ void Game::startGame()
 
 			try {
 				gameBord.putCardInBorderByPlayerIdAndColumnIndex(firstPlayer->popCardFromPlayerHandByIndex(indexCard), std::move(1), std::move(indexBorder - 1));
+				firstPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
+
 			}
 			catch (GameException exp) {
 				std::cout << "Error : " << exp.what() << std::endl;
