@@ -47,7 +47,7 @@ private :
 	unsigned int playerCombination = 0;
 	unsigned int opponentCombination = 0;
 	unsigned int aiCombination = 0;
-	static unsigned int turn;
+	unsigned int turn;
 
 	unsigned int opponentChoiseMade = 0;
 

@@ -3,6 +3,8 @@
 
 
 #include "PlayerInterface.h"
+#include <iostream>
+#include <random>
 
 class AIPlayer : public PlayerInterface
 {
@@ -14,7 +16,8 @@ public:
 	void chooseBorne() override;
 	void claim(Bord& bord) override;
 	void chooseCard() override;
-	//void putCardInGameBordBorder(Bord& bord, std::unique_ptr<CardInterface> card, const unsigned int& chooseBorderIndex) override;
+
+	const unsigned int generateRandomNumber(unsigned int&& maxNumber, unsigned int&& minNumber) const;
 
 };
 

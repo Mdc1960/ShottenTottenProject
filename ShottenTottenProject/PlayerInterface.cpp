@@ -70,7 +70,15 @@ void PlayerInterface::printPlayer()
 
 void PlayerInterface::pickCardFromBordStacksAndAddInPlayerHand(Bord& bord)
 {
-    pushCardInPlayerHand(std::move(bord.popAndGetCardFromClanStack()));
+    std::unique_ptr<CardInterface> card = std::move(bord.popAndGetCardFromClanStack());
+
+    if (card != nullptr) {
+        pushCardInPlayerHand(std::move(card));
+    }
+    else {
+        bord.setIsClanStackEmpty(true);
+    }
+    
 }
 
 void PlayerInterface::showHand() {

@@ -23,6 +23,8 @@ private :
 	std::vector<std::unique_ptr<Border>> borders;
 	std::unique_ptr<Defausse> defausse;
 
+	bool isClanStackEmpty = false;
+
 	unsigned int clanStackCapacity;
 	unsigned int tacticStackCapacity;
 
@@ -68,6 +70,9 @@ public :
 
 	std::unique_ptr<CardInterface> popAndGetCardFromClanStack();
 	std::unique_ptr<CardInterface> popAndGetCardFromTacticStack();
+
+	void setIsClanStackEmpty(bool&& b);
+	const bool getIsClanStackEmpty() const;
 
 };
 

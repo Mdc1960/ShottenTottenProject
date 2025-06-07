@@ -83,12 +83,4 @@ void HumanPlayer::chooseCard()
 		
 	}
 	
-
-	//std::cout << "You choose : " << value << std::endl;
 }
-
-/*void HumanPlayer::putCardInGameBordBorder(Bord& bord, std::unique_ptr<CardInterface> card, const unsigned int& chooseBorderIndex)
-{
-	unsigned int index = chooseBorderIndex;
-	bord.putCardInBorderByPlayerIdAndColumnIndex(std::move(card), std::move(1), std::move(index));
-}*/

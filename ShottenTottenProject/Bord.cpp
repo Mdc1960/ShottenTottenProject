@@ -159,3 +159,13 @@ std::unique_ptr<CardInterface> Bord::popAndGetCardFromTacticStack()
 {
 	return tacticStack->popAndGetBackCard();
 }
+
+void Bord::setIsClanStackEmpty(bool&& b)
+{
+	this->isClanStackEmpty = b;
+}
+
+const bool Bord::getIsClanStackEmpty() const
+{
+	return isClanStackEmpty;
+}

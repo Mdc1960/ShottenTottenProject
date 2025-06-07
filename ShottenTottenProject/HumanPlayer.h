@@ -15,7 +15,6 @@ public:
 	void chooseBorne() override;
 	void claim(Bord& bord) override;
 	void chooseCard() override;
-	//void putCardInGameBordBorder(Bord& bord, std::unique_ptr<CardInterface> card, const unsigned int& chooseBorderIndex) override;
 };
 
 #endif

@@ -75,9 +75,12 @@ void Stack::fillCardSet()
 
 std::unique_ptr<CardInterface> Stack::popAndGetBackCard()
 {
-    std::unique_ptr<CardInterface> currentCard = std::move(cardCollection[size() - 1]);
-    pop();
-    return currentCard;
+    if (size()) {
+        std::unique_ptr<CardInterface> currentCard = std::move(cardCollection[size() - 1]);
+        pop();
+        return currentCard;
+    }
+    return nullptr;
 }
 
 void Stack::shuffledStack()

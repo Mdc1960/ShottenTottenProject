@@ -1,6 +1,6 @@
 #pragma once
-#ifndef PLAYERINTERFACE_H
-#define PLAYERINTERFACE_H
+#ifndef PLAYER_INTERFACE_H
+#define PLAYER_INTERFACE_H
 
 #include <string>
 #include "Hand.h"
@@ -8,6 +8,9 @@
 
 
 static const unsigned int MAX_CARD_NUMBER_IN_PLAYER_HAND = 6;
+
+static const unsigned int ALLOW_NUBER_PLAY_BORDER = 9;
+static const unsigned int ALLOW_NUBER_CARD_COLOR = 6;
 
 
 class PlayerInterface {
@@ -59,10 +62,9 @@ public:
     virtual void claim(Bord& bord) = 0;
     virtual void showHand();
     virtual void chooseCard() = 0;
-    //virtual void putCardInGameBordBorder(Bord& bord, std::unique_ptr<CardInterface> card, const unsigned int& chooseBorderIndex) = 0;
     
 };
 
-#endif // PLAYERINTERFACE_H
+#endif // PLAYER_INTERFACE_H
 
 
