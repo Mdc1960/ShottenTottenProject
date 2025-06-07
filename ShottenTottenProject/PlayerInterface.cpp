@@ -25,6 +25,16 @@ Hand& PlayerInterface::getHand() {
     return hand;
 }
 
+const unsigned int PlayerInterface::getChooseBorderIndex() const
+{
+    return this->chooseBorderIndex;
+}
+
+const unsigned int PlayerInterface::getChooseCardIndex() const
+{
+    return this->chooseCardIndex;
+}
+
 void PlayerInterface::setChooseBorderIndex(unsigned int& borderIndex)
 {
     this->chooseBorderIndex = borderIndex;
@@ -85,7 +95,7 @@ void PlayerInterface::play(Bord& bord)
 {
     
     chooseCard();
-    /*chooseBorne();
-    putCardInGameBordBorder(bord, popCardFromPlayerHandByIndex(chooseCardIndex),chooseBorderIndex);
+    chooseBorne();
+    /*putCardInGameBordBorder(bord, popCardFromPlayerHandByIndex(chooseCardIndex), chooseBorderIndex);
     pickCardFromBordStacksAndAddInPlayerHand(bord);*/
 }

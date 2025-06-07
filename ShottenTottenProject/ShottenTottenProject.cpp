@@ -260,7 +260,7 @@ std::cout << "Set bis : " << st.cardAreSameValue({ 8,6,7 }) << std::endl;
 std::cout << "Set : " << st.cardAreSameColor({ 8,8,8 }) << std::endl;
 std::cout << "Set bis : " << st.cardAreSameValue({ 1,1,1 }) << std::endl;*/
 
-std::unique_ptr<PlayerSide> p1 = std::make_unique<PlayerSide>();
+/*std::unique_ptr<PlayerSide> p1 = std::make_unique<PlayerSide>();
 std::unique_ptr<PlayerSide> p2 = std::make_unique<PlayerSide>();
 p1->fillCardSet();
 p2->fillCardSet();
@@ -350,7 +350,7 @@ catch (GameException& exp) {
     std::cout << "\aError while puting card : " << exp.what() << std::endl;
 }
 
-brd.printBorders();
+brd.printBorders();*/
 
 std::cout << "-------------------------GAME PART-----------------------------" << std::endl;
 
@@ -368,12 +368,12 @@ std::cout << "\n\nGAME CLAN STACK\n";
 
 g.showClanStack();*/
 
-g.showClanStack();
+/*g.showClanStack();
 
 std::cout << "\nPOP AND GET CARD : "; g.getCardFromCardClanStack()->printCard(); std::cout << std::endl;
 std::cout << "\nPOP AND GET CARD : "; g.getCardFromCardClanStack()->printCard(); std::cout << std::endl;
 
-g.showClanStack();
+g.showClanStack();*/
 
 
 

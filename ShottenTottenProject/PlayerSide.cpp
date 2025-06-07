@@ -61,7 +61,10 @@ void PlayerSide::printCardSetInReverse()
 
 void PlayerSide::printCardByIndex(unsigned int&& index)
 {
-    this->cardCollection[index]->printCard();
+    if (index < size()) {
+        this->cardCollection[index]->printCard();
+    }
+    
 }
 
 void PlayerSide::increaseCapacity()

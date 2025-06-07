@@ -45,7 +45,7 @@ void Game::buildGameBord(unsigned int&& clanStackSize, unsigned int&& tacticStac
 	gameBord.createBordStacks(std::move(clanStackSize), std::move(tacticStackSize));//Create Stacts Cards.
 	shuffledGameClanStack();
 	shuffledGameTacticStack();
-	displayGameBord();
+	//displayGameBord();
 }
 
 
@@ -275,6 +275,9 @@ void Game::startGame()
 		
 		displayGameBord();
 
+		unsigned int indexCard;
+		unsigned int indexBorder;
+
 		switch (turn) {
 
 		case 0:
@@ -282,8 +285,23 @@ void Game::startGame()
 			//showHumanPlayerHand(std::move(1));
 			playPhase = std::make_shared<PlayerPlay>();
 			playPhase->acceptPlayer(firstPlayer.get());
-			turn = (turn + 1) % 2;
+
+			indexCard = firstPlayer->getChooseCardIndex();
+			indexBorder = firstPlayer->getChooseBorderIndex();
+
+			try {
+				gameBord.putCardInBorderByPlayerIdAndColumnIndex(firstPlayer->popCardFromPlayerHandByIndex(indexCard), std::move(1), std::move(indexBorder - 1));
+			}
+			catch (GameException exp) {
+				std::cout << "Error : " << exp.what() << std::endl;
+			}
+			
+
 			firstPlayer->setIsChooseColorValid(false);
+			firstPlayer->setIsChooseBoredValid(false);
+
+			turn = (turn + 1) % 2;
+			
 			#ifdef _WIN32
 				std::system("cls");
 			#else

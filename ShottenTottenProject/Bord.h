@@ -8,6 +8,8 @@
 #include <vector>
 #include "Observer.h"
 
+static const unsigned int MAX_BORDER_NUMBER_IN_BORD = 9;
+
 class Game;
 
 

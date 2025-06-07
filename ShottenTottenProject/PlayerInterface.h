@@ -34,6 +34,9 @@ public:
     unsigned int getIdPlayer() const;
     Hand& getHand();
 
+    const unsigned int getChooseBorderIndex() const;
+    const unsigned int getChooseCardIndex() const;
+
     // Setters
     void setPlayerName(const std::string& name);
     void setIdPlayer(unsigned int id);
@@ -56,7 +59,7 @@ public:
     virtual void claim(Bord& bord) = 0;
     virtual void showHand();
     virtual void chooseCard() = 0;
-    virtual void putCardInGameBordBorder(Bord& bord, std::unique_ptr<CardInterface> card, const unsigned int& chooseBorderIndex) = 0;
+    //virtual void putCardInGameBordBorder(Bord& bord, std::unique_ptr<CardInterface> card, const unsigned int& chooseBorderIndex) = 0;
     
 };
 

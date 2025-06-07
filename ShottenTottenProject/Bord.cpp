@@ -46,7 +46,7 @@ void Bord::createTacticStack(unsigned int&& capacity)
 
 void Bord::fillBorders()
 {
-	for (unsigned int index = 0; index < 9; index++) {
+	for (unsigned int index = 0; index < MAX_BORDER_NUMBER_IN_BORD; index++) {
 		borders.push_back(std::move(std::make_unique<BorderBase>()));
 	}
 }

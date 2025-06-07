@@ -16,6 +16,6 @@ void AIPlayer::chooseCard()
 {
 }
 
-void AIPlayer::putCardInGameBordBorder(Bord& bord, std::unique_ptr<CardInterface> card, const unsigned int& chooseBorderIndex)
+/*void AIPlayer::putCardInGameBordBorder(Bord& bord, std::unique_ptr<CardInterface> card, const unsigned int& chooseBorderIndex)
 {
-}
+}*/
