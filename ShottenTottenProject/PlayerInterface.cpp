@@ -25,6 +25,26 @@ Hand& PlayerInterface::getHand() {
     return hand;
 }
 
+void PlayerInterface::setChooseBorderIndex(unsigned int& borderIndex)
+{
+    this->chooseBorderIndex = borderIndex;
+}
+
+void PlayerInterface::setChooseCardIndex(unsigned int& cardIndex)
+{
+    this->chooseCardIndex = cardIndex;
+}
+
+void PlayerInterface::setIsChooseColorValid(bool&& b)
+{
+    this->isColorChooseValid = b;
+}
+
+void PlayerInterface::setIsChooseBoredValid(bool&& b)
+{
+    this->isBorderChooseValid = b;
+}
+
 void PlayerInterface::setPlayerName(const std::string& name) {
     playerName = name;
 }
@@ -44,7 +64,7 @@ void PlayerInterface::pickCardFromBordStacksAndAddInPlayerHand(Bord& bord)
 }
 
 void PlayerInterface::showHand() {
-    std::cout << "Hand of player " << playerName << ":" << std::endl;
+    std::cout << "Hand of player " << playerName << ":\n" << std::endl;
     hand.printCardSet();
 }
 
@@ -63,8 +83,9 @@ std::unique_ptr<CardInterface> PlayerInterface::popCardFromPlayerHandByIndex(uns
 
 void PlayerInterface::play(Bord& bord)
 {
+    
     chooseCard();
-    chooseBorne();
+    /*chooseBorne();
     putCardInGameBordBorder(bord, popCardFromPlayerHandByIndex(chooseCardIndex),chooseBorderIndex);
-    pickCardFromBordStacksAndAddInPlayerHand(bord);
+    pickCardFromBordStacksAndAddInPlayerHand(bord);*/
 }

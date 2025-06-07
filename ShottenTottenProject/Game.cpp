@@ -1,5 +1,7 @@
 #include "Game.h"
 
+unsigned int Game::turn = 0;
+
 Game::Game() : gameMode(GameMode::BASE)
 {
 	startConfiguration();
@@ -267,14 +269,27 @@ void Game::startGame()
 	fillPlayerHandWithInitialCardsUsingId(std::move(1));
 	fillPlayerHandWithInitialCardsUsingId(std::move(2));
 
+	//turn = 0;
+
 	while (!isGameOver) {
+		
+		displayGameBord();
 
 		switch (turn) {
 
 		case 0:
 			//FIRST PLAYER PLAY.
+			//showHumanPlayerHand(std::move(1));
 			playPhase = std::make_shared<PlayerPlay>();
 			playPhase->acceptPlayer(firstPlayer.get());
+			turn = (turn + 1) % 2;
+			firstPlayer->setIsChooseColorValid(false);
+			#ifdef _WIN32
+				std::system("cls");
+			#else
+				std::system("clear");
+			#endif
+				
 			break;
 		case 1:
 			//OPPONENT PLAYER PLAY (AI/HUMAN PLAYER).
@@ -282,9 +297,24 @@ void Game::startGame()
 
 			case 1:
 				//AI
+				std::cout << "AI is playing" << std::endl;
+				turn = (turn + 1) % 2;
+			#ifdef _WIN32
+				std::system("cls");
+			#else
+				std::system("clear");
+			#endif
+				
 				break;
 			case 2:
 				//Human
+				std::cout << "Oponnent is playing" << std::endl;
+				turn = (turn + 1) % 2;
+			#ifdef _WIN32
+				std::system("cls");
+			#else
+				std::system("clear");
+			#endif
 				break;
 			default:
 				break;
@@ -305,9 +335,15 @@ void Game::showHumanPlayerHand(unsigned int&& id)
 	switch (id) {
 	case 1:
 		//First Player Hand
+		if (dynamic_cast<HumanPlayer*>(firstPlayer.get())) {
+			firstPlayer->showHand();
+		}
 		break;
 	case 2:
 		//Opponent Hand if player vs player
+		if (dynamic_cast<HumanPlayer*>(secondPlayer.get())) {
+			secondPlayer->showHand();
+		}
 		break;
 	default:
 		break;

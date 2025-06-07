@@ -37,10 +37,10 @@ void Hand::push(std::unique_ptr<CardInterface> card)
 void Hand::printCardSet()
 {
     if (size()) {
+        unsigned int pos = 0;
         for (auto& card : this->cardCollection) {
-            //TODO : Print Player Hand.
-            std::cout << "Player Hand" << std::endl;
-            
+            std::cout << "(" << pos << ") :"; card->printCard();
+            pos++;
         }
     }
     else {

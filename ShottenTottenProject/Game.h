@@ -16,6 +16,9 @@
 #include "FactoryHumanPlayer.h"
 #include "PlayerPlay.h"
 #include <algorithm>
+#include <iostream>
+#include <typeinfo>
+#include <cstdlib>
 
 class Bord;
 
@@ -44,7 +47,7 @@ private :
 	unsigned int playerCombination = 0;
 	unsigned int opponentCombination = 0;
 	unsigned int aiCombination = 0;
-	unsigned int turn = 0;
+	static unsigned int turn;
 
 	unsigned int opponentChoiseMade = 0;
 
@@ -86,6 +89,7 @@ public :
 	void showClanStack();
 	void showTacticStack();
 	std::unique_ptr<CardInterface> getCardFromCardClanStack();
+	
 
 };
 

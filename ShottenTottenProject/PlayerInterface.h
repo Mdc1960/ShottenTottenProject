@@ -19,6 +19,9 @@ protected:
     unsigned int chooseBorderIndex = 0;
     unsigned int chooseCardIndex = 0;
 
+    bool isColorChooseValid = false;
+    bool isBorderChooseValid = false;
+
     void pushCardInPlayerHand(std::unique_ptr<CardInterface> card);
 
 public:
@@ -36,16 +39,25 @@ public:
     void setIdPlayer(unsigned int id);
     void printPlayer();
 
-    // Virtual methods
+    void setChooseBorderIndex(unsigned int& borderIndex);
+    void setChooseCardIndex(unsigned int& cardIndex);
+
+    void setIsChooseColorValid(bool&& b);
+    void setIsChooseBoredValid(bool&& b);
+
+    void fillPlayerHandWithClanCardFronBordClanStack(Bord& bord);
+    std::unique_ptr<CardInterface> popCardFromPlayerHandByIndex(unsigned int& index);
     void pickCardFromBordStacksAndAddInPlayerHand(Bord& bord);
+    void play(Bord& bord);
+
+    // Virtual methods
+    
     virtual void chooseBorne() = 0;
     virtual void claim(Bord& bord) = 0;
     virtual void showHand();
     virtual void chooseCard() = 0;
-    void fillPlayerHandWithClanCardFronBordClanStack(Bord& bord);
-    std::unique_ptr<CardInterface> popCardFromPlayerHandByIndex(unsigned int& index);
     virtual void putCardInGameBordBorder(Bord& bord, std::unique_ptr<CardInterface> card, const unsigned int& chooseBorderIndex) = 0;
-    void play(Bord& bord);
+    
 };
 
 #endif // PLAYERINTERFACE_H
