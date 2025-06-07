@@ -51,6 +51,9 @@ public :
 	void printFirstPlayerBorderSide();
 	void printSecondPlayerBorderSide();
 
+	const unsigned int getFirstPlayerSidePutCardIndex() const;
+	const unsigned int getSecondPlayerSidePutCardIndex() const;
+
 	CardInterface* getCardInPlayerSide(unsigned int&& playerSideId, unsigned int&& indexCard);
 
 private :

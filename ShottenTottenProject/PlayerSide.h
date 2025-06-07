@@ -38,6 +38,8 @@ public :
 
 	void putCardInCardSet(std::unique_ptr<CardInterface> card);
 
+	const unsigned int getPutCardIndex() const;
+
 
 	class PlayerSideIterator : public Iterator {
 

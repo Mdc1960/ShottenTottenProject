@@ -94,6 +94,17 @@ void Border::printSecondPlayerBorderSide()
 	std::cout << "Border Second Side : \n";  secondPlayerBorderSide->printCardSetInReverse();
 }
 
+const unsigned int Border::getFirstPlayerSidePutCardIndex() const
+{
+	return this->firstPlayerBorderSide->getPutCardIndex();
+}
+
+const unsigned int Border::getSecondPlayerSidePutCardIndex() const
+{
+	return this->secondPlayerBorderSide->getPutCardIndex();
+}
+
+
 CardInterface* Border::getCardInPlayerSide(unsigned int&& playerSideId, unsigned int&& indexCard)
 {
 	

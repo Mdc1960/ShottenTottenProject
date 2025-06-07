@@ -22,7 +22,7 @@ void PlayerSide::pop()
 
 void PlayerSide::push(std::unique_ptr<CardInterface> card)
 {
-    if (size() <= capacity) {
+    if (size() < capacity) {
         this->cardCollection.push_back(std::move(card));
     }
 }
@@ -105,6 +105,11 @@ void PlayerSide::putCardInCardSet(std::unique_ptr<CardInterface> card)
     else {
         throw GameException("This player side is full. You cannot put a card in this border.");
     }
+}
+
+const unsigned int PlayerSide::getPutCardIndex() const
+{
+    return putCardIndex;
 }
 
 PlayerSide::PlayerSideIterator PlayerSide::begin()

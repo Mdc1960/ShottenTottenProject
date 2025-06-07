@@ -49,6 +49,8 @@ public :
 	void shuffledClanStack();
 	void shuffledTacticStack();
 
+	const unsigned int getBorderSidePutCardIndex(unsigned int&& borderIndex, unsigned int&& sideId);
+
 	
 
 	void printBorders();

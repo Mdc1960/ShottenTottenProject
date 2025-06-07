@@ -273,10 +273,13 @@ void Game::startGame()
 
 	while (!isGameOver) {
 		
-		displayGameBord();
+		notify();
 
 		unsigned int indexCard;
 		unsigned int indexBorder;
+
+		unsigned int firstBorderSide;
+		unsigned int secondBorderSide;
 
 		switch (turn) {
 
@@ -289,26 +292,46 @@ void Game::startGame()
 			indexCard = firstPlayer->getChooseCardIndex();
 			indexBorder = firstPlayer->getChooseBorderIndex();
 
-			try {
-				gameBord.putCardInBorderByPlayerIdAndColumnIndex(firstPlayer->popCardFromPlayerHandByIndex(indexCard), std::move(1), std::move(indexBorder - 1));
-				firstPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
+			firstBorderSide = gameBord.getBorderSidePutCardIndex(std::move(indexBorder - 1), std::move(1));
 
-			}
-			catch (GameException exp) {
-				std::cout << "Error : " << exp.what() << std::endl;
-			}
-			
-
-			firstPlayer->setIsChooseColorValid(false);
-			firstPlayer->setIsChooseBoredValid(false);
-
-			turn = (turn + 1) % 2;
-			
 			#ifdef _WIN32
 				std::system("cls");
 			#else
 				std::system("clear");
 			#endif
+
+			if (firstBorderSide < 3) {
+
+				try {
+					gameBord.putCardInBorderByPlayerIdAndColumnIndex(firstPlayer->popCardFromPlayerHandByIndex(indexCard), std::move(1), std::move(indexBorder - 1));
+					firstPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
+
+				}
+				catch (GameException exp) {
+					std::cout << "Error : " << exp.what() << std::endl;
+				}
+
+
+				firstPlayer->setIsChooseColorValid(false);
+				firstPlayer->setIsChooseBoredValid(false);
+
+				turn = (turn + 1) % 2;
+
+			}
+			else {
+				std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' the border side " << indexBorder << " is full.You cannot put card in this border side." << std::endl;
+			}
+
+			firstPlayer->setIsChooseColorValid(false);
+			firstPlayer->setIsChooseBoredValid(false);
+
+			
+			
+			/*#ifdef _WIN32
+				std::system("cls");
+			#else
+				std::system("clear");
+			#endif*/
 				
 			break;
 		case 1:
@@ -324,6 +347,8 @@ void Game::startGame()
 			#else
 				std::system("clear");
 			#endif
+
+				
 				
 				break;
 			case 2:

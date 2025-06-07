@@ -61,6 +61,23 @@ void Bord::shuffledTacticStack()
 	tacticStack->shuffledStack();
 }
 
+const unsigned int Bord::getBorderSidePutCardIndex(unsigned int&& borderIndex, unsigned int&& sideId)
+{
+	unsigned int counter = 0;
+	for (auto& border : borders) {
+		if (counter == borderIndex) {
+			if (std::move(sideId) == 1) {
+				return border->getFirstPlayerSidePutCardIndex();
+			}
+			else {
+				return border->getSecondPlayerSidePutCardIndex();
+			}
+		}
+		counter++;
+	}
+	return 0;
+}
+
 
 
 void Bord::printBorders()
