@@ -231,15 +231,6 @@ std::unique_ptr<CardInterface> Game::getCardFromCardTackticStack()
 	return gameBord.popAndGetCardFromTacticStack();
 }
 
-/*void Game::popCardFromClanStack()
-{
-
-}
-
-void Game::popCardFromTacticStack()
-{
-}*/
-
 void Game::printMode()
 {
 	std::string mode = "";
@@ -286,45 +277,50 @@ void Game::startGame()
 		unsigned int secondBorderSide;
 
 		std::unique_ptr<CardInterface> aiPlayedCard;
+		std::unique_ptr<CardInterface> playerPlayedCard;
 
 		switch (turn) {
 
 		case 0:
 			//FIRST PLAYER PLAY.
-			//showHumanPlayerHand(std::move(1));
-			
+
 			playPhase->acceptPlayer(firstPlayer.get());
 
 			indexCard = firstPlayer->getChooseCardIndex();
 			indexBorder = firstPlayer->getChooseBorderIndex();
 
 			firstBorderSide = gameBord.getBorderSidePutCardIndex(std::move(indexBorder - 1), std::move(1));
-
+			
 			#ifdef _WIN32
 				std::system("cls");
 			#else
 				std::system("clear");
 			#endif
 
+			
+
 			if (firstBorderSide < 3) {
 
 				try {
-					gameBord.putCardInBorderByPlayerIdAndColumnIndex(firstPlayer->popCardFromPlayerHandByIndex(indexCard), std::move(1), std::move(indexBorder - 1));
-					
-					if (!gameBord.getIsClanStackEmpty()) {
-						firstPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
-					}
 
+					playerPlayedCard = std::move(firstPlayer->popCardFromPlayerHandByIndex(indexCard));
+
+					if (playerPlayedCard != nullptr) {
+
+						gameBord.putCardInBorderByPlayerIdAndColumnIndex(std::move(playerPlayedCard), std::move(1), std::move(indexBorder - 1));
+
+						turn = (turn + 1) % 2;
+
+						if (!gameBord.getIsClanStackEmpty()) {
+							firstPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
+						}
+						
+					}
+					
 				}
 				catch (GameException exp) {
 					std::cout << "Error : " << exp.what() << std::endl;
 				}
-
-
-				firstPlayer->setIsChooseColorValid(false);
-				firstPlayer->setIsChooseBoredValid(false);
-
-				turn = (turn + 1) % 2;
 
 			}
 			else {
@@ -362,27 +358,23 @@ void Game::startGame()
 
 					try {
 
-						aiPlayedCard = secondPlayer->popCardFromPlayerHandByIndex(aiIndexCard);
+						aiPlayedCard = std::move(secondPlayer->popCardFromPlayerHandByIndex(aiIndexCard));
 
 						if (aiPlayedCard != nullptr) {
 							gameBord.putCardInBorderByPlayerIdAndColumnIndex(std::move(aiPlayedCard), std::move(2), std::move(aiIndexBorder + 0));
 
+							turn = (turn + 1) % 2;
+
 							if (!gameBord.getIsClanStackEmpty()) {
 								secondPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
 							}
+
 						}
-
-						secondPlayer->setIsChooseColorValid(false);
-						secondPlayer->setIsChooseBoredValid(false);
-
-						turn = (turn + 1) % 2;
 
 					}
 					catch (GameException exp) {
 						std::cout << "Error : " << exp.what() << std::endl;
 					}
-
-					
 
 				}
 

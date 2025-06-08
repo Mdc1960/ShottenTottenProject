@@ -64,8 +64,7 @@ private :
 
 	
 	std::unique_ptr<CardInterface> getCardFromCardTackticStack();
-	/*void popCardFromClanStack();
-	void popCardFromTacticStack();*/
+	
 
 	void printMode();
 	void startGame();
