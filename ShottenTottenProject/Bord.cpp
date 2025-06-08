@@ -6,6 +6,8 @@
 */
 Bord* Bord::instance = nullptr;
 
+unsigned int Bord::numberOfCardPutInBorders = 0;
+
 Bord::Bord()
 {
 	//fillBord(std::move(56),std::move(12));
@@ -130,9 +132,11 @@ void Bord::putCardInBorderByPlayerIdAndColumnIndex(std::unique_ptr<CardInterface
 		switch (playerId) {
 		case 1:
 			borders[columnIndex]->putCardInFirstPlayerSide(std::move(card));
+			numberOfCardPutInBorders++;
 			break;
 		case 2:
 			borders[columnIndex]->putCardInSecondPlayerSide(std::move(card));
+			numberOfCardPutInBorders++;
 			break;
 		default:
 			break;

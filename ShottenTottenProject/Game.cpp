@@ -258,6 +258,8 @@ void Game::startGame()
 
 	playPhase = std::make_shared<PlayerPlay>();
 
+	revendicatePhase = std::make_shared<RevendicateBorder>();
+
 	fillPlayerHandWithInitialCardsUsingId(std::move(1));
 	fillPlayerHandWithInitialCardsUsingId(std::move(2));
 
@@ -276,6 +278,9 @@ void Game::startGame()
 		unsigned int firstBorderSide;
 		unsigned int secondBorderSide;
 
+		unsigned int firstPlayerRevendicateBorderIndex;
+		bool isFirstPlayerWantToRevendicate;
+
 		std::unique_ptr<CardInterface> aiPlayedCard;
 		std::unique_ptr<CardInterface> playerPlayedCard;
 
@@ -284,89 +289,49 @@ void Game::startGame()
 		case 0:
 			//FIRST PLAYER PLAY.
 
-			playPhase->acceptPlayer(firstPlayer.get());
+			switch (gameMode) {
+			case GameMode::BASE:
 
-			indexCard = firstPlayer->getChooseCardIndex();
-			indexBorder = firstPlayer->getChooseBorderIndex();
+				playPhase->acceptPlayer(firstPlayer.get());
 
-			firstBorderSide = gameBord.getBorderSidePutCardIndex(std::move(indexBorder - 1), std::move(1));
-			
+				indexCard = firstPlayer->getChooseCardIndex();
+				indexBorder = firstPlayer->getChooseBorderIndex();
+
+				firstBorderSide = gameBord.getBorderSidePutCardIndex(std::move(indexBorder - 1), std::move(1));
+
 			#ifdef _WIN32
 				std::system("cls");
 			#else
 				std::system("clear");
 			#endif
 
-			
 
-			if (firstBorderSide < 3) {
 
-				try {
-
-					playerPlayedCard = std::move(firstPlayer->popCardFromPlayerHandByIndex(indexCard));
-
-					if (playerPlayedCard != nullptr) {
-
-						gameBord.putCardInBorderByPlayerIdAndColumnIndex(std::move(playerPlayedCard), std::move(1), std::move(indexBorder - 1));
-
-						turn = (turn + 1) % 2;
-
-						if (!gameBord.getIsClanStackEmpty()) {
-							firstPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
-						}
-						
-					}
-					
-				}
-				catch (GameException exp) {
-					std::cout << "Error : " << exp.what() << std::endl;
-				}
-
-			}
-			else {
-				std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' the border side " << indexBorder << " is full.You cannot put card in this border side." << std::endl;
-			}
-
-			firstPlayer->setIsChooseColorValid(false);
-			firstPlayer->setIsChooseBoredValid(false);
-
-				
-			break;
-		case 1:
-			//OPPONENT PLAYER PLAY (AI/HUMAN PLAYER).
-			switch (opponentChoiseMade) {
-
-			case 1:
-				//AI
-				
-			#ifdef _WIN32
-				std::system("cls");
-			#else
-				std::system("clear");
-			#endif
-
-				std::cout << "AI is playing" << std::endl;
-
-				playPhase->acceptPlayer(secondPlayer.get());
-
-				aiIndexCard = secondPlayer->getChooseCardIndex();
-				aiIndexBorder = secondPlayer->getChooseBorderIndex();
-
-				secondBorderSide = gameBord.getBorderSidePutCardIndex(std::move(aiIndexBorder), std::move(2));
-
-				if (secondBorderSide < 3) {
+				if (firstBorderSide < 3) {
 
 					try {
 
-						aiPlayedCard = std::move(secondPlayer->popCardFromPlayerHandByIndex(aiIndexCard));
+						playerPlayedCard = std::move(firstPlayer->popCardFromPlayerHandByIndex(indexCard));
 
-						if (aiPlayedCard != nullptr) {
-							gameBord.putCardInBorderByPlayerIdAndColumnIndex(std::move(aiPlayedCard), std::move(2), std::move(aiIndexBorder + 0));
+						if (playerPlayedCard != nullptr) {
+
+							gameBord.putCardInBorderByPlayerIdAndColumnIndex(std::move(playerPlayedCard), std::move(1), std::move(indexBorder - 1));
 
 							turn = (turn + 1) % 2;
 
 							if (!gameBord.getIsClanStackEmpty()) {
-								secondPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
+								firstPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
+							}
+
+							if (Bord::numberOfCardPutInBorders >= 12) {
+								revendicatePhase->acceptPlayer(firstPlayer.get());
+								isFirstPlayerWantToRevendicate = firstPlayer->getIsPlayerWantToRevendicateValue();
+
+								if (isFirstPlayerWantToRevendicate) {
+									firstPlayerRevendicateBorderIndex = firstPlayer->getRevendicateBorderIndex();
+
+									std::cout << "First Player want to revendicate : " << firstPlayerRevendicateBorderIndex << std::endl;
+								}
 							}
 
 						}
@@ -377,9 +342,94 @@ void Game::startGame()
 					}
 
 				}
+				else {
+					std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' the border side " << indexBorder << " is full.You cannot put card in this border side." << std::endl;
+				}
 
-				secondPlayer->setIsChooseColorValid(false);
-				secondPlayer->setIsChooseBoredValid(false);
+				firstPlayer->setIsChooseColorValid(false);
+				firstPlayer->setIsChooseBoredValid(false);
+
+				
+
+				break;
+			case GameMode::TACTIC:
+				break;
+			case GameMode::EXPERT:
+				break;
+			default:
+				break;
+			}
+
+			
+
+				
+			break;
+		case 1:
+			//OPPONENT PLAYER PLAY (AI/HUMAN PLAYER).
+			switch (opponentChoiseMade) {
+
+			case 1:
+				//AI Play
+
+				switch (gameMode) {
+				case GameMode::BASE:
+
+				#ifdef _WIN32
+					std::system("cls");
+				#else
+					std::system("clear");
+				#endif
+
+					std::cout << "AI is playing" << std::endl;
+					
+
+					playPhase->acceptPlayer(secondPlayer.get());
+
+					aiIndexCard = secondPlayer->getChooseCardIndex();
+					aiIndexBorder = secondPlayer->getChooseBorderIndex();
+
+					secondBorderSide = gameBord.getBorderSidePutCardIndex(std::move(aiIndexBorder), std::move(2));
+
+					if (secondBorderSide < 3) {
+
+						try {
+
+							aiPlayedCard = std::move(secondPlayer->popCardFromPlayerHandByIndex(aiIndexCard));
+
+							if (aiPlayedCard != nullptr) {
+								gameBord.putCardInBorderByPlayerIdAndColumnIndex(std::move(aiPlayedCard), std::move(2), std::move(aiIndexBorder + 0));
+
+								turn = (turn + 1) % 2;
+
+								if (!gameBord.getIsClanStackEmpty()) {
+									secondPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
+								}
+
+							}
+
+						}
+						catch (GameException exp) {
+							std::cout << "Error : " << exp.what() << std::endl;
+						}
+
+					}
+
+					secondPlayer->setIsChooseColorValid(false);
+					secondPlayer->setIsChooseBoredValid(false);
+
+					std::cout << "Nb Put card : " << Bord::numberOfCardPutInBorders << std::endl;
+
+
+					break;
+				case GameMode::TACTIC:
+					break;
+				case GameMode::EXPERT:
+					break;
+				default:
+					break;
+				}
+				
+			
 				
 				
 				break;

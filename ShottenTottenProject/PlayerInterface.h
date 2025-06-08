@@ -22,8 +22,15 @@ protected:
     unsigned int chooseBorderIndex = 0;
     unsigned int chooseCardIndex = 0;
 
+    unsigned int revendicateBorderIndex = 0;
+
     bool isColorChooseValid = false;
     bool isBorderChooseValid = false;
+
+    bool isRevendicateBorderValid = false;
+    bool isPlayerWantToRevendicate = false;
+
+
 
     void pushCardInPlayerHand(std::unique_ptr<CardInterface> card);
 
@@ -39,6 +46,8 @@ public:
 
     const unsigned int getChooseBorderIndex() const;
     const unsigned int getChooseCardIndex() const;
+    const unsigned int getRevendicateBorderIndex() const;
+    const bool getIsPlayerWantToRevendicateValue() const;
 
     // Setters
     void setPlayerName(const std::string& name);
@@ -47,9 +56,12 @@ public:
 
     void setChooseBorderIndex(unsigned int& borderIndex);
     void setChooseCardIndex(unsigned int& cardIndex);
+    void setRevendicateBorderIndex(unsigned int& borderIndex);
 
     void setIsChooseColorValid(bool&& b);
     void setIsChooseBoredValid(bool&& b);
+    void setIsRevendicateBorderValid(bool&& b);
+    void setIsPlayerWantToRevendicate(bool&& b);
 
     void fillPlayerHandWithClanCardFronBordClanStack(Bord& bord);
     std::unique_ptr<CardInterface> popCardFromPlayerHandByIndex(unsigned int& index);

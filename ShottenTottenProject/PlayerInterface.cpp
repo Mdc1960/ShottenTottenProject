@@ -35,6 +35,16 @@ const unsigned int PlayerInterface::getChooseCardIndex() const
     return this->chooseCardIndex;
 }
 
+const unsigned int PlayerInterface::getRevendicateBorderIndex() const
+{
+    return this->revendicateBorderIndex;
+}
+
+const bool PlayerInterface::getIsPlayerWantToRevendicateValue() const
+{
+    return this->isPlayerWantToRevendicate;
+}
+
 void PlayerInterface::setChooseBorderIndex(unsigned int& borderIndex)
 {
     this->chooseBorderIndex = borderIndex;
@@ -45,6 +55,11 @@ void PlayerInterface::setChooseCardIndex(unsigned int& cardIndex)
     this->chooseCardIndex = cardIndex;
 }
 
+void PlayerInterface::setRevendicateBorderIndex(unsigned int& borderIndex)
+{
+    this->revendicateBorderIndex = borderIndex;
+}
+
 void PlayerInterface::setIsChooseColorValid(bool&& b)
 {
     this->isColorChooseValid = b;
@@ -53,6 +68,16 @@ void PlayerInterface::setIsChooseColorValid(bool&& b)
 void PlayerInterface::setIsChooseBoredValid(bool&& b)
 {
     this->isBorderChooseValid = b;
+}
+
+void PlayerInterface::setIsRevendicateBorderValid(bool&& b)
+{
+    this->isRevendicateBorderValid = std::move(b);
+}
+
+void PlayerInterface::setIsPlayerWantToRevendicate(bool&& b)
+{
+    this->isPlayerWantToRevendicate = std::move(b);
 }
 
 void PlayerInterface::setPlayerName(const std::string& name) {

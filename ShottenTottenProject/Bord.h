@@ -23,6 +23,8 @@ private :
 	std::vector<std::unique_ptr<Border>> borders;
 	std::unique_ptr<Defausse> defausse;
 
+	
+
 	bool isClanStackEmpty = false;
 
 	unsigned int clanStackCapacity;
@@ -44,6 +46,9 @@ private :
 public :
 
 	static Bord& getInstance();
+
+
+	static unsigned int numberOfCardPutInBorders;
 
 	void update(Observable* observable) override;
 	

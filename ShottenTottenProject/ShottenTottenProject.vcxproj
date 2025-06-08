@@ -145,6 +145,7 @@
     <ClCompile Include="FactoryAIPlayer.cpp" />
     <ClCompile Include="FactoryHumanPlayer.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameUtil.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="HumanPlayer.cpp" />
     <ClCompile Include="Joker.cpp" />
