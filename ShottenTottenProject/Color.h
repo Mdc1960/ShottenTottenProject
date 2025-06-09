@@ -2,11 +2,11 @@
 /*
 YVAN jhdsfhgsd*/
 enum class Color {
-    BLACK,
+    BROWN,
     RED,
     GREEN,
     BLUE,
-    MALLOW,
+    YELLOW,
     PURPLE
 
 };

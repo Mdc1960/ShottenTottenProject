@@ -64,10 +64,10 @@ void Stack::fillTacticStack()
 void Stack::fillCardSet()
 {
     for (unsigned int index = 0; index < (this->capacity)/6; index++) {
-        push(std::move(creatSingleCard(index + 1,Color::BLACK)));
+        push(std::move(creatSingleCard(index + 1,Color::BROWN)));
         push(std::move(creatSingleCard(index + 1,Color::BLUE)));
         push(std::move(creatSingleCard(index + 1,Color::GREEN)));
-        push(std::move(creatSingleCard(index + 1,Color::MALLOW)));
+        push(std::move(creatSingleCard(index + 1,Color::YELLOW)));
         push(std::move(creatSingleCard(index + 1,Color::PURPLE)));
         push(std::move(creatSingleCard(index + 1,Color::RED)));
     }

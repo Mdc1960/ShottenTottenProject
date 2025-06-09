@@ -6,7 +6,7 @@ Game::Game() : gameMode(Util::gameMode)
 	configuredPlayers();
 	
 	//startConfiguration();
-	buildGameBord(std::move(54), std::move(12));
+	buildGameBord(std::move(54), std::move(10));
 	add(&gameBord);
 	//startGame();
 }
