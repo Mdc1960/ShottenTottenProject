@@ -2,6 +2,8 @@
 #define GAME_UTIL_H
 
 
+
+
 #include <iostream>
 #include <string>
 
@@ -36,7 +38,20 @@ class Util {
 
 public:
 
+	static GameMode gameMode;
+	static unsigned int opponentChoiseMade;
+
+	static std::string playerName;
+	static std::string opponetName;
+	static std::string aitName;
+
+	
+
 	static const bool equalIngnoreCase(std::string& first, std::string&& second);
+	static void configureGame();
+	static void printMode();
+
+
 };
 
 #endif

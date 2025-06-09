@@ -1,12 +1,14 @@
 #include "Game.h"
 
 
-Game::Game() : gameMode(GameMode::BASE)
+Game::Game() : gameMode(Util::gameMode)
 {
-	startConfiguration();
+	configuredPlayers();
+	
+	//startConfiguration();
 	buildGameBord(std::move(54), std::move(12));
 	add(&gameBord);
-	startGame();
+	//startGame();
 }
 
 void Game::putCardInBordersColumnUsingPlayerId(std::unique_ptr<CardInterface> card, unsigned int&& playerId, unsigned int&& columnIndex)
@@ -48,7 +50,7 @@ void Game::buildGameBord(unsigned int&& clanStackSize, unsigned int&& tacticStac
 }
 
 
-void Game::startConfiguration()
+/*void Game::startConfiguration()
 {
 	std::string stringMode = "";
 	std::string stringFirstPlayerName = "";
@@ -194,7 +196,7 @@ void Game::startConfiguration()
 		isConfiguring = true;
 
 	}
-}
+}*/
 
 void Game::displayGameBord()
 {
@@ -253,7 +255,7 @@ void Game::printMode()
 /*!
 * Method used to start the SHOTTEN TOTTEN game.
 */
-void Game::startGame()
+/*void Game::startGame()
 {
 
 	playPhase = std::make_shared<PlayerPlay>();
@@ -324,6 +326,7 @@ void Game::startGame()
 							}
 
 							if (Bord::numberOfCardPutInBorders >= 12) {
+								notify();
 								revendicatePhase->acceptPlayer(firstPlayer.get());
 								isFirstPlayerWantToRevendicate = firstPlayer->getIsPlayerWantToRevendicateValue();
 
@@ -332,6 +335,7 @@ void Game::startGame()
 
 									std::cout << "First Player want to revendicate : " << firstPlayerRevendicateBorderIndex << std::endl;
 								}
+								firstPlayer->setIsRevendicateBorderValid(false);
 							}
 
 						}
@@ -455,7 +459,7 @@ void Game::startGame()
 
 	}
 
-}
+}*/
 
 void Game::showHumanPlayerHand(unsigned int&& id)
 {
@@ -520,5 +524,30 @@ void Game::setRevendicatePhase(std::shared_ptr<Phase> revendicatePhase)
 void Game::setOpponentChoiseMade(const unsigned int& opponentChoiseMade)
 {
 	this->opponentChoiseMade = opponentChoiseMade;
+}
+
+
+
+void Game::configuredPlayers()
+{
+	this->opponentChoiseMade = Util::opponentChoiseMade;
+
+	firstPlayer = FactoryHumanPlayer().createPlayer(Util::playerName, 1);
+	firstPlayer->printPlayer();
+
+	switch (this->opponentChoiseMade)
+	{
+	case 1:
+		secondPlayer = FactoryAIPlayer().createPlayer(Util::aitName, 2);
+		secondPlayer->printPlayer();
+		break;
+	case 2:
+		secondPlayer = FactoryHumanPlayer().createPlayer(Util::opponetName, 2);
+		secondPlayer->printPlayer();
+		break;
+	default:
+		break;
+	}
+
 }
 

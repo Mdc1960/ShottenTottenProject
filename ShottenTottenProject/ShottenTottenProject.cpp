@@ -13,6 +13,7 @@
 #include "SumCombination.h"
 #include "Exception.h"
 #include "Game.h"
+#include "GameBase.h"
 
 
 int main()
@@ -354,11 +355,40 @@ brd.printBorders();*/
 
 std::cout << "-------------------------GAME PART-----------------------------" << std::endl;
 
-Game g = Game();
-g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(3, Color::RED)), std::move(2), std::move(0));
+Util::configureGame();
+
+std::shared_ptr<Game> game;
+
+
+
+switch (Util::gameMode) {
+case GameMode::BASE:
+
+    game = std::make_shared<GameBase>();
+
+    game->startGame();
+
+    break;
+case GameMode::TACTIC:
+    std::cout << "Game Tactic" << std::endl;
+    break;
+case GameMode::EXPERT:
+    std::cout << "Game Expert" << std::endl;
+    break;
+default:
+    break;
+}
+
+
+
+
+
+
+
+/*g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(3, Color::RED)), std::move(2), std::move(0));
 g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(5, Color::MALLOW)), std::move(1), std::move(1));
 g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(5, Color::BLACK)), std::move(1), std::move(5));
-g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(8, Color::RED)), std::move(2), std::move(6));
+g.putCardInBordersColumnUsingPlayerId(std::move(std::make_unique<CardClan>(8, Color::RED)), std::move(2), std::move(6));*/
 /*brd.printBorders();
 
 std::cout << "Display GameBord" << std::endl;

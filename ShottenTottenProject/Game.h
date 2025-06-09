@@ -32,13 +32,11 @@ protected:
 	void remove(Observer* observer) override;
 	void notify() override;
 
-private :
-
 	
 
 	Bord& gameBord = Bord::getInstance();
-	std::unique_ptr<PlayerInterface> firstPlayer;
-	std::unique_ptr<PlayerInterface> secondPlayer;
+	std::unique_ptr<PlayerInterface> firstPlayer = nullptr;
+	std::unique_ptr<PlayerInterface> secondPlayer = nullptr;
 	std::shared_ptr<Phase> playPhase;
 	std::shared_ptr<Phase> revendicatePhase;
 	GameMode gameMode;
@@ -56,7 +54,7 @@ private :
 
 	void buildGameBord(unsigned int&& clanStackSize, unsigned int&& tacticStackSize);
 
-	void startConfiguration();
+	//void startConfiguration();
 	
 
 	void shuffledGameClanStack();
@@ -67,7 +65,7 @@ private :
 	
 
 	void printMode();
-	void startGame();
+	
 	void showHumanPlayerHand(unsigned int&& id);
 
 	void setPlayerCombination(unsigned int&& combination);
@@ -80,9 +78,14 @@ private :
 	void setRevendicatePhase(std::shared_ptr<Phase> revendicatePhase);
 	void setOpponentChoiseMade(const unsigned int& opponentChoiseMade);
 
+	
+
+	void configuredPlayers();
+
 public :
 
 	Game();
+	virtual void startGame() = 0;
 	void putCardInBordersColumnUsingPlayerId(std::unique_ptr<CardInterface> card, unsigned int&& playerId, unsigned int&& columnIndex);
 	void displayGameBord();
 	void showClanStack();

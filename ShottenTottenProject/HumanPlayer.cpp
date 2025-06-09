@@ -80,10 +80,10 @@ void HumanPlayer::claim(Bord& bord)
 
 					}
 					catch (const std::invalid_argument& arg) {
-						std::cout << "Invalid column : " << arg.what() << std::endl;
+						std::cout << "\aInvalid column : " << arg.what() << std::endl;
 					}
 					catch (const std::out_of_range& out) {
-						std::cout << "Column out of range : " << out.what() << std::endl;
+						std::cout << "\aColumn out of range : " << out.what() << std::endl;
 					}
 					catch (GameException exp) {
 						std::cout << "\aError : " << exp.what() << std::endl;

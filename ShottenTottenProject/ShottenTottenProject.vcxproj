@@ -145,6 +145,7 @@
     <ClCompile Include="FactoryAIPlayer.cpp" />
     <ClCompile Include="FactoryHumanPlayer.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameBase.cpp" />
     <ClCompile Include="GameUtil.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="HumanPlayer.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="FactoryHumanPlayer.h" />
     <ClInclude Include="FactoryPlayer.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameBase.h" />
     <ClInclude Include="GameUtil.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="HumanPlayer.h" />
