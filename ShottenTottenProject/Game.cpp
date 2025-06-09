@@ -546,6 +546,7 @@ void Game::putRevendicatedBorderIndexInPlayerListById(unsigned int&& playerId, u
 
 
 
+
 void Game::configuredPlayers()
 {
 	this->opponentChoiseMade = Util::opponentChoiseMade;

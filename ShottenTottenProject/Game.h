@@ -86,6 +86,8 @@ protected:
 
 
 	void putRevendicatedBorderIndexInPlayerListById(unsigned int&& playerId, unsigned int& revendicateColumn);
+
+	
 	
 
 	void configuredPlayers();
