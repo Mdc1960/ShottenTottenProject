@@ -15,9 +15,9 @@ string CardClan::getColorString() const
         case Color::RED: return "RD";
         case Color::BLUE: return "BE";
         case Color::GREEN: return "GN";
-        case Color::BLACK: return "BK";
+        case Color::BROWN: return "BN";
         case Color::PURPLE: return "PE";
-        case Color::MALLOW: return "MW";
+        case Color::YELLOW: return "YW";
         default: return "Inconnu";
     }
 }

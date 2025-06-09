@@ -150,7 +150,6 @@
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="HumanPlayer.cpp" />
     <ClCompile Include="Joker.cpp" />
-    <ClCompile Include="Phase.cpp" />
     <ClCompile Include="PlayerInterface.cpp" />
     <ClCompile Include="PlayerPlay.cpp" />
     <ClCompile Include="PlayerSide.cpp" />
