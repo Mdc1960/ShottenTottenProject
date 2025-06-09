@@ -37,10 +37,10 @@ void Hand::push(std::unique_ptr<CardInterface> card)
 void Hand::printCardSet()
 {
     if (size()) {
+        unsigned int pos = 0;
         for (auto& card : this->cardCollection) {
-            //TODO : Print Player Hand.
-            std::cout << "Player Hand" << std::endl;
-            
+            std::cout << "(" << pos << ") :"; card->printCard();
+            pos++;
         }
     }
     else {
@@ -55,7 +55,7 @@ void Hand::fillCardSet()
 {
     for (unsigned int index = 0; index < MAX_NUMBER_CARD_IN_HAND; index++) {
         setIndexToPushCard(index);
-        push(std::move(std::make_unique<CardClan>(index, Color::BLEU)));
+        push(std::move(std::make_unique<CardClan>(index, Color::BLUE)));
     }
 }
 
@@ -109,6 +109,16 @@ std::unique_ptr<CardInterface> Hand::popAndGetCardByIndex(unsigned int&& index)
         popCardFromHandByIndex(std::move(index));
     }
     return card;
+}
+
+void Hand::pushBackCard(std::unique_ptr<CardInterface> card)
+{
+    if (size() < MAX_NUMBER_CARD_IN_HAND) {
+        cardCollection.push_back(std::move(card));
+    }
+    else {
+        std::cout << "Your hand is full." << std::endl;
+    }
 }
 
 Hand::HandIterator Hand::begin()

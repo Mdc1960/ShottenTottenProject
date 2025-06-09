@@ -22,22 +22,23 @@ void PlayerSide::pop()
 
 void PlayerSide::push(std::unique_ptr<CardInterface> card)
 {
-    if (size() <= capacity) {
+    if (size() < capacity) {
         this->cardCollection.push_back(std::move(card));
     }
 }
 
 void PlayerSide::printCardSet()
 {
+    unsigned int counter = 0;
     for (auto& card : this->cardCollection) {
-        std::cout << "Player Side : "; card->printCard();
+        std::cout << "Player Side : "; card->printCard(); std::cout << "\n";
     }
 }
 
 void PlayerSide::fillCardSet()
 {
     for (unsigned int index = 0; index < capacity; index++) {
-        push(std::move(std::make_unique<CardClan>(0, Color::BLEU)));
+        push(std::move(std::make_unique<CardClan>(0, Color::BLUE)));
     }
 }
 
@@ -49,6 +50,21 @@ Iterator* PlayerSide::createIterator()
 Iterator* PlayerSide::createIterator(unsigned int&& pos)
 {
     return new PlayerSideIterator(this, pos);
+}
+
+void PlayerSide::printCardSetInReverse()
+{
+    for (auto it = end(); it != begin()--; it--) {
+        std::cout << "Player Side : "; (*it)->printCard(); std::cout << "\n";
+    }
+}
+
+void PlayerSide::printCardByIndex(unsigned int&& index)
+{
+    if (index < size()) {
+        this->cardCollection[index]->printCard();
+    }
+    
 }
 
 void PlayerSide::increaseCapacity()
@@ -78,6 +94,22 @@ std::vector<std::string> PlayerSide::getAllCardColor()
     }
 
     return vect;
+}
+
+void PlayerSide::putCardInCardSet(std::unique_ptr<CardInterface> card)
+{
+    if (putCardIndex < 3) {
+        this->cardCollection[putCardIndex] = std::move(card);
+        putCardIndex++;
+    }
+    else {
+        throw GameException("This player side is full. You cannot put a card in this border.");
+    }
+}
+
+const unsigned int PlayerSide::getPutCardIndex() const
+{
+    return putCardIndex;
 }
 
 PlayerSide::PlayerSideIterator PlayerSide::begin()

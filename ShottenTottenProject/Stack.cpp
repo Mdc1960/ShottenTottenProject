@@ -8,7 +8,6 @@
 Stack::Stack(unsigned int&& capacity)
 {
     this->capacity = capacity;
-    fillCardSet();
 }
 
 std::size_t Stack::size()
@@ -53,18 +52,35 @@ Iterator* Stack::createIterator(unsigned int&& index)
     return (index <= size()) ? new StackIterator(this, index) : nullptr;
 }
 
+void Stack::fillClanStack()
+{
+    fillCardSet();
+}
+
+void Stack::fillTacticStack()
+{
+}
+
 void Stack::fillCardSet()
 {
-    for (unsigned int index = 0; index < this->capacity; index++) {
-        push(std::move(std::make_unique<CardClan>(index, Color::BLEU)));
+    for (unsigned int index = 0; index < (this->capacity)/6; index++) {
+        push(std::move(creatSingleCard(index + 1,Color::BLACK)));
+        push(std::move(creatSingleCard(index + 1,Color::BLUE)));
+        push(std::move(creatSingleCard(index + 1,Color::GREEN)));
+        push(std::move(creatSingleCard(index + 1,Color::MALLOW)));
+        push(std::move(creatSingleCard(index + 1,Color::PURPLE)));
+        push(std::move(creatSingleCard(index + 1,Color::RED)));
     }
 }
 
 std::unique_ptr<CardInterface> Stack::popAndGetBackCard()
 {
-    std::unique_ptr<CardInterface> currentCard = std::move(cardCollection[size() - 1]);
-    pop();
-    return currentCard;
+    if (size()) {
+        std::unique_ptr<CardInterface> currentCard = std::move(cardCollection[size() - 1]);
+        pop();
+        return currentCard;
+    }
+    return nullptr;
 }
 
 void Stack::shuffledStack()
@@ -72,6 +88,11 @@ void Stack::shuffledStack()
     std::random_device randomDivice;
     std::mt19937       generator(randomDivice());
     std::shuffle(cardCollection.begin(), cardCollection.end(), generator);
+}
+
+std::unique_ptr<CardClan> Stack::creatSingleCard(unsigned int&& power, Color&& color)
+{
+    return std::move(std::make_unique<CardClan>(std::move(power), std::move(color)));
 }
 
 Stack::StackIterator Stack::begin()

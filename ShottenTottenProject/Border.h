@@ -4,6 +4,8 @@
 #include <iostream>
 #include <utility>
 #include <vector>
+#include <iostream>
+#include <typeinfo>
 #include "CardSet.h"
 #include "PlayerSide.h"
 #include "GameUtil.h"
@@ -38,10 +40,19 @@ public :
 	void setFirstPlayerSide(std::unique_ptr<PlayerSide> playerSide);
 	void setSecondPlayerSide(std::unique_ptr<PlayerSide> playerSide);
 
+	void printBorder();
+
+	void printFirtPlayerSideCardByIndex(unsigned int&& index);
+	void printSecondPlayerSideCardByIndex(unsigned int&& index);
 	
+	void putCardInFirstPlayerSide(std::unique_ptr<CardInterface> card);
+	void putCardInSecondPlayerSide(std::unique_ptr<CardInterface> card);
 
 	void printFirstPlayerBorderSide();
 	void printSecondPlayerBorderSide();
+
+	const unsigned int getFirstPlayerSidePutCardIndex() const;
+	const unsigned int getSecondPlayerSidePutCardIndex() const;
 
 	CardInterface* getCardInPlayerSide(unsigned int&& playerSideId, unsigned int&& indexCard);
 

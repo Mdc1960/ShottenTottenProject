@@ -18,5 +18,6 @@ public:
     string getColorString() const;
     string getNamecard() override;
     void printCard() override;
+    
         
 };

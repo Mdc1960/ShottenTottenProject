@@ -1,6 +1,19 @@
 #ifndef GAME_UTIL_H
 #define GAME_UTIL_H
 
+
+
+
+#include <iostream>
+#include <string>
+
+
+static const unsigned int ZERO = 0;
+static const unsigned int ONE = 1;
+static const unsigned int TWO = 2;
+
+
+
 enum class GameMode {
 	BASE,
 	TACTIC,
@@ -19,6 +32,26 @@ enum class Combine {
 	COLOR_ = 3,
 	SEQUENCE_ = 2,
 	SUM_ = 1
+};
+
+class Util {
+
+public:
+
+	static GameMode gameMode;
+	static unsigned int opponentChoiseMade;
+
+	static std::string playerName;
+	static std::string opponetName;
+	static std::string aitName;
+
+	
+
+	static const bool equalIngnoreCase(std::string& first, std::string&& second);
+	static void configureGame();
+	static void printMode();
+
+
 };
 
 #endif

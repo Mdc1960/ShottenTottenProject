@@ -52,6 +52,33 @@ void Border::setSecondPlayerSide(std::unique_ptr<PlayerSide> playerSide)
 	this->secondPlayerBorderSide = std::move(playerSide);
 }
 
+void Border::printBorder()
+{
+	printFirstPlayerBorderSide();
+	std::cout << "====";
+	printSecondPlayerBorderSide();
+}
+
+void Border::printFirtPlayerSideCardByIndex(unsigned int&& index)
+{
+	firstPlayerBorderSide->printCardByIndex(std::move(index));
+}
+
+void Border::printSecondPlayerSideCardByIndex(unsigned int&& index)
+{
+	secondPlayerBorderSide->printCardByIndex(std::move(index));
+}
+
+void Border::putCardInFirstPlayerSide(std::unique_ptr<CardInterface> card)
+{
+	firstPlayerBorderSide->putCardInCardSet(std::move(card));
+}
+
+void Border::putCardInSecondPlayerSide(std::unique_ptr<CardInterface> card)
+{
+	secondPlayerBorderSide->putCardInCardSet(std::move(card));
+}
+
 
 
 
@@ -64,13 +91,24 @@ void Border::printFirstPlayerBorderSide()
 
 void Border::printSecondPlayerBorderSide()
 {
-	std::cout << "Border Second Side : \n";  secondPlayerBorderSide->printCardSet();
+	std::cout << "Border Second Side : \n";  secondPlayerBorderSide->printCardSetInReverse();
 }
+
+const unsigned int Border::getFirstPlayerSidePutCardIndex() const
+{
+	return this->firstPlayerBorderSide->getPutCardIndex();
+}
+
+const unsigned int Border::getSecondPlayerSidePutCardIndex() const
+{
+	return this->secondPlayerBorderSide->getPutCardIndex();
+}
+
 
 CardInterface* Border::getCardInPlayerSide(unsigned int&& playerSideId, unsigned int&& indexCard)
 {
 	
-	switch (playerSideId) {
+	switch (std::move(playerSideId)) {
 	case 1:
 		if (indexCard < firstPlayerBorderSide->size()) {
 			return firstPlayerBorderSide->getCardByIndex(std::move(indexCard));

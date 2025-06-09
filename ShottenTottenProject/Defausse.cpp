@@ -14,7 +14,7 @@ void Defausse::pop()
 void Defausse::fillCardSet()
 {
 	for (unsigned int index = 0; index < MAX_NUMBER_CARD_IN_DEFAUSSE; index++) {
-		push(std::move(std::make_unique<CardClan>(index, Color::BLEU)));
+		push(std::move(std::make_unique<CardClan>(index, Color::BLUE)));
 	}
 }
 

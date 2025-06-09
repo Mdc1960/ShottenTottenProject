@@ -2,6 +2,7 @@
 #define PLAYER_SIDE_H
 
 #include "CardSet.h"
+#include "Exception.h"
 
 
 class PlayerSide : public CardSet
@@ -10,6 +11,8 @@ class PlayerSide : public CardSet
 private :
 
 	unsigned int capacity;
+
+	unsigned int putCardIndex = 0;
 
 public :
 
@@ -23,12 +26,19 @@ public :
 	Iterator* createIterator() override;
 	Iterator* createIterator(unsigned int&& pos);
 
+	void printCardSetInReverse();
+	void printCardByIndex(unsigned int&& index);
+
 	void increaseCapacity();
 	unsigned int getCapacity() const;
 
 	CardInterface* getCardByIndex(unsigned int&& indexCard);
 
 	std::vector<std::string> getAllCardColor();
+
+	void putCardInCardSet(std::unique_ptr<CardInterface> card);
+
+	const unsigned int getPutCardIndex() const;
 
 
 	class PlayerSideIterator : public Iterator {

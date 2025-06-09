@@ -5,6 +5,7 @@
 #include "CardSet.h"
 #include "GameUtil.h"
 #include "Color.h"
+#include "CardClan.h"
 
 static const unsigned int MAX_NUMBER_CARD_IN_STACK = 56;
 
@@ -16,6 +17,8 @@ private :
 	unsigned int capacity;
 
 	void push(std::unique_ptr<CardInterface> card) override;
+
+	void fillCardSet() override;
 	
 
 public :
@@ -24,13 +27,18 @@ public :
 
 	std::size_t size() override;
 	void pop() override;
-	void fillCardSet() override;
+	
 	void printCardSet() override;
 	Iterator* createIterator() override;
 	Iterator* createIterator(unsigned int&& index);
 
+	void fillClanStack();
+	void fillTacticStack();
+
 	std::unique_ptr<CardInterface> popAndGetBackCard();
 	void shuffledStack();
+
+	std::unique_ptr<CardClan> creatSingleCard(unsigned int&& power, Color&& color);
 
 	class StackIterator : public Iterator
 	{
