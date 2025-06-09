@@ -526,6 +526,24 @@ void Game::setOpponentChoiseMade(const unsigned int& opponentChoiseMade)
 	this->opponentChoiseMade = opponentChoiseMade;
 }
 
+void Game::putRevendicatedBorderIndexInPlayerListById(unsigned int&& playerId, unsigned int& revendicateColumn)
+{
+	switch (std::move(playerId))
+	{
+	case 1:
+		firstPlayerRevendicateBorderList.push_back(revendicateColumn);
+		break;
+	case 2:
+		aiPlayerRevendicateBorderList.push_back(revendicateColumn);
+		break;
+	case 3:
+		opponentPlayerRevendicateBorderList.push_back(revendicateColumn);
+		break;
+	default:
+		break;
+	}
+}
+
 
 
 void Game::configuredPlayers()

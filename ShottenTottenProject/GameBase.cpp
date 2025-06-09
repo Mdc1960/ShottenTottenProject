@@ -33,6 +33,9 @@ void GameBase::startGame()
 
 		unsigned int firstPlayerRevendicateBorderIndex;
 		bool isFirstPlayerWantToRevendicate;
+		
+		unsigned int aiPlayerRevendicateBorderIndex;
+		bool isAIPlayerWantToRevendicate;
 
 		std::unique_ptr<CardInterface> aiPlayedCard;
 		std::unique_ptr<CardInterface> playerPlayedCard;
@@ -82,6 +85,8 @@ void GameBase::startGame()
 								firstPlayerRevendicateBorderIndex = firstPlayer->getRevendicateBorderIndex();
 
 								std::cout << "First Player want to revendicate : " << firstPlayerRevendicateBorderIndex << std::endl;
+								//std::this_thread::sleep_for(std::chrono::seconds(2));
+								
 							}
 							firstPlayer->setIsRevendicateBorderValid(false);
 						}
@@ -143,6 +148,21 @@ void GameBase::startGame()
 								secondPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
 							}
 
+							if (Bord::numberOfCardPutInBorders >= 12) {
+								notify();
+								revendicatePhase->acceptPlayer(secondPlayer.get());
+
+								isAIPlayerWantToRevendicate = secondPlayer->getIsPlayerWantToRevendicateValue();
+
+								if (isAIPlayerWantToRevendicate) {
+									aiPlayerRevendicateBorderIndex = secondPlayer->getRevendicateBorderIndex();
+
+									std::cout << "AI Player want to revendicate : " << aiPlayerRevendicateBorderIndex << std::endl;
+
+									//std::this_thread::sleep_for(std::chrono::seconds(2));
+								}
+							}
+
 						}
 
 					}
@@ -156,7 +176,7 @@ void GameBase::startGame()
 				secondPlayer->setIsChooseBoredValid(false);
 
 				std::cout << "Nb Put card : " << Bord::numberOfCardPutInBorders << std::endl;
-
+			
 
 
 
