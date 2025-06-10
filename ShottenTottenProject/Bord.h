@@ -5,8 +5,9 @@
 #include "Stack.h"
 #include "Defausse.h"
 #include "BorderBase.h"
-#include <vector>
 #include "Observer.h"
+#include <vector>
+#include <unordered_map>
 
 static const unsigned int MAX_BORDER_NUMBER_IN_BORD = 9;
 
@@ -78,6 +79,8 @@ public :
 
 	void setIsClanStackEmpty(bool&& b);
 	const bool getIsClanStackEmpty() const;
+
+	std::unordered_map<std::string, unsigned int> fillPlayerRevendicateMap(unsigned int& revendicateColumn, unsigned int&& playerSideId);
 
 };
 

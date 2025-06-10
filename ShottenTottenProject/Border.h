@@ -9,6 +9,7 @@
 #include "CardSet.h"
 #include "PlayerSide.h"
 #include "GameUtil.h"
+#include <unordered_map>
 
 
 
@@ -53,6 +54,8 @@ public :
 
 	const unsigned int getFirstPlayerSidePutCardIndex() const;
 	const unsigned int getSecondPlayerSidePutCardIndex() const;
+
+	std::unordered_map<std::string, unsigned int> fillPlayerRevendicateMap(unsigned int&& playerSideId);
 
 	CardInterface* getCardInPlayerSide(unsigned int&& playerSideId, unsigned int&& indexCard);
 

@@ -2,6 +2,7 @@
 #define COMBINATION_INTERFACE_H
 
 #include "Border.h"
+#include "GameUtil.h"
 
 template <class T>
 class Combination

@@ -5,6 +5,11 @@
 #include "Exception.h"
 
 
+#include <vector>
+#include <string>
+#include <initializer_list>
+
+
 class PlayerSide : public CardSet
 {
 
@@ -39,6 +44,11 @@ public :
 	void putCardInCardSet(std::unique_ptr<CardInterface> card);
 
 	const unsigned int getPutCardIndex() const;
+
+	const unsigned int getPlayerSideCombination(unsigned int&& combinationId);
+
+	std::vector<std::string> getAllCardColorInPlayerSide();
+	std::vector<unsigned int> getAllCardNumberInPlayerSide();
 
 
 	class PlayerSideIterator : public Iterator {

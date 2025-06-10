@@ -173,3 +173,17 @@ const bool Bord::getIsClanStackEmpty() const
 {
 	return isClanStackEmpty;
 }
+
+std::unordered_map<std::string, unsigned int> Bord::fillPlayerRevendicateMap(unsigned int& revendicateColumn, unsigned int&& playerSideId)
+{
+	unsigned int counter = 0;
+	for (auto& border : borders) {
+		if (counter == revendicateColumn) {
+			return border->fillPlayerRevendicateMap(std::move(playerSideId));
+		}
+		else {
+			counter++;
+		}
+	}
+	return std::unordered_map<std::string, unsigned int>();
+}

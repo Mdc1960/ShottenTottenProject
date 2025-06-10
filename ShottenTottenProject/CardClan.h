@@ -18,6 +18,9 @@ public:
     string getColorString() const;
     string getNamecard() override;
     void printCard() override;
+
+    std::string getCardColor();
+    unsigned int getCardNumber();
     
         
 };

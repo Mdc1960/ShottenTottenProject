@@ -87,8 +87,10 @@ protected:
 
 	void putRevendicatedBorderIndexInPlayerListById(unsigned int&& playerId, unsigned int& revendicateColumn);
 
-	
-	
+	std::unordered_map<std::string,unsigned int> fillPlayerRevendicateMap(unsigned int& revendicateColumn, unsigned int&& playerSideId);
+	const unsigned int getRevendicateBorderTotalValueFromMap(std::unordered_map<std::string, unsigned int>& map);
+
+	const unsigned int determineBorderWinnerByCombination(unsigned int& firstCombination, unsigned int& secondCombination);
 
 	void configuredPlayers();
 

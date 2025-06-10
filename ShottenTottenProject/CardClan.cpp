@@ -41,4 +41,14 @@ void CardClan::printCard()
     
 }
 
+std::string CardClan::getCardColor()
+{
+    return getColorString();
+}
+
+unsigned int CardClan::getCardNumber()
+{
+    return numero;
+}
+
 
