@@ -13,16 +13,16 @@ class ColorCombination : public Combination<T>
 
 public :
 
-	virtual unsigned int playerCombination(std::initializer_list<T> list) override;
+	virtual unsigned int playerCombination(std::vector<T> list) override;
 
 	template<class U>
-	bool cardAreSameColor(std::initializer_list<U> list);
+	bool cardAreSameColor(std::vector<U> list);
 
 };
 
 template<class T>
 template<class U>
-inline bool ColorCombination<T>::cardAreSameColor(std::initializer_list<U> list)
+inline bool ColorCombination<T>::cardAreSameColor(std::vector<U> list)
 {
 	size_t areSameColor = 0;
 
@@ -38,7 +38,7 @@ inline bool ColorCombination<T>::cardAreSameColor(std::initializer_list<U> list)
 
 
 template<class T>
-unsigned int ColorCombination<T>::playerCombination(std::initializer_list<T> list)
+unsigned int ColorCombination<T>::playerCombination(std::vector<T> list)
 {
 	unsigned int colorValue = 0;
 	bool areSameColor = false;

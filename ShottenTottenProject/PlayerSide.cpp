@@ -125,85 +125,51 @@ const unsigned int PlayerSide::getPlayerSideCombination(unsigned int&& combinati
     std::vector<std::string> colorVect = getAllCardColorInPlayerSide();
     std::vector<unsigned int> numberVect = getAllCardNumberInPlayerSide();
 
-    std::initializer_list<std::string> colorList;
-    std::initializer_list<unsigned int> numberList;
-
-    if (colorVect.size() == 3) {
-        colorList = { colorVect[0],colorVect[1],colorVect[2] };
-    }
-    else {
-        if (colorVect.size() == 4) {
-            colorList = { colorVect[0],colorVect[1],colorVect[2],colorVect[3] };
-        }
-    }
     
-    if (numberVect.size() == 3) {
-        numberList = { numberVect[0],numberVect[1],numberVect[2] };
-    }
-    else {
-        if (numberVect.size() == 4) {
-            numberList = { numberVect[0],numberVect[1],numberVect[2],numberVect[3] };
-        }
-    }
 
-    std::cout << "COLOR LIST == " << colorList.size() << std::endl;
-    std::cout << "NUMBER LIST == " << numberList.size() << std::endl;
+    
 
     unsigned int counter = 0;
 
+    for (auto& n : numberVect) {
+        if (n == 0) {
+            counter++;
+        }
+    }
+
     switch (std::move(combinationId)) {
     case 1:
-        for (auto& n : numberList) {
-            if (n == 0) {
-                counter++;
-            }
-        }
+        
         if (counter == 0) {
-            combinationPower = ColorSequenceCombination<std::string, unsigned int>().playerCombinationBis(colorList, numberList);
+            combinationPower = ColorSequenceCombination<std::string, unsigned int>().playerCombinationBis(colorVect, numberVect);
         }
         
         break;
     case 2:
-        for (auto& n : numberList) {
-            if (n == 0) {
-                counter++;
-            }
-        }
+        
         if (counter == 0) {
-            combinationPower = SetCombination<std::string>().playerCobinationBis(colorList, numberList);
+            combinationPower = SetCombination<std::string>().playerCobinationBis(colorVect, numberVect);
         }
         
         break;
     case 3:
-        for (auto& n : numberList) {
-            if (n == 0) {
-                counter++;
-            }
-        }
+        
         if (counter == 0) {
-            combinationPower = ColorCombination<std::string>().playerCombination(colorList);
+            combinationPower = ColorCombination<std::string>().playerCombination(colorVect);
         }
         
         break;
     case 4:
-        for (auto& n : numberList) {
-            if (n == 0) {
-                counter++;
-            }
-        }
+        
         if (counter == 0) {
-            combinationPower = SequenceCombination<unsigned int>().playerCombination(numberList);
+            combinationPower = SequenceCombination<unsigned int>().playerCombination(numberVect);
         }
         
         break;
     case 5:
-        for (auto& n : numberList) {
-            if (n == 0) {
-                counter++;
-            }
-        }
+        
         if (counter == 0) {
-            combinationPower = SumCombination<unsigned int>().playerCombination(numberList);
+            combinationPower = SumCombination<unsigned int>().playerCombination(numberVect);
         }
         
         break;

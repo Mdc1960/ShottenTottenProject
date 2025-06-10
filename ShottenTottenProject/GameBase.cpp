@@ -82,7 +82,7 @@ void GameBase::startGame()
 							firstPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
 						}
 
-						if (Bord::numberOfCardPutInBorders >= 6) {
+						if (Bord::numberOfCardPutInBorders >= 4) {
 							notify();
 							revendicatePhase->acceptPlayer(firstPlayer.get());
 							isFirstPlayerWantToRevendicate = firstPlayer->getIsPlayerWantToRevendicateValue();

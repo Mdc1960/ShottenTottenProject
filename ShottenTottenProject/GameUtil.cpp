@@ -190,3 +190,16 @@ void Util::printMode()
 	}
 	std::cout << "You will play SHOTTEN TOTTEN in mode : " << mode << std::endl;
 }
+
+std::string Util::transformeColorToString(Color color)
+{
+	switch (color) {
+	case Color::RED: return "RD";
+	case Color::BLUE: return "BE";
+	case Color::GREEN: return "GN";
+	case Color::BROWN: return "BN";
+	case Color::PURPLE: return "PE";
+	case Color::YELLOW: return "YW";
+	default: return "Inconnu";
+	}
+}

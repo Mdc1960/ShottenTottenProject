@@ -107,6 +107,7 @@ const unsigned int Border::getSecondPlayerSidePutCardIndex() const
 std::unordered_map<std::string, unsigned int> Border::fillPlayerRevendicateMap(unsigned int&& playerSideId)
 {
 	std::unordered_map<std::string, unsigned int> map = std::unordered_map<std::string, unsigned int>();
+	std::unordered_map<std::string, unsigned int> secondMap = std::unordered_map<std::string, unsigned int>();
 
 	switch (std::move(playerSideId)) {
 	case 1:
@@ -115,18 +116,18 @@ std::unordered_map<std::string, unsigned int> Border::fillPlayerRevendicateMap(u
 		map["Color"] = firstPlayerBorderSide->getPlayerSideCombination(std::move(3));
 		map["Sequence"] = firstPlayerBorderSide->getPlayerSideCombination(std::move(4));
 		map["Sum"] = firstPlayerBorderSide->getPlayerSideCombination(std::move(5));
-		break;
+		return map;
 	case 2:
-		map["ColorSequence"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(1));
-		map["Set"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(2));
-		map["Color"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(3));
-		map["Sequence"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(4));
-		map["Sum"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(5));
-		break;
+		secondMap["ColorSequence"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(1));
+		secondMap["Set"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(2));
+		secondMap["Color"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(3));
+		secondMap["Sequence"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(4));
+		secondMap["Sum"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(5));
+		return secondMap;
 	default:
 		break;
 	}
-	return map;
+	return std::unordered_map<std::string, unsigned int>();
 }
 
 

@@ -9,11 +9,11 @@ class SumCombination : public Combination<T>
 
 public:
 
-	unsigned int playerCombination(std::initializer_list<T> list) override;
+	unsigned int playerCombination(std::vector<T> list) override;
 };
 
 template<class T>
-inline unsigned int SumCombination<T>::playerCombination(std::initializer_list<T> list)
+inline unsigned int SumCombination<T>::playerCombination(std::vector<T> list)
 {
 	unsigned int sumValue = 0;
 	unsigned int sumCounter = 0;

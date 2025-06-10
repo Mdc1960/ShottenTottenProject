@@ -554,7 +554,7 @@ const unsigned int Game::getRevendicateBorderTotalValueFromMap(std::unordered_ma
 	unsigned int totalValue = 0;
 
 	for (auto& m : map) {
-		//std::cout << "map:::" << m.second << std::endl;
+		std::cout << "map:::" << m.first << " = " << m.second << std::endl;
 		totalValue += m.second;
 	}
 
