@@ -554,7 +554,7 @@ const unsigned int Game::getRevendicateBorderTotalValueFromMap(std::unordered_ma
 	unsigned int totalValue = 0;
 
 	for (auto& m : map) {
-		std::cout << "map:::" << m.first << " = " << m.second << std::endl;
+		//std::cout << "map:::" << m.first << " = " << m.second << std::endl;
 		totalValue += m.second;
 	}
 
@@ -564,10 +564,10 @@ const unsigned int Game::getRevendicateBorderTotalValueFromMap(std::unordered_ma
 const unsigned int Game::determineBorderWinnerByCombination(unsigned int& firstCombination, unsigned int& secondCombination)
 {
 	unsigned int winner;
-	if (firstCombination > secondCombination) {
+	if (firstCombination > secondCombination && firstCombination >= 11) {
 		winner = 1;
 	}
-	else if (secondCombination > firstCombination) {
+	else if (secondCombination > firstCombination && secondCombination >= 11) {
 		winner = 2;
 	}
 	else {

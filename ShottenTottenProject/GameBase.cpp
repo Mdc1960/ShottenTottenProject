@@ -108,6 +108,19 @@ void GameBase::startGame()
 
 									std::cout << "The Winner : " << winner << std::endl;
 
+									switch (winner) {
+									case 0 :
+										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex << std::endl;
+										firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										break;
+									case 1:
+										break;
+									case 2:
+										break;
+									default:
+										break;
+									}
+
 									break;
 								case 2:
 									opponentCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex, std::move(2));
