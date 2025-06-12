@@ -134,11 +134,10 @@
     <ClCompile Include="Border.cpp" />
     <ClCompile Include="BorderBase.cpp" />
     <ClCompile Include="BorderDecorator.cpp" />
-    <ClCompile Include="CardBattle.cpp" />
     <ClCompile Include="CardClan.cpp" />
-    <ClCompile Include="CardElite.cpp" />
-    <ClCompile Include="CardTactic.cpp" />
+    <ClCompile Include="ColinMaillardCard.cpp" />
     <ClCompile Include="CollinMaillard.cpp" />
+    <ClCompile Include="CombatDeBoueCard.cpp" />
     <ClCompile Include="Defausse.cpp" />
     <ClCompile Include="Espion.cpp" />
     <ClCompile Include="Exception.cpp" />
@@ -156,7 +155,6 @@
     <ClCompile Include="PorteBouclier.cpp" />
     <ClCompile Include="RevendicateBorder.cpp" />
     <ClCompile Include="Rules.cpp" />
-    <ClCompile Include="CardRuse.cpp" />
     <ClCompile Include="ShottenTottenProject.cpp" />
     <ClCompile Include="Stack.cpp" />
   </ItemGroup>
@@ -176,10 +174,12 @@
     <ClInclude Include="CardInterface.h" />
     <ClInclude Include="CardSet.h" />
     <ClInclude Include="CardTactic.h" />
+    <ClInclude Include="ColinMaillardCard.h" />
     <ClInclude Include="CollinMaillard.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="ColorCombination.h" />
     <ClInclude Include="ColorSequenceCombination.h" />
+    <ClInclude Include="CombatDeBoueCard.h" />
     <ClInclude Include="Combination.h" />
     <ClInclude Include="Defausse.h" />
     <ClInclude Include="Espion.h" />

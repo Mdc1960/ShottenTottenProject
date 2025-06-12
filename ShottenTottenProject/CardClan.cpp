@@ -10,14 +10,10 @@ CardClan::CardClan(unsigned int num, Color col)
 	color = col;
 }
 
-string CardClan::getColorString() const
-{
-    return Util::transformeColorToString(color);
-}
 
 string CardClan::getNamecard()
 {
-    return "Cardclan " + getColorString() + " " + to_string(numero);
+    return "Cardclan " + getCardColor() + " " + to_string(numero);
 
 }
 
@@ -26,7 +22,7 @@ string CardClan::getNamecard()
 void CardClan::printCard()
 {
     if (numero > 0) {
-        std::cout << "  CL:" << numero << "_" << " " << getColorString() << "  ";
+        std::cout << "  CL:" << numero << "_" << " " << getCardColor() << "  ";
     }
     else {
         std::cout << "  " << "X" << "_" << "nocard" << "  ";

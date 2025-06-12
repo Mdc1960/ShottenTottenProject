@@ -4,7 +4,7 @@
 class Ruse : public CardTactic
 {
 public :
-	void applyEffet() override;
-	string getNamecard() override;
+	void applyEffet() = 0;
+	string getNamecard() = 0;
 };
 
