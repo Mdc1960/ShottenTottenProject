@@ -6,8 +6,9 @@ void ColinMaillardCard::printCard()
 	std::cout << this->getNamecard() << std::endl;
 }
 
-void ColinMaillardCard::applyEffet()
+void ColinMaillardCard::applyEffet(unique_ptr<Border>& border)
 {
+	border = make_unique<CollinMaillard>(move(border));
 }
 
 string ColinMaillardCard::getNamecard()

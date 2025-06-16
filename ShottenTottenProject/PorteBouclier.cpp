@@ -10,7 +10,7 @@ void PorteBouclier::printCard()
 	}
 }
 
-void PorteBouclier::applyEffet()
+void PorteBouclier::applyEffet(unique_ptr<Border>& border)
 {
 	unsigned int v;
 	cout << "entrer une valeur de la carte entre 1 et 3 :" << endl;

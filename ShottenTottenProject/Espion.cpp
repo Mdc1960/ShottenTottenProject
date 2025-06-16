@@ -11,7 +11,7 @@ void Espion::printCard()
 	}
 }
 
-void Espion::applyEffet()
+void Espion::applyEffet(unique_ptr<Border>& border)
 {
 	setNumero((unsigned int)7);
 	int col;

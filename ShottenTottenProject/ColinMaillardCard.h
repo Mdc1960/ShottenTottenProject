@@ -7,7 +7,7 @@ class ColinMaillardCard : public CardBattle
 {
 public:
 	void printCard() override;
-	void applyEffet() override;
+	void applyEffet(unique_ptr<Border>& border) override;
 	string getNamecard() override;
 
 };

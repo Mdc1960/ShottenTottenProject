@@ -129,7 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AIPlayer.cpp" />
-    <ClCompile Include="BaseBattle.cpp" />
+    <ClCompile Include="CBDecorator.cpp" />
     <ClCompile Include="Bord.cpp" />
     <ClCompile Include="Border.cpp" />
     <ClCompile Include="BorderBase.cpp" />
@@ -163,7 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AIPlayer.h" />
-    <ClInclude Include="BaseBattle.h" />
+    <ClInclude Include="CBDecorator.h" />
     <ClInclude Include="Bord.h" />
     <ClInclude Include="Border.h" />
     <ClInclude Include="BorderBase.h" />

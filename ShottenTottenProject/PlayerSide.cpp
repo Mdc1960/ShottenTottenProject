@@ -104,7 +104,7 @@ std::vector<std::string> PlayerSide::getAllCardColor()
 
 void PlayerSide::putCardInCardSet(std::unique_ptr<CardInterface> card)
 {
-    if (putCardIndex < 3) {
+    if (putCardIndex < capacity) {
         this->cardCollection[putCardIndex] = std::move(card);
         putCardIndex++;
     }
