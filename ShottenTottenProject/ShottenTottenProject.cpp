@@ -14,6 +14,8 @@
 #include "Exception.h"
 #include "Game.h"
 #include "GameBase.h"
+#include "ColinMaillardCard.h"
+#include "CombatDeBoueCard.h"
 
 
 int main()
@@ -243,7 +245,7 @@ if (lit != nullptr) {
 
 
 
-
+/*
 
 std::cout << "-------------------------GAME PART-----------------------------" << std::endl;
 
@@ -271,6 +273,7 @@ default:
     break;
 }
 
+*/
 
 
 
@@ -297,11 +300,23 @@ std::cout << "\nPOP AND GET CARD : "; g.getCardFromCardClanStack()->printCard();
 
 g.showClanStack();*/
 
+std::unique_ptr<Border> B1 = std::make_unique<BorderBase>();
+std::unique_ptr<Border> B2 = std::make_unique<BorderBase>();
+cout << "capacity before b1 : " <<B1->getBorderCapacity() << endl;
+//cout << "capacity before b2 : " << B2->getBorderCapacity() << endl;
+//B1->test();
 
 
+std::unique_ptr<CardTactic> C1 = std::make_unique<ColinMaillardCard>();
+std::unique_ptr<CardTactic> C2 = std::make_unique<CombatDeBoueCard>();
+
+C2->applyEffet(B1);
+
+//B1->test();
+cout << "capacity after b1 : " << B1->getBorderCapacity() << endl;
+//cout << "capacity after b2 : " << B2->getBorderCapacity() << endl;
 
 std::cout << "\n";
-
 
 
     std::cout << "Hello World!!!" << std::endl;

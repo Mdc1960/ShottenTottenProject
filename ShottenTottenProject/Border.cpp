@@ -7,6 +7,13 @@ Border::Border() :
 	fillPlayerSides();
 }
 
+void Border::setBorderCapacity(unsigned int newCap)
+{
+	this->borderCapacity = newCap;
+	firstPlayerBorderSide->setCapacity(newCap);
+	secondPlayerBorderSide->setCapacity(newCap);
+}
+
 
 std::vector<std::string> Border::getAllCardColorInPlayerSide(unsigned int&& playerSideId)
 {
@@ -172,6 +179,16 @@ const unsigned int Border::getRevendicateBorderTotalValueFromMap(std::unordered_
 	}
 
 	return totalValue;
+}
+
+std::vector<unsigned int> Border::getFirstPlayerSideAllCardNumber()
+{
+	return firstPlayerBorderSide->getAllCardNumberInPlayerSide();
+}
+
+std::vector<unsigned int> Border::getSecondPlayerSideAllCardNumber()
+{
+	return secondPlayerBorderSide->getAllCardNumberInPlayerSide();
 }
 
 const unsigned int Border::getBorderCapacity() const

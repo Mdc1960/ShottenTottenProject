@@ -7,8 +7,10 @@ void CombatDeBoueCard::printCard()
 	std::cout << this->getNamecard() << std::endl;
 }
 
-void CombatDeBoueCard::applyEffet()
+void CombatDeBoueCard::applyEffet(unique_ptr<Border>& border)
 {
+	border = make_unique<CBDecorator>(move(border));
+
 }
 
 string CombatDeBoueCard::getNamecard()

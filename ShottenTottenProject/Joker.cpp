@@ -10,7 +10,7 @@ void Joker::printCard()
 	}
 }
 
-void Joker::applyEffet()
+void Joker::applyEffet(unique_ptr<Border>& border)
 {
 	unsigned int v;
 	cout << "entrer une valeur de la carte entre 1 et 9 :"<<endl;

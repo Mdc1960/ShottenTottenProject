@@ -23,46 +23,51 @@ protected :
 	std::unique_ptr<PlayerSide> secondPlayerBorderSide;
 	std::vector<unsigned int> listIndexBorderClaimed;
 	BorderStatus			 status;
+	unsigned int borderCapacity = 3;
 
 	unsigned int borderCapacity = 3;
 
 
 public :
-
 	Border();
 
+	virtual void setBorderCapacity(unsigned int newCap);
+	virtual unsigned int getBorderCapacity() { return borderCapacity; }
 	virtual unsigned int claim() = 0;
 
-	std::vector<std::string> getAllCardColorInPlayerSide(unsigned int&& playerSideId);
+	virtual std::vector<std::string> getAllCardColorInPlayerSide(unsigned int&& playerSideId);
 
-	void pushCardInBorder(std::unique_ptr<CardInterface> card);
-	void popCardInBorder(std::unique_ptr<CardInterface> card);
+	virtual void pushCardInBorder(std::unique_ptr<CardInterface> card);
+	virtual void popCardInBorder(std::unique_ptr<CardInterface> card);
 
-	unsigned int getMaxCapacityInPlayerSide() const;
+	virtual unsigned int getMaxCapacityInPlayerSide() const;
 
-	void setFirstPlayerSide(std::unique_ptr<PlayerSide> playerSide);
-	void setSecondPlayerSide(std::unique_ptr<PlayerSide> playerSide);
+	virtual void setFirstPlayerSide(std::unique_ptr<PlayerSide> playerSide);
+	virtual void setSecondPlayerSide(std::unique_ptr<PlayerSide> playerSide);
 
-	void printBorder();
+	virtual void printBorder();
 
-	void printFirtPlayerSideCardByIndex(unsigned int&& index);
-	void printSecondPlayerSideCardByIndex(unsigned int&& index);
+	virtual void printFirtPlayerSideCardByIndex(unsigned int&& index);
+	virtual void printSecondPlayerSideCardByIndex(unsigned int&& index);
 	
-	void putCardInFirstPlayerSide(std::unique_ptr<CardInterface> card);
-	void putCardInSecondPlayerSide(std::unique_ptr<CardInterface> card);
+	virtual void putCardInFirstPlayerSide(std::unique_ptr<CardInterface> card);
+	virtual void putCardInSecondPlayerSide(std::unique_ptr<CardInterface> card);
 
-	void printFirstPlayerBorderSide();
-	void printSecondPlayerBorderSide();
+	virtual void printFirstPlayerBorderSide();
+	virtual void printSecondPlayerBorderSide();
 
-	const unsigned int getFirstPlayerSidePutCardIndex() const;
-	const unsigned int getSecondPlayerSidePutCardIndex() const;
+	virtual const unsigned int getFirstPlayerSidePutCardIndex() const;
+	virtual const unsigned int getSecondPlayerSidePutCardIndex() const;
 
-	std::unordered_map<std::string, unsigned int> fillPlayerRevendicateMap(unsigned int&& playerSideId);
+	virtual std::unordered_map<std::string, unsigned int> fillPlayerRevendicateMap(unsigned int&& playerSideId);
 
-	CardInterface* getCardInPlayerSide(unsigned int&& playerSideId, unsigned int&& indexCard);
+	virtual CardInterface* getCardInPlayerSide(unsigned int&& playerSideId, unsigned int&& indexCard);
 
-	const unsigned int determineBorderWinnerByCombination(unsigned int& firstCombination, unsigned int& secondCombination);
-	const unsigned int getRevendicateBorderTotalValueFromMap(std::unordered_map<std::string, unsigned int>& map);
+	virtual const unsigned int determineBorderWinnerByCombination(unsigned int& firstCombination, unsigned int& secondCombination);
+	virtual const unsigned int getRevendicateBorderTotalValueFromMap(std::unordered_map<std::string, unsigned int>& map);
+
+	virtual std::vector<unsigned int> getFirstPlayerSideAllCardNumber();
+	virtual std::vector<unsigned int> getSecondPlayerSideAllCardNumber();
 
 	const unsigned int getBorderCapacity() const;
 	void setBorderCapacity(const unsigned int& capacity);

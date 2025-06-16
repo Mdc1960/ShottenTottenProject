@@ -60,7 +60,7 @@
     <ClCompile Include="CollinMaillard.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="BaseBattle.cpp">
+    <ClCompile Include="CBDecorator.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="PlayerPlay.cpp">
@@ -178,7 +178,7 @@
     <ClInclude Include="CollinMaillard.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="BaseBattle.h">
+    <ClInclude Include="CBDecorator.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Phase.h">

@@ -10,5 +10,5 @@ class Espion : public CardElite
 public:
 	void printCard() override;
 	string getNamecard() override { return "Espion"; }
-	void applyEffet() override;
+	void applyEffet(unique_ptr<Border>& border) override;
 };
