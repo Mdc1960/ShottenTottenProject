@@ -10,26 +10,26 @@ class ColorSequenceCombination : public ColorCombination<T>, public SequenceComb
 
 protected :
 
-	virtual unsigned int playerCombination(std::initializer_list<T> list) override;
+	virtual unsigned int playerCombination(std::vector<T> list) override;
 
 
 public :
 
-	virtual unsigned int playerCombinationBis(std::initializer_list<T> firstList, std::initializer_list<U> secondList);
+	virtual unsigned int playerCombinationBis(std::vector<T> firstList, std::vector<U> secondList);
 	
 
 };
 
 
 template<class T, class U>
-inline unsigned int ColorSequenceCombination<T, U>::playerCombination(std::initializer_list<T> list)
+inline unsigned int ColorSequenceCombination<T, U>::playerCombination(std::vector<T> list)
 {
 	bool sameColor = this->cardAreSameColor(list);
 	return (unsigned int)sameColor;
 }
 
 template<class T, class U>
-inline unsigned int ColorSequenceCombination<T, U>::playerCombinationBis(std::initializer_list<T> firstList, std::initializer_list<U> secondList)
+inline unsigned int ColorSequenceCombination<T, U>::playerCombinationBis(std::vector<T> firstList, std::vector<U> secondList)
 {
 	unsigned int colorSequenceValue = 0;
 	bool sequence = this->cardAreSequence(secondList);

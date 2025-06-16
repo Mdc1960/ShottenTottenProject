@@ -16,6 +16,12 @@ void GameBase::startGame()
 	fillPlayerHandWithInitialCardsUsingId(std::move(1));
 	fillPlayerHandWithInitialCardsUsingId(std::move(2));
 
+	std::unordered_map<std::string, unsigned int> playerCombinationMap;
+	std::unordered_map<std::string, unsigned int> opponentCombinationMap;
+	std::unordered_map<std::string, unsigned int> aiCombinationMap;
+
+	unsigned int winner;
+
 	turn = 0;
 
 	while (!isGameOver) {
@@ -33,6 +39,9 @@ void GameBase::startGame()
 
 		unsigned int firstPlayerRevendicateBorderIndex;
 		bool isFirstPlayerWantToRevendicate;
+		
+		unsigned int aiPlayerRevendicateBorderIndex;
+		bool isAIPlayerWantToRevendicate;
 
 		std::unique_ptr<CardInterface> aiPlayedCard;
 		std::unique_ptr<CardInterface> playerPlayedCard;
@@ -49,11 +58,11 @@ void GameBase::startGame()
 
 			firstBorderSide = gameBord.getBorderSidePutCardIndex(std::move(indexBorder - 1), std::move(1));
 
-		#ifdef _WIN32
+		/*#ifdef _WIN32
 			std::system("cls");
 		#else
 			std::system("clear");
-		#endif
+		#endif*/
 
 
 
@@ -73,15 +82,100 @@ void GameBase::startGame()
 							firstPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
 						}
 
-						if (Bord::numberOfCardPutInBorders >= 12) {
+						if (Bord::numberOfCardPutInBorders >= 4) {
 							notify();
 							revendicatePhase->acceptPlayer(firstPlayer.get());
 							isFirstPlayerWantToRevendicate = firstPlayer->getIsPlayerWantToRevendicateValue();
 
 							if (isFirstPlayerWantToRevendicate) {
-								firstPlayerRevendicateBorderIndex = firstPlayer->getRevendicateBorderIndex();
+								firstPlayerRevendicateBorderIndex = firstPlayer->getRevendicateBorderIndex() - 1;
 
-								std::cout << "First Player want to revendicate : " << firstPlayerRevendicateBorderIndex << std::endl;
+								std::cout << "First Player want to revendicate : " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+
+								//playerCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex, std::move(1));
+
+								switch (this->opponentChoiseMade) {
+								case 1:
+									/*aiCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex, std::move(2));
+
+									setPlayerCombination(getRevendicateBorderTotalValueFromMap(playerCombinationMap));
+									setAICombination(getRevendicateBorderTotalValueFromMap(aiCombinationMap));
+
+									std::cout << "COMBINE 1 : " << playerCombination << std::endl;
+									std::cout << "COMBINE 2 : " << aiCombination << std::endl;
+
+									winner = determineBorderWinnerByCombination(playerCombination, aiCombination);
+
+									std::cout << "The Winner : " << winner << std::endl;
+
+									switch (winner) {
+									case 0 :
+										//TODO : Equality.
+										break;
+									case 1:
+										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex << std::endl;
+										firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										break;
+									case 2:
+										//Second Player Win the border.
+										break;
+									default:
+										break;
+									}*/
+
+									winner = gameBord.claim(firstPlayerRevendicateBorderIndex);
+
+									std::cout << "The Winner : " << winner << std::endl;
+
+									switch (winner) {
+									case 0:
+										//TODO : Equality.
+										break;
+									case 1:
+										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+										firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										break;
+									case 2:
+										//Second Player Win the border(AI).
+										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+										aiPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										break;
+									default:
+										break;
+									}
+
+									break;
+								case 2:
+									//opponentCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex, std::move(2));
+
+									winner = gameBord.claim(firstPlayerRevendicateBorderIndex);
+
+									std::cout << "The Winner : " << winner << std::endl;
+
+									switch (winner) {
+									case 0:
+										//TODO : Equality.
+										break;
+									case 1:
+										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+										firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										break;
+									case 2:
+										//Second Player Win the border(AI).
+										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+										opponentPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										break;
+									default:
+										break;
+									}
+
+									break;
+								default:
+									break;
+								}
+
+								//std::this_thread::sleep_for(std::chrono::seconds(2));
+								
 							}
 							firstPlayer->setIsRevendicateBorderValid(false);
 						}
@@ -112,11 +206,11 @@ void GameBase::startGame()
 			case 1:
 				//AI Play
 
-			#ifdef _WIN32
+			/*#ifdef _WIN32
 				std::system("cls");
 			#else
 				std::system("clear");
-			#endif
+			#endif*/
 
 				std::cout << "AI is playing" << std::endl;
 
@@ -143,6 +237,21 @@ void GameBase::startGame()
 								secondPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
 							}
 
+							if (Bord::numberOfCardPutInBorders >= 12) {
+								notify();
+								revendicatePhase->acceptPlayer(secondPlayer.get());
+
+								isAIPlayerWantToRevendicate = secondPlayer->getIsPlayerWantToRevendicateValue();
+
+								if (isAIPlayerWantToRevendicate) {
+									aiPlayerRevendicateBorderIndex = secondPlayer->getRevendicateBorderIndex();
+
+									std::cout << "AI Player want to revendicate : " << aiPlayerRevendicateBorderIndex << std::endl;
+
+									//std::this_thread::sleep_for(std::chrono::seconds(2));
+								}
+							}
+
 						}
 
 					}
@@ -156,7 +265,7 @@ void GameBase::startGame()
 				secondPlayer->setIsChooseBoredValid(false);
 
 				std::cout << "Nb Put card : " << Bord::numberOfCardPutInBorders << std::endl;
-
+			
 
 
 

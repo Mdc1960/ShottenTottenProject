@@ -2,6 +2,8 @@
 #define COMBINATION_INTERFACE_H
 
 #include "Border.h"
+#include "GameUtil.h"
+#include <vector>
 
 template <class T>
 class Combination
@@ -10,7 +12,7 @@ class Combination
 public:
 
 	
-	virtual unsigned int playerCombination(std::initializer_list<T> list) = 0;
+	virtual unsigned int playerCombination(std::vector<T> list) = 0;
 	virtual ~Combination() {}
 
 };

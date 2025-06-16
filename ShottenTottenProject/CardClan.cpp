@@ -1,4 +1,5 @@
 #include "CardClan.h"
+#include "GameUtil.h"
 #include <iostream>
 #include <string>
 
@@ -9,22 +10,10 @@ CardClan::CardClan(unsigned int num, Color col)
 	color = col;
 }
 
-string CardClan::getColorString() const
-{
-    switch (color) {
-        case Color::RED: return "RD";
-        case Color::BLUE: return "BE";
-        case Color::GREEN: return "GN";
-        case Color::BROWN: return "BN";
-        case Color::PURPLE: return "PE";
-        case Color::YELLOW: return "YW";
-        default: return "Inconnu";
-    }
-}
 
 string CardClan::getNamecard()
 {
-    return "Cardclan " + getColorString() + " " + to_string(numero);
+    return "Cardclan " + getCardColor() + " " + to_string(numero);
 
 }
 
@@ -33,12 +22,22 @@ string CardClan::getNamecard()
 void CardClan::printCard()
 {
     if (numero > 0) {
-        std::cout << "  CL:" << numero << "_" << " " << getColorString() << "  ";
+        std::cout << "  CL:" << numero << "_" << " " << getCardColor() << "  ";
     }
     else {
         std::cout << "  " << "X" << "_" << "nocard" << "  ";
     }
     
+}
+
+std::string CardClan::getCardColor()
+{
+    return Util::transformeColorToString(this->color);
+}
+
+unsigned int CardClan::getCardNumber()
+{
+    return numero;
 }
 
 

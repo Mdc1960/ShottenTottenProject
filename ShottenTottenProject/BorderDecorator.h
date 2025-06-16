@@ -12,7 +12,7 @@ private :
 
 public :
 
-	virtual void claim() = 0;
+	virtual unsigned int claim() = 0;
 
 };
 

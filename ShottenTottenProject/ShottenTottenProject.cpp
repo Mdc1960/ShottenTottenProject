@@ -239,119 +239,11 @@ if (lit != nullptr) {
 }*/
 
 
-/*ColorCombination cc = ColorCombination();
-
-std::cout << "Are Same ?=? " << cc.cardAreSameColor<std::string>({"A","A","A","A"}) << std::endl;*/
-
-/*ColorSequenceCombination cs = ColorSequenceCombination();
-
-std::cout << "Are Same ?=? " << cs.cardAreSameColor<std::string>({ "A","A","A","A" }) << std::endl;
-std::cout << "Are Sequence ?=? " << cs.cardAreSequence({ 25,1,2,3,4,5,7}) << std::endl;
-
-SequenceCombination sc = SequenceCombination();
-
-std::cout << "Sequenced : " << sc.cardAreSequence({ 8,2,5 }) << std::endl;
-std::cout << "Sequenced bis : " << sc.cardAreSequence({ 8,6,7 }) << std::endl;
-
-SetCombination st = SetCombination();
-
-std::cout << "Set : " << st.cardAreSameColor({ 8,2,5 }) << std::endl;
-std::cout << "Set bis : " << st.cardAreSameValue({ 8,6,7 }) << std::endl;
-
-std::cout << "Set : " << st.cardAreSameColor({ 8,8,8 }) << std::endl;
-std::cout << "Set bis : " << st.cardAreSameValue({ 1,1,1 }) << std::endl;*/
-
-/*std::unique_ptr<PlayerSide> p1 = std::make_unique<PlayerSide>();
-std::unique_ptr<PlayerSide> p2 = std::make_unique<PlayerSide>();
-p1->fillCardSet();
-p2->fillCardSet();
-
-std::unique_ptr<BorderBase> b = std::make_unique<BorderBase>();
-
-std::vector<std::string> firstVect = b->getAllCardColorInPlayerSide(std::move(1));
-std::vector<std::string> secondVect = b->getAllCardColorInPlayerSide(std::move(2));
-
-std::cout << "HGSDHJ : " << firstVect[0] << std::endl;
-
-std::initializer_list<std::string> list = { firstVect[0],firstVect[1],firstVect[2] };
-std::initializer_list<std::string> list1 = { secondVect[0],secondVect[1],secondVect[2] };
-
-for (std::string s : list) {
-    std::cout << "P : " << s << std::endl;
-}
-
-ColorCombination<std::string> cb = ColorCombination<std::string>();
-
-std::cout << "Player1 ColorCombination : " << cb.playerCombination(list) << std::endl;
-std::cout << "Player2 ColorCombination : " << cb.playerCombination(list1) << std::endl;
-
-SequenceCombination<unsigned int> sc = SequenceCombination<unsigned int>();
-
-std::cout << "P1 sequence : " << sc.playerCombination({ 1,2,3 }) << std::endl;
-std::cout << "P2 sequence : " << sc.playerCombination({ 5,2,3 }) << std::endl;
-
-ColorSequenceCombination<std::string, unsigned int> cs = ColorSequenceCombination<std::string, unsigned int>();
-std::cout << "P1 cs : " << cs.cardAreSameColor<std::string>({ "A","A","A" }) << std::endl;
-std::cout << "P2 cs : " << cs.cardAreSequence<unsigned int>({ 1,2,3 }) << std::endl;
-
-std::cout << "PP3 cs : " << cs.playerCombinationBis({ "A","A","A" }, { 1,2,3 }) << std::endl;
-
-SetCombination<std::string> stc = SetCombination<std::string>();
-
-std::cout << "P1 SET : " << stc.cardAreSameColor({ "A","A","A" }) << std::endl;
-std::cout << "P2 SET : " << stc.cardAreSameValue({ 1,1,1 }) << std::endl;
-std::cout << "PP3 SET : " << stc.playerCobinationBis({ "A","A","A" } ,{ 1,1,1 }) << std::endl;
-
-SumCombination<unsigned int> sm = SumCombination<unsigned int>();
-
-std::cout << "P1 Sum : " << sm.playerCombination({ 1,8,3 }) << std::endl;
-
-std::cout << "\n------------------------------STACK---------------------------------" << std::endl;
-
-Stack stack = Stack(54);
-stack.fillClanStack();
-std::cout << "\nBEFORE SHUFFLE\n";
-stack.printCardSet();
-std::cout << "\n";
-stack.shuffledStack();
-std::cout << "\AFTER SHUFFLE\n";
-stack.printCardSet();
-std::cout << "\n------------------------------STACK---------------------------------" << std::endl;
 
 
-BorderBase bbs = BorderBase();
 
 
-Bord& brd = Bord::getInstance();
 
-brd.printBorders();
-
-std::cout << "Size : " << brd.getBorderSize() << std::endl;
-
-try {
-    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(1, Color::GREEN)),std::move(1),std::move(0));
-    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(2, Color::BLACK)),std::move(1),std::move(0));
-    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(4, Color::PURPLE)),std::move(1),std::move(0));
-    brd.printBorders();
-    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(3, Color::RED)),std::move(1),std::move(0));
-    brd.printBorders();
-}
-catch (GameException& exp) {
-    std::cout << "\aError while puting card : " << exp.what() << std::endl;
-}
-try {
-    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(1, Color::GREEN)),std::move(2),std::move(1));
-    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(2, Color::BLACK)),std::move(2),std::move(1));
-    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(4, Color::PURPLE)),std::move(2),std::move(1));
-    brd.printBorders();
-    brd.putCardInBorderByPlayerIdAndColumnIndex(std::move(std::make_unique<CardClan>(3, Color::RED)),std::move(2),std::move(1));
-    brd.printBorders();
-}
-catch (GameException& exp) {
-    std::cout << "\aError while puting card : " << exp.what() << std::endl;
-}
-
-brd.printBorders();*/
 
 std::cout << "-------------------------GAME PART-----------------------------" << std::endl;
 

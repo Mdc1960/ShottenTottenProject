@@ -4,6 +4,12 @@
 #include <iostream>
 #include <string>
 
+#include "ColorCombination.h"
+#include "ColorSequenceCombination.h"
+#include "SequenceCombination.h"
+#include "SetCombination.h"
+#include "SumCombination.h"
+
 PlayerSide::PlayerSide() : capacity(3)
 {
 }
@@ -110,6 +116,96 @@ void PlayerSide::putCardInCardSet(std::unique_ptr<CardInterface> card)
 const unsigned int PlayerSide::getPutCardIndex() const
 {
     return putCardIndex;
+}
+
+const unsigned int PlayerSide::getPlayerSideCombination(unsigned int&& combinationId)
+{
+    unsigned int combinationPower = 0;
+
+    std::vector<std::string> colorVect = getAllCardColorInPlayerSide();
+    std::vector<unsigned int> numberVect = getAllCardNumberInPlayerSide();
+
+    
+
+    
+
+    unsigned int counter = 0;
+
+    for (auto& n : numberVect) {
+        if (n == 0) {
+            counter++;
+        }
+    }
+
+    switch (std::move(combinationId)) {
+    case 1:
+        
+        if (counter == 0) {
+            combinationPower = ColorSequenceCombination<std::string, unsigned int>().playerCombinationBis(colorVect, numberVect);
+        }
+        
+        break;
+    case 2:
+        
+        if (counter == 0) {
+            combinationPower = SetCombination<std::string>().playerCobinationBis(colorVect, numberVect);
+        }
+        
+        break;
+    case 3:
+        
+        if (counter == 0) {
+            combinationPower = ColorCombination<std::string>().playerCombination(colorVect);
+        }
+        
+        break;
+    case 4:
+        
+        if (counter == 0) {
+            combinationPower = SequenceCombination<unsigned int>().playerCombination(numberVect);
+        }
+        
+        break;
+    case 5:
+        
+        if (counter == 0) {
+            combinationPower = SumCombination<unsigned int>().playerCombination(numberVect);
+        }
+        
+        break;
+    default:
+        break;
+    }
+
+    return combinationPower;
+}
+
+std::vector<std::string> PlayerSide::getAllCardColorInPlayerSide()
+{
+    std::vector<std::string> vect = std::vector<std::string>();
+
+    for (auto& card : cardCollection) {
+        if (dynamic_cast<CardClan*>(card.get())) {
+            vect.push_back(((CardClan*)(card.get()))->getCardColor());
+        }
+        
+    }
+
+    return vect;
+}
+
+std::vector<unsigned int> PlayerSide::getAllCardNumberInPlayerSide()
+{
+    std::vector<unsigned int> vect = std::vector<unsigned int>();
+
+    for (auto& card : cardCollection) {
+        if (dynamic_cast<CardClan*>(card.get())) {
+            vect.push_back(((CardClan*)(card.get()))->getCardNumber());
+        }
+
+    }
+
+    return vect;
 }
 
 PlayerSide::PlayerSideIterator PlayerSide::begin()

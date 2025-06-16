@@ -493,7 +493,7 @@ void Game::setOpponentCombination(unsigned int&& combination)
 
 void Game::setAICombination(unsigned int&& combination)
 {
-	this->playerCombination = combination;
+	this->aiCombination = combination;
 }
 
 void Game::fillPlayerHandWithInitialCardsUsingId(unsigned int&& id)
@@ -525,6 +525,57 @@ void Game::setOpponentChoiseMade(const unsigned int& opponentChoiseMade)
 {
 	this->opponentChoiseMade = opponentChoiseMade;
 }
+
+void Game::putRevendicatedBorderIndexInPlayerListById(unsigned int&& playerId, unsigned int& revendicateColumn)
+{
+	switch (std::move(playerId))
+	{
+	case 1:
+		firstPlayerRevendicateBorderList.push_back(revendicateColumn);
+		break;
+	case 2:
+		aiPlayerRevendicateBorderList.push_back(revendicateColumn);
+		break;
+	case 3:
+		opponentPlayerRevendicateBorderList.push_back(revendicateColumn);
+		break;
+	default:
+		break;
+	}
+}
+
+std::unordered_map<std::string, unsigned int> Game::fillPlayerRevendicateMap(unsigned int& revendicateColumn, unsigned int&& playerSideId)
+{
+	return gameBord.fillPlayerRevendicateMap(revendicateColumn, std::move(playerSideId));
+}
+
+const unsigned int Game::getRevendicateBorderTotalValueFromMap(std::unordered_map<std::string, unsigned int>& map)
+{
+	unsigned int totalValue = 0;
+
+	for (auto& m : map) {
+		//std::cout << "map:::" << m.first << " = " << m.second << std::endl;
+		totalValue += m.second;
+	}
+
+	return totalValue;
+}
+
+const unsigned int Game::determineBorderWinnerByCombination(unsigned int& firstCombination, unsigned int& secondCombination)
+{
+	unsigned int winner;
+	if (firstCombination > secondCombination && firstCombination >= 11) {
+		winner = 1;
+	}
+	else if (secondCombination > firstCombination && secondCombination >= 11) {
+		winner = 2;
+	}
+	else {
+		winner = 0;
+	}
+	return winner;
+}
+
 
 
 

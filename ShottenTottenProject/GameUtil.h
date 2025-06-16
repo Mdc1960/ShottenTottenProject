@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <string>
+#include "Color.h"
 
 
 static const unsigned int ZERO = 0;
@@ -50,6 +51,8 @@ public:
 	static const bool equalIngnoreCase(std::string& first, std::string&& second);
 	static void configureGame();
 	static void printMode();
+
+	static std::string transformeColorToString(Color color);
 
 
 };

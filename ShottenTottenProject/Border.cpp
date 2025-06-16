@@ -104,6 +104,32 @@ const unsigned int Border::getSecondPlayerSidePutCardIndex() const
 	return this->secondPlayerBorderSide->getPutCardIndex();
 }
 
+std::unordered_map<std::string, unsigned int> Border::fillPlayerRevendicateMap(unsigned int&& playerSideId)
+{
+	std::unordered_map<std::string, unsigned int> map = std::unordered_map<std::string, unsigned int>();
+	std::unordered_map<std::string, unsigned int> secondMap = std::unordered_map<std::string, unsigned int>();
+
+	switch (std::move(playerSideId)) {
+	case 1:
+		map["ColorSequence"] = firstPlayerBorderSide->getPlayerSideCombination(std::move(1));
+		map["Set"] = firstPlayerBorderSide->getPlayerSideCombination(std::move(2));
+		map["Color"] = firstPlayerBorderSide->getPlayerSideCombination(std::move(3));
+		map["Sequence"] = firstPlayerBorderSide->getPlayerSideCombination(std::move(4));
+		map["Sum"] = firstPlayerBorderSide->getPlayerSideCombination(std::move(5));
+		return map;
+	case 2:
+		secondMap["ColorSequence"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(1));
+		secondMap["Set"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(2));
+		secondMap["Color"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(3));
+		secondMap["Sequence"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(4));
+		secondMap["Sum"] = secondPlayerBorderSide->getPlayerSideCombination(std::move(5));
+		return secondMap;
+	default:
+		break;
+	}
+	return std::unordered_map<std::string, unsigned int>();
+}
+
 
 CardInterface* Border::getCardInPlayerSide(unsigned int&& playerSideId, unsigned int&& indexCard)
 {
@@ -134,4 +160,31 @@ void Border::fillPlayerSides()
 	firstPlayerBorderSide->fillCardSet();
 	secondPlayerBorderSide->fillCardSet();
 
+}
+
+const unsigned int Border::getRevendicateBorderTotalValueFromMap(std::unordered_map<std::string, unsigned int>& map)
+{
+	unsigned int totalValue = 0;
+
+	for (auto& m : map) {
+		std::cout << "map:::" << m.first << " = " << m.second << std::endl;
+		totalValue += m.second;
+	}
+
+	return totalValue;
+}
+
+const unsigned int Border::determineBorderWinnerByCombination(unsigned int& firstCombination, unsigned int& secondCombination)
+{
+	unsigned int winner;
+	if (firstCombination > secondCombination && firstCombination >= 11) {
+		winner = 1;
+	}
+	else if (secondCombination > firstCombination && secondCombination >= 11) {
+		winner = 2;
+	}
+	else {
+		winner = 0;
+	}
+	return winner;
 }

@@ -7,6 +7,8 @@ using namespace std;
 
 class PorteBouclier : public CardElite
 {
+public:
+	void printCard() override;
 	string getNamecard() override { return "Porte-Bouclier"; }
 	void applyEffet() override;
 };

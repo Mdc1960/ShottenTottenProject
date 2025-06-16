@@ -10,7 +10,7 @@ public :
 
 	BorderBase();
 
-	virtual void claim() override;
+	virtual unsigned int claim() override;
 
 };
 

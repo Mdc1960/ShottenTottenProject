@@ -20,6 +20,21 @@ void AIPlayer::chooseBorne()
 
 void AIPlayer::claim(Bord& bord)
 {
+	unsigned int revendicateColumn;
+	bool isAIWantToRevendicate;
+
+	unsigned int maxValue = ALLOW_NUBER_PLAY_BORDER;
+
+	isAIWantToRevendicate = generateRandomNumber(std::move(2), std::move(0));
+
+	if (isAIWantToRevendicate) {
+		setIsPlayerWantToRevendicate(std::move(true));
+	}
+
+	revendicateColumn = generateRandomNumber(std::move(maxValue), std::move(0));
+
+	setRevendicateBorderIndex(revendicateColumn);
+
 }
 
 void AIPlayer::chooseCard()

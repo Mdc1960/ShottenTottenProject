@@ -19,6 +19,8 @@
 #include <iostream>
 #include <typeinfo>
 #include <cstdlib>
+#include <thread>
+#include <unordered_map>
 
 class Bord;
 
@@ -41,6 +43,10 @@ protected:
 	std::shared_ptr<Phase> revendicatePhase;
 	GameMode gameMode;
 	std::vector<Observer*> listObserver;
+
+	std::vector<unsigned int> firstPlayerRevendicateBorderList = std::vector<unsigned int>();
+	std::vector<unsigned int> aiPlayerRevendicateBorderList = std::vector<unsigned int>();
+	std::vector<unsigned int> opponentPlayerRevendicateBorderList = std::vector<unsigned int>();
 
 	unsigned int playerCombination = 0;
 	unsigned int opponentCombination = 0;
@@ -78,7 +84,13 @@ protected:
 	void setRevendicatePhase(std::shared_ptr<Phase> revendicatePhase);
 	void setOpponentChoiseMade(const unsigned int& opponentChoiseMade);
 
-	
+
+	void putRevendicatedBorderIndexInPlayerListById(unsigned int&& playerId, unsigned int& revendicateColumn);
+
+	std::unordered_map<std::string,unsigned int> fillPlayerRevendicateMap(unsigned int& revendicateColumn, unsigned int&& playerSideId);
+	const unsigned int getRevendicateBorderTotalValueFromMap(std::unordered_map<std::string, unsigned int>& map);
+
+	const unsigned int determineBorderWinnerByCombination(unsigned int& firstCombination, unsigned int& secondCombination);
 
 	void configuredPlayers();
 

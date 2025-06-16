@@ -9,6 +9,7 @@
 #include "CardSet.h"
 #include "PlayerSide.h"
 #include "GameUtil.h"
+#include <unordered_map>
 
 
 
@@ -28,7 +29,7 @@ public :
 
 	Border();
 
-	virtual void claim() = 0;
+	virtual unsigned int claim() = 0;
 
 	std::vector<std::string> getAllCardColorInPlayerSide(unsigned int&& playerSideId);
 
@@ -54,7 +55,12 @@ public :
 	const unsigned int getFirstPlayerSidePutCardIndex() const;
 	const unsigned int getSecondPlayerSidePutCardIndex() const;
 
+	std::unordered_map<std::string, unsigned int> fillPlayerRevendicateMap(unsigned int&& playerSideId);
+
 	CardInterface* getCardInPlayerSide(unsigned int&& playerSideId, unsigned int&& indexCard);
+
+	const unsigned int determineBorderWinnerByCombination(unsigned int& firstCombination, unsigned int& secondCombination);
+	const unsigned int getRevendicateBorderTotalValueFromMap(std::unordered_map<std::string, unsigned int>& map);
 
 private :
 

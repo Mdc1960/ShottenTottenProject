@@ -11,16 +11,16 @@ class SequenceCombination : public Combination<T>
 
 public:
 
-	unsigned int playerCombination(std::initializer_list<T> list) override;
+	unsigned int playerCombination(std::vector<T> list) override;
 
 	template <class U>
-	bool cardAreSequence(std::initializer_list<U> list);
+	bool cardAreSequence(std::vector<U> list);
 
 };
 
 template<class T>
 template<class U>
-inline bool SequenceCombination<T>::cardAreSequence(std::initializer_list<U> list)
+inline bool SequenceCombination<T>::cardAreSequence(std::vector<U> list)
 {
 	std::vector<U> vect = list;
 
@@ -38,7 +38,7 @@ inline bool SequenceCombination<T>::cardAreSequence(std::initializer_list<U> lis
 }
 
 template<class T>
-inline unsigned int SequenceCombination<T>::playerCombination(std::initializer_list<T> list)
+inline unsigned int SequenceCombination<T>::playerCombination(std::vector<T> list)
 {
 	unsigned int colorValue = 0;
 	bool areSameColor = false;

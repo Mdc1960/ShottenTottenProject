@@ -14,10 +14,11 @@ protected:
 public:
     CardClan(unsigned int num, Color col);
     Color getColor() { return color; }
-    unsigned int getNumero() { return numero; }
-    string getColorString() const;
     string getNamecard() override;
     void printCard() override;
+
+    std::string getCardColor();
+    unsigned int getCardNumber();
     
         
 };
