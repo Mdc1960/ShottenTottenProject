@@ -83,11 +83,6 @@ unsigned int PlayerSide::getCapacity() const
     return capacity;
 }
 
-void PlayerSide::setCapacity(unsigned int& capacity)
-{
-    this->capacity = capacity;
-}
-
 CardInterface* PlayerSide::getCardByIndex(unsigned int&& indexCard)
 {
     if (indexCard < size()) {
