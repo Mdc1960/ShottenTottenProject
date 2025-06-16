@@ -174,6 +174,18 @@ const unsigned int Border::getRevendicateBorderTotalValueFromMap(std::unordered_
 	return totalValue;
 }
 
+const unsigned int Border::getBorderCapacity() const
+{
+	return this->borderCapacity;
+}
+
+void Border::setBorderCapacity(const unsigned int& capacity)
+{
+	this->borderCapacity = capacity;
+	firstPlayerBorderSide->setCapacity(this->borderCapacity);
+	secondPlayerBorderSide->setCapacity(this->borderCapacity);
+}
+
 const unsigned int Border::determineBorderWinnerByCombination(unsigned int& firstCombination, unsigned int& secondCombination)
 {
 	unsigned int winner;

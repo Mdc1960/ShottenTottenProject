@@ -43,6 +43,8 @@ void GameBase::startGame()
 		unsigned int aiPlayerRevendicateBorderIndex;
 		bool isAIPlayerWantToRevendicate;
 
+		unsigned int borderCapacity;
+
 		std::unique_ptr<CardInterface> aiPlayedCard;
 		std::unique_ptr<CardInterface> playerPlayedCard;
 
@@ -58,6 +60,8 @@ void GameBase::startGame()
 
 			firstBorderSide = gameBord.getBorderSidePutCardIndex(std::move(indexBorder - 1), std::move(1));
 
+			borderCapacity = gameBord.getBorderCapacityByIndex(indexBorder - 1);
+
 		/*#ifdef _WIN32
 			std::system("cls");
 		#else
@@ -65,8 +69,8 @@ void GameBase::startGame()
 		#endif*/
 
 
-
-			if (firstBorderSide < 3) {
+			//Get BorderCapacity.
+			if (firstBorderSide < borderCapacity) {
 
 				try {
 
@@ -74,7 +78,8 @@ void GameBase::startGame()
 
 					if (playerPlayedCard != nullptr) {
 
-						gameBord.putCardInBorderByPlayerIdAndColumnIndex(std::move(playerPlayedCard), std::move(1), std::move(indexBorder - 1));
+						//gameBord.putCardInBorderByPlayerIdAndColumnIndex(std::move(playerPlayedCard), std::move(1), std::move(indexBorder - 1));
+						putCardInBordersColumnUsingPlayerId(std::move(playerPlayedCard), std::move(1), std::move(indexBorder - 1));
 
 						turn = (turn + 1) % 2;
 
@@ -96,32 +101,6 @@ void GameBase::startGame()
 
 								switch (this->opponentChoiseMade) {
 								case 1:
-									/*aiCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex, std::move(2));
-
-									setPlayerCombination(getRevendicateBorderTotalValueFromMap(playerCombinationMap));
-									setAICombination(getRevendicateBorderTotalValueFromMap(aiCombinationMap));
-
-									std::cout << "COMBINE 1 : " << playerCombination << std::endl;
-									std::cout << "COMBINE 2 : " << aiCombination << std::endl;
-
-									winner = determineBorderWinnerByCombination(playerCombination, aiCombination);
-
-									std::cout << "The Winner : " << winner << std::endl;
-
-									switch (winner) {
-									case 0 :
-										//TODO : Equality.
-										break;
-									case 1:
-										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex << std::endl;
-										firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
-										break;
-									case 2:
-										//Second Player Win the border.
-										break;
-									default:
-										break;
-									}*/
 
 									winner = gameBord.claim(firstPlayerRevendicateBorderIndex);
 
@@ -134,6 +113,7 @@ void GameBase::startGame()
 									case 1:
 										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
 										firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										//TODO : Determine the WINNER of the game.
 										break;
 									case 2:
 										//Second Player Win the border(AI).
@@ -184,7 +164,7 @@ void GameBase::startGame()
 
 				}
 				catch (GameException exp) {
-					std::cout << "Error : " << exp.what() << std::endl;
+					std::cout << "\aError : " << exp.what() << std::endl;
 				}
 
 			}

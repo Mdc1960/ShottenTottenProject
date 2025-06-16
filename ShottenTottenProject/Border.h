@@ -24,6 +24,8 @@ protected :
 	std::vector<unsigned int> listIndexBorderClaimed;
 	BorderStatus			 status;
 
+	unsigned int borderCapacity = 3;
+
 
 public :
 
@@ -61,6 +63,9 @@ public :
 
 	const unsigned int determineBorderWinnerByCombination(unsigned int& firstCombination, unsigned int& secondCombination);
 	const unsigned int getRevendicateBorderTotalValueFromMap(std::unordered_map<std::string, unsigned int>& map);
+
+	const unsigned int getBorderCapacity() const;
+	void setBorderCapacity(const unsigned int& capacity);
 
 private :
 

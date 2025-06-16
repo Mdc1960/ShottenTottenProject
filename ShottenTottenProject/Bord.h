@@ -82,6 +82,8 @@ public :
 
 	const unsigned int claim(unsigned int& playerRevendicateBorderIndex);
 
+	const unsigned int getBorderCapacityByIndex(unsigned int borderIndex);
+
 	std::unordered_map<std::string, unsigned int> fillPlayerRevendicateMap(unsigned int& revendicateColumn, unsigned int&& playerSideId);
 
 };

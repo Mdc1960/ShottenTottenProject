@@ -83,6 +83,11 @@ unsigned int PlayerSide::getCapacity() const
     return capacity;
 }
 
+void PlayerSide::setCapacity(unsigned int& capacity)
+{
+    this->capacity = capacity;
+}
+
 CardInterface* PlayerSide::getCardByIndex(unsigned int&& indexCard)
 {
     if (indexCard < size()) {
@@ -104,7 +109,7 @@ std::vector<std::string> PlayerSide::getAllCardColor()
 
 void PlayerSide::putCardInCardSet(std::unique_ptr<CardInterface> card)
 {
-    if (putCardIndex < 3) {
+    if (putCardIndex < capacity) {
         this->cardCollection[putCardIndex] = std::move(card);
         putCardIndex++;
     }
