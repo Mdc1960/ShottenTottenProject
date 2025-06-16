@@ -245,7 +245,7 @@ if (lit != nullptr) {
 
 
 
-/*std::cout << "-------------------------GAME PART-----------------------------" << std::endl;
+std::cout << "-------------------------GAME PART-----------------------------" << std::endl;
 
 Util::configureGame();
 
@@ -269,7 +269,7 @@ case GameMode::EXPERT:
     break;
 default:
     break;
-}*/
+}
 
 
 

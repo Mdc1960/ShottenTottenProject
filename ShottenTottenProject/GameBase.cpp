@@ -90,6 +90,8 @@ void GameBase::startGame()
 							if (isFirstPlayerWantToRevendicate) {
 								firstPlayerRevendicateBorderIndex = firstPlayer->getRevendicateBorderIndex() - 1;
 
+								gameBord.claim(firstPlayerRevendicateBorderIndex);
+
 								std::cout << "First Player want to revendicate : " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
 
 								playerCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex, std::move(1));
@@ -110,12 +112,14 @@ void GameBase::startGame()
 
 									switch (winner) {
 									case 0 :
+										//TODO : Equality.
+										break;
+									case 1:
 										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex << std::endl;
 										firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
 										break;
-									case 1:
-										break;
 									case 2:
+										//Second Player Win the border.
 										break;
 									default:
 										break;

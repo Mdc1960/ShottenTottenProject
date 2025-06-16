@@ -1,14 +1,138 @@
 @startuml
 
-class Player{
+class PlayerInterface{
     - name : string
     - id   : unsigned int
+    - hand : Hand
+
+    + virtual chooseBorne() : void = 0;
+    + virtual claim(Bord& bord) : void = 0;
+    + virtual showHand() : void;
+    + virtual chooseCard() : void = 0;
 }
 
 class AIPlayer{
+
+    + AIPlayer(name : const string, id : unsigned int);
+    + chooseBorne() override : void;
+    + claim(bord : Bord) override : void;
+    + chooseCard() override : void;
+    + generateRandomNumber(maxNumber : unsigned int, minNumber : unsigned int) const : const unsigned int;
+
 }
 
 class HumanPlayer{
+
+    + HumanPlayer(name : const string, id : unsigned int);
+    + chooseBorne() override : void;
+    + claim(bord : Bord) override : void;
+    + chooseCard() override : void;
+
 }
+
+abstract class bord{
+}
+
+abstract class Border{
+}
+
+class BorderBase{
+
+}
+
+class BorderDecorator{
+}
+
+class CardBattle{
+}
+
+class CardClan{
+}
+
+class CardElite{
+}
+
+interface CardInterface{
+}
+
+abstract CardRuse{}
+
+interface CardSet{}
+
+interface CardTactic{}
+
+class ColinMaillardCard{}
+
+class CollinMaillard{}
+
+enum Color{
+    BROWN,
+    RED,
+    GREEN,
+    BLUE,
+    YELLOW,
+    PURPLE
+}
+
+class ColorCombination<T>{}
+
+class ColorSequenceCombination<T>{}
+
+class CombatDeBoueCard{}
+
+interface Combination{}
+
+class Defausse{}
+
+class Espion{}
+
+class Exception{}
+
+class FactoryAiPlayer{}
+
+class FactoryHumanPlayer{}
+
+interface FactoryPlayer{}
+
+abstract class Game{}
+
+class GameBase{}
+
+class GameUtil{}
+
+class Hand{}
+
+interface IteratorInterface{}
+
+class Joker{}
+
+interface Observable{}
+
+interface Observer{}
+
+interface Phase{}
+
+interface PlayerInterface{}
+
+class PlayerSide{}
+
+class classPortBouclier{}
+
+class PlayerPlay{}
+
+class RevendicateBorder{}
+
+class Rules{}
+
+class SequenceCombination{}
+
+class SetCombination{}
+
+class Stack{}
+
+class SumCombination{}
+
+
+
 
 @enduml

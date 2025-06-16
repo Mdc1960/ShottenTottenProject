@@ -161,3 +161,30 @@ void Border::fillPlayerSides()
 	secondPlayerBorderSide->fillCardSet();
 
 }
+
+const unsigned int Border::getRevendicateBorderTotalValueFromMap(std::unordered_map<std::string, unsigned int>& map)
+{
+	unsigned int totalValue = 0;
+
+	for (auto& m : map) {
+		//std::cout << "map:::" << m.first << " = " << m.second << std::endl;
+		totalValue += m.second;
+	}
+
+	return totalValue;
+}
+
+const unsigned int Border::determineBorderWinnerByCombination(unsigned int& firstCombination, unsigned int& secondCombination)
+{
+	unsigned int winner;
+	if (firstCombination > secondCombination && firstCombination >= 11) {
+		winner = 1;
+	}
+	else if (secondCombination > firstCombination && secondCombination >= 11) {
+		winner = 2;
+	}
+	else {
+		winner = 0;
+	}
+	return winner;
+}

@@ -9,7 +9,7 @@ class CollinMaillard : public BorderDecorator
 
 public :
 
-	void claim() override;
+	unsigned int claim() override;
 };
 
 #endif

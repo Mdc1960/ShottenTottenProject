@@ -80,6 +80,8 @@ public :
 	void setIsClanStackEmpty(bool&& b);
 	const bool getIsClanStackEmpty() const;
 
+	const unsigned int claim(unsigned int& playerRevendicateBorderIndex);
+
 	std::unordered_map<std::string, unsigned int> fillPlayerRevendicateMap(unsigned int& revendicateColumn, unsigned int&& playerSideId);
 
 };

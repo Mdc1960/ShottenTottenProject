@@ -1,5 +1,6 @@
 #include "BaseBattle.h"
 
-void BaseBattle::claim()
+unsigned int BaseBattle::claim()
 {
+	return 0;
 }

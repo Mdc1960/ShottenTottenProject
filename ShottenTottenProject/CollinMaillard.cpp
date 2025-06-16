@@ -1,5 +1,6 @@
 #include "CollinMaillard.h"
 
-void CollinMaillard::claim()
+unsigned int CollinMaillard::claim()
 {
+	return 0;
 }
