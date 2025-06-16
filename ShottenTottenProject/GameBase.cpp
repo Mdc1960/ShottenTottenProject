@@ -90,15 +90,13 @@ void GameBase::startGame()
 							if (isFirstPlayerWantToRevendicate) {
 								firstPlayerRevendicateBorderIndex = firstPlayer->getRevendicateBorderIndex() - 1;
 
-								gameBord.claim(firstPlayerRevendicateBorderIndex);
-
 								std::cout << "First Player want to revendicate : " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
 
-								playerCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex, std::move(1));
+								//playerCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex, std::move(1));
 
 								switch (this->opponentChoiseMade) {
 								case 1:
-									aiCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex,std::move(2));
+									/*aiCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex, std::move(2));
 
 									setPlayerCombination(getRevendicateBorderTotalValueFromMap(playerCombinationMap));
 									setAICombination(getRevendicateBorderTotalValueFromMap(aiCombinationMap));
@@ -123,11 +121,54 @@ void GameBase::startGame()
 										break;
 									default:
 										break;
+									}*/
+
+									winner = gameBord.claim(firstPlayerRevendicateBorderIndex);
+
+									std::cout << "The Winner : " << winner << std::endl;
+
+									switch (winner) {
+									case 0:
+										//TODO : Equality.
+										break;
+									case 1:
+										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+										firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										break;
+									case 2:
+										//Second Player Win the border(AI).
+										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+										aiPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										break;
+									default:
+										break;
 									}
 
 									break;
 								case 2:
-									opponentCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex, std::move(2));
+									//opponentCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex, std::move(2));
+
+									winner = gameBord.claim(firstPlayerRevendicateBorderIndex);
+
+									std::cout << "The Winner : " << winner << std::endl;
+
+									switch (winner) {
+									case 0:
+										//TODO : Equality.
+										break;
+									case 1:
+										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+										firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										break;
+									case 2:
+										//Second Player Win the border(AI).
+										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+										opponentPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										break;
+									default:
+										break;
+									}
+
 									break;
 								default:
 									break;
