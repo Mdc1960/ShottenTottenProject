@@ -245,11 +245,11 @@ if (lit != nullptr) {
 
 
 
-/*
+
 
 std::cout << "-------------------------GAME PART-----------------------------" << std::endl;
 
-Util::configureGame();
+Util::readRules();
 
 std::shared_ptr<Game> game;
 
@@ -273,7 +273,6 @@ default:
     break;
 }
 
-*/
 
 
 
@@ -300,7 +299,7 @@ std::cout << "\nPOP AND GET CARD : "; g.getCardFromCardClanStack()->printCard();
 
 g.showClanStack();*/
 
-std::unique_ptr<Border> B1 = std::make_unique<BorderBase>();
+/*std::unique_ptr<Border> B1 = std::make_unique<BorderBase>();
 std::unique_ptr<Border> B2 = std::make_unique<BorderBase>();
 cout << "capacity before b1 : " <<B1->getBorderCapacity() << endl;
 //cout << "capacity before b2 : " << B2->getBorderCapacity() << endl;
@@ -314,7 +313,7 @@ C2->applyEffet(B1);
 
 //B1->test();
 cout << "capacity after b1 : " << B1->getBorderCapacity() << endl;
-//cout << "capacity after b2 : " << B2->getBorderCapacity() << endl;
+//cout << "capacity after b2 : " << B2->getBorderCapacity() << endl;*/
 
 std::cout << "\n";
 

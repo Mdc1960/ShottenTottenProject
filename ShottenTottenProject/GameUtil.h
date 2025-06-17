@@ -46,6 +46,9 @@ public:
 	static std::string opponetName;
 	static std::string aitName;
 
+
+	static bool rules;
+	static void readRules();
 	
 
 	static const bool equalIngnoreCase(std::string& first, std::string&& second);
