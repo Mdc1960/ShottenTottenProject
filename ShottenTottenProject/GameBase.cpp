@@ -33,6 +33,9 @@ void GameBase::startGame()
 
 		unsigned int aiIndexCard;
 		unsigned int aiIndexBorder;
+		
+		unsigned int opponentIndexCard;
+		unsigned int opponentIndexBorder;
 
 		unsigned int firstBorderSide;
 		unsigned int secondBorderSide;
@@ -42,9 +45,15 @@ void GameBase::startGame()
 		
 		unsigned int aiPlayerRevendicateBorderIndex;
 		bool isAIPlayerWantToRevendicate;
+		
+		unsigned int opponentPlayerRevendicateBorderIndex;
+		bool isOpponentPlayerWantToRevendicate;
+
+		unsigned int borderCapacity;
 
 		std::unique_ptr<CardInterface> aiPlayedCard;
 		std::unique_ptr<CardInterface> playerPlayedCard;
+		std::unique_ptr<CardInterface> opponentPlayerPlayedCard;
 
 		switch (turn) {
 
@@ -58,6 +67,8 @@ void GameBase::startGame()
 
 			firstBorderSide = gameBord.getBorderSidePutCardIndex(std::move(indexBorder - 1), std::move(1));
 
+			borderCapacity = gameBord.getBorderCapacityByIndex(indexBorder - 1);
+
 		/*#ifdef _WIN32
 			std::system("cls");
 		#else
@@ -65,8 +76,8 @@ void GameBase::startGame()
 		#endif*/
 
 
-
-			if (firstBorderSide < 3) {
+			//Get BorderCapacity.
+			if (firstBorderSide < borderCapacity) {
 
 				try {
 
@@ -74,7 +85,7 @@ void GameBase::startGame()
 
 					if (playerPlayedCard != nullptr) {
 
-						gameBord.putCardInBorderByPlayerIdAndColumnIndex(std::move(playerPlayedCard), std::move(1), std::move(indexBorder - 1));
+						putCardInBordersColumnUsingPlayerId(std::move(playerPlayedCard), std::move(1), std::move(indexBorder - 1));
 
 						turn = (turn + 1) % 2;
 
@@ -92,40 +103,14 @@ void GameBase::startGame()
 
 								std::cout << "First Player want to revendicate : " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
 
-								//playerCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex, std::move(1));
+								
 
 								switch (this->opponentChoiseMade) {
 								case 1:
-									/*aiCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex, std::move(2));
-
-									setPlayerCombination(getRevendicateBorderTotalValueFromMap(playerCombinationMap));
-									setAICombination(getRevendicateBorderTotalValueFromMap(aiCombinationMap));
-
-									std::cout << "COMBINE 1 : " << playerCombination << std::endl;
-									std::cout << "COMBINE 2 : " << aiCombination << std::endl;
-
-									winner = determineBorderWinnerByCombination(playerCombination, aiCombination);
-
-									std::cout << "The Winner : " << winner << std::endl;
-
-									switch (winner) {
-									case 0 :
-										//TODO : Equality.
-										break;
-									case 1:
-										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex << std::endl;
-										firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
-										break;
-									case 2:
-										//Second Player Win the border.
-										break;
-									default:
-										break;
-									}*/
 
 									winner = gameBord.claim(firstPlayerRevendicateBorderIndex);
 
-									std::cout << "The Winner : " << winner << std::endl;
+									std::cout << "The Winner Of The Border : " << winner << std::endl;
 
 									switch (winner) {
 									case 0:
@@ -134,11 +119,15 @@ void GameBase::startGame()
 									case 1:
 										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
 										firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										//TODO : Determine the WINNER of the game.
 										break;
 									case 2:
 										//Second Player Win the border(AI).
 										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
 										aiPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										break;
+									case 3:
+										std::cout << "No winner for the border " << firstPlayerRevendicateBorderIndex + 1 << "." << std::endl;
 										break;
 									default:
 										break;
@@ -146,7 +135,7 @@ void GameBase::startGame()
 
 									break;
 								case 2:
-									//opponentCombinationMap = fillPlayerRevendicateMap(firstPlayerRevendicateBorderIndex, std::move(2));
+									
 
 									winner = gameBord.claim(firstPlayerRevendicateBorderIndex);
 
@@ -164,6 +153,9 @@ void GameBase::startGame()
 										//Second Player Win the border(AI).
 										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
 										opponentPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										break;
+									case 3:
+										std::cout << "No winner for the border " << firstPlayerRevendicateBorderIndex + 1 << "." << std::endl;
 										break;
 									default:
 										break;
@@ -184,7 +176,7 @@ void GameBase::startGame()
 
 				}
 				catch (GameException exp) {
-					std::cout << "Error : " << exp.what() << std::endl;
+					std::cout << "\aError : " << exp.what() << std::endl;
 				}
 
 			}
@@ -221,8 +213,9 @@ void GameBase::startGame()
 				aiIndexBorder = secondPlayer->getChooseBorderIndex();
 
 				secondBorderSide = gameBord.getBorderSidePutCardIndex(std::move(aiIndexBorder), std::move(2));
+				borderCapacity = gameBord.getBorderCapacityByIndex(aiIndexBorder);
 
-				if (secondBorderSide < 3) {
+				if (secondBorderSide < borderCapacity) {
 
 					try {
 
@@ -237,7 +230,7 @@ void GameBase::startGame()
 								secondPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
 							}
 
-							if (Bord::numberOfCardPutInBorders >= 12) {
+							if (Bord::numberOfCardPutInBorders >= 4) {
 								notify();
 								revendicatePhase->acceptPlayer(secondPlayer.get());
 
@@ -247,6 +240,33 @@ void GameBase::startGame()
 									aiPlayerRevendicateBorderIndex = secondPlayer->getRevendicateBorderIndex();
 
 									std::cout << "AI Player want to revendicate : " << aiPlayerRevendicateBorderIndex << std::endl;
+
+
+									winner = gameBord.claim(aiPlayerRevendicateBorderIndex);
+
+									std::cout << "The Winner Of The Border : " << winner << std::endl;
+
+									switch (winner) {
+									case 0:
+										//TODO : Equality.
+										break;
+									case 1:
+										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << aiPlayerRevendicateBorderIndex << std::endl;
+										firstPlayerRevendicateBorderList.push_back(aiPlayerRevendicateBorderIndex);
+										//TODO : Determine the WINNER of the game.
+										break;
+									case 2:
+										//Second Player Win the border(AI).
+										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << aiPlayerRevendicateBorderIndex << std::endl;
+										aiPlayerRevendicateBorderList.push_back(aiPlayerRevendicateBorderIndex);
+										break;
+									case 3:
+										std::cout << "No winner for the border " << aiPlayerRevendicateBorderIndex << "." << std::endl;
+										break;
+									default:
+										break;
+									}
+
 
 									//std::this_thread::sleep_for(std::chrono::seconds(2));
 								}
@@ -271,21 +291,108 @@ void GameBase::startGame()
 
 				break;
 			case 2:
-				//Human
-				std::cout << "Oponnent is playing" << std::endl;
-				turn = (turn + 1) % 2;
-			#ifdef _WIN32
+				//Opponent
+				
+
+				playPhase->acceptPlayer(secondPlayer.get());
+
+				opponentIndexCard = secondPlayer->getChooseCardIndex();
+				opponentIndexBorder = secondPlayer->getChooseBorderIndex();
+
+				secondBorderSide = gameBord.getBorderSidePutCardIndex(std::move(opponentIndexBorder - 1), std::move(2));
+
+				borderCapacity = gameBord.getBorderCapacityByIndex(opponentIndexBorder - 1);
+
+
+			/*#ifdef _WIN32
 				std::system("cls");
 			#else
 				std::system("clear");
-			#endif
+			#endif*/
+
+
+				if (secondBorderSide < borderCapacity) {
+
+					try {
+
+						opponentPlayerPlayedCard = std::move(secondPlayer->popCardFromPlayerHandByIndex(opponentIndexCard));
+
+						if (opponentPlayerPlayedCard != nullptr) {
+
+							putCardInBordersColumnUsingPlayerId(std::move(opponentPlayerPlayedCard), std::move(2), std::move(opponentIndexBorder - 1));
+
+							turn = (turn + 1) % 2;
+
+							if (!gameBord.getIsClanStackEmpty()) {
+								secondPlayer->pickCardFromBordStacksAndAddInPlayerHand(gameBord);
+							}
+
+							if (Bord::numberOfCardPutInBorders >= 4) {
+
+								notify();
+								revendicatePhase->acceptPlayer(secondPlayer.get());
+								isOpponentPlayerWantToRevendicate = secondPlayer->getIsPlayerWantToRevendicateValue();
+
+								if (isOpponentPlayerWantToRevendicate) {
+
+									opponentPlayerRevendicateBorderIndex = secondPlayer->getRevendicateBorderIndex() - 1;
+
+									std::cout << "Opponent Player want to revendicate : " << opponentPlayerRevendicateBorderIndex + 1 << std::endl;
+
+									winner = gameBord.claim(opponentPlayerRevendicateBorderIndex);
+
+									std::cout << "The Winner Of The Border : " << winner << std::endl;
+
+									switch (winner) {
+									case 0:
+										//TODO : Equality.
+										break;
+									case 1:
+										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << opponentPlayerRevendicateBorderIndex + 1 << std::endl;
+										firstPlayerRevendicateBorderList.push_back(opponentPlayerRevendicateBorderIndex);
+										break;
+									case 2:
+										//Second Player Win the border(AI).
+										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << opponentPlayerRevendicateBorderIndex + 1 << std::endl;
+										opponentPlayerRevendicateBorderList.push_back(opponentPlayerRevendicateBorderIndex);
+										break;
+									case 3:
+										std::cout << "No winner for the border " << opponentPlayerRevendicateBorderIndex << "." << std::endl;
+										break;
+									default:
+										break;
+									}
+
+								}
+								secondPlayer->setIsRevendicateBorderValid(false);
+
+							}
+
+						}
+
+					}
+					catch (GameException exp) {
+						std::cout << "\aError : " << exp.what() << std::endl;
+					}
+
+				}
+				else {
+					std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' the border side " << opponentIndexBorder << " is full.You cannot put card in this border side." << std::endl;
+				}
+
+				secondPlayer->setIsChooseColorValid(false);
+				secondPlayer->setIsChooseBoredValid(false);
+
+
 				break;
+
 			default:
 				break;
 
 			}
 
 			break;
+
 		default:
 			break;
 		}

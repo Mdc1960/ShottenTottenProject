@@ -189,6 +189,20 @@ const unsigned int Bord::claim(unsigned int& playerRevendicateBorderIndex)
 
 }
 
+const unsigned int Bord::getBorderCapacityByIndex(unsigned int borderIndex)
+{
+	unsigned int counter = 0;
+	for (auto& border : borders) {
+		if (counter == borderIndex) {
+			return border->getBorderCapacity();
+		}
+		else {
+			counter++;
+		}
+	}
+	return 3;
+}
+
 std::unordered_map<std::string, unsigned int> Bord::fillPlayerRevendicateMap(unsigned int& revendicateColumn, unsigned int&& playerSideId)
 {
 	unsigned int counter = 0;
