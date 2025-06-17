@@ -249,7 +249,7 @@ if (lit != nullptr) {
 
 std::cout << "-------------------------GAME PART-----------------------------" << std::endl;
 
-Util::configureGame();
+Util::readRules();
 
 std::shared_ptr<Game> game;
 
