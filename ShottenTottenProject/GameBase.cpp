@@ -125,6 +125,7 @@ void GameBase::startGame()
 
 											if (isPlayerWinTheGame(aiPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												isGameOver = true;
 											}
 											break;
 										case 2:
@@ -134,6 +135,7 @@ void GameBase::startGame()
 
 											if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												isGameOver = true;
 											}
 											break;
 										default:
@@ -147,6 +149,7 @@ void GameBase::startGame()
 
 										if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											isGameOver = true;
 										}
 										
 										break;
@@ -157,6 +160,7 @@ void GameBase::startGame()
 
 										if (isPlayerWinTheGame(aiPlayerRevendicateBorderList)) {
 											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											isGameOver = true;
 										}
 										break;
 									case 3:
@@ -186,6 +190,7 @@ void GameBase::startGame()
 
 											if (isPlayerWinTheGame(opponentPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												isGameOver = true;
 											}
 
 											break;
@@ -196,6 +201,7 @@ void GameBase::startGame()
 
 											if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												isGameOver = true;
 											}
 
 											break;
@@ -210,6 +216,7 @@ void GameBase::startGame()
 
 										if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											isGameOver = true;
 										}
 
 										break;
@@ -220,6 +227,7 @@ void GameBase::startGame()
 
 										if (isPlayerWinTheGame(opponentPlayerRevendicateBorderList)) {
 											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											isGameOver = true;
 										}
 
 										break;
@@ -329,6 +337,7 @@ void GameBase::startGame()
 
 											if (isPlayerWinTheGame(aiPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												isGameOver = true;
 											}
 											break;
 										case 2:
@@ -338,6 +347,7 @@ void GameBase::startGame()
 
 											if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												isGameOver = true;
 											}
 											break;
 										default:
@@ -351,6 +361,7 @@ void GameBase::startGame()
 
 										if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											isGameOver = true;
 										}
 										
 										break;
@@ -361,6 +372,7 @@ void GameBase::startGame()
 
 										if (isPlayerWinTheGame(aiPlayerRevendicateBorderList)) {
 											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											isGameOver = true;
 										}
 
 										break;
@@ -460,6 +472,7 @@ void GameBase::startGame()
 
 											if (isPlayerWinTheGame(opponentPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												isGameOver = true;
 											}
 
 											break;
@@ -469,6 +482,7 @@ void GameBase::startGame()
 
 											if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												isGameOver = true;
 											}
 
 											break;
@@ -483,6 +497,7 @@ void GameBase::startGame()
 
 										if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											isGameOver = true;
 										}
 
 										break;
@@ -494,6 +509,7 @@ void GameBase::startGame()
 										if (isPlayerWinTheGame(opponentPlayerRevendicateBorderList)) {
 
 											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											isGameOver = true;
 										}
 
 										break;
