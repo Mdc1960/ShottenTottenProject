@@ -84,6 +84,9 @@ protected:
 	void setRevendicatePhase(std::shared_ptr<Phase> revendicatePhase);
 	void setOpponentChoiseMade(const unsigned int& opponentChoiseMade);
 
+	void setLastPlayerSidePutCard(unsigned int borderIndex,unsigned int lastPlayerSidePutCard);
+	const unsigned int getLastPlayerSidePutCard(unsigned int borderIndex);
+
 
 	void putRevendicatedBorderIndexInPlayerListById(unsigned int&& playerId, unsigned int& revendicateColumn);
 
@@ -91,6 +94,8 @@ protected:
 	const unsigned int getRevendicateBorderTotalValueFromMap(std::unordered_map<std::string, unsigned int>& map);
 
 	const unsigned int determineBorderWinnerByCombination(unsigned int& firstCombination, unsigned int& secondCombination);
+
+	bool isPlayerWinTheGame(std::vector<unsigned int> listRevendicateBorder);
 
 	void configuredPlayers();
 

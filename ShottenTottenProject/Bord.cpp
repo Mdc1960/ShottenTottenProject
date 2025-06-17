@@ -203,6 +203,35 @@ const unsigned int Bord::getBorderCapacityByIndex(unsigned int borderIndex)
 	return 3;
 }
 
+void Bord::setLastPlayerSidePutCard(unsigned int borderIndex, unsigned int lastPlayerSidePutCard)
+{
+	unsigned int counter = 0;
+	for (auto& border : borders) {
+		if (counter == borderIndex) {
+			border->setLastPlayerPutCard(lastPlayerSidePutCard);
+			return;
+		}
+		else {
+			counter++;
+		}
+	}
+	
+}
+
+const unsigned int Bord::getLastPlayerSidePutCard(unsigned int borderIndex)
+{
+	unsigned int counter = 0;
+	for (auto& border : borders) {
+		if (counter == borderIndex) {
+			return border->getLastPlayerPutCard();
+		}
+		else {
+			counter++;
+		}
+	}
+	return 0;
+}
+
 std::unordered_map<std::string, unsigned int> Bord::fillPlayerRevendicateMap(unsigned int& revendicateColumn, unsigned int&& playerSideId)
 {
 	unsigned int counter = 0;

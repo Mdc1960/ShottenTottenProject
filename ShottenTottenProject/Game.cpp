@@ -528,6 +528,16 @@ void Game::setOpponentChoiseMade(const unsigned int& opponentChoiseMade)
 	this->opponentChoiseMade = opponentChoiseMade;
 }
 
+void Game::setLastPlayerSidePutCard(unsigned int borderIndex, unsigned int lastPlayerSidePutCard)
+{
+	gameBord.setLastPlayerSidePutCard(borderIndex, lastPlayerSidePutCard);
+}
+
+const unsigned int Game::getLastPlayerSidePutCard(unsigned int borderIndex)
+{
+	return gameBord.getLastPlayerSidePutCard(borderIndex);
+}
+
 void Game::putRevendicatedBorderIndexInPlayerListById(unsigned int&& playerId, unsigned int& revendicateColumn)
 {
 	switch (std::move(playerId))
@@ -576,6 +586,18 @@ const unsigned int Game::determineBorderWinnerByCombination(unsigned int& firstC
 		winner = 0;
 	}
 	return winner;
+}
+
+bool Game::isPlayerWinTheGame(std::vector<unsigned int> listRevendicateBorder)
+{
+	if (listRevendicateBorder.size() == 3) {
+		std::sort(listRevendicateBorder.begin(), listRevendicateBorder.end());
+		return (listRevendicateBorder[1] == listRevendicateBorder[0] + 1) && (listRevendicateBorder[2] == listRevendicateBorder[1]);
+	}
+	else {
+		return listRevendicateBorder.size() >= 5 ? true : false;
+	}
+	return false;
 }
 
 

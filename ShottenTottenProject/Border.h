@@ -25,6 +25,7 @@ protected :
 	BorderStatus			 status;
 
 	unsigned int borderCapacity = 3;
+	unsigned int lastPlayerPutCard = 0;
 
 
 public :
@@ -33,6 +34,9 @@ public :
 	virtual void setBorderCapacity(unsigned int newCap);
 	virtual unsigned int getBorderCapacity() { return borderCapacity; }
 	virtual unsigned int claim() = 0;
+
+	virtual void setLastPlayerPutCard(unsigned int lastPlayerPutCard);
+	virtual const unsigned int getLastPlayerPutCard() const;
 
 	virtual std::vector<std::string> getAllCardColorInPlayerSide(unsigned int&& playerSideId);
 

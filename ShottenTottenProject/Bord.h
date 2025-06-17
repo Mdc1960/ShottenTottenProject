@@ -84,6 +84,9 @@ public :
 
 	const unsigned int getBorderCapacityByIndex(unsigned int borderIndex);
 
+	void setLastPlayerSidePutCard(unsigned int borderIndex, unsigned int lastPlayerSidePutCard);
+	const unsigned int getLastPlayerSidePutCard(unsigned int borderIndex);
+
 	std::unordered_map<std::string, unsigned int> fillPlayerRevendicateMap(unsigned int& revendicateColumn, unsigned int&& playerSideId);
 
 };
