@@ -110,7 +110,7 @@ void GameBase::startGame()
 
 									winner = gameBord.claim(firstPlayerRevendicateBorderIndex);
 
-									std::cout << "The Winner : " << winner << std::endl;
+									std::cout << "The Winner Of The Border : " << winner << std::endl;
 
 									switch (winner) {
 									case 0:
@@ -125,6 +125,9 @@ void GameBase::startGame()
 										//Second Player Win the border(AI).
 										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
 										aiPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										break;
+									case 3:
+										std::cout << "No winner for the border " << firstPlayerRevendicateBorderIndex + 1 << "." << std::endl;
 										break;
 									default:
 										break;
@@ -150,6 +153,9 @@ void GameBase::startGame()
 										//Second Player Win the border(AI).
 										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
 										opponentPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										break;
+									case 3:
+										std::cout << "No winner for the border " << firstPlayerRevendicateBorderIndex + 1 << "." << std::endl;
 										break;
 									default:
 										break;
@@ -245,14 +251,17 @@ void GameBase::startGame()
 										//TODO : Equality.
 										break;
 									case 1:
-										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
-										firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << aiPlayerRevendicateBorderIndex << std::endl;
+										firstPlayerRevendicateBorderList.push_back(aiPlayerRevendicateBorderIndex);
 										//TODO : Determine the WINNER of the game.
 										break;
 									case 2:
 										//Second Player Win the border(AI).
-										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
-										aiPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << aiPlayerRevendicateBorderIndex << std::endl;
+										aiPlayerRevendicateBorderList.push_back(aiPlayerRevendicateBorderIndex);
+										break;
+									case 3:
+										std::cout << "No winner for the border " << aiPlayerRevendicateBorderIndex << "." << std::endl;
 										break;
 									default:
 										break;
@@ -346,6 +355,9 @@ void GameBase::startGame()
 										//Second Player Win the border(AI).
 										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << opponentPlayerRevendicateBorderIndex + 1 << std::endl;
 										opponentPlayerRevendicateBorderList.push_back(opponentPlayerRevendicateBorderIndex);
+										break;
+									case 3:
+										std::cout << "No winner for the border " << opponentPlayerRevendicateBorderIndex << "." << std::endl;
 										break;
 									default:
 										break;
