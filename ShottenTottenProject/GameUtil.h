@@ -49,7 +49,7 @@ public:
 
 	static bool rules;
 	static void readRules();
-	
+
 
 	static const bool equalIngnoreCase(std::string& first, std::string&& second);
 	static void configureGame();
