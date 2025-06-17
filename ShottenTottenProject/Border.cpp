@@ -15,6 +15,16 @@ void Border::setBorderCapacity(unsigned int newCap)
 }
 
 
+void Border::setLastPlayerPutCard(unsigned int lastPlayerPutCard)
+{
+	this->lastPlayerPutCard = lastPlayerPutCard;
+}
+
+const unsigned int Border::getLastPlayerPutCard() const
+{
+	return this->lastPlayerPutCard;
+}
+
 std::vector<std::string> Border::getAllCardColorInPlayerSide(unsigned int&& playerSideId)
 {
 	switch (playerSideId) {
