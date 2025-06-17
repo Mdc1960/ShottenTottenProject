@@ -1,14 +1,14 @@
 @startuml
 
-class PlayerInterface{
+interface PlayerInterface{
     - name : string
     - id   : unsigned int
     - hand : Hand
 
-    + virtual chooseBorne() : void = 0;
-    + virtual claim(Bord& bord) : void = 0;
-    + virtual showHand() : void;
-    + virtual chooseCard() : void = 0;
+    + chooseBorne() : virtual void = 0
+    + claim(Bord& bord) : virtual void = 0;
+    + showHand() : virtual void;
+    + chooseCard() : virtual void = 0;
 }
 
 class AIPlayer{
@@ -17,7 +17,8 @@ class AIPlayer{
     + chooseBorne() override : void;
     + claim(bord : Bord) override : void;
     + chooseCard() override : void;
-    + generateRandomNumber(maxNumber : unsigned int, minNumber : unsigned int) const : const unsigned int;
+    + generateRandomNumber(maxNumber : unsigned int,
+     minNumber : unsigned int) const : const unsigned int;
 
 }
 
@@ -31,39 +32,170 @@ class HumanPlayer{
 }
 
 abstract class bord{
+    - clanStack : unique_ptr<Stack>
+    - tacticStack : unique_ptr<Stack>
+    - borders : vector<std::unique_ptr<Border>>
+    - defausse : unique_ptr<Defausse>
+    - isClanStackEmpty = false : bool
+    - clanStackCapacity : unsigned int
+    - tacticStackCapacity : unsigned int
+    - <u>instance : Bord*</u>
+
+    - Bord()
+    - ~Bord()
+    - Bord(bord : const Bord&) = delete;
+    - Bord(bord : Bord&&) = delete;
+    - createClanStack(capacity : unsigned int&&) : void
+    - createTacticStack(unsigned int&& capacity) : void
+    - fillBorders() : void
+    + <u>getInstance() : Bord& </u>
+    + <u>numberOfCardPutInBorders : unsigned int </u>
+    + update(observable : Observable*) override : void
+    + shuffledClanStack() : void
+    + shuffledTacticStack() : void
+    + getBorderSidePutCardIndex(borderIndex : unsigned int&&, sideId : unsigned int&&) : const unsigned int
+    + printBorders() : void
+    + getBorderSize() const : size_t
+    + printFirstPlayerBorderSide() : void
+    + printSecondPlayerBorderSide() : void
+    + createBordStacks(clanCapacity : unsigned int&&, tacticCapacity : unsigned int&&) : void
+    + putCardInBorderByPlayerIdAndColumnIndex(card : unique_ptr<CardInterface> ,
+                        playerId : unsigned int&&, columnIndex : unsigned int&&) : void
+    + showClanStack() : void
+    + showTacticStack() : void
+    + popAndGetCardFromClanStack() : unique_ptr<CardInterface>
+    + popAndGetCardFromTacticStack() : unique_ptr<CardInterface>
+    + setIsClanStackEmpty(b : bool&&) : void
+    + getIsClanStackEmpty() const : const bool
+    + claim(playerRevendicateBorderIndex : unsigned int& ) : const unsigned int
+    + getBorderCapacityByIndex(borderIndex : unsigned int) : const unsigned int
+    + setLastPlayerSidePutCard(borderIndex : unsigned int, lastPlayerSidePutCard : unsigned int) : void
+    + getLastPlayerSidePutCard(borderIndex : unsigned int) : const unsigned int
+    + fillPlayerRevendicateMap(revendicateColumn : unsigned int& , playerSideId : unsigned int&& ) : unordered_map<string, unsigned int>
+
 }
 
 abstract class Border{
+    # firstPlayerBorderSide : unique_ptr<PlayerSide>
+    # secondPlayerBorderSide : unique_ptr<PlayerSide>
+    # listIndexBorderClaimed : vector<unsigned int>
+    # status : BorderStatus
+    # borderCapacity = 3 : unsigned int
+    # lastPlayerPutCard = 0 : unsigned int
+    + Border();
+    + setBorderCapacity(newCap : unsigned int) : virtual void
+    + getBorderCapacity() : virtual unsigned int
+    + claim() = 0 : virtual unsigned int
+    + setLastPlayerPutCard(lastPlayerPutCard : unsigned int ) : virtual void
+    + getLastPlayerPutCard() const : virtual const unsigned int
+    + getAllCardColorInPlayerSide(playerSideId : unsigned int&&) : virtual vector<string>
+    + pushCardInBorder(card : unique_ptr<CardInterface> ) : virtual void
+    + popCardInBorder(card : unique_ptr<CardInterface> ) : virtual void
+    + getMaxCapacityInPlayerSide() const : virtual unsigned int
+    + setFirstPlayerSide(playerSide : unique_ptr<PlayerSide>) : virtual void
+    + setSecondPlayerSide(playerSide : unique_ptr<PlayerSide>) : virtual void
+    + printBorder() : virtual void
+    + printFirstPlayerSideCardByIndex(index : unsigned int&& ) : virtual void
+    + printSecondPlayerSideCardByIndex(index : unsigned int&& ) : virtual void
+    + putCardInFirstPlayerSide(card : unique_ptr<CardInterface>) : virtual void
+    + putCardInSecondPlayerSide(card : unique_ptr<CardInterface>) : virtual void
+    + printFirstPlayerBorderSide() : virtual void
+    + printSecondPlayerBorderSide() : virtual void
+    + getFirstPlayerSidePutCardIndex() const : virtual const unsigned int
+    + getSecondPlayerSidePutCardIndex() const : virtual const unsigned int
+    + fillPlayerRevendicateMap(playerSideId : unsigned int&& ) : virtual unordered_map<string, unsigned int>
+    + getCardInPlayerSide(playerSideId : unsigned int&&, indexCard : unsigned int&&) : virtual CardInterface*
+    + determineBorderWinnerByCombination(firstCombination : unsigned int&,
+      	 secondCombination : unsigned int&) : virtual const unsigned int
+    + getRevendicateBorderTotalValueFromMap(map : unordered_map<string, unsigned int>&) : virtual const unsigned int
+    + getFirstPlayerSideAllCardNumber() : virtual vector<unsigned int>
+    + getSecondPlayerSideAllCardNumber() : virtual vector<unsigned int>
+    + getBorderCapacity() const : const unsigned int
+    - fillPlayerSides() : void
 }
 
 class BorderBase{
-
+    + BorderBase()
+    + claim() override : virtual unsigned int
 }
 
 class BorderDecorator{
+    - innerBorder : unique_ptr<Border>
+    + BorderDecorator(param : unique_ptr<Border>)
 }
 
 class CardBattle{
+    + printCard() = 0 : virtual void
+    + applyEffet(border : unique_ptr<Border>& ) = 0 : virtual void
+    + getNamecard() = 0 : virtual string
+    + ~CardBattle() = default : virtual
 }
 
 class CardClan{
+    - numero : unsigned int
+    - color : Color
+    # setColor(newColor : Color) : void
+    # setNumero(newNumero : unsigned int) : void
+    + CardClan(num : unsigned int, col : Color)
+    + getColor() : Color
+    + getNamecard() override : string
+    + printCard() override : void
+    + getCardColor() : string
+    +getCardNumber() : unsigned int
 }
 
 class CardElite{
+    + printCard() = 0 : virtual void
+    + getNamecard() = 0 : virtual string
+    + applyEffet(border : unique_ptr<Border>&) = 0 : virtual void
+    + ~CardElite() = default : virtual
 }
 
 interface CardInterface{
+    + printCard() = 0 : virtual void
+    + getNamecard() = 0 : virtual string
+    + ~CardInterface() : virtual
 }
 
-abstract CardRuse{}
+abstract CardRuse{
+    + applyEffet(border : unique_ptr<Border>& ) = 0 : void
+    + getNamecard() = 0 : string
+}
 
-interface CardSet{}
+interface CardSet{
+   	# cardCollection : vector<unique_ptr<CardInterface>>
+   	+ createIterator() = 0 : virtual Iterator*
+   	+ size() = 0 : virtual size_t
+   	+ pop() = 0 : virtual void
+   	+ push(card : unique_ptr<CardInterface> ) = 0 : virtual void
+   	+ printCardSet() = 0 : virtual void
+   	+ fillCardSet() = 0 : virtual void
+   	+ ~CardSet() : virtual
+}
 
-interface CardTactic{}
+interface CardTactic{
+    + printCard() = 0 : virtual void
+    + getNamecard() = 0 : virtual string
+    + applyEffet(border : unique_ptr<Border>& ) = 0 : virtual void
+    + ~CardTactic() = default : virtual
+}
 
-class ColinMaillardCard{}
+class CBDecorator{
+    + CBDecorator(comp : unique_ptr<Border>)
+    + claim() override : unsigned int
+}
 
-class CollinMaillard{}
+class ColinMaillardCard{
+    + printCard() override : void
+    + applyEffet(border : unique_ptr<Border>& ) override : void
+    + getNamecard() override : string
+}
+
+class CollinMaillard{
+    - calculerScore(numero : unsigned int ) : unsigned int
+    + CollinMaillard(comp : unique_ptr<Border> )
+    + claim() override : unsigned int
+}
 
 enum Color{
     BROWN,
@@ -74,63 +206,277 @@ enum Color{
     PURPLE
 }
 
-class ColorCombination<T>{}
+class ColorCombination<T,Q>{
+    + playerCombination(list : vector<T>) override : virtual unsigned int
+    + cardAreSameColor(list : vector<Q>) : bool
 
-class ColorSequenceCombination<T>{}
+}
 
-class CombatDeBoueCard{}
+class ColorSequenceCombination<T,Q>{
+    # playerCombination(list : vector<T>) override : virtual unsigned int
+    + playerCombinationBis(firstList : vector<T>,
+    secondList : vector<Q> ) : virtual unsigned int
 
-interface Combination{}
+}
 
-class Defausse{}
+class CombatDeBoueCard{
+    + printCard() override : void
+    + applyEffet(border : unique_ptr<Border>&) override : void
+    + getNamecard() override : string
+}
 
-class Espion{}
+interface Combination{
+    + playerCombination(list : vector<T> ) = 0 : virtual unsigned int
+    + ~Combination() : virtual
+}
 
-class Exception{}
+class Defausse{
+    + Defausse()
+    + size() override : size_t
+    + push(card : unique_ptr<CardInterface> ) override : virtual void
+    + printCardSet() override : void
+    + pop() override : void
+    + fillCardSet() override : void
+    + createIterator() override : Iterator*
+    + createIterator(pos : unsigned int&&) : Iterator*
 
-class FactoryAiPlayer{}
+}
 
-class FactoryHumanPlayer{}
+class Espion{
+    + printCard() override : void
+    + getNamecard() override : string
+    + applyEffet(border : unique_ptr<Border>& ) override : void
+}
 
-interface FactoryPlayer{}
+class Exception{
+    - exceptionMessage : string
+    - exceptionCode = 0 : int
+    + GameException(message : string&&);
+    + GameException(message : string&& , exceptionCode : int&&);
+    + what() const noexcept override : const char*
+}
 
-abstract class Game{}
+class FactoryAiPlayer{
+    + createPlayer(name : const string& ,
+     id : unsigned int ) override : unique_ptr<PlayerInterface>
+}
 
-class GameBase{}
+class FactoryHumanPlayer{
+    + createPlayer(name : const string& ,
+         id : unsigned int ) override : unique_ptr<PlayerInterface>
+}
 
-class GameUtil{}
+interface FactoryPlayer{
+    + createPlayer(name : const string& ,
+     id : unsigned int ) = 0 : virtual unique_ptr<PlayerInterface>
+    + ~FactoryPlayer() = default : virtual
+}
 
-class Hand{}
+abstract class Game{
+    # add(observer : Observer*) override : void
+    # remove(observer : Observer*) override : void
+    # notify() override : void
+    # gameBord : Bord&
+    # firstPlayer : unique_ptr<PlayerInterface>
+    # secondPlayer : unique_ptr<PlayerInterface>
+    # playPhase : shared_ptr<Phase>
+    # revendicatePhase : shared_ptr<Phase>
+    # gameMode : GameMode
+    # listObserver : vector<Observer*>
+    # firstPlayerRevendicateBorderList : vector<unsigned int>
+    # aiPlayerRevendicateBorderList : vector<unsigned int>
+    # opponentPlayerRevendicateBorderList : vector<unsigned int>
+    # playerCombination : unsigned int
+    # opponentCombination : unsigned int
+    # aiCombination : unsigned int
+    # turn : unsigned int
+    # opponentChoiseMade : unsigned int
+    # isGameOver : bool
+    # isConfiguring : bool
+    # buildGameBord(clanStackSize : unsigned int&&, tacticStackSize : unsigned int&&) : void
+    # shuffledGameClanStack() : void
+    # shuffledGameTacticStack() : void
+    # getCardFromCardTackticStack() : unique_ptr<CardInterface>
+    # printMode() : void
+    # showHumanPlayerHand(id : unsigned int&& ) : void
+    # setPlayerCombination(combination : unsigned int&& ) : void
+    # setOpponentCombination(combination : unsigned int&& ) : void
+    # setAICombination(combination : unsigned int&& ) : void
+    # fillPlayerHandWithInitialCardsUsingId(id : unsigned int&& ) : void
+    # setPlayPhase(playPhase : shared_ptr<Phase>) : void
+    # setRevendicatePhase(revendicatePhase : shared_ptr<Phase> ) : void
+    # setOpponentChoiseMade(opponentChoiseMade : const unsigned int& ) : void
+    # setLastPlayerSidePutCard(borderIndex : unsigned int, lastPlayerSidePutCard : unsigned int) : void
+    # getLastPlayerSidePutCard(borderIndex : unsigned int ) : const unsigned int
+    # putRevendicatedBorderIndexInPlayerListById(playerId : unsigned int&&, revendicateColumn : unsigned int& ) : void
+    # fillPlayerRevendicateMap(revendicateColumn : unsigned int&, playerSideId : unsigned int&&) : unordered_map<string,unsigned int>
+    # getRevendicateBorderTotalValueFromMap(map : unordered_map<string, unsigned int>&) : const unsigned int
+    # determineBorderWinnerByCombination(firstCombination : unsigned int&, secondCombination : unsigned int&) : const unsigned int
+    # isPlayerWinTheGame(listRevendicateBorder : vector<unsigned int> ) : bool
+    # configuredPlayers() : void
+    + Game()
+    + startGame() = 0 : virtual void
 
-interface IteratorInterface{}
+}
 
-class Joker{}
+class GameBase{
+    + GameBase()
+    + startGame() override : void
+}
 
-interface Observable{}
+enum GameMode{
+    BASE,
+    TACTIC,
+    EXPERT
+}
 
-interface Observer{}
+enum BorderStatus {
+	FIRST_PLAYER_REVENDICATE,
+	SECOND_PLAYER_REVENDICATE,
+	BORDER_IS_NOT_REVENDICATED
+}
 
-interface Phase{}
+enum Combine {
+	COLOR_SEQUENCE_ = 5,
+	SET_ = 4,
+	COLOR_ = 3,
+	SEQUENCE_ = 2,
+	SUM_ = 1
+}
 
-interface PlayerInterface{}
+class Util {
+	+ <u>gameMode : GameMode</u>
+	+ <u>opponentChoiseMade : unsigned int</u>
+	+ <u>playerName : string</u>
+	+ <u>opponetName : string</u>
+	+ <u>aitName : string</u>
+	+ <u>readRules() : void</u>
+	+ <u>equalIngnoreCase(first : string&, second : string&&) : const bool</u>
+	+ <u>configureGame() : void</u>
+	+ <u>printMode() : void</u>
+	+ <u>transformeColorToString(color : Color) : string</u>
+}
 
-class PlayerSide{}
+class Hand{
+    - indexToPushCard : unsigned int
+    - indexToPopCard : unsigned int
+    + Hand()
+    + ~Hand()
+    + size() override : size_t
+    + pop() override : void
+    + push(card : unique_ptr<CardInterface> ) override : void
+    + printCardSet() override : void
+    + fillCardSet() override : void
+    + createIterator() override : Iterator*
+    + createIterator(pos : unsigned int&&) : Iterator*
+    + setIndexToPushCard(indexToPushCard : unsigned int&) : void
+    + setIndexToPopCard(indexToPopCard : const unsigned int&) : void
+    + getPushIndex() const : unsigned int
+    + getPopIndex() const : unsigned int
+    + pushCardToHandByIndex(indexToPush : unsigned int&&, card : unique_ptr<CardInterface>) : void
+    + popCardFromHandByIndex(indexToPop : unsigned int&&) : void
+    + popAndGetCardByIndex(index : unsigned int&&) : unique_ptr<CardInterface>
+    + pushBackCard(card : unique_ptr<CardInterface>) : void
+    + begin() : HandIterator
+    + end() : HandIterator
 
-class classPortBouclier{}
+}
 
-class PlayerPlay{}
+interface IteratorInterface{
+    + hasNext() = 0 : virtual bool
+    + hasLast() = 0 : virtual bool
+    + isDone() = 0 : virtual bool
+    + next() = 0 : virtual CardInterface*
+    + last() = 0 : virtual CardInterface*
+    + currentItem() = 0 : virtual CardInterface*
+    + ~Iterator() : virtual
+}
 
-class RevendicateBorder{}
+class Joker{
+    + printCard() override : void
+    + getNamecard() override : string
+    + applyEffet(border : unique_ptr<Border>&) override : void
+}
 
-class Rules{}
+interface Observable{
+    + add(observer : Observer*) = 0 : virtual void
+    + remove(observer : Observer*) = 0 : virtual void
+    + notify() = 0 : virtual void
+    + ~Observable() : virtual
+}
 
-class SequenceCombination{}
+interface Observer{
+    + update(observable : Observable* ) = 0 : virtual void
+    + ~Observer() : virtual
+}
 
-class SetCombination{}
+interface Phase{
+    + acceptPlayer(player : PlayerInterface*) = 0 : virtual void
+    + ~Phase() : virtual
+}
 
-class Stack{}
+class PlayerSide{
+    - capacity : unsigned int
+    - putCardIndex : unsigned int
+    + PlayerSide()
+    + size() override : size_t
+    + pop() override : void
+    + push(card : unique_ptr<CardInterface> ) override : void
+    + printCardSet() override : void
+    + fillCardSet() override : void
+    + createIterator() override : Iterator*
+    + createIterator(pos : unsigned int&&) : Iterator*
+    + putCardInCardSet(card : unique_ptr<CardInterface>) : void
+    + begin() : PlayerSideIterator
+    + end() : PlayerSideIterator
+}
 
-class SumCombination{}
+class classPortBouclier{
+    + printCard() override : void
+    + getNamecard() override : string
+    + applyEffet(border : unique_ptr<Border>& ) override : void
+}
+
+class PlayerPlay{
+    + acceptPlayer(player : PlayerInterface*) override : void
+}
+
+class RevendicateBorder{
+    + acceptPlayer(player : PlayerInterface*) override : void
+}
+
+class SequenceCombination<T,Q>{
+    + playerCombination(list : vector<T>) override : unsigned int
+    + cardAreSequence(list : vector<Q>) : bool
+}
+
+class SetCombination<T>{
+    # playerCombination(list : vector<T>) override : unsigned int
+    + cardAreSameValue(list : vector<unsigned int>) : bool
+    + playerCobinationBis(firstList : vector<T> , secondList : vector<unsigned int> ) : unsigned int
+}
+
+class Stack{
+    - capacity : unsigned int
+    - push(card : unique_ptr<CardInterface> ) override : void
+    - fillCardSet() override : void
+    + Stack(capacity : unsigned int&&);
+    + size() override : size_t
+    + pop() override : void
+    + printCardSet() override : void
+    + createIterator() override : Iterator*
+    + createIterator(index : unsigned int&&) : Iterator*
+    + fillClanStack() : void
+    + fillTacticStack() : void
+    + popAndGetBackCard() : unique_ptr<CardInterface>
+    + shuffledStack() : void
+    + begin() : StackIterator
+    + end() : StackIterator
+}
+
+class SumCombination<T>{
+    + playerCombination(list : vector<T>) override : unsigned int
+}
 
 
 
