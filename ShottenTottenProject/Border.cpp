@@ -191,17 +191,67 @@ std::vector<unsigned int> Border::getSecondPlayerSideAllCardNumber()
 	return secondPlayerBorderSide->getAllCardNumberInPlayerSide();
 }
 
+
+const unsigned int Border::getBorderCapacity() const
+{
+	return this->borderCapacity;
+}
+
 const unsigned int Border::determineBorderWinnerByCombination(unsigned int& firstCombination, unsigned int& secondCombination)
 {
-	unsigned int winner;
-	if (firstCombination > secondCombination && firstCombination >= 11) {
-		winner = 1;
-	}
-	else if (secondCombination > firstCombination && secondCombination >= 11) {
-		winner = 2;
+	unsigned int winner = 0;
+
+	if ((getFirstPlayerSidePutCardIndex() == getSecondPlayerSidePutCardIndex()) &&  (getSecondPlayerSidePutCardIndex() == getBorderCapacity())) {
+		
+		if (firstCombination > secondCombination) {
+			winner = 1;
+		}
+		else if (secondCombination > firstCombination) {
+			winner = 2;
+		}
+		else {
+
+			unsigned int firstCounter = 0;
+			unsigned int secondCounter = 0;
+
+			for (auto value : firstPlayerBorderSide->getAllCardNumberInPlayerSide()) {
+				firstCounter += value;
+			}
+			for (auto value : secondPlayerBorderSide->getAllCardNumberInPlayerSide()) {
+				secondCounter += value;
+			}
+
+			if (firstCounter > secondCounter) {
+				winner = 1;
+			}
+			else if (secondCounter > firstCounter) {
+				winner = 2;
+			}
+			else {
+				winner = 0;
+			}
+		}
 	}
 	else {
-		winner = 0;
+		unsigned int firstCounter = 0;
+		unsigned int secondCounter = 0;
+		for (auto value : firstPlayerBorderSide->getAllCardNumberInPlayerSide()) {
+			firstCounter += value;
+		}
+		for (auto value : secondPlayerBorderSide->getAllCardNumberInPlayerSide()) {
+			secondCounter += value;
+		}
+
+		if (firstCombination > secondCombination && firstCombination >= 11 && firstCounter == 24) {
+			
+			winner = 1;
+		}
+		else if (secondCombination > firstCombination && secondCombination >= 11 && secondCounter == 24) {
+			winner = 2;
+		}
+		else {
+			winner = 3;
+		}
 	}
 	return winner;
 }

@@ -23,6 +23,7 @@ protected :
 	std::unique_ptr<PlayerSide> secondPlayerBorderSide;
 	std::vector<unsigned int> listIndexBorderClaimed;
 	BorderStatus			 status;
+
 	unsigned int borderCapacity = 3;
 
 
@@ -66,6 +67,8 @@ public :
 
 	virtual std::vector<unsigned int> getFirstPlayerSideAllCardNumber();
 	virtual std::vector<unsigned int> getSecondPlayerSideAllCardNumber();
+
+	const unsigned int getBorderCapacity() const;
 
 private :
 

@@ -14,8 +14,8 @@ public :
 
 	BorderDecorator(unique_ptr<Border> param) : innerBorder(std::move(param)) {};
 
-	void setBorderCapacity(unsigned int newCap) override;
-	unsigned int getBorderCapacity() override;
+	virtual void setBorderCapacity(unsigned int newCap) override;
+	virtual unsigned int getBorderCapacity() override;
 	virtual std::vector<std::string> getAllCardColorInPlayerSide(unsigned int&& playerSideId) override;
 
 	virtual void pushCardInBorder(std::unique_ptr<CardInterface> card) override;

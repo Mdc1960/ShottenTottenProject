@@ -37,6 +37,7 @@ public :
 	void increaseCapacity();
 	unsigned int getCapacity() const;
 	void setCapacity(unsigned int newcap) { capacity = newcap; }
+	
 
 	CardInterface* getCardByIndex(unsigned int&& indexCard);
 
