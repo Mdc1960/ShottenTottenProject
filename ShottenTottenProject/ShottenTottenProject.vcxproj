@@ -154,7 +154,6 @@
     <ClCompile Include="PlayerSide.cpp" />
     <ClCompile Include="PorteBouclier.cpp" />
     <ClCompile Include="RevendicateBorder.cpp" />
-    <ClCompile Include="Rules.cpp" />
     <ClCompile Include="ShottenTottenProject.cpp" />
     <ClCompile Include="Stack.cpp" />
   </ItemGroup>
@@ -202,7 +201,6 @@
     <ClInclude Include="PlayerSide.h" />
     <ClInclude Include="PorteBouclier.h" />
     <ClInclude Include="RevendicateBorder.h" />
-    <ClInclude Include="Rules.h" />
     <ClInclude Include="CardRuse.h" />
     <ClInclude Include="SequenceCombination.h" />
     <ClInclude Include="SetCombination.h" />
