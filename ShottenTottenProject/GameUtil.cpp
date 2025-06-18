@@ -195,16 +195,13 @@ void Util::configureGame()
 
 					std::cout << "Your choice is " << integerPlayer << std::endl;
 					Util::opponentChoiseMade = integerPlayer;
-					//TODO : CREATE PLAYER AND IS OPPONENT
-
-					// Create FirstPlayer.
 					
 
 					Util::playerName = stringFirstPlayerName;
 
 					switch (integerPlayer) {
 					case 1:
-						//Create AI
+						
 
 						Util::aitName = "AI";
 
@@ -214,7 +211,7 @@ void Util::configureGame()
 
 						std::cout << "Please enter your opponet name : ";
 						std::cin >> stringOpponentName;
-						//Create Opponent
+						
 
 						Util::opponetName = stringOpponentName;
 
