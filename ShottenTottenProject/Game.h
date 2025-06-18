@@ -97,6 +97,8 @@ protected:
 
 	bool isPlayerWinTheGame(std::vector<unsigned int> listRevendicateBorder);
 
+	bool findValueInList(std::vector<unsigned int> list, unsigned int value);
+
 	void configuredPlayers();
 
 public :

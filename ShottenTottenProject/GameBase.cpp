@@ -120,8 +120,11 @@ void GameBase::startGame()
 										{
 										case 1:
 
-											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
-											aiPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+
+											if (!findValueInList(aiPlayerRevendicateBorderList, firstPlayerRevendicateBorderIndex)) {
+												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+												aiPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+											}
 
 											if (isPlayerWinTheGame(aiPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
@@ -130,9 +133,12 @@ void GameBase::startGame()
 											break;
 										case 2:
 
-											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
-											firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+											if (!findValueInList(firstPlayerRevendicateBorderList, firstPlayerRevendicateBorderIndex)) {
+												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+												firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+											}
 
+										
 											if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
 												isGameOver = true;
@@ -144,9 +150,13 @@ void GameBase::startGame()
 										break;
 									case 1:
 										//Determine the WINNER of the game.
-										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
-										firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
 
+										if (!findValueInList(firstPlayerRevendicateBorderList, firstPlayerRevendicateBorderIndex)) {
+											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+											firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										}
+
+										
 										if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
 											isGameOver = true;
@@ -155,8 +165,11 @@ void GameBase::startGame()
 										break;
 									case 2:
 										//Second Player Win the border(AI).
-										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
-										aiPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+
+										if (!findValueInList(aiPlayerRevendicateBorderList, firstPlayerRevendicateBorderIndex)) {
+											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+											aiPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										}
 
 										if (isPlayerWinTheGame(aiPlayerRevendicateBorderList)) {
 											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
@@ -185,8 +198,10 @@ void GameBase::startGame()
 										switch (getLastPlayerSidePutCard(firstPlayerRevendicateBorderIndex)) {
 										case 1:
 
-											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
-											opponentPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+											if (!findValueInList(opponentPlayerRevendicateBorderList, firstPlayerRevendicateBorderIndex)) {
+												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+												opponentPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+											}
 
 											if (isPlayerWinTheGame(opponentPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
@@ -196,8 +211,10 @@ void GameBase::startGame()
 											break;
 										case 2:
 
-											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
-											firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+											if (!findValueInList(firstPlayerRevendicateBorderList, firstPlayerRevendicateBorderIndex)) {
+												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+												firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+											}
 
 											if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
@@ -211,8 +228,11 @@ void GameBase::startGame()
 
 										break;
 									case 1:
-										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
-										firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+
+										if (!findValueInList(firstPlayerRevendicateBorderList, firstPlayerRevendicateBorderIndex)) {
+											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+											firstPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										}
 
 										if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
@@ -222,8 +242,11 @@ void GameBase::startGame()
 										break;
 									case 2:
 										//Second Player Win the border(AI).
-										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
-										opponentPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+
+										if (!findValueInList(opponentPlayerRevendicateBorderList, firstPlayerRevendicateBorderIndex)) {
+											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << firstPlayerRevendicateBorderIndex + 1 << std::endl;
+											opponentPlayerRevendicateBorderList.push_back(firstPlayerRevendicateBorderIndex);
+										}
 
 										if (isPlayerWinTheGame(opponentPlayerRevendicateBorderList)) {
 											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
@@ -332,8 +355,10 @@ void GameBase::startGame()
 										{
 										case 1:
 
-											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << aiPlayerRevendicateBorderIndex << std::endl;
-											aiPlayerRevendicateBorderList.push_back(aiPlayerRevendicateBorderIndex);
+											if (!findValueInList(aiPlayerRevendicateBorderList, aiPlayerRevendicateBorderIndex)) {
+												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << aiPlayerRevendicateBorderIndex << std::endl;
+												aiPlayerRevendicateBorderList.push_back(aiPlayerRevendicateBorderIndex);
+											}
 
 											if (isPlayerWinTheGame(aiPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
@@ -342,8 +367,10 @@ void GameBase::startGame()
 											break;
 										case 2:
 
-											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << aiPlayerRevendicateBorderIndex << std::endl;
-											firstPlayerRevendicateBorderList.push_back(aiPlayerRevendicateBorderIndex);
+											if (!findValueInList(firstPlayerRevendicateBorderList, aiPlayerRevendicateBorderIndex)) {
+												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << aiPlayerRevendicateBorderIndex << std::endl;
+												firstPlayerRevendicateBorderList.push_back(aiPlayerRevendicateBorderIndex);
+											}
 
 											if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
@@ -356,8 +383,11 @@ void GameBase::startGame()
 										break;
 									case 1:
 										//Determine the WINNER of the game.
-										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << aiPlayerRevendicateBorderIndex << std::endl;
-										firstPlayerRevendicateBorderList.push_back(aiPlayerRevendicateBorderIndex);
+
+										if (!findValueInList(firstPlayerRevendicateBorderList, aiPlayerRevendicateBorderIndex)) {
+											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << aiPlayerRevendicateBorderIndex << std::endl;
+											firstPlayerRevendicateBorderList.push_back(aiPlayerRevendicateBorderIndex);
+										}
 
 										if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
@@ -367,8 +397,11 @@ void GameBase::startGame()
 										break;
 									case 2:
 										//Second Player Win the border(AI).
-										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << aiPlayerRevendicateBorderIndex << std::endl;
-										aiPlayerRevendicateBorderList.push_back(aiPlayerRevendicateBorderIndex);
+
+										if (!findValueInList(aiPlayerRevendicateBorderList, aiPlayerRevendicateBorderIndex)) {
+											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << aiPlayerRevendicateBorderIndex << std::endl;
+											aiPlayerRevendicateBorderList.push_back(aiPlayerRevendicateBorderIndex);
+										}
 
 										if (isPlayerWinTheGame(aiPlayerRevendicateBorderList)) {
 											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
@@ -467,8 +500,11 @@ void GameBase::startGame()
 										switch (getLastPlayerSidePutCard(opponentPlayerRevendicateBorderIndex))
 										{
 										case 1:
-											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << opponentPlayerRevendicateBorderIndex + 1 << std::endl;
-											opponentPlayerRevendicateBorderList.push_back(opponentPlayerRevendicateBorderIndex);
+
+											if (!findValueInList(opponentPlayerRevendicateBorderList, opponentPlayerRevendicateBorderIndex)) {
+												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << opponentPlayerRevendicateBorderIndex + 1 << std::endl;
+												opponentPlayerRevendicateBorderList.push_back(opponentPlayerRevendicateBorderIndex);
+											}
 
 											if (isPlayerWinTheGame(opponentPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
@@ -477,9 +513,12 @@ void GameBase::startGame()
 
 											break;
 										case 2:
-											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << opponentPlayerRevendicateBorderIndex + 1 << std::endl;
-											firstPlayerRevendicateBorderList.push_back(opponentPlayerRevendicateBorderIndex);
 
+											if (!findValueInList(firstPlayerRevendicateBorderList, opponentPlayerRevendicateBorderIndex)) {
+												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << opponentPlayerRevendicateBorderIndex + 1 << std::endl;
+												firstPlayerRevendicateBorderList.push_back(opponentPlayerRevendicateBorderIndex);
+											}
+											
 											if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
 												isGameOver = true;
@@ -492,8 +531,11 @@ void GameBase::startGame()
 
 										break;
 									case 1:
-										std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << opponentPlayerRevendicateBorderIndex + 1 << std::endl;
-										firstPlayerRevendicateBorderList.push_back(opponentPlayerRevendicateBorderIndex);
+
+										if (!findValueInList(firstPlayerRevendicateBorderList, opponentPlayerRevendicateBorderIndex)) {
+											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the border " << opponentPlayerRevendicateBorderIndex + 1 << std::endl;
+											firstPlayerRevendicateBorderList.push_back(opponentPlayerRevendicateBorderIndex);
+										}
 
 										if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
 											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
@@ -502,9 +544,12 @@ void GameBase::startGame()
 
 										break;
 									case 2:
-										//Second Player Win the border(AI).
-										std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << opponentPlayerRevendicateBorderIndex + 1 << std::endl;
-										opponentPlayerRevendicateBorderList.push_back(opponentPlayerRevendicateBorderIndex);
+										//Second Player Win the border.
+
+										if (!findValueInList(opponentPlayerRevendicateBorderList, opponentPlayerRevendicateBorderIndex)) {
+											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the border " << opponentPlayerRevendicateBorderIndex + 1 << std::endl;
+											opponentPlayerRevendicateBorderList.push_back(opponentPlayerRevendicateBorderIndex);
+										}
 
 										if (isPlayerWinTheGame(opponentPlayerRevendicateBorderList)) {
 

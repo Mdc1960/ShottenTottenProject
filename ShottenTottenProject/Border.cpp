@@ -184,7 +184,6 @@ const unsigned int Border::getRevendicateBorderTotalValueFromMap(std::unordered_
 	unsigned int totalValue = 0;
 
 	for (auto& m : map) {
-		std::cout << "map:::" << m.first << " = " << m.second << std::endl;
 		totalValue += m.second;
 	}
 
