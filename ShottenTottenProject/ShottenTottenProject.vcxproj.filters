@@ -16,6 +16,33 @@
     <Filter Include="Class Diagram">
       <UniqueIdentifier>{32e6a1db-6e2e-4bfc-9a3a-c9d488e484e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\PlayerHeader">
+      <UniqueIdentifier>{929fc6f8-a620-4bc6-9a02-8ab5a454c4ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\BordHeader">
+      <UniqueIdentifier>{0fb0f581-ccfa-4d99-a965-2bc1c3947a46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\BorderHeader">
+      <UniqueIdentifier>{c3574d3e-7c8b-42d3-866a-5901b172ebc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\CardHeader">
+      <UniqueIdentifier>{7b768b9f-d8f7-4623-b694-8c7494b0418c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\CombinationHeader">
+      <UniqueIdentifier>{82ce3f36-7a33-448d-a033-bf72b13f5bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\CardSetHeader">
+      <UniqueIdentifier>{96bf63c8-bdd1-4714-a0a7-f395e2e40837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\PlayerFactoryHeader">
+      <UniqueIdentifier>{59608105-4c5d-44d5-a406-a19850188a39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\GameHeader">
+      <UniqueIdentifier>{a5ebb836-2ac9-4005-b0e6-c2a939388170}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\PhaseHeader">
+      <UniqueIdentifier>{e51834d0-0f62-43ec-871f-5cbc037d63ab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ShottenTottenProject.cpp">
@@ -102,6 +129,12 @@
     <ClCompile Include="CombatDeBoueCard.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="GameTactic.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="GameExpert.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.puml">
@@ -109,140 +142,151 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Border.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="BorderDecorator.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Bord.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="CardBattle.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="CardClan.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="CardElite.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="CardInterface.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="CardRuse.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="CardTactic.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="CardSet.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Defausse.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Stack.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Combination.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="AIPlayer.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\PlayerHeader</Filter>
     </ClInclude>
     <ClInclude Include="HumanPlayer.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\PlayerHeader</Filter>
     </ClInclude>
     <ClInclude Include="PlayerInterface.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\PlayerHeader</Filter>
     </ClInclude>
-    <ClInclude Include="Hand.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="Bord.h">
+      <Filter>Fichiers d%27en-tête\BordHeader</Filter>
     </ClInclude>
-    <ClInclude Include="GameUtil.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerSide.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="CollinMaillard.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="CBDecorator.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Phase.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerPlay.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="RevendicateBorder.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="IteratorInterface.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="PorteBouclier.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Joker.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Espion.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Exception.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="Border.h">
+      <Filter>Fichiers d%27en-tête\BorderHeader</Filter>
     </ClInclude>
     <ClInclude Include="BorderBase.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\BorderHeader</Filter>
     </ClInclude>
-    <ClInclude Include="ColorCombination.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="BorderDecorator.h">
+      <Filter>Fichiers d%27en-tête\BorderHeader</Filter>
     </ClInclude>
-    <ClInclude Include="ColorSequenceCombination.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="CardBattle.h">
+      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
     </ClInclude>
-    <ClInclude Include="SequenceCombination.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="CardClan.h">
+      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
     </ClInclude>
-    <ClInclude Include="SetCombination.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="CardElite.h">
+      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
     </ClInclude>
-    <ClInclude Include="SumCombination.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="CardInterface.h">
+      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
     </ClInclude>
-    <ClInclude Include="Observable.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="CardRuse.h">
+      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
     </ClInclude>
-    <ClInclude Include="Observer.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="FactoryPlayer.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="FactoryHumanPlayer.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="FactoryAIPlayer.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="GameBase.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="CardTactic.h">
+      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
     </ClInclude>
     <ClInclude Include="ColinMaillardCard.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CBDecorator.h">
+      <Filter>Fichiers d%27en-tête\BorderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CollinMaillard.h">
+      <Filter>Fichiers d%27en-tête\BorderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorCombination.h">
+      <Filter>Fichiers d%27en-tête\CombinationHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorSequenceCombination.h">
+      <Filter>Fichiers d%27en-tête\CombinationHeader</Filter>
     </ClInclude>
     <ClInclude Include="CombatDeBoueCard.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
     </ClInclude>
+    <ClInclude Include="Combination.h">
+      <Filter>Fichiers d%27en-tête\CombinationHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="SequenceCombination.h">
+      <Filter>Fichiers d%27en-tête\CombinationHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="SetCombination.h">
+      <Filter>Fichiers d%27en-tête\CombinationHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="SumCombination.h">
+      <Filter>Fichiers d%27en-tête\CombinationHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="CardSet.h">
+      <Filter>Fichiers d%27en-tête\CardSetHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Defausse.h">
+      <Filter>Fichiers d%27en-tête\CardSetHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Hand.h">
+      <Filter>Fichiers d%27en-tête\CardSetHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>Fichiers d%27en-tête\CardSetHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryAIPlayer.h">
+      <Filter>Fichiers d%27en-tête\PlayerFactoryHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryHumanPlayer.h">
+      <Filter>Fichiers d%27en-tête\PlayerFactoryHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryPlayer.h">
+      <Filter>Fichiers d%27en-tête\PlayerFactoryHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Fichiers d%27en-tête\BordHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="GameBase.h">
+      <Filter>Fichiers d%27en-tête\GameHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Observable.h">
+      <Filter>Fichiers d%27en-tête\GameHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="IteratorInterface.h">
+      <Filter>Fichiers d%27en-tête\CardSetHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerSide.h">
+      <Filter>Fichiers d%27en-tête\BorderHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Fichiers d%27en-tête\GameHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="GameUtil.h">
+      <Filter>Fichiers d%27en-tête\GameHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Espion.h">
+      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.h">
+      <Filter>Fichiers d%27en-tête\GameHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="PorteBouclier.h">
+      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Joker.h">
+      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Phase.h">
+      <Filter>Fichiers d%27en-tête\PhaseHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerPlay.h">
+      <Filter>Fichiers d%27en-tête\PhaseHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="RevendicateBorder.h">
+      <Filter>Fichiers d%27en-tête\PhaseHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="GameExpert.h">
+      <Filter>Fichiers d%27en-tête\GameHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTactic.h">
+      <Filter>Fichiers d%27en-tête\GameHeader</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ClassDiagram-0.png">
+      <Filter>Class Diagram</Filter>
+    </Image>
   </ItemGroup>
 </Project>

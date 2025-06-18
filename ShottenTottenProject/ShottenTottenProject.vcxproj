@@ -145,6 +145,8 @@
     <ClCompile Include="FactoryHumanPlayer.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameBase.cpp" />
+    <ClCompile Include="GameExpert.cpp" />
+    <ClCompile Include="GameTactic.cpp" />
     <ClCompile Include="GameUtil.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="HumanPlayer.cpp" />
@@ -188,6 +190,8 @@
     <ClInclude Include="FactoryPlayer.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameBase.h" />
+    <ClInclude Include="GameExpert.h" />
+    <ClInclude Include="GameTactic.h" />
     <ClInclude Include="GameUtil.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="HumanPlayer.h" />
@@ -206,6 +210,9 @@
     <ClInclude Include="SetCombination.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="SumCombination.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ClassDiagram-0.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

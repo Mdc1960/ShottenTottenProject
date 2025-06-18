@@ -28,6 +28,8 @@ void Game::remove(Observer* observer)
 
 void Game::notify()
 {
+	firstPlayer->printPlayer();
+	secondPlayer->printPlayer();
 	for (auto& observer : listObserver) {
 		observer->update(this);
 	}

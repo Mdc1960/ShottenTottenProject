@@ -11,10 +11,10 @@ std::string Util::opponetName = "";
 std::string Util::aitName = "";
 
 void Util::readRules() {
-	cout << "=========================================================================================================================" << endl;
+	cout << "========================================================================================================================" << endl;
 	cout << " WELCOME TO THE GAME! PLEASE READ THE RULES CAREFULLY!" << endl;
 	cout << " CLICK 'L' TO START THE PROGRAM." << endl;
-	cout << "=========================================================================================================================" << endl << endl;
+	cout << "========================================================================================================================" << endl << endl;
 
 
 	cout << R"(
@@ -109,7 +109,7 @@ void Util::configureGame()
 
 	bool isConfiguring = false;
 
-	std::cout << "WELCOM INTO SCHOTTEN TOTTEN WOLRD !!!" << std::endl;
+	std::cout << "\n\nWELCOM INTO SCHOTTEN TOTTEN WOLRD !!!" << std::endl;
 
 	while (!isConfiguring) {
 

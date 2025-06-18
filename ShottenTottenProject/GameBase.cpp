@@ -8,6 +8,11 @@ GameBase::GameBase() :
 
 void GameBase::startGame()
 {
+#ifdef _WIN32
+	std::system("cls");
+#else
+	std::system("clear");
+#endif
 
 	playPhase = std::make_shared<PlayerPlay>();
 
@@ -69,11 +74,11 @@ void GameBase::startGame()
 
 			borderCapacity = gameBord.getBorderCapacityByIndex(indexBorder - 1);
 
-		/*#ifdef _WIN32
+		#ifdef _WIN32
 			std::system("cls");
 		#else
 			std::system("clear");
-		#endif*/
+		#endif
 
 
 			//Get BorderCapacity.
@@ -95,7 +100,6 @@ void GameBase::startGame()
 						}
 
 						if (Bord::numberOfCardPutInBorders >= 4) {
-							notify();
 							revendicatePhase->acceptPlayer(firstPlayer.get());
 							isFirstPlayerWantToRevendicate = firstPlayer->getIsPlayerWantToRevendicateValue();
 
@@ -288,7 +292,11 @@ void GameBase::startGame()
 			firstPlayer->setIsChooseBoredValid(false);
 
 
-
+		#ifdef _WIN32
+			std::system("cls");
+		#else
+			std::system("clear");
+		#endif
 
 			break;
 		case 1:
@@ -298,11 +306,7 @@ void GameBase::startGame()
 			case 1:
 				//AI Play
 
-			/*#ifdef _WIN32
-				std::system("cls");
-			#else
-				std::system("clear");
-			#endif*/
+			
 
 				std::cout << "AI is playing" << std::endl;
 
@@ -333,7 +337,6 @@ void GameBase::startGame()
 							}
 
 							if (Bord::numberOfCardPutInBorders >= 4) {
-								notify();
 								revendicatePhase->acceptPlayer(secondPlayer.get());
 
 								isAIPlayerWantToRevendicate = secondPlayer->getIsPlayerWantToRevendicateValue();
@@ -436,7 +439,11 @@ void GameBase::startGame()
 				std::cout << "Nb Put card : " << Bord::numberOfCardPutInBorders << std::endl;
 			
 
-
+			#ifdef _WIN32
+				std::system("cls");
+			#else
+				std::system("clear");
+			#endif
 
 				break;
 			case 2:
@@ -453,11 +460,11 @@ void GameBase::startGame()
 				borderCapacity = gameBord.getBorderCapacityByIndex(opponentIndexBorder - 1);
 
 
-			/*#ifdef _WIN32
+			#ifdef _WIN32
 				std::system("cls");
 			#else
 				std::system("clear");
-			#endif*/
+			#endif
 
 
 				if (secondBorderSide < borderCapacity) {
@@ -478,8 +485,6 @@ void GameBase::startGame()
 							}
 
 							if (Bord::numberOfCardPutInBorders >= 4) {
-
-								notify();
 								revendicatePhase->acceptPlayer(secondPlayer.get());
 								isOpponentPlayerWantToRevendicate = secondPlayer->getIsPlayerWantToRevendicateValue();
 
