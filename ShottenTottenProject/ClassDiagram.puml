@@ -53,25 +53,19 @@ abstract class Bord{
     + update(observable : Observable*) override : void
     + shuffledClanStack() : void
     + shuffledTacticStack() : void
-    + getBorderSidePutCardIndex(borderIndex : unsigned int&&, sideId : unsigned int&&) : const unsigned int
     + printBorders() : void
     + getBorderSize() const : size_t
     + printFirstPlayerBorderSide() : void
     + printSecondPlayerBorderSide() : void
-    + createBordStacks(clanCapacity : unsigned int&&, tacticCapacity : unsigned int&&) : void
+    + createBordStacks(clanCapacity : unsigned int&&,
+    tacticCapacity : unsigned int&&) : void
     + putCardInBorderByPlayerIdAndColumnIndex(card : unique_ptr<CardInterface> ,
                         playerId : unsigned int&&, columnIndex : unsigned int&&) : void
-    + showClanStack() : void
-    + showTacticStack() : void
     + popAndGetCardFromClanStack() : unique_ptr<CardInterface>
     + popAndGetCardFromTacticStack() : unique_ptr<CardInterface>
     + setIsClanStackEmpty(b : bool&&) : void
     + getIsClanStackEmpty() const : const bool
     + claim(playerRevendicateBorderIndex : unsigned int& ) : const unsigned int
-    + getBorderCapacityByIndex(borderIndex : unsigned int) : const unsigned int
-    + setLastPlayerSidePutCard(borderIndex : unsigned int, lastPlayerSidePutCard : unsigned int) : void
-    + getLastPlayerSidePutCard(borderIndex : unsigned int) : const unsigned int
-    + fillPlayerRevendicateMap(revendicateColumn : unsigned int& , playerSideId : unsigned int&& ) : unordered_map<string, unsigned int>
 
 }
 
@@ -88,29 +82,15 @@ abstract class Border{
     + claim() = 0 : virtual unsigned int
     + setLastPlayerPutCard(lastPlayerPutCard : unsigned int ) : virtual void
     + getLastPlayerPutCard() const : virtual const unsigned int
-    + getAllCardColorInPlayerSide(playerSideId : unsigned int&&) : virtual vector<string>
     + pushCardInBorder(card : unique_ptr<CardInterface> ) : virtual void
     + popCardInBorder(card : unique_ptr<CardInterface> ) : virtual void
     + getMaxCapacityInPlayerSide() const : virtual unsigned int
     + setFirstPlayerSide(playerSide : unique_ptr<PlayerSide>) : virtual void
     + setSecondPlayerSide(playerSide : unique_ptr<PlayerSide>) : virtual void
-    + printBorder() : virtual void
-    + printFirstPlayerSideCardByIndex(index : unsigned int&& ) : virtual void
-    + printSecondPlayerSideCardByIndex(index : unsigned int&& ) : virtual void
-    + putCardInFirstPlayerSide(card : unique_ptr<CardInterface>) : virtual void
-    + putCardInSecondPlayerSide(card : unique_ptr<CardInterface>) : virtual void
-    + printFirstPlayerBorderSide() : virtual void
-    + printSecondPlayerBorderSide() : virtual void
-    + getFirstPlayerSidePutCardIndex() const : virtual const unsigned int
-    + getSecondPlayerSidePutCardIndex() const : virtual const unsigned int
-    + fillPlayerRevendicateMap(playerSideId : unsigned int&& ) : virtual unordered_map<string, unsigned int>
-    + getCardInPlayerSide(playerSideId : unsigned int&&, indexCard : unsigned int&&) : virtual CardInterface*
     + determineBorderWinnerByCombination(firstCombination : unsigned int&,
       	 secondCombination : unsigned int&) : virtual const unsigned int
-    + getRevendicateBorderTotalValueFromMap(map : unordered_map<string, unsigned int>&) : virtual const unsigned int
-    + getFirstPlayerSideAllCardNumber() : virtual vector<unsigned int>
-    + getSecondPlayerSideAllCardNumber() : virtual vector<unsigned int>
-    + getBorderCapacity() const : const unsigned int
+    + getRevendicateBorderTotalValueFromMap(map : unordered_map<string,
+     unsigned int>&) : virtual const unsigned int
     - fillPlayerSides() : void
 }
 
@@ -294,7 +274,8 @@ abstract class Game{
     # opponentChoiseMade : unsigned int
     # isGameOver : bool
     # isConfiguring : bool
-    # buildGameBord(clanStackSize : unsigned int&&, tacticStackSize : unsigned int&&) : void
+    # buildGameBord(clanStackSize : unsigned int&&,
+    tacticStackSize : unsigned int&&) : void
     # shuffledGameClanStack() : void
     # shuffledGameTacticStack() : void
     # getCardFromCardTackticStack() : unique_ptr<CardInterface>
@@ -307,12 +288,17 @@ abstract class Game{
     # setPlayPhase(playPhase : shared_ptr<Phase>) : void
     # setRevendicatePhase(revendicatePhase : shared_ptr<Phase> ) : void
     # setOpponentChoiseMade(opponentChoiseMade : const unsigned int& ) : void
-    # setLastPlayerSidePutCard(borderIndex : unsigned int, lastPlayerSidePutCard : unsigned int) : void
+    # setLastPlayerSidePutCard(borderIndex : unsigned int,
+     lastPlayerSidePutCard : unsigned int) : void
     # getLastPlayerSidePutCard(borderIndex : unsigned int ) : const unsigned int
-    # putRevendicatedBorderIndexInPlayerListById(playerId : unsigned int&&, revendicateColumn : unsigned int& ) : void
-    # fillPlayerRevendicateMap(revendicateColumn : unsigned int&, playerSideId : unsigned int&&) : unordered_map<string,unsigned int>
-    # getRevendicateBorderTotalValueFromMap(map : unordered_map<string, unsigned int>&) : const unsigned int
-    # determineBorderWinnerByCombination(firstCombination : unsigned int&, secondCombination : unsigned int&) : const unsigned int
+    # putRevendicatedBorderIndexInPlayerListById(playerId : unsigned int&&,
+     revendicateColumn : unsigned int& ) : void
+    # fillPlayerRevendicateMap(revendicateColumn : unsigned int&,
+     playerSideId : unsigned int&&) : unordered_map<string,unsigned int>
+    # getRevendicateBorderTotalValueFromMap(map : unordered_map<string,
+     unsigned int>&) : const unsigned int
+    # determineBorderWinnerByCombination(firstCombination : unsigned int&,
+     secondCombination : unsigned int&) : const unsigned int
     # isPlayerWinTheGame(listRevendicateBorder : vector<unsigned int> ) : bool
     # configuredPlayers() : void
     + Game()
@@ -380,13 +366,12 @@ class Hand{
     + fillCardSet() override : void
     + createIterator() override : Iterator*
     + createIterator(pos : unsigned int&&) : Iterator*
-    + setIndexToPushCard(indexToPushCard : unsigned int&) : void
-    + setIndexToPopCard(indexToPopCard : const unsigned int&) : void
-    + getPushIndex() const : unsigned int
-    + getPopIndex() const : unsigned int
-    + pushCardToHandByIndex(indexToPush : unsigned int&&, card : unique_ptr<CardInterface>) : void
-    + popCardFromHandByIndex(indexToPop : unsigned int&&) : void
-    + popAndGetCardByIndex(index : unsigned int&&) : unique_ptr<CardInterface>
+    + pushCardToHandByIndex(indexToPush : unsigned int&&,
+     card : unique_ptr<CardInterface>) : void
+    + popCardFromHandByIndex(indexToPop
+    : unsigned int&&) : void
+    + popAndGetCardByIndex(index
+    : unsigned int&&) : unique_ptr<CardInterface>
     + pushBackCard(card : unique_ptr<CardInterface>) : void
     + begin() : HandIterator
     + end() : HandIterator
@@ -464,7 +449,8 @@ class SequenceCombination<T,Q>{
 class SetCombination<T>{
     # playerCombination(list : vector<T>) override : unsigned int
     + cardAreSameValue(list : vector<unsigned int>) : bool
-    + playerCobinationBis(firstList : vector<T> , secondList : vector<unsigned int> ) : unsigned int
+    + playerCobinationBis(firstList : vector<T>,
+    secondList : vector<unsigned int> ) : unsigned int
 }
 
 class Stack{
@@ -493,61 +479,60 @@ class View{
     - game : Game
 }
 
-View"1"*-->"1"Game
-PlayerInterface^..AIPlayer : <b>implements</b>
-PlayerInterface^..HumanPlayer : <b>implements</b>
-Bord..^Observer : <b>implements</b>
-Game..^Observable : <b>implements</b>
-Border^--BorderDecorator
-BorderDecorator "1" *--> "1"Border
-Border^--BorderBase
-Border "2" *--> "1" PlayerSide
+View --> Game
+Game *-> Bord
+Bord ..^ Observer
+Bord *--> "9" Border
+BorderStatus <- Border
+Defausse "1" <--*"1" Bord
+Stack "2" <--* "1" Bord
+CardInterface "*"<-o "1" CardSet
+CardClan .^ CardInterface : <b>implements</b>
+Color <- CardClan
+CardTactic ..^ CardInterface : <b>implements</b>
+CardElite --^ CardClan : <b>implements</b>
+CardElite .^ CardTactic : <b>implements</b>
+Joker --^ CardElite
+PorteBouclier --^ CardElite
+Espion --^ CardElite
+CardRuse ..^ CardTactic : <b>implements</b>
+CardBattle ..^ CardTactic : <b>implements</b>
+ColinMaillardCard ..^ CardBattle : <b>implements</b>
+CombatDeBoueCard ..^ CardBattle : <b>implements</b>
+IteratorInterface "2" <--* CardSet
+CardSet ^..Stack : <b>implements</b>
+CardSet ^.. Defausse : <b>implements</b>
+CardSet ^. Hand : <b>implements</b>
+Exception <- Game
+GameMode <- Game
+Util <- Game
+Phase "2"<--* Game
+PlayerPlay .^ Phase : <b>implements</b>
+RevendicateBorder .^ Phase : <b>implements</b>
+Game ^-- GameBase
+Game ^-- GameTactic
+Game ^-- GameExpert
+Game ..> Observable : <b>implements</b>
+PlayerInterface "2"<--* "1" Game
+Hand <-- PlayerInterface
+AIPlayer .^ PlayerInterface : <b>implements</b>
+PlayerInterface ^. HumanPlayer : <b>implements</b>
+FactoryHumanPlayer <.. HumanPlayer
+FactoryAiPlayer <.. AIPlayer
+Border "1"*--> "2" PlayerSide
+FactoryPlayer <|.. FactoryAiPlayer : <b>implements</b>
+FactoryHumanPlayer ..|> FactoryPlayer : <b>implements</b>
+Border <|- BorderBase
+Border <|-- BorderDecorator
+BorderDecorator "1" *--> Border
+BorderDecorator ^-- CollinMaillard
+BorderDecorator ^-- CBDecorator
 PlayerSide ..> Combination
-BorderDecorator^-CBDecorator
-BorderDecorator^--CollinMaillard
-CardInterface^..CardClan : <b>implements</b>
-CardInterface^..CardTactic : <b>implements</b>
-CardClan^--CardElite
-CardTactic^..CardElite
-CardTactic^..CardBattle
-CardTactic^..CardRuse
-CardElite^--Espion
-CardElite^--Joker
-CardElite^--PorteBouclier
-CardBattle^..CombatDeBoueCard : <b>implements</b>
-CardBattle^..ColinMaillardCard : <b>implements</b>
-CardSet "1" o--> "0,*" CardInterface
-Defausse..^CardSet : <b>implements</b>
-CardSet "2" *--> "1" IteratorInterface
-Stack..^CardSet : <b>implements</b>
-Hand..^CardSet : <b>implements</b>
-Combination^..ColorCombination : <b>implements</b>
-SequenceCombination.^Combination: <b>implements</b>
-ColorSequenceCombination.^Combination : <b>implements</b>
-Combination^..SetCombination : <b>implements</b>
-Combination^..SumCombination : <b>implements</b>
-Phase^..PlayerPlay : <b>implements</b>
-Phase^.. RevendicateBorder : <b>implements</b>
-FactoryAiPlayer..^FactoryPlayer : <b>implements</b>
-FactoryHumanPlayer..^FactoryPlayer : <b>implements</b>
-Game^-- GameBase
-Game^--GameTactic
-Game^--GameExpert
-Game "2" *--> "1" Phase
-PlayerInterface "1" <--* "2" Game
-AIPlayer<..>FactoryAiPlayer
-HumanPlayer<..>FactoryHumanPlayer
-Bord "9" *--> "1" Border
-Game "1" *--> "1" Bord
-Bord "1" *--> "1" Defausse
-Bord "2" *--> "1" Stack
-PlayerInterface "1" *-> Hand
-PlayerInterface <.. Phase : <b>Uses</b>
-Game -> Util
-Border "1"*-> "1"BorderStatus
-Exception<-Game
-GameMode<-Game
-Color"1"<-*"1"CardClan
-Combination .> Combine
+ColorCombination .^ Combination : <b>implements</b>
+Combination ^. ColorSequenceCombination : <b>implements</b>
+Combination <|.. SetCombination : <b>implements</b>
+Combination <|.. SequenceCombination : <b>implements</b>
+Combination <|.. SumCombination : <b>implements</b>
+Combine <.. Combination
 
 @enduml
