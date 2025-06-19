@@ -46,97 +46,118 @@
     <Filter Include="Fichiers sources\BordSourcers">
       <UniqueIdentifier>{e1df0deb-9d75-4194-b1a4-431f6db5ca03}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\BorderSources">
+      <UniqueIdentifier>{63de724d-7f1a-4641-bc53-55fb70a62553}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\PlayerSources">
+      <UniqueIdentifier>{99508f66-1aba-4518-aa14-8dd8be1c8f83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\CardSources">
+      <UniqueIdentifier>{1fbdd595-3506-4ea6-b4bc-ddfcbdaaa5bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\CardSetSources">
+      <UniqueIdentifier>{a6f771fc-5f6c-4c5c-81cf-c59495021e8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\PhaseSources">
+      <UniqueIdentifier>{61697732-4826-4646-b308-e001ebcaf0d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GameSouces">
+      <UniqueIdentifier>{bd9c569d-f084-4fd0-9e0e-f9ffc8a99c63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\PlayerFactorySources">
+      <UniqueIdentifier>{21d302e3-40eb-487a-bfd7-6598ab0087fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ShottenTottenProject.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Border.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="BorderDecorator.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Defausse.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Stack.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="CardClan.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="AIPlayer.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="HumanPlayer.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Hand.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerSide.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="CollinMaillard.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="CBDecorator.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerPlay.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="RevendicateBorder.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Joker.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="PorteBouclier.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Espion.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerInterface.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="BorderBase.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Exception.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="FactoryHumanPlayer.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="FactoryAIPlayer.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="GameUtil.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="GameBase.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="ColinMaillardCard.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="CombatDeBoueCard.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="GameTactic.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="GameExpert.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="Bord.cpp">
       <Filter>Fichiers sources\BordSourcers</Filter>
+    </ClCompile>
+    <ClCompile Include="Border.cpp">
+      <Filter>Fichiers sources\BorderSources</Filter>
+    </ClCompile>
+    <ClCompile Include="BorderBase.cpp">
+      <Filter>Fichiers sources\BorderSources</Filter>
+    </ClCompile>
+    <ClCompile Include="BorderDecorator.cpp">
+      <Filter>Fichiers sources\BorderSources</Filter>
+    </ClCompile>
+    <ClCompile Include="CBDecorator.cpp">
+      <Filter>Fichiers sources\BorderSources</Filter>
+    </ClCompile>
+    <ClCompile Include="CollinMaillard.cpp">
+      <Filter>Fichiers sources\BorderSources</Filter>
+    </ClCompile>
+    <ClCompile Include="AIPlayer.cpp">
+      <Filter>Fichiers sources\PlayerSources</Filter>
+    </ClCompile>
+    <ClCompile Include="HumanPlayer.cpp">
+      <Filter>Fichiers sources\PlayerSources</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerInterface.cpp">
+      <Filter>Fichiers sources\PlayerSources</Filter>
+    </ClCompile>
+    <ClCompile Include="CardClan.cpp">
+      <Filter>Fichiers sources\CardSources</Filter>
+    </ClCompile>
+    <ClCompile Include="CombatDeBoueCard.cpp">
+      <Filter>Fichiers sources\CardSources</Filter>
+    </ClCompile>
+    <ClCompile Include="ColinMaillardCard.cpp">
+      <Filter>Fichiers sources\CardSources</Filter>
+    </ClCompile>
+    <ClCompile Include="Espion.cpp">
+      <Filter>Fichiers sources\CardSources</Filter>
+    </ClCompile>
+    <ClCompile Include="Defausse.cpp">
+      <Filter>Fichiers sources\CardSetSources</Filter>
+    </ClCompile>
+    <ClCompile Include="Hand.cpp">
+      <Filter>Fichiers sources\CardSetSources</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>Fichiers sources\CardSetSources</Filter>
+    </ClCompile>
+    <ClCompile Include="Joker.cpp">
+      <Filter>Fichiers sources\CardSources</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerPlay.cpp">
+      <Filter>Fichiers sources\PhaseSources</Filter>
+    </ClCompile>
+    <ClCompile Include="RevendicateBorder.cpp">
+      <Filter>Fichiers sources\PhaseSources</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Fichiers sources\GameSouces</Filter>
+    </ClCompile>
+    <ClCompile Include="GameBase.cpp">
+      <Filter>Fichiers sources\GameSouces</Filter>
+    </ClCompile>
+    <ClCompile Include="GameExpert.cpp">
+      <Filter>Fichiers sources\GameSouces</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTactic.cpp">
+      <Filter>Fichiers sources\GameSouces</Filter>
+    </ClCompile>
+    <ClCompile Include="GameUtil.cpp">
+      <Filter>Fichiers sources\GameSouces</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception.cpp">
+      <Filter>Fichiers sources\GameSouces</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerSide.cpp">
+      <Filter>Fichiers sources\BorderSources</Filter>
+    </ClCompile>
+    <ClCompile Include="PorteBouclier.cpp">
+      <Filter>Fichiers sources\CardSources</Filter>
+    </ClCompile>
+    <ClCompile Include="FactoryAIPlayer.cpp">
+      <Filter>Fichiers sources\PlayerFactorySources</Filter>
+    </ClCompile>
+    <ClCompile Include="FactoryHumanPlayer.cpp">
+      <Filter>Fichiers sources\PlayerFactorySources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
