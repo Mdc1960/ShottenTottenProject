@@ -99,6 +99,8 @@ protected:
 
 	bool findValueInList(std::vector<unsigned int> list, unsigned int value);
 
+	unsigned int determineWinnerOfTheGameAtTheEnd();
+
 	void configuredPlayers();
 
 public :

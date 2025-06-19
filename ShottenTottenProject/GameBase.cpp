@@ -60,6 +60,8 @@ void GameBase::startGame()
 		std::unique_ptr<CardInterface> playerPlayedCard;
 		std::unique_ptr<CardInterface> opponentPlayerPlayedCard;
 
+		std::cout << "\033[" << "33" << "m";
+
 		switch (turn) {
 
 		case 0:
@@ -131,7 +133,11 @@ void GameBase::startGame()
 											}
 
 											if (isPlayerWinTheGame(aiPlayerRevendicateBorderList)) {
+												std::cout << "\n\n";
 												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												std::cout << "\n\n";
+												notify();
+												std::this_thread::sleep_for(std::chrono::seconds(10));
 												isGameOver = true;
 											}
 											break;
@@ -144,7 +150,11 @@ void GameBase::startGame()
 
 										
 											if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
+												std::cout << "\n\n";
 												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												std::cout << "\n\n";
+												notify();
+												std::this_thread::sleep_for(std::chrono::seconds(10));
 												isGameOver = true;
 											}
 											break;
@@ -162,7 +172,11 @@ void GameBase::startGame()
 
 										
 										if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
+											std::cout << "\n\n";
 											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											std::cout << "\n\n";
+											notify();
+											std::this_thread::sleep_for(std::chrono::seconds(10));
 											isGameOver = true;
 										}
 										
@@ -176,7 +190,11 @@ void GameBase::startGame()
 										}
 
 										if (isPlayerWinTheGame(aiPlayerRevendicateBorderList)) {
+											std::cout << "\n\n";
 											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											std::cout << "\n\n";
+											notify();
+											std::this_thread::sleep_for(std::chrono::seconds(10));
 											isGameOver = true;
 										}
 										break;
@@ -208,7 +226,11 @@ void GameBase::startGame()
 											}
 
 											if (isPlayerWinTheGame(opponentPlayerRevendicateBorderList)) {
+												std::cout << "\n\n";
 												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												std::cout << "\n\n";
+												notify();
+												std::this_thread::sleep_for(std::chrono::seconds(10));
 												isGameOver = true;
 											}
 
@@ -221,7 +243,11 @@ void GameBase::startGame()
 											}
 
 											if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
+												std::cout << "\n\n";
 												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												std::cout << "\n\n";
+												notify();
+												std::this_thread::sleep_for(std::chrono::seconds(10));
 												isGameOver = true;
 											}
 
@@ -239,7 +265,11 @@ void GameBase::startGame()
 										}
 
 										if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
+											std::cout << "\n\n";
 											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											std::cout << "\n\n";
+											notify();
+											std::this_thread::sleep_for(std::chrono::seconds(10));
 											isGameOver = true;
 										}
 
@@ -253,7 +283,11 @@ void GameBase::startGame()
 										}
 
 										if (isPlayerWinTheGame(opponentPlayerRevendicateBorderList)) {
+											std::cout << "\n\n";
 											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											std::cout << "\n\n";
+											notify();
+											std::this_thread::sleep_for(std::chrono::seconds(10));
 											isGameOver = true;
 										}
 
@@ -364,7 +398,11 @@ void GameBase::startGame()
 											}
 
 											if (isPlayerWinTheGame(aiPlayerRevendicateBorderList)) {
+												std::cout << "\n\n";
 												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												std::cout << "\n\n";
+												notify();
+												std::this_thread::sleep_for(std::chrono::seconds(10));
 												isGameOver = true;
 											}
 											break;
@@ -376,7 +414,11 @@ void GameBase::startGame()
 											}
 
 											if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
+												std::cout << "\n\n";
 												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												std::cout << "\n\n";
+												notify();
+												std::this_thread::sleep_for(std::chrono::seconds(10));
 												isGameOver = true;
 											}
 											break;
@@ -393,7 +435,11 @@ void GameBase::startGame()
 										}
 
 										if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
+											std::cout << "\n\n";
 											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											std::cout << "\n\n";
+											notify();
+											std::this_thread::sleep_for(std::chrono::seconds(10));
 											isGameOver = true;
 										}
 										
@@ -407,7 +453,11 @@ void GameBase::startGame()
 										}
 
 										if (isPlayerWinTheGame(aiPlayerRevendicateBorderList)) {
+											std::cout << "\n\n";
 											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											std::cout << "\n\n";
+											notify();
+											std::this_thread::sleep_for(std::chrono::seconds(10));
 											isGameOver = true;
 										}
 
@@ -512,7 +562,11 @@ void GameBase::startGame()
 											}
 
 											if (isPlayerWinTheGame(opponentPlayerRevendicateBorderList)) {
+												std::cout << "\n\n";
 												std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												std::cout << "\n\n";
+												notify();
+												std::this_thread::sleep_for(std::chrono::seconds(10));
 												isGameOver = true;
 											}
 
@@ -525,7 +579,11 @@ void GameBase::startGame()
 											}
 											
 											if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
+												std::cout << "\n\n";
 												std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+												std::cout << "\n\n";
+												notify();
+												std::this_thread::sleep_for(std::chrono::seconds(10));
 												isGameOver = true;
 											}
 
@@ -543,7 +601,11 @@ void GameBase::startGame()
 										}
 
 										if (isPlayerWinTheGame(firstPlayerRevendicateBorderList)) {
+											std::cout << "\n\n";
 											std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											std::cout << "\n\n";
+											notify();
+											std::this_thread::sleep_for(std::chrono::seconds(10));
 											isGameOver = true;
 										}
 
@@ -557,8 +619,11 @@ void GameBase::startGame()
 										}
 
 										if (isPlayerWinTheGame(opponentPlayerRevendicateBorderList)) {
-
+											std::cout << "\n\n";
 											std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+											std::cout << "\n\n";
+											notify();
+											std::this_thread::sleep_for(std::chrono::seconds(10));
 											isGameOver = true;
 										}
 
@@ -602,6 +667,31 @@ void GameBase::startGame()
 
 		default:
 			break;
+		}
+
+		if (!isGameOver && Bord::numberOfCardPutInBorders == 54) {
+			unsigned int value = determineWinnerOfTheGameAtTheEnd();
+
+			switch (value)
+			{
+			case 1:
+				std::cout << "\n\n";
+				std::cout << "\aPlayer '" << firstPlayer->getPlayerName() << "' you win the Game " << std::endl;
+				std::cout << "\n\n";
+				break;
+			case 2:
+				std::cout << "\n\n";
+				std::cout << "\aPlayer '" << secondPlayer->getPlayerName() << "' you win the Game " << std::endl;
+				std::cout << "\n\n";
+				break;
+			default:
+				break;
+			}
+
+			notify();
+			std::this_thread::sleep_for(std::chrono::seconds(10));
+
+			isGameOver = true;
 		}
 
 	}

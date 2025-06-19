@@ -28,8 +28,35 @@ void Game::remove(Observer* observer)
 
 void Game::notify()
 {
+	std::cout << "\033[" << "33" << "m";
 	firstPlayer->printPlayer();
 	secondPlayer->printPlayer();
+
+	std::cout << "Player '" << firstPlayer->getPlayerName() << "' " << "Border Revendicate Column : ";
+	for (auto l : firstPlayerRevendicateBorderList) {
+		std::cout << l + 1 << "; ";
+	}
+	std::cout << std::endl;
+
+	std::cout << "Player '" << secondPlayer->getPlayerName() << "' " << "Border Revendicate Column : ";
+	switch (this->opponentChoiseMade) {
+	case 1:
+		for (auto l : aiPlayerRevendicateBorderList) {
+			std::cout << l + 1 << "; ";
+		}
+		std::cout << std::endl;
+		break;
+	case 2:
+		for (auto l : opponentPlayerRevendicateBorderList) {
+			std::cout << l + 1 << "; ";
+		}
+		std::cout << std::endl;
+		break;
+	default:
+		break;
+	}
+
+	std::cout << "NUMBER OF PLAYED CARD : " << Bord::numberOfCardPutInBorders << std::endl;
 	for (auto& observer : listObserver) {
 		observer->update(this);
 	}
@@ -248,6 +275,91 @@ bool Game::isPlayerWinTheGame(std::vector<unsigned int> listRevendicateBorder)
 bool Game::findValueInList(std::vector<unsigned int> list, unsigned int value)
 {
 	return std::find(list.begin(), list.end(), value) != list.end();
+}
+
+unsigned int Game::determineWinnerOfTheGameAtTheEnd()
+{
+	std::vector<unsigned int> firstBorderList = std::vector<unsigned int>();
+	std::vector<unsigned int> aiBorderList = std::vector<unsigned int>();
+	std::vector<unsigned int> opponentBorderList = std::vector<unsigned int>();
+
+	unsigned int winner = 0;
+
+	switch (this->opponentChoiseMade)
+	{
+	case 1:
+		
+		for (unsigned int index = 0; index < 9; index++) {
+			winner = gameBord.claim(index);
+
+			switch (winner)
+			{
+			case 0:
+				switch (getLastPlayerSidePutCard(index)) {
+				case 1:
+					aiBorderList.push_back(index);
+					break;
+				case 2:
+					firstBorderList.push_back(index);
+					break;
+				default:
+					break;
+				}
+				break;
+			case 1:
+				firstBorderList.push_back(index);
+				break;
+			case 2:
+				aiBorderList.push_back(index);
+				break;
+			default:
+				break;
+			}
+		}
+
+		if (firstBorderList.size() == aiBorderList.size()) return 1;
+		return (firstBorderList.size() > aiBorderList.size()) ? 1 : 2;
+
+		break;
+	case 2:
+
+		for (unsigned int index = 0; index < 9; index++) {
+			winner = gameBord.claim(index);
+
+			switch (winner)
+			{
+			case 0:
+				switch (getLastPlayerSidePutCard(index)) {
+				case 1:
+					opponentBorderList.push_back(index);
+					break;
+				case 2:
+					firstBorderList.push_back(index);
+					break;
+				default:
+					break;
+				}
+				break;
+			case 1:
+				firstBorderList.push_back(index);
+				break;
+			case 2:
+				opponentBorderList.push_back(index);
+				break;
+			default:
+				break;
+			}
+		}
+
+		if (firstBorderList.size() == opponentBorderList.size()) return 1;
+		return (firstBorderList.size() > opponentBorderList.size()) ? 1 : 2;
+
+		break;
+	default:
+		break;
+	}
+
+	return 1;
 }
 
 
