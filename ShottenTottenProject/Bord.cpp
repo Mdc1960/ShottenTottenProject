@@ -100,8 +100,10 @@ size_t Bord::getBorderSize() const
 
 void Bord::printFirstPlayerBorderSide()
 {
+	std::cout << "\033[" << "34" << "m";
 	for (unsigned int index = 3; index > 0; --index) {
 		for (auto& border : borders) {
+			
 			border->printFirtPlayerSideCardByIndex(index - 1);
 		}
 		std::cout << std::endl;
@@ -111,8 +113,10 @@ void Bord::printFirstPlayerBorderSide()
 
 void Bord::printSecondPlayerBorderSide()
 {
+	std::cout << "\033[" << "32" << "m";
 	for (unsigned int index = 0; index < 3; index++) {
 		for (auto& border : borders) {
+			
 			border->printSecondPlayerSideCardByIndex(std::move(index + 0));
 		}
 		std::cout << std::endl;

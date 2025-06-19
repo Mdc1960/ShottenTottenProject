@@ -43,6 +43,9 @@
     <Filter Include="Fichiers d%27en-tête\PhaseHeader">
       <UniqueIdentifier>{e51834d0-0f62-43ec-871f-5cbc037d63ab}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\BordSourcers">
+      <UniqueIdentifier>{e1df0deb-9d75-4194-b1a4-431f6db5ca03}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ShottenTottenProject.cpp">
@@ -52,9 +55,6 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="BorderDecorator.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Bord.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Defausse.cpp">
@@ -134,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="GameExpert.cpp">
       <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Bord.cpp">
+      <Filter>Fichiers sources\BordSourcers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
