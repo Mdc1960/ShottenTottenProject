@@ -86,6 +86,7 @@ void Bord::printBorders()
 {
 	std::cout << std::endl;
 	printFirstPlayerBorderSide();
+	std::cout << "\033[" << "33" << "m";
 	std::cout << "------------------------------------------------------------------------------------------------------------\n";
 	std::cout << "============================================================================================================\n";
 	std::cout << "------------------------------------------------------------------------------------------------------------\n";
@@ -100,8 +101,10 @@ size_t Bord::getBorderSize() const
 
 void Bord::printFirstPlayerBorderSide()
 {
+	std::cout << "\033[" << "34" << "m";
 	for (unsigned int index = 3; index > 0; --index) {
 		for (auto& border : borders) {
+			
 			border->printFirtPlayerSideCardByIndex(index - 1);
 		}
 		std::cout << std::endl;
@@ -111,8 +114,10 @@ void Bord::printFirstPlayerBorderSide()
 
 void Bord::printSecondPlayerBorderSide()
 {
+	std::cout << "\033[" << "32" << "m";
 	for (unsigned int index = 0; index < 3; index++) {
 		for (auto& border : borders) {
+			
 			border->printSecondPlayerSideCardByIndex(std::move(index + 0));
 		}
 		std::cout << std::endl;
@@ -201,6 +206,35 @@ const unsigned int Bord::getBorderCapacityByIndex(unsigned int borderIndex)
 		}
 	}
 	return 3;
+}
+
+void Bord::setLastPlayerSidePutCard(unsigned int borderIndex, unsigned int lastPlayerSidePutCard)
+{
+	unsigned int counter = 0;
+	for (auto& border : borders) {
+		if (counter == borderIndex) {
+			border->setLastPlayerPutCard(lastPlayerSidePutCard);
+			return;
+		}
+		else {
+			counter++;
+		}
+	}
+	
+}
+
+const unsigned int Bord::getLastPlayerSidePutCard(unsigned int borderIndex)
+{
+	unsigned int counter = 0;
+	for (auto& border : borders) {
+		if (counter == borderIndex) {
+			return border->getLastPlayerPutCard();
+		}
+		else {
+			counter++;
+		}
+	}
+	return 0;
 }
 
 std::unordered_map<std::string, unsigned int> Bord::fillPlayerRevendicateMap(unsigned int& revendicateColumn, unsigned int&& playerSideId)

@@ -11,10 +11,13 @@ std::string Util::opponetName = "";
 std::string Util::aitName = "";
 
 void Util::readRules() {
-	cout << "=========================================================================================================================" << endl;
+
+	std::cout << "\033[" << "33" << "m";
+
+	cout << "========================================================================================================================" << endl;
 	cout << " WELCOME TO THE GAME! PLEASE READ THE RULES CAREFULLY!" << endl;
 	cout << " CLICK 'L' TO START THE PROGRAM." << endl;
-	cout << "=========================================================================================================================" << endl << endl;
+	cout << "========================================================================================================================" << endl << endl;
 
 
 	cout << R"(
@@ -40,25 +43,27 @@ Win the game by:
 * A stone can hold a maximum of 3 cards per player.
 
  CLAIMING A STONE:
-- A player can only claim a stone if both players have 3 cards on it.
+- A player can only claim a stone if both players side have 3 cards on it. However, player can claim a border even if
+  both player side doesn't have 3 card. In this case, the player who want to claim the border 
+  have to show that it is impossible for is opponent to beat is combination.
 - To claim, your combination must be stronger than your opponent's.
 
  TACTICAL VARIANT:
 - Follows the same rules as the base game, with additional tactical cards.
-- Each player gets a 7-card tactical deck.
+- Each player gets a 7-card at the start of the game.
 - You can draw from either the clan or tactical pile.
 - You can have unlimited tactical cards in hand,
   but may only play one more tactical card than your opponent.
 
  TACTICAL CARD TYPES:
-1) Elite Troop – behaves like a clan card.
-2) Joker x2 – you choose value and color before claiming the stone.
-3) Spy – clan card with value 7, choose color before claiming.
-4) Shield Bearer – clan card with value 1-3, choose value and color before claiming.
+1) Elite Troop - behaves like a clan card.
+2) Joker x2 - you choose value and color before claiming the stone.
+3) Spy - clan card with value 7, choose color before claiming.
+4) Shield Bearer - clan card with value 1-3, choose value and color before claiming.
 
  COMBINATION RANKINGS (strongest to weakest):
 1) Color Run : 3 cards of the same color in consecutive values (e.g. 1-2-3 red)
-2) Triple : 3 cards of the same value
+2) Triple : 3 cards of the same value and same color
 3) Color : 3 cards of the same color (not necessarily in order)
 4) Run : 3 consecutive values of any color
 5) Sum : Any 3 cards, compared by total value
@@ -68,7 +73,7 @@ Win the game by:
 - If sums are also equal, the first to place the third card wins.
 
  END OF GAME:
-- A player controls 3 adjacent stones OR 5 scattered stones.
+- A player controls 3 adjacent stones OR 5 scattered stones win the game.
 - In multi-round mode:
   - Winner gets 5 points
   - Loser earns 1 point per stone controlled
@@ -80,6 +85,8 @@ Win the game by:
 		cout << "\nAppuyez sur 'L' pour lancer le jeu : ";
 		getline(cin, input);
 	} while (input != "L" && input != "l");
+
+	std::cout << "\n\n";
 
 	configureGame();
 }
@@ -109,7 +116,7 @@ void Util::configureGame()
 
 	bool isConfiguring = false;
 
-	std::cout << "WELCOM INTO SCHOTTEN TOTTEN WOLRD !!!" << std::endl;
+	std::cout << "\n\nWELCOM INTO SCHOTTEN TOTTEN WOLRD !!!" << std::endl;
 
 	while (!isConfiguring) {
 
@@ -195,16 +202,13 @@ void Util::configureGame()
 
 					std::cout << "Your choice is " << integerPlayer << std::endl;
 					Util::opponentChoiseMade = integerPlayer;
-					//TODO : CREATE PLAYER AND IS OPPONENT
-
-					// Create FirstPlayer.
 					
 
 					Util::playerName = stringFirstPlayerName;
 
 					switch (integerPlayer) {
 					case 1:
-						//Create AI
+						
 
 						Util::aitName = "AI";
 
@@ -214,7 +218,7 @@ void Util::configureGame()
 
 						std::cout << "Please enter your opponet name : ";
 						std::cin >> stringOpponentName;
-						//Create Opponent
+						
 
 						Util::opponetName = stringOpponentName;
 

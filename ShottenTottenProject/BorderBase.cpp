@@ -13,7 +13,6 @@ unsigned int BorderBase::claim()
 	std::unordered_map<std::string, unsigned int> opponentCombinationMap = fillPlayerRevendicateMap(std::move(2));
 
 	unsigned int playerCombination = getRevendicateBorderTotalValueFromMap(playerCombinationMap);
-	std::cout << "----------------------------------------------------------------" << std::endl;
 	unsigned int opponentCombination = getRevendicateBorderTotalValueFromMap(opponentCombinationMap);
 
 	return determineBorderWinnerByCombination(playerCombination, opponentCombination);

@@ -145,6 +145,8 @@
     <ClCompile Include="FactoryHumanPlayer.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameBase.cpp" />
+    <ClCompile Include="GameExpert.cpp" />
+    <ClCompile Include="GameTactic.cpp" />
     <ClCompile Include="GameUtil.cpp" />
     <ClCompile Include="Hand.cpp" />
     <ClCompile Include="HumanPlayer.cpp" />
@@ -154,7 +156,6 @@
     <ClCompile Include="PlayerSide.cpp" />
     <ClCompile Include="PorteBouclier.cpp" />
     <ClCompile Include="RevendicateBorder.cpp" />
-    <ClCompile Include="Rules.cpp" />
     <ClCompile Include="ShottenTottenProject.cpp" />
     <ClCompile Include="Stack.cpp" />
   </ItemGroup>
@@ -189,6 +190,8 @@
     <ClInclude Include="FactoryPlayer.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameBase.h" />
+    <ClInclude Include="GameExpert.h" />
+    <ClInclude Include="GameTactic.h" />
     <ClInclude Include="GameUtil.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="HumanPlayer.h" />
@@ -202,12 +205,14 @@
     <ClInclude Include="PlayerSide.h" />
     <ClInclude Include="PorteBouclier.h" />
     <ClInclude Include="RevendicateBorder.h" />
-    <ClInclude Include="Rules.h" />
     <ClInclude Include="CardRuse.h" />
     <ClInclude Include="SequenceCombination.h" />
     <ClInclude Include="SetCombination.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="SumCombination.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="ClassDiagram-0.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
