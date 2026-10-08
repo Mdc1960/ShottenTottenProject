@@ -72,6 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)header;$(ProjectDir)header\border;$(ProjectDir)header\card;$(ProjectDir)header\cardset;$(ProjectDir)header\combination;$(ProjectDir)header\factory;$(ProjectDir)header\game;$(ProjectDir)header\phase;$(ProjectDir)header\player;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -84,6 +85,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)header;$(ProjectDir)header\border;$(ProjectDir)header\card;$(ProjectDir)header\cardset;$(ProjectDir)header\combination;$(ProjectDir)header\factory;$(ProjectDir)header\game;$(ProjectDir)header\phase;$(ProjectDir)header\player;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -100,6 +102,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)header;$(ProjectDir)header\border;$(ProjectDir)header\card;$(ProjectDir)header\cardset;$(ProjectDir)header\combination;$(ProjectDir)header\factory;$(ProjectDir)header\game;$(ProjectDir)header\phase;$(ProjectDir)header\player;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -113,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
+      <AdditionalIncludeDirectories>$(ProjectDir)header;$(ProjectDir)header\border;$(ProjectDir)header\card;$(ProjectDir)header\cardset;$(ProjectDir)header\combination;$(ProjectDir)header\factory;$(ProjectDir)header\game;$(ProjectDir)header\phase;$(ProjectDir)header\player;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WarningLevel>Level3</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -128,88 +132,88 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AIPlayer.cpp" />
-    <ClCompile Include="CBDecorator.cpp" />
-    <ClCompile Include="Bord.cpp" />
-    <ClCompile Include="Border.cpp" />
-    <ClCompile Include="BorderBase.cpp" />
-    <ClCompile Include="BorderDecorator.cpp" />
-    <ClCompile Include="CardClan.cpp" />
-    <ClCompile Include="ColinMaillardCard.cpp" />
-    <ClCompile Include="CollinMaillard.cpp" />
-    <ClCompile Include="CombatDeBoueCard.cpp" />
-    <ClCompile Include="Defausse.cpp" />
-    <ClCompile Include="Espion.cpp" />
-    <ClCompile Include="Exception.cpp" />
-    <ClCompile Include="FactoryAIPlayer.cpp" />
-    <ClCompile Include="FactoryHumanPlayer.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameBase.cpp" />
-    <ClCompile Include="GameExpert.cpp" />
-    <ClCompile Include="GameTactic.cpp" />
-    <ClCompile Include="GameUtil.cpp" />
-    <ClCompile Include="Hand.cpp" />
-    <ClCompile Include="HumanPlayer.cpp" />
-    <ClCompile Include="Joker.cpp" />
-    <ClCompile Include="PlayerInterface.cpp" />
-    <ClCompile Include="PlayerPlay.cpp" />
-    <ClCompile Include="PlayerSide.cpp" />
-    <ClCompile Include="PorteBouclier.cpp" />
-    <ClCompile Include="RevendicateBorder.cpp" />
-    <ClCompile Include="ShottenTottenProject.cpp" />
-    <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="source\player\AIPlayer.cpp" />
+    <ClCompile Include="source\border\CBDecorator.cpp" />
+    <ClCompile Include="source\border\Bord.cpp" />
+    <ClCompile Include="source\border\Border.cpp" />
+    <ClCompile Include="source\border\BorderBase.cpp" />
+    <ClCompile Include="source\border\BorderDecorator.cpp" />
+    <ClCompile Include="source\card\CardClan.cpp" />
+    <ClCompile Include="source\card\ColinMaillardCard.cpp" />
+    <ClCompile Include="source\border\CollinMaillard.cpp" />
+    <ClCompile Include="source\card\CombatDeBoueCard.cpp" />
+    <ClCompile Include="source\cardset\Defausse.cpp" />
+    <ClCompile Include="source\card\Espion.cpp" />
+    <ClCompile Include="source\game\Exception.cpp" />
+    <ClCompile Include="source\factory\FactoryAIPlayer.cpp" />
+    <ClCompile Include="source\factory\FactoryHumanPlayer.cpp" />
+    <ClCompile Include="source\game\Game.cpp" />
+    <ClCompile Include="source\game\GameBase.cpp" />
+    <ClCompile Include="source\game\GameExpert.cpp" />
+    <ClCompile Include="source\game\GameTactic.cpp" />
+    <ClCompile Include="source\game\GameUtil.cpp" />
+    <ClCompile Include="source\cardset\Hand.cpp" />
+    <ClCompile Include="source\player\HumanPlayer.cpp" />
+    <ClCompile Include="source\card\Joker.cpp" />
+    <ClCompile Include="source\player\PlayerInterface.cpp" />
+    <ClCompile Include="source\phase\PlayerPlay.cpp" />
+    <ClCompile Include="source\border\PlayerSide.cpp" />
+    <ClCompile Include="source\card\PorteBouclier.cpp" />
+    <ClCompile Include="source\phase\RevendicateBorder.cpp" />
+    <ClCompile Include="source\application\ShottenTottenProject.cpp" />
+    <ClCompile Include="source\cardset\Stack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.puml" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AIPlayer.h" />
-    <ClInclude Include="CBDecorator.h" />
-    <ClInclude Include="Bord.h" />
-    <ClInclude Include="Border.h" />
-    <ClInclude Include="BorderBase.h" />
-    <ClInclude Include="BorderDecorator.h" />
-    <ClInclude Include="CardBattle.h" />
-    <ClInclude Include="CardClan.h" />
-    <ClInclude Include="CardElite.h" />
-    <ClInclude Include="CardInterface.h" />
-    <ClInclude Include="CardSet.h" />
-    <ClInclude Include="CardTactic.h" />
-    <ClInclude Include="ColinMaillardCard.h" />
-    <ClInclude Include="CollinMaillard.h" />
-    <ClInclude Include="Color.h" />
-    <ClInclude Include="ColorCombination.h" />
-    <ClInclude Include="ColorSequenceCombination.h" />
-    <ClInclude Include="CombatDeBoueCard.h" />
-    <ClInclude Include="Combination.h" />
-    <ClInclude Include="Defausse.h" />
-    <ClInclude Include="Espion.h" />
-    <ClInclude Include="Exception.h" />
-    <ClInclude Include="FactoryAIPlayer.h" />
-    <ClInclude Include="FactoryHumanPlayer.h" />
-    <ClInclude Include="FactoryPlayer.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="GameBase.h" />
-    <ClInclude Include="GameExpert.h" />
-    <ClInclude Include="GameTactic.h" />
-    <ClInclude Include="GameUtil.h" />
-    <ClInclude Include="Hand.h" />
-    <ClInclude Include="HumanPlayer.h" />
-    <ClInclude Include="IteratorInterface.h" />
-    <ClInclude Include="Joker.h" />
-    <ClInclude Include="Observable.h" />
-    <ClInclude Include="Observer.h" />
-    <ClInclude Include="Phase.h" />
-    <ClInclude Include="PlayerInterface.h" />
-    <ClInclude Include="PlayerPlay.h" />
-    <ClInclude Include="PlayerSide.h" />
-    <ClInclude Include="PorteBouclier.h" />
-    <ClInclude Include="RevendicateBorder.h" />
-    <ClInclude Include="CardRuse.h" />
-    <ClInclude Include="SequenceCombination.h" />
-    <ClInclude Include="SetCombination.h" />
-    <ClInclude Include="Stack.h" />
-    <ClInclude Include="SumCombination.h" />
+    <ClInclude Include="header\player\AIPlayer.h" />
+    <ClInclude Include="header\border\CBDecorator.h" />
+    <ClInclude Include="header\border\Bord.h" />
+    <ClInclude Include="header\border\Border.h" />
+    <ClInclude Include="header\border\BorderBase.h" />
+    <ClInclude Include="header\border\BorderDecorator.h" />
+    <ClInclude Include="header\card\CardBattle.h" />
+    <ClInclude Include="header\card\CardClan.h" />
+    <ClInclude Include="header\card\CardElite.h" />
+    <ClInclude Include="header\card\CardInterface.h" />
+    <ClInclude Include="header\cardset\CardSet.h" />
+    <ClInclude Include="header\card\CardTactic.h" />
+    <ClInclude Include="header\card\ColinMaillardCard.h" />
+    <ClInclude Include="header\border\CollinMaillard.h" />
+    <ClInclude Include="header\card\Color.h" />
+    <ClInclude Include="header\combination\ColorCombination.h" />
+    <ClInclude Include="header\combination\ColorSequenceCombination.h" />
+    <ClInclude Include="header\card\CombatDeBoueCard.h" />
+    <ClInclude Include="header\combination\Combination.h" />
+    <ClInclude Include="header\cardset\Defausse.h" />
+    <ClInclude Include="header\card\Espion.h" />
+    <ClInclude Include="header\game\Exception.h" />
+    <ClInclude Include="header\factory\FactoryAIPlayer.h" />
+    <ClInclude Include="header\factory\FactoryHumanPlayer.h" />
+    <ClInclude Include="header\factory\FactoryPlayer.h" />
+    <ClInclude Include="header\game\Game.h" />
+    <ClInclude Include="header\game\GameBase.h" />
+    <ClInclude Include="header\game\GameExpert.h" />
+    <ClInclude Include="header\game\GameTactic.h" />
+    <ClInclude Include="header\game\GameUtil.h" />
+    <ClInclude Include="header\cardset\Hand.h" />
+    <ClInclude Include="header\player\HumanPlayer.h" />
+    <ClInclude Include="header\cardset\IteratorInterface.h" />
+    <ClInclude Include="header\card\Joker.h" />
+    <ClInclude Include="header\game\Observable.h" />
+    <ClInclude Include="header\border\Observer.h" />
+    <ClInclude Include="header\phase\Phase.h" />
+    <ClInclude Include="header\player\PlayerInterface.h" />
+    <ClInclude Include="header\phase\PlayerPlay.h" />
+    <ClInclude Include="header\border\PlayerSide.h" />
+    <ClInclude Include="header\card\PorteBouclier.h" />
+    <ClInclude Include="header\phase\RevendicateBorder.h" />
+    <ClInclude Include="header\card\CardRuse.h" />
+    <ClInclude Include="header\combination\SequenceCombination.h" />
+    <ClInclude Include="header\combination\SetCombination.h" />
+    <ClInclude Include="header\cardset\Stack.h" />
+    <ClInclude Include="header\combination\SumCombination.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="ClassDiagram-0.png" />

@@ -5,6 +5,9 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Fichiers sources\application">
+      <UniqueIdentifier>{d0696212-a938-4ddd-a0b4-a0d5d3819170}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Fichiers d%27en-tête">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
@@ -16,148 +19,142 @@
     <Filter Include="Class Diagram">
       <UniqueIdentifier>{32e6a1db-6e2e-4bfc-9a3a-c9d488e484e4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\PlayerHeader">
+    <Filter Include="Fichiers d%27en-tête\player">
       <UniqueIdentifier>{929fc6f8-a620-4bc6-9a02-8ab5a454c4ed}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\BordHeader">
-      <UniqueIdentifier>{0fb0f581-ccfa-4d99-a965-2bc1c3947a46}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\BorderHeader">
+    <Filter Include="Fichiers d%27en-tête\border">
       <UniqueIdentifier>{c3574d3e-7c8b-42d3-866a-5901b172ebc0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\CardHeader">
+    <Filter Include="Fichiers d%27en-tête\card">
       <UniqueIdentifier>{7b768b9f-d8f7-4623-b694-8c7494b0418c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\CombinationHeader">
+    <Filter Include="Fichiers d%27en-tête\combination">
       <UniqueIdentifier>{82ce3f36-7a33-448d-a033-bf72b13f5bbb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\CardSetHeader">
+    <Filter Include="Fichiers d%27en-tête\cardset">
       <UniqueIdentifier>{96bf63c8-bdd1-4714-a0a7-f395e2e40837}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\PlayerFactoryHeader">
+    <Filter Include="Fichiers d%27en-tête\factory">
       <UniqueIdentifier>{59608105-4c5d-44d5-a406-a19850188a39}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\GameHeader">
+    <Filter Include="Fichiers d%27en-tête\game">
       <UniqueIdentifier>{a5ebb836-2ac9-4005-b0e6-c2a939388170}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\PhaseHeader">
+    <Filter Include="Fichiers d%27en-tête\phase">
       <UniqueIdentifier>{e51834d0-0f62-43ec-871f-5cbc037d63ab}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\BordSourcers">
-      <UniqueIdentifier>{e1df0deb-9d75-4194-b1a4-431f6db5ca03}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\BorderSources">
+    <Filter Include="Fichiers sources\border">
       <UniqueIdentifier>{63de724d-7f1a-4641-bc53-55fb70a62553}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\PlayerSources">
+    <Filter Include="Fichiers sources\player">
       <UniqueIdentifier>{99508f66-1aba-4518-aa14-8dd8be1c8f83}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\CardSources">
+    <Filter Include="Fichiers sources\card">
       <UniqueIdentifier>{1fbdd595-3506-4ea6-b4bc-ddfcbdaaa5bf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\CardSetSources">
+    <Filter Include="Fichiers sources\cardset">
       <UniqueIdentifier>{a6f771fc-5f6c-4c5c-81cf-c59495021e8d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\PhaseSources">
+    <Filter Include="Fichiers sources\phase">
       <UniqueIdentifier>{61697732-4826-4646-b308-e001ebcaf0d2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\GameSouces">
+    <Filter Include="Fichiers sources\game">
       <UniqueIdentifier>{bd9c569d-f084-4fd0-9e0e-f9ffc8a99c63}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\PlayerFactorySources">
+    <Filter Include="Fichiers sources\factory">
       <UniqueIdentifier>{21d302e3-40eb-487a-bfd7-6598ab0087fc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ShottenTottenProject.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="source\application\ShottenTottenProject.cpp">
+      <Filter>Fichiers sources\application</Filter>
     </ClCompile>
-    <ClCompile Include="Bord.cpp">
-      <Filter>Fichiers sources\BordSourcers</Filter>
+    <ClCompile Include="source\border\Bord.cpp">
+      <Filter>Fichiers sources\border</Filter>
     </ClCompile>
-    <ClCompile Include="Border.cpp">
-      <Filter>Fichiers sources\BorderSources</Filter>
+    <ClCompile Include="source\border\Border.cpp">
+      <Filter>Fichiers sources\border</Filter>
     </ClCompile>
-    <ClCompile Include="BorderBase.cpp">
-      <Filter>Fichiers sources\BorderSources</Filter>
+    <ClCompile Include="source\border\BorderBase.cpp">
+      <Filter>Fichiers sources\border</Filter>
     </ClCompile>
-    <ClCompile Include="BorderDecorator.cpp">
-      <Filter>Fichiers sources\BorderSources</Filter>
+    <ClCompile Include="source\border\BorderDecorator.cpp">
+      <Filter>Fichiers sources\border</Filter>
     </ClCompile>
-    <ClCompile Include="CBDecorator.cpp">
-      <Filter>Fichiers sources\BorderSources</Filter>
+    <ClCompile Include="source\border\CBDecorator.cpp">
+      <Filter>Fichiers sources\border</Filter>
     </ClCompile>
-    <ClCompile Include="CollinMaillard.cpp">
-      <Filter>Fichiers sources\BorderSources</Filter>
+    <ClCompile Include="source\border\CollinMaillard.cpp">
+      <Filter>Fichiers sources\border</Filter>
     </ClCompile>
-    <ClCompile Include="AIPlayer.cpp">
-      <Filter>Fichiers sources\PlayerSources</Filter>
+    <ClCompile Include="source\player\AIPlayer.cpp">
+      <Filter>Fichiers sources\player</Filter>
     </ClCompile>
-    <ClCompile Include="HumanPlayer.cpp">
-      <Filter>Fichiers sources\PlayerSources</Filter>
+    <ClCompile Include="source\player\HumanPlayer.cpp">
+      <Filter>Fichiers sources\player</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerInterface.cpp">
-      <Filter>Fichiers sources\PlayerSources</Filter>
+    <ClCompile Include="source\player\PlayerInterface.cpp">
+      <Filter>Fichiers sources\player</Filter>
     </ClCompile>
-    <ClCompile Include="CardClan.cpp">
-      <Filter>Fichiers sources\CardSources</Filter>
+    <ClCompile Include="source\card\CardClan.cpp">
+      <Filter>Fichiers sources\card</Filter>
     </ClCompile>
-    <ClCompile Include="CombatDeBoueCard.cpp">
-      <Filter>Fichiers sources\CardSources</Filter>
+    <ClCompile Include="source\card\CombatDeBoueCard.cpp">
+      <Filter>Fichiers sources\card</Filter>
     </ClCompile>
-    <ClCompile Include="ColinMaillardCard.cpp">
-      <Filter>Fichiers sources\CardSources</Filter>
+    <ClCompile Include="source\card\ColinMaillardCard.cpp">
+      <Filter>Fichiers sources\card</Filter>
     </ClCompile>
-    <ClCompile Include="Espion.cpp">
-      <Filter>Fichiers sources\CardSources</Filter>
+    <ClCompile Include="source\card\Espion.cpp">
+      <Filter>Fichiers sources\card</Filter>
     </ClCompile>
-    <ClCompile Include="Defausse.cpp">
-      <Filter>Fichiers sources\CardSetSources</Filter>
+    <ClCompile Include="source\cardset\Defausse.cpp">
+      <Filter>Fichiers sources\cardset</Filter>
     </ClCompile>
-    <ClCompile Include="Hand.cpp">
-      <Filter>Fichiers sources\CardSetSources</Filter>
+    <ClCompile Include="source\cardset\Hand.cpp">
+      <Filter>Fichiers sources\cardset</Filter>
     </ClCompile>
-    <ClCompile Include="Stack.cpp">
-      <Filter>Fichiers sources\CardSetSources</Filter>
+    <ClCompile Include="source\cardset\Stack.cpp">
+      <Filter>Fichiers sources\cardset</Filter>
     </ClCompile>
-    <ClCompile Include="Joker.cpp">
-      <Filter>Fichiers sources\CardSources</Filter>
+    <ClCompile Include="source\card\Joker.cpp">
+      <Filter>Fichiers sources\card</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerPlay.cpp">
-      <Filter>Fichiers sources\PhaseSources</Filter>
+    <ClCompile Include="source\phase\PlayerPlay.cpp">
+      <Filter>Fichiers sources\phase</Filter>
     </ClCompile>
-    <ClCompile Include="RevendicateBorder.cpp">
-      <Filter>Fichiers sources\PhaseSources</Filter>
+    <ClCompile Include="source\phase\RevendicateBorder.cpp">
+      <Filter>Fichiers sources\phase</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Fichiers sources\GameSouces</Filter>
+    <ClCompile Include="source\game\Game.cpp">
+      <Filter>Fichiers sources\game</Filter>
     </ClCompile>
-    <ClCompile Include="GameBase.cpp">
-      <Filter>Fichiers sources\GameSouces</Filter>
+    <ClCompile Include="source\game\GameBase.cpp">
+      <Filter>Fichiers sources\game</Filter>
     </ClCompile>
-    <ClCompile Include="GameExpert.cpp">
-      <Filter>Fichiers sources\GameSouces</Filter>
+    <ClCompile Include="source\game\GameExpert.cpp">
+      <Filter>Fichiers sources\game</Filter>
     </ClCompile>
-    <ClCompile Include="GameTactic.cpp">
-      <Filter>Fichiers sources\GameSouces</Filter>
+    <ClCompile Include="source\game\GameTactic.cpp">
+      <Filter>Fichiers sources\game</Filter>
     </ClCompile>
-    <ClCompile Include="GameUtil.cpp">
-      <Filter>Fichiers sources\GameSouces</Filter>
+    <ClCompile Include="source\game\GameUtil.cpp">
+      <Filter>Fichiers sources\game</Filter>
     </ClCompile>
-    <ClCompile Include="Exception.cpp">
-      <Filter>Fichiers sources\GameSouces</Filter>
+    <ClCompile Include="source\game\Exception.cpp">
+      <Filter>Fichiers sources\game</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerSide.cpp">
-      <Filter>Fichiers sources\BorderSources</Filter>
+    <ClCompile Include="source\border\PlayerSide.cpp">
+      <Filter>Fichiers sources\border</Filter>
     </ClCompile>
-    <ClCompile Include="PorteBouclier.cpp">
-      <Filter>Fichiers sources\CardSources</Filter>
+    <ClCompile Include="source\card\PorteBouclier.cpp">
+      <Filter>Fichiers sources\card</Filter>
     </ClCompile>
-    <ClCompile Include="FactoryAIPlayer.cpp">
-      <Filter>Fichiers sources\PlayerFactorySources</Filter>
+    <ClCompile Include="source\factory\FactoryAIPlayer.cpp">
+      <Filter>Fichiers sources\factory</Filter>
     </ClCompile>
-    <ClCompile Include="FactoryHumanPlayer.cpp">
-      <Filter>Fichiers sources\PlayerFactorySources</Filter>
+    <ClCompile Include="source\factory\FactoryHumanPlayer.cpp">
+      <Filter>Fichiers sources\factory</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -166,146 +163,146 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AIPlayer.h">
-      <Filter>Fichiers d%27en-tête\PlayerHeader</Filter>
+    <ClInclude Include="header\player\AIPlayer.h">
+      <Filter>Fichiers d%27en-tête\player</Filter>
     </ClInclude>
-    <ClInclude Include="HumanPlayer.h">
-      <Filter>Fichiers d%27en-tête\PlayerHeader</Filter>
+    <ClInclude Include="header\player\HumanPlayer.h">
+      <Filter>Fichiers d%27en-tête\player</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerInterface.h">
-      <Filter>Fichiers d%27en-tête\PlayerHeader</Filter>
+    <ClInclude Include="header\player\PlayerInterface.h">
+      <Filter>Fichiers d%27en-tête\player</Filter>
     </ClInclude>
-    <ClInclude Include="Bord.h">
-      <Filter>Fichiers d%27en-tête\BordHeader</Filter>
+    <ClInclude Include="header\border\Bord.h">
+      <Filter>Fichiers d%27en-tête\border</Filter>
     </ClInclude>
-    <ClInclude Include="Border.h">
-      <Filter>Fichiers d%27en-tête\BorderHeader</Filter>
+    <ClInclude Include="header\border\Border.h">
+      <Filter>Fichiers d%27en-tête\border</Filter>
     </ClInclude>
-    <ClInclude Include="BorderBase.h">
-      <Filter>Fichiers d%27en-tête\BorderHeader</Filter>
+    <ClInclude Include="header\border\BorderBase.h">
+      <Filter>Fichiers d%27en-tête\border</Filter>
     </ClInclude>
-    <ClInclude Include="BorderDecorator.h">
-      <Filter>Fichiers d%27en-tête\BorderHeader</Filter>
+    <ClInclude Include="header\border\BorderDecorator.h">
+      <Filter>Fichiers d%27en-tête\border</Filter>
     </ClInclude>
-    <ClInclude Include="CardBattle.h">
-      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    <ClInclude Include="header\card\CardBattle.h">
+      <Filter>Fichiers d%27en-tête\card</Filter>
     </ClInclude>
-    <ClInclude Include="CardClan.h">
-      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    <ClInclude Include="header\card\CardClan.h">
+      <Filter>Fichiers d%27en-tête\card</Filter>
     </ClInclude>
-    <ClInclude Include="CardElite.h">
-      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    <ClInclude Include="header\card\CardElite.h">
+      <Filter>Fichiers d%27en-tête\card</Filter>
     </ClInclude>
-    <ClInclude Include="CardInterface.h">
-      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    <ClInclude Include="header\card\CardInterface.h">
+      <Filter>Fichiers d%27en-tête\card</Filter>
     </ClInclude>
-    <ClInclude Include="CardRuse.h">
-      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    <ClInclude Include="header\card\CardRuse.h">
+      <Filter>Fichiers d%27en-tête\card</Filter>
     </ClInclude>
-    <ClInclude Include="CardTactic.h">
-      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    <ClInclude Include="header\card\CardTactic.h">
+      <Filter>Fichiers d%27en-tête\card</Filter>
     </ClInclude>
-    <ClInclude Include="ColinMaillardCard.h">
-      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    <ClInclude Include="header\card\ColinMaillardCard.h">
+      <Filter>Fichiers d%27en-tête\card</Filter>
     </ClInclude>
-    <ClInclude Include="CBDecorator.h">
-      <Filter>Fichiers d%27en-tête\BorderHeader</Filter>
+    <ClInclude Include="header\border\CBDecorator.h">
+      <Filter>Fichiers d%27en-tête\border</Filter>
     </ClInclude>
-    <ClInclude Include="CollinMaillard.h">
-      <Filter>Fichiers d%27en-tête\BorderHeader</Filter>
+    <ClInclude Include="header\border\CollinMaillard.h">
+      <Filter>Fichiers d%27en-tête\border</Filter>
     </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    <ClInclude Include="header\card\Color.h">
+      <Filter>Fichiers d%27en-tête\card</Filter>
     </ClInclude>
-    <ClInclude Include="ColorCombination.h">
-      <Filter>Fichiers d%27en-tête\CombinationHeader</Filter>
+    <ClInclude Include="header\combination\ColorCombination.h">
+      <Filter>Fichiers d%27en-tête\combination</Filter>
     </ClInclude>
-    <ClInclude Include="ColorSequenceCombination.h">
-      <Filter>Fichiers d%27en-tête\CombinationHeader</Filter>
+    <ClInclude Include="header\combination\ColorSequenceCombination.h">
+      <Filter>Fichiers d%27en-tête\combination</Filter>
     </ClInclude>
-    <ClInclude Include="CombatDeBoueCard.h">
-      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    <ClInclude Include="header\card\CombatDeBoueCard.h">
+      <Filter>Fichiers d%27en-tête\card</Filter>
     </ClInclude>
-    <ClInclude Include="Combination.h">
-      <Filter>Fichiers d%27en-tête\CombinationHeader</Filter>
+    <ClInclude Include="header\combination\Combination.h">
+      <Filter>Fichiers d%27en-tête\combination</Filter>
     </ClInclude>
-    <ClInclude Include="SequenceCombination.h">
-      <Filter>Fichiers d%27en-tête\CombinationHeader</Filter>
+    <ClInclude Include="header\combination\SequenceCombination.h">
+      <Filter>Fichiers d%27en-tête\combination</Filter>
     </ClInclude>
-    <ClInclude Include="SetCombination.h">
-      <Filter>Fichiers d%27en-tête\CombinationHeader</Filter>
+    <ClInclude Include="header\combination\SetCombination.h">
+      <Filter>Fichiers d%27en-tête\combination</Filter>
     </ClInclude>
-    <ClInclude Include="SumCombination.h">
-      <Filter>Fichiers d%27en-tête\CombinationHeader</Filter>
+    <ClInclude Include="header\combination\SumCombination.h">
+      <Filter>Fichiers d%27en-tête\combination</Filter>
     </ClInclude>
-    <ClInclude Include="CardSet.h">
-      <Filter>Fichiers d%27en-tête\CardSetHeader</Filter>
+    <ClInclude Include="header\cardset\CardSet.h">
+      <Filter>Fichiers d%27en-tête\cardset</Filter>
     </ClInclude>
-    <ClInclude Include="Defausse.h">
-      <Filter>Fichiers d%27en-tête\CardSetHeader</Filter>
+    <ClInclude Include="header\cardset\Defausse.h">
+      <Filter>Fichiers d%27en-tête\cardset</Filter>
     </ClInclude>
-    <ClInclude Include="Hand.h">
-      <Filter>Fichiers d%27en-tête\CardSetHeader</Filter>
+    <ClInclude Include="header\cardset\Hand.h">
+      <Filter>Fichiers d%27en-tête\cardset</Filter>
     </ClInclude>
-    <ClInclude Include="Stack.h">
-      <Filter>Fichiers d%27en-tête\CardSetHeader</Filter>
+    <ClInclude Include="header\cardset\Stack.h">
+      <Filter>Fichiers d%27en-tête\cardset</Filter>
     </ClInclude>
-    <ClInclude Include="FactoryAIPlayer.h">
-      <Filter>Fichiers d%27en-tête\PlayerFactoryHeader</Filter>
+    <ClInclude Include="header\factory\FactoryAIPlayer.h">
+      <Filter>Fichiers d%27en-tête\factory</Filter>
     </ClInclude>
-    <ClInclude Include="FactoryHumanPlayer.h">
-      <Filter>Fichiers d%27en-tête\PlayerFactoryHeader</Filter>
+    <ClInclude Include="header\factory\FactoryHumanPlayer.h">
+      <Filter>Fichiers d%27en-tête\factory</Filter>
     </ClInclude>
-    <ClInclude Include="FactoryPlayer.h">
-      <Filter>Fichiers d%27en-tête\PlayerFactoryHeader</Filter>
+    <ClInclude Include="header\factory\FactoryPlayer.h">
+      <Filter>Fichiers d%27en-tête\factory</Filter>
     </ClInclude>
-    <ClInclude Include="Observer.h">
-      <Filter>Fichiers d%27en-tête\BordHeader</Filter>
+    <ClInclude Include="header\border\Observer.h">
+      <Filter>Fichiers d%27en-tête\border</Filter>
     </ClInclude>
-    <ClInclude Include="GameBase.h">
-      <Filter>Fichiers d%27en-tête\GameHeader</Filter>
+    <ClInclude Include="header\game\GameBase.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
     </ClInclude>
-    <ClInclude Include="Observable.h">
-      <Filter>Fichiers d%27en-tête\GameHeader</Filter>
+    <ClInclude Include="header\game\Observable.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
     </ClInclude>
-    <ClInclude Include="IteratorInterface.h">
-      <Filter>Fichiers d%27en-tête\CardSetHeader</Filter>
+    <ClInclude Include="header\cardset\IteratorInterface.h">
+      <Filter>Fichiers d%27en-tête\cardset</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerSide.h">
-      <Filter>Fichiers d%27en-tête\BorderHeader</Filter>
+    <ClInclude Include="header\border\PlayerSide.h">
+      <Filter>Fichiers d%27en-tête\border</Filter>
     </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Fichiers d%27en-tête\GameHeader</Filter>
+    <ClInclude Include="header\game\Game.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
     </ClInclude>
-    <ClInclude Include="GameUtil.h">
-      <Filter>Fichiers d%27en-tête\GameHeader</Filter>
+    <ClInclude Include="header\game\GameUtil.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
     </ClInclude>
-    <ClInclude Include="Espion.h">
-      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    <ClInclude Include="header\card\Espion.h">
+      <Filter>Fichiers d%27en-tête\card</Filter>
     </ClInclude>
-    <ClInclude Include="Exception.h">
-      <Filter>Fichiers d%27en-tête\GameHeader</Filter>
+    <ClInclude Include="header\game\Exception.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
     </ClInclude>
-    <ClInclude Include="PorteBouclier.h">
-      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    <ClInclude Include="header\card\PorteBouclier.h">
+      <Filter>Fichiers d%27en-tête\card</Filter>
     </ClInclude>
-    <ClInclude Include="Joker.h">
-      <Filter>Fichiers d%27en-tête\CardHeader</Filter>
+    <ClInclude Include="header\card\Joker.h">
+      <Filter>Fichiers d%27en-tête\card</Filter>
     </ClInclude>
-    <ClInclude Include="Phase.h">
-      <Filter>Fichiers d%27en-tête\PhaseHeader</Filter>
+    <ClInclude Include="header\phase\Phase.h">
+      <Filter>Fichiers d%27en-tête\phase</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerPlay.h">
-      <Filter>Fichiers d%27en-tête\PhaseHeader</Filter>
+    <ClInclude Include="header\phase\PlayerPlay.h">
+      <Filter>Fichiers d%27en-tête\phase</Filter>
     </ClInclude>
-    <ClInclude Include="RevendicateBorder.h">
-      <Filter>Fichiers d%27en-tête\PhaseHeader</Filter>
+    <ClInclude Include="header\phase\RevendicateBorder.h">
+      <Filter>Fichiers d%27en-tête\phase</Filter>
     </ClInclude>
-    <ClInclude Include="GameExpert.h">
-      <Filter>Fichiers d%27en-tête\GameHeader</Filter>
+    <ClInclude Include="header\game\GameExpert.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
     </ClInclude>
-    <ClInclude Include="GameTactic.h">
-      <Filter>Fichiers d%27en-tête\GameHeader</Filter>
+    <ClInclude Include="header\game\GameTactic.h">
+      <Filter>Fichiers d%27en-tête\game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
