@@ -3,16 +3,23 @@
 
 #include "Game.h"
 
-
+/**
+ * @brief Represents a game played at expert difficulty.
+ *
+ * Extends Game with expert-mode behavior.
+ */
 class GameExpert : public Game
 {
-
-public :
-
+public:
+	/** @brief Constructs an expert-mode game. */
 	GameExpert();
 
+	/**
+	 * @brief Starts the expert-mode game.
+	 *
+	 * Overrides Game::startGame().
+	 */
 	void startGame() override;
 };
 
-
-#endif
+#endif // GAME_EXPERT_H

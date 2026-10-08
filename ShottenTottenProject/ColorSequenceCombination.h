@@ -4,17 +4,33 @@
 #include "ColorCombination.h"
 #include "SequenceCombination.h"
 
+/** 
+ * @brief A class representing a color sequence combination.
+ * This class inherits from ColorCombination and SequenceCombination, providing an interface for color sequence combinations in the game.
+ * Template parameters T and U represent the types of elements in the color and sequence combinations, respectively.
+ */
 template <class T, class U>
 class ColorSequenceCombination : public ColorCombination<T>, public SequenceCombination<U>
 {
 
 protected :
 
+	/** 
+	 * @brief Determines the player's combination based on the provided list.
+	 * @param list A vector containing the elements of the combination.
+	 * @return An unsigned integer representing the player's combination score.
+	 */
 	virtual unsigned int playerCombination(std::vector<T> list) override;
 
 
 public :
 
+	/** 
+	 * @brief Determines the player's combination based on the provided lists.
+	 * @param firstList A vector containing the elements of the color combination.
+	 * @param secondList A vector containing the elements of the sequence combination.
+	 * @return An unsigned integer representing the player's combination score.
+	 */
 	virtual unsigned int playerCombinationBis(std::vector<T> firstList, std::vector<U> secondList);
 	
 
